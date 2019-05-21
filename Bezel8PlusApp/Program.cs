@@ -16,7 +16,7 @@ namespace Bezel8PlusApp
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainEntryForm());
+            Application.Run(new Form1());
         }
     }
 }

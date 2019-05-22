@@ -8,6 +8,7 @@ namespace Bezel8PlusApp
 {
     class DataManager
     {
+
         public static char CalculateLRC(string toEncode)
         {
             byte[] bytes = Encoding.ASCII.GetBytes(toEncode);

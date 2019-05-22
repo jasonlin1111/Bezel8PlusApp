@@ -15,8 +15,8 @@ namespace Bezel8PlusApp
     {
         private SerialPortManager serialPort = SerialPortManager.Instance;
 
-        //private TxnForm txnForm;
-        //private MainConfigForm configForm;
+        private TxnForm txnForm;
+        private MainConfigForm configForm;
 
         private List<Form> formList;
 
@@ -40,11 +40,11 @@ namespace Bezel8PlusApp
         {
             formList = new List<Form>();
 
-            //txnForm = new TxnForm();
-            //configForm = new MainConfigForm();
+            txnForm = new TxnForm();
+            configForm = new MainConfigForm();
 
-            //formList.Add(txnForm);
-            //formList.Add(configForm);
+            formList.Add(txnForm);
+            formList.Add(configForm);
 
             foreach (Form form in formList)
             {
@@ -108,7 +108,7 @@ namespace Bezel8PlusApp
             {
                 form.Visible = false;
             }
-            //txnForm.Visible = true;
+            txnForm.Visible = true;
         }
 
         private void btnMenuConfig_Click(object sender, EventArgs e)
@@ -118,7 +118,7 @@ namespace Bezel8PlusApp
             {
                 form.Visible = false;
             }
-            //configForm.Visible = true;
+            configForm.Visible = true;
         }
     }
 }

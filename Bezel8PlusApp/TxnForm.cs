@@ -23,6 +23,8 @@ namespace Bezel8PlusApp
 
         private void btnStart_Click(object sender, EventArgs e)
         {
+            //btnStart.Enabled = false;
+
             // 1. Build T61 message
             //[AmtAuth][AmtOther][CurExponent + CurCode][TranType][TranInfo][Account Type][Force Online]
             string[] t61Elements = new string[7];
@@ -123,12 +125,14 @@ namespace Bezel8PlusApp
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+                //btnStart.Enabled = true;
                 return;
             }
 
             if (!t61Response.ToUpper().StartsWith("T620"))
             {
                 MessageBox.Show(t61Response);
+                //btnStart.Enabled = true;
                 return;
             }
             /*
@@ -165,8 +169,6 @@ namespace Bezel8PlusApp
 
             }
             */
-
-
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

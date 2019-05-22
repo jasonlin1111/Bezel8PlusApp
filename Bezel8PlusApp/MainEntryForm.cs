@@ -70,8 +70,12 @@ namespace Bezel8PlusApp
 
         private void btnOpenCom_Click(object sender, EventArgs e)
         {
-            if (cbCOM.SelectedIndex == -1)
+
+            if (cbCOM.SelectedItem == null)
+            {
+                MessageBox.Show("Invalid Port");
                 return;
+            }
 
             serialPort.Open(
             cbCOM.SelectedItem.ToString(),

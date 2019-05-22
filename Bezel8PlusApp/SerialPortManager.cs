@@ -88,8 +88,8 @@ namespace Bezel8PlusApp
                 _serialPort.StopBits = stopbits;
                 _serialPort.Handshake = handshake;
 
-                _serialPort.ReadTimeout = 200;
-                _serialPort.WriteTimeout = 200;
+                //_serialPort.ReadTimeout = 200;
+                //_serialPort.WriteTimeout = 200;
 
                 _serialPort.Open();
                 //StartReading();
@@ -256,15 +256,15 @@ namespace Bezel8PlusApp
             }
 
             // Retrieve return message from reader
-            int l_readTimeout = readTimeOut > 0 ? readTimeOut : _serialPort.ReadTimeout;
             Stopwatch s = new Stopwatch();
-            s.Start();
-            while (s.Elapsed < TimeSpan.FromMilliseconds(l_readTimeout))
+            if (readTimeOut > 0)
+                s.Start();
+            while (s.Elapsed <= TimeSpan.FromMilliseconds(readTimeOut))
             {
                 if (_serialPort.BytesToRead > 0)
                     break;
             }
-            s.Stop();
+            s.Reset();
 
             if (_serialPort.BytesToRead > 0)
             {

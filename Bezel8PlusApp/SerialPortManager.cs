@@ -3,6 +3,7 @@ using System.Text;
 using System.IO;
 using System.IO.Ports;
 using System.Threading;
+using System.Windows.Forms;
 using System.Collections.Generic;
 using System.Diagnostics;
 
@@ -88,7 +89,7 @@ namespace Bezel8PlusApp
                 _serialPort.StopBits = stopbits;
                 _serialPort.Handshake = handshake;
 
-                //_serialPort.ReadTimeout = 200;
+                _serialPort.ReadTimeout = 5000;
                 //_serialPort.WriteTimeout = 200;
 
                 _serialPort.Open();
@@ -261,6 +262,7 @@ namespace Bezel8PlusApp
                 s.Start();
             while (s.Elapsed <= TimeSpan.FromMilliseconds(readTimeOut))
             {
+                Application.DoEvents();
                 if (_serialPort.BytesToRead > 0)
                     break;
             }

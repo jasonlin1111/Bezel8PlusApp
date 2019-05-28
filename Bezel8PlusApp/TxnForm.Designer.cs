@@ -60,6 +60,7 @@
             this.lbMs = new System.Windows.Forms.Label();
             this.tbAutoRunTime = new System.Windows.Forms.TextBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanelTxn.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -224,6 +225,7 @@
             // 
             // cbTxnType
             // 
+            this.cbTxnType.AutoCheck = false;
             this.cbTxnType.AutoSize = true;
             this.cbTxnType.Checked = true;
             this.cbTxnType.CheckState = System.Windows.Forms.CheckState.Checked;
@@ -322,7 +324,10 @@
             // 
             // cbARC
             // 
+            this.cbARC.AutoCheck = false;
             this.cbARC.AutoSize = true;
+            this.cbARC.Checked = true;
+            this.cbARC.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cbARC.Location = new System.Drawing.Point(11, 65);
             this.cbARC.Name = "cbARC";
             this.cbARC.Size = new System.Drawing.Size(48, 16);
@@ -338,7 +343,7 @@
             "3531    (Decline)"});
             this.comBoxARC.Location = new System.Drawing.Point(61, 63);
             this.comBoxARC.Name = "comBoxARC";
-            this.comBoxARC.Size = new System.Drawing.Size(95, 20);
+            this.comBoxARC.Size = new System.Drawing.Size(110, 20);
             this.comBoxARC.TabIndex = 2;
             // 
             // cbNoAuthRes
@@ -354,6 +359,8 @@
             // cbAutoReply
             // 
             this.cbAutoReply.AutoSize = true;
+            this.cbAutoReply.Checked = true;
+            this.cbAutoReply.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cbAutoReply.Location = new System.Drawing.Point(11, 21);
             this.cbAutoReply.Name = "cbAutoReply";
             this.cbAutoReply.Size = new System.Drawing.Size(116, 16);
@@ -364,12 +371,12 @@
             // groupBox3
             // 
             this.groupBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBox3.Location = new System.Drawing.Point(542, 2);
+            this.groupBox3.Location = new System.Drawing.Point(536, 41);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(371, 474);
+            this.groupBox3.Size = new System.Drawing.Size(377, 435);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "groupBox3";
+            this.groupBox3.Text = "Receipt";
             // 
             // groupBox5
             // 
@@ -433,11 +440,19 @@
             this.checkBox1.Text = "Auto run";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(536, 13);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(381, 22);
+            this.textBox1.TabIndex = 5;
+            // 
             // TxnForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(929, 491);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -452,6 +467,7 @@
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -489,5 +505,6 @@
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.TextBox tbDiscreData;
         private System.Windows.Forms.Button btnHostSend;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

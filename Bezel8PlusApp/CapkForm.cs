@@ -146,17 +146,13 @@ namespace Bezel8PlusApp
             {
                 throw ex;
             }
-
-
-
-
             return table;
         }
 
         private void btnOpenCAPK_Click(object sender, EventArgs e)
         {
-
             folderBrowserDialog = new FolderBrowserDialog();
+            folderBrowserDialog.SelectedPath = System.Environment.CurrentDirectory;
             if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
             {
                 capkDataSet.Tables.Clear();

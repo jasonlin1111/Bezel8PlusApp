@@ -10,15 +10,16 @@ using System.Windows.Forms;
 
 namespace Bezel8PlusApp
 {
-
     public partial class TxnForm : Form
     {
+        
         private SerialPortManager serialPort = SerialPortManager.Instance;
 
         public TxnForm()
         {
             InitializeComponent();
             comBoxTxnType.SelectedIndex = 0;
+            comBoxARC.SelectedIndex = 0;
         }
 
         private void btnStart_Click(object sender, EventArgs e)
@@ -106,7 +107,7 @@ namespace Bezel8PlusApp
             t61Elements[4] += "40"; // Goods
 
             // Account Type
-            t61Elements[5] += "00"; //Default
+            t61Elements[5] += "00"; // Default
 
             // Force Online
             t61Elements[6] += "0";
@@ -135,32 +136,40 @@ namespace Bezel8PlusApp
                 //btnStart.Enabled = true;
                 return;
             }
-            /*
+            
             string t61ResultCode = t61Response.Substring(4);
             switch (t61ResultCode)
             {
                 case TxnResult.OnlineApprove:
+                    MessageBox.Show("OnlineApprove");
                     break;
 
                 case TxnResult.OfflineApprove:
+                    MessageBox.Show("OfflineApprove");
                     break;
 
                 case TxnResult.OfflineDecline:
+                    MessageBox.Show("OfflineDecline");
                     break;
 
                 case TxnResult.OnlineDecline:
+                    MessageBox.Show("OnlineDecline");
                     break;
 
                 case TxnResult.OfflineApproveSign:
+                    MessageBox.Show("OfflineApproveSign");
                     break;
 
                 case TxnResult.TryAnotherInterface:
+                    MessageBox.Show("TryAnotherInterface");
                     break;
 
                 case TxnResult.OnlineAuthorizeReq:
+                    MessageBox.Show("OnlineAuthorizeReq");
                     break;
 
                 case TxnResult.ExternalPinBlockReq:
+                    MessageBox.Show("ExternalPinBlockReq");
                     break;
 
                 default:
@@ -168,12 +177,36 @@ namespace Bezel8PlusApp
                     return;
 
             }
-            */
+            
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("cancel");
+            //Console.WriteLine("cancel");
+            string t6CResponse = String.Empty;
+
+            try
+            {
+                serialPort.WriteAndReadMessage(PktType.STX, "T6C", "", out t6CResponse);
+                MessageBox.Show(t6CResponse);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        public class TxnResult
+        {
+            public const string OnlineApprove = "Y4";
+            public const string OfflineApprove = "Y1";
+            public const string OfflineDecline = "Z1";
+            public const string OnlineDecline = "Z4";
+            public const string OfflineApproveSign = "Y7";
+            public const string TryAnotherInterface = "B0";
+            public const string OnlineAuthorizeReq = "A1";
+            public const string ExternalPinBlockReq = "A5";
         }
     }
 }

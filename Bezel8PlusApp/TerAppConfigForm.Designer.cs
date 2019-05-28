@@ -29,29 +29,28 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.gbConfigData = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.gbControls = new System.Windows.Forms.GroupBox();
             this.btnDeleteItem = new System.Windows.Forms.Button();
             this.btnAddItem = new System.Windows.Forms.Button();
             this.listBoxConfig = new System.Windows.Forms.ListBox();
             this.btnSetSelected = new System.Windows.Forms.Button();
             this.btnSetAll = new System.Windows.Forms.Button();
             this.btnOpen = new System.Windows.Forms.Button();
-            this.gbConfigData.SuspendLayout();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.tbStatus = new System.Windows.Forms.TextBox();
+            this.listBoxReaderConfig = new System.Windows.Forms.ListBox();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnRemoveOne = new System.Windows.Forms.Button();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.gbControls.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
+            this.tableLayoutPanel4.SuspendLayout();
+            this.tableLayoutPanel5.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // gbConfigData
-            // 
-            this.gbConfigData.Controls.Add(this.dataGridView1);
-            this.gbConfigData.Dock = System.Windows.Forms.DockStyle.Right;
-            this.gbConfigData.Location = new System.Drawing.Point(550, 0);
-            this.gbConfigData.Name = "gbConfigData";
-            this.gbConfigData.Size = new System.Drawing.Size(529, 457);
-            this.gbConfigData.TabIndex = 0;
-            this.gbConfigData.TabStop = false;
             // 
             // dataGridView1
             // 
@@ -66,32 +65,18 @@
             this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 18);
+            this.dataGridView1.Location = new System.Drawing.Point(3, 3);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(523, 436);
+            this.dataGridView1.Size = new System.Drawing.Size(567, 408);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // gbControls
-            // 
-            this.gbControls.Controls.Add(this.btnDeleteItem);
-            this.gbControls.Controls.Add(this.btnAddItem);
-            this.gbControls.Controls.Add(this.listBoxConfig);
-            this.gbControls.Controls.Add(this.btnSetSelected);
-            this.gbControls.Controls.Add(this.btnSetAll);
-            this.gbControls.Controls.Add(this.btnOpen);
-            this.gbControls.Dock = System.Windows.Forms.DockStyle.Left;
-            this.gbControls.Location = new System.Drawing.Point(0, 0);
-            this.gbControls.Name = "gbControls";
-            this.gbControls.Size = new System.Drawing.Size(547, 457);
-            this.gbControls.TabIndex = 1;
-            this.gbControls.TabStop = false;
             // 
             // btnDeleteItem
             // 
-            this.btnDeleteItem.Location = new System.Drawing.Point(179, 80);
+            this.btnDeleteItem.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnDeleteItem.Location = new System.Drawing.Point(3, 53);
             this.btnDeleteItem.Name = "btnDeleteItem";
-            this.btnDeleteItem.Size = new System.Drawing.Size(57, 53);
+            this.btnDeleteItem.Size = new System.Drawing.Size(44, 44);
             this.btnDeleteItem.TabIndex = 5;
             this.btnDeleteItem.Text = "-";
             this.btnDeleteItem.UseVisualStyleBackColor = true;
@@ -99,9 +84,10 @@
             // 
             // btnAddItem
             // 
-            this.btnAddItem.Location = new System.Drawing.Point(179, 21);
+            this.btnAddItem.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnAddItem.Location = new System.Drawing.Point(3, 3);
             this.btnAddItem.Name = "btnAddItem";
-            this.btnAddItem.Size = new System.Drawing.Size(57, 53);
+            this.btnAddItem.Size = new System.Drawing.Size(44, 44);
             this.btnAddItem.TabIndex = 4;
             this.btnAddItem.Text = "+";
             this.btnAddItem.UseVisualStyleBackColor = true;
@@ -109,21 +95,22 @@
             // 
             // listBoxConfig
             // 
-            this.listBoxConfig.Dock = System.Windows.Forms.DockStyle.Right;
+            this.listBoxConfig.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listBoxConfig.Font = new System.Drawing.Font("Arial Narrow", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.listBoxConfig.FormattingEnabled = true;
             this.listBoxConfig.ItemHeight = 21;
-            this.listBoxConfig.Location = new System.Drawing.Point(317, 18);
+            this.listBoxConfig.Location = new System.Drawing.Point(59, 3);
             this.listBoxConfig.Name = "listBoxConfig";
-            this.listBoxConfig.Size = new System.Drawing.Size(227, 436);
+            this.listBoxConfig.Size = new System.Drawing.Size(220, 316);
             this.listBoxConfig.TabIndex = 3;
             this.listBoxConfig.SelectedIndexChanged += new System.EventHandler(this.listBoxConfig_SelectedIndexChanged);
             // 
             // btnSetSelected
             // 
-            this.btnSetSelected.Location = new System.Drawing.Point(6, 266);
+            this.btnSetSelected.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnSetSelected.Location = new System.Drawing.Point(3, 187);
             this.btnSetSelected.Name = "btnSetSelected";
-            this.btnSetSelected.Size = new System.Drawing.Size(95, 97);
+            this.btnSetSelected.Size = new System.Drawing.Size(84, 86);
             this.btnSetSelected.TabIndex = 2;
             this.btnSetSelected.Text = "Set Selected";
             this.btnSetSelected.UseVisualStyleBackColor = true;
@@ -131,9 +118,10 @@
             // 
             // btnSetAll
             // 
-            this.btnSetAll.Location = new System.Drawing.Point(6, 163);
+            this.btnSetAll.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnSetAll.Location = new System.Drawing.Point(3, 279);
             this.btnSetAll.Name = "btnSetAll";
-            this.btnSetAll.Size = new System.Drawing.Size(95, 97);
+            this.btnSetAll.Size = new System.Drawing.Size(84, 86);
             this.btnSetAll.TabIndex = 1;
             this.btnSetAll.Text = "Set All";
             this.btnSetAll.UseVisualStyleBackColor = true;
@@ -141,34 +129,150 @@
             // 
             // btnOpen
             // 
-            this.btnOpen.Location = new System.Drawing.Point(6, 60);
+            this.btnOpen.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnOpen.Location = new System.Drawing.Point(3, 95);
             this.btnOpen.Name = "btnOpen";
-            this.btnOpen.Size = new System.Drawing.Size(95, 97);
+            this.btnOpen.Size = new System.Drawing.Size(84, 86);
             this.btnOpen.TabIndex = 0;
             this.btnOpen.Text = "OPEN";
             this.btnOpen.UseVisualStyleBackColor = true;
             this.btnOpen.Click += new System.EventHandler(this.btnOpen_Click);
             // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 3;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel5, 0, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(963, 467);
+            this.tableLayoutPanel1.TabIndex = 2;
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 1;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Controls.Add(this.tbStatus, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.dataGridView1, 0, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(387, 3);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 2;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(573, 461);
+            this.tableLayoutPanel2.TabIndex = 0;
+            // 
+            // tbStatus
+            // 
+            this.tbStatus.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tbStatus.Location = new System.Drawing.Point(3, 417);
+            this.tbStatus.Multiline = true;
+            this.tbStatus.Name = "tbStatus";
+            this.tbStatus.ReadOnly = true;
+            this.tbStatus.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.tbStatus.Size = new System.Drawing.Size(567, 41);
+            this.tbStatus.TabIndex = 10;
+            // 
+            // listBoxReaderConfig
+            // 
+            this.listBoxReaderConfig.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listBoxReaderConfig.Font = new System.Drawing.Font("Arial Narrow", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.listBoxReaderConfig.FormattingEnabled = true;
+            this.listBoxReaderConfig.ItemHeight = 21;
+            this.listBoxReaderConfig.Location = new System.Drawing.Point(59, 325);
+            this.listBoxReaderConfig.Name = "listBoxReaderConfig";
+            this.listBoxReaderConfig.Size = new System.Drawing.Size(220, 133);
+            this.listBoxReaderConfig.TabIndex = 6;
+            // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.ColumnCount = 2;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80F));
+            this.tableLayoutPanel3.Controls.Add(this.btnRemoveOne, 0, 1);
+            this.tableLayoutPanel3.Controls.Add(this.listBoxReaderConfig, 1, 1);
+            this.tableLayoutPanel3.Controls.Add(this.listBoxConfig, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel4, 0, 0);
+            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(99, 3);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 2;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 70F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(282, 461);
+            this.tableLayoutPanel3.TabIndex = 1;
+            // 
+            // btnRemoveOne
+            // 
+            this.btnRemoveOne.Location = new System.Drawing.Point(3, 325);
+            this.btnRemoveOne.Name = "btnRemoveOne";
+            this.btnRemoveOne.Size = new System.Drawing.Size(50, 53);
+            this.btnRemoveOne.TabIndex = 6;
+            this.btnRemoveOne.Text = "x";
+            this.btnRemoveOne.UseVisualStyleBackColor = true;
+            // 
+            // tableLayoutPanel4
+            // 
+            this.tableLayoutPanel4.ColumnCount = 1;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.Controls.Add(this.btnDeleteItem, 0, 1);
+            this.tableLayoutPanel4.Controls.Add(this.btnAddItem, 0, 0);
+            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            this.tableLayoutPanel4.RowCount = 2;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(50, 100);
+            this.tableLayoutPanel4.TabIndex = 7;
+            // 
+            // tableLayoutPanel5
+            // 
+            this.tableLayoutPanel5.ColumnCount = 1;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel5.Controls.Add(this.btnSetSelected, 0, 2);
+            this.tableLayoutPanel5.Controls.Add(this.btnOpen, 0, 1);
+            this.tableLayoutPanel5.Controls.Add(this.btnSetAll, 0, 3);
+            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+            this.tableLayoutPanel5.RowCount = 5;
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(90, 461);
+            this.tableLayoutPanel5.TabIndex = 2;
+            // 
             // TerAppConfigForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1079, 457);
-            this.Controls.Add(this.gbControls);
-            this.Controls.Add(this.gbConfigData);
+            this.ClientSize = new System.Drawing.Size(963, 467);
+            this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "TerAppConfigForm";
             this.Text = "TerAppConfigForm";
-            this.gbConfigData.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.gbControls.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
+            this.tableLayoutPanel3.ResumeLayout(false);
+            this.tableLayoutPanel4.ResumeLayout(false);
+            this.tableLayoutPanel5.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.GroupBox gbConfigData;
-        private System.Windows.Forms.GroupBox gbControls;
         private System.Windows.Forms.Button btnSetSelected;
         private System.Windows.Forms.Button btnSetAll;
         private System.Windows.Forms.Button btnOpen;
@@ -176,5 +280,13 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btnDeleteItem;
         private System.Windows.Forms.Button btnAddItem;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.TextBox tbStatus;
+        private System.Windows.Forms.ListBox listBoxReaderConfig;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.Button btnRemoveOne;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
     }
 }

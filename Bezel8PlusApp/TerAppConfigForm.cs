@@ -193,7 +193,6 @@ namespace Bezel8PlusApp
                 listBoxConfig.Items.Clear();
                 confDataSet.Tables.Clear();
                 path = Path.GetDirectoryName(openFileDialog.FileName) + @"\";
-                //Console.WriteLine(path);
                 try
                 {
                     var sr = new StreamReader(openFileDialog.FileName);
@@ -285,47 +284,85 @@ namespace Bezel8PlusApp
         {
             if (listBoxConfig.SelectedItem == null) return;
 
-            List<string> dataObjectList = new List<string>();
+            string configName = listBoxConfig.SelectedItem.ToString();
+            SetupConfigToReader(configName);
+        }
+
+        private void btnSetAll_Click(object sender, EventArgs e)
+        {
+
+            // Delete all configs first
+            string t5bresponse = String.Empty;
+            try
+            {
+                serialPort.WriteAndReadMessage(PktType.STX, "T5B", "3", out t5bresponse);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"{ex.Message}");
+                return;
+            }
+
+            if (t5bresponse.IndexOf("T5C30", StringComparison.OrdinalIgnoreCase) < 0)
+            {
+                MessageBox.Show($"\tDelete config failed\t\n\n\t{t5bresponse}");
+                return;
+            }
+
+            System.Threading.Thread.Sleep(300);
+
+            // Setting config one by one
+            int count = confDataSet.Tables.Count;
+            listBoxConfig.Enabled = false;
+            tbStatus.Clear();
+            foreach (string config in listBoxConfig.Items)
+            {
+                SetupConfigToReader(config);
+                System.Threading.Thread.Sleep(300);
+            }
+            listBoxConfig.Enabled = true;
+        }
+
+        private void SetupConfigToReader(string configName)
+        {
+            if (!confDataSet.Tables.Contains(configName))
+                return;
 
             // 1st package need to specify [TxnType]<1A>[KID]<1A>[AID] at the beginning
             string[] first3Elements = new string[3];
 
-            // Build Data Stream
-            string configName = listBoxConfig.SelectedItem.ToString();
-            if (confDataSet.Tables.Contains(configName))
+            List<string> dataObjectList = new List<string>();
+
+            int idx = confDataSet.Tables.IndexOf(configName);
+            foreach (DataRow row in confDataSet.Tables[idx].Rows)
             {
-                int idx = confDataSet.Tables.IndexOf(configName);         
-                foreach (DataRow row in confDataSet.Tables[idx].Rows)
+
+                // Check TxnType, KID and AID
+                if (row.ItemArray[1].ToString().ToUpper().Equals("9C"))
                 {
-
-                    // Check TxnType, KID and AID
-                    if (row.ItemArray[1].ToString().ToUpper().Equals("9C"))
-                    {
-                        first3Elements[0] = row.ItemArray[3].ToString();
-                    }
-                    else if (row.ItemArray[1].ToString().ToUpper().Equals("DF810C"))
-                    {
-                        first3Elements[1] = row.ItemArray[3].ToString();
-                    }
-                    else if (row.ItemArray[1].ToString().ToUpper().Equals("9F06"))
-                    {
-                        first3Elements[2] = row.ItemArray[3].ToString();
-                    }
-
-                    string format;
-                    if (!formatTable.TryGetValue(row.ItemArray[2].ToString().ToLower(), out format))
-                    {
-                        format = row.ItemArray[2].ToString();
-                    }
-                    string dataObject = 
-                        row.ItemArray[1].ToString() + Convert.ToChar(0x1C).ToString() +
-                        format + Convert.ToChar(0x1C).ToString() +
-                        row.ItemArray[3].ToString();
-
-                    //Console.WriteLine(dataObject.Length);
-
-                    dataObjectList.Add(dataObject);
+                    first3Elements[0] = row.ItemArray[3].ToString();
                 }
+                else if (row.ItemArray[1].ToString().ToUpper().Equals("DF810C"))
+                {
+                    first3Elements[1] = row.ItemArray[3].ToString();
+                }
+                else if (row.ItemArray[1].ToString().ToUpper().Equals("9F06"))
+                {
+                    first3Elements[2] = row.ItemArray[3].ToString();
+                }
+
+                string format;
+                if (!formatTable.TryGetValue(row.ItemArray[2].ToString().ToLower(), out format))
+                {
+                    format = row.ItemArray[2].ToString();
+                }
+                string dataObject =
+                    row.ItemArray[1].ToString() + Convert.ToChar(0x1C).ToString() +
+                    format + Convert.ToChar(0x1C).ToString() +
+                    row.ItemArray[3].ToString();
+
+                //Console.WriteLine(dataObject.Length);
+                dataObjectList.Add(dataObject);
             }
 
             string head = String.Empty;
@@ -350,7 +387,6 @@ namespace Bezel8PlusApp
                 }
             }
 
-
             // Counting the number of total packages
             //[prefixX][T][5][X][n][total]...(body)...[suffix][LRC]
             int body_length = serialPort.GetWriteBufferSize() - 10;
@@ -359,11 +395,11 @@ namespace Bezel8PlusApp
             List<string> segmentList = new List<string>();
 
             while (dataObjectList.Count > 0)
-            { 
+            {
                 string segment = String.Empty;
                 int currentLength = 0;
 
-                if (totalPackages == 0)
+                if (head.Equals("T55") && totalPackages == 0)
                 {
                     // 1st package need to specify [TxnType]<1A>[KID]<1A>[AID] at the beginning
                     segment += Convert.ToChar(0x1A).ToString() + string.Join(Convert.ToChar(0x1A).ToString(), first3Elements);
@@ -390,26 +426,27 @@ namespace Bezel8PlusApp
                 Console.WriteLine($"Sending package {pkg} of {totalPackages}");
                 try
                 {
-
                     string response = String.Empty;
                     serialPort.WriteAndReadMessage(PktType.STX, head + pkg.ToString() + totalPackages.ToString(), segmentList[0], out response);
 
-                    if (response.IndexOf("T560", StringComparison.OrdinalIgnoreCase) < 0 && 
+                    if (pkg == 1)
+                        tbStatus.AppendText($"Setting Config {configName} ...\t");
+
+                    if (response.IndexOf("T560", StringComparison.OrdinalIgnoreCase) < 0 &&
                         response.IndexOf("T520", StringComparison.OrdinalIgnoreCase) < 0)
                     {
-                        // fail
-                        MessageBox.Show($"Error message: {response}\n\n");
+                        // Fail
+                        //MessageBox.Show($"Error message: {response}\n\n");
+                        tbStatus.AppendText($"Failed: {response}" + Environment.NewLine);
                         break;
                     }
                     else
                     {
-                        // Success, sending next package if any
-                        if (sender.Equals(btnSetSelected))
-                        {
-                            MessageBox.Show($"Success: {response}\n\n");
-                        }        
+                        // Success, sending next package if any   
                         segmentList.RemoveAt(0);
                         pkg++;
+                        if (segmentList.Count == 0)
+                            tbStatus.AppendText("Done!" + Environment.NewLine);
                     }
                 }
                 catch (Exception ex)
@@ -418,42 +455,6 @@ namespace Bezel8PlusApp
                     break;
                 }
             }
-
-        }
-
-        private void btnSetAll_Click(object sender, EventArgs e)
-        {
-
-            // Delete all configs first
-            string t5bresponse = String.Empty;
-            try
-            {
-                serialPort.WriteAndReadMessage(PktType.STX, "T5B", "2", out t5bresponse);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"{ex.Message}");
-                return;
-            }
-
-            if (t5bresponse.IndexOf("T5C20", StringComparison.OrdinalIgnoreCase) < 0)
-            {
-                MessageBox.Show($"\tDelete config failed\t\n\n\t{t5bresponse}");
-                return;
-            }
-
-            System.Threading.Thread.Sleep(500);
-
-            // Setting config one by one
-            int count = confDataSet.Tables.Count;
-            listBoxConfig.Enabled = false;
-            for (int i = 0; i < listBoxConfig.Items.Count; i++)
-            {
-                listBoxConfig.SelectedIndex = i;
-                btnSetSelected_Click(sender, e);
-                System.Threading.Thread.Sleep(500);
-            }
-            listBoxConfig.Enabled = true;
         }
     }
 }

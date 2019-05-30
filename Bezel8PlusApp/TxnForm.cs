@@ -28,7 +28,8 @@ namespace Bezel8PlusApp
 
         private void btnStart_Click(object sender, EventArgs e)
         {
-            //btnStart.Enabled = false;
+
+            SetTxnInProgressUI();
 
             // 1. Build T61 message
             //[AmtAuth][AmtOther][CurExponent + CurCode][TranType][TranInfo][Account Type][Force Online]
@@ -290,6 +291,7 @@ namespace Bezel8PlusApp
             }
             else if (cbAutoReply.Checked)
             {
+                Thread.Sleep(1500);
                 btnHostSend_Click(this, null);
             }
             else
@@ -362,6 +364,15 @@ namespace Bezel8PlusApp
         {
             btnStart.Enabled = true;
             btnHostSend.Enabled = false;
+        }
+
+        private void SetTxnInProgressUI()
+        {
+            btnStart.Enabled = false;
+            btnCancel.Enabled = true;
+            tbOutcome.Clear();
+            tbOnlineData.Clear();
+            //ClearReceipt();
         }
     }
 }

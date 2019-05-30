@@ -22,15 +22,11 @@ namespace Bezel8PlusApp
         public static SerialPortManager Instance { get { return lazy.Value; } }
 
         private SerialPort _serialPort;
-        private Queue<byte[]> _messageQueue;
 
         private SerialPortManager()
         {
             _serialPort = new SerialPort();
-            _messageQueue = new Queue<byte[]>();
-            Console.WriteLine(_serialPort.ReadTimeout);
 
-            //_serialPort.DataReceived += new SerialDataReceivedEventHandler(RataReceive_test);
         }
 
         /// <summary>
@@ -168,7 +164,7 @@ namespace Bezel8PlusApp
                 OnSerialPortOpened(this, false);
         }
 
-        public void WriteAndReadMessage(PktType type, string head, string body, out string responseOut, int readTimeOut = 0)
+        public void WriteAndReadMessage(PktType type, string head, string body, out string responseOut, bool keepWaitting = true, int readTimeOut = 0)
         {
             string prefix = String.Empty;
             string suffix = String.Empty;
@@ -184,10 +180,7 @@ namespace Bezel8PlusApp
                 prefix = Convert.ToChar(0x02).ToString();
                 suffix = Convert.ToChar(0x03).ToString();
             }
-            else
-            {
-                // TODO: VCAS command handling
-            }
+
 
             string packed_meaasge = prefix + head + body + suffix;
             byte lrc = DataHandler.LRCCalculator(Encoding.ASCII.GetBytes(packed_meaasge), packed_meaasge.Length);
@@ -256,7 +249,10 @@ namespace Bezel8PlusApp
                 throw new System.Exception("Waitting ACK failed.");
             }
 
-            // Retrieve return message from reader
+            if (!keepWaitting)
+                return;
+
+            // Waitting for reply from reader
             Stopwatch s = new Stopwatch();
             if (readTimeOut > 0)
                 s.Start();
@@ -307,8 +303,6 @@ namespace Bezel8PlusApp
             }
 
         }
-        
-
 
         public void RataReceive_test(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
         {         
@@ -388,53 +382,6 @@ namespace Bezel8PlusApp
 
         }
         
-        public string Dequeue(bool includeLRC = false)
-        {
-            string sMessage = String.Empty;
-            byte[] bMessage = null;
-
-            lock (_messageQueue)
-            {
-                if (_messageQueue.Count > 0)
-                {
-                    bMessage = _messageQueue.Dequeue();
-                }
-            }
-
-            if (bMessage != null)
-            {
-                int end = includeLRC ? 0 : 1;
-                sMessage = Encoding.ASCII.GetString(bMessage, 0, bMessage.Length - end);
-            }
-
-            return sMessage;
-        } 
-
-        /// <summary>
-        /// Send/write string to the serial port
-        /// </summary>
-        /// <param name="message"></param>
-        public void SendString(string message)
-        {
-            if (_serialPort.IsOpen)
-            {
-                try
-                {
-                    _serialPort.Write(message);
-
-                    if (OnStatusChanged != null)
-                        OnStatusChanged(this, string.Format(
-                        "Message sent: {0}",
-                        message));
-                }
-                catch (Exception ex)
-                {
-                    if (OnStatusChanged != null)
-                        OnStatusChanged(this, string.Format(
-                            "Failed to send string: {0}",
-                            ex.Message));
-                }
-            }
-        }
+  
     }
 }

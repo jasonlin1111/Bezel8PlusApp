@@ -66,7 +66,7 @@
     <Compile Include="CapkForm.Designer.cs">
       <DependentUpon>CapkForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="DataManager.cs" />
+    <Compile Include="DataHandler.cs" />
     <Compile Include="MainConfigForm.cs">
       <SubType>Form</SubType>
     </Compile>

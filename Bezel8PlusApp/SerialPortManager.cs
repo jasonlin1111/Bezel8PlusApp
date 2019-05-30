@@ -190,7 +190,7 @@ namespace Bezel8PlusApp
             }
 
             string packed_meaasge = prefix + head + body + suffix;
-            byte lrc = DataManager.LRCCalculator(Encoding.ASCII.GetBytes(packed_meaasge), packed_meaasge.Length);
+            byte lrc = DataHandler.LRCCalculator(Encoding.ASCII.GetBytes(packed_meaasge), packed_meaasge.Length);
 
             if (_serialPort.BytesToRead > 0)
                 _serialPort.DiscardInBuffer();
@@ -279,7 +279,7 @@ namespace Bezel8PlusApp
                 }
 
                 // Well recevied, check LRC
-                if (readBuffer[bytes - 1] == DataManager.LRCCalculator(readBuffer, bytes - 1))
+                if (readBuffer[bytes - 1] == DataHandler.LRCCalculator(readBuffer, bytes - 1))
                 {
                     // Send ACK
                     _serialPort.Write(Convert.ToChar(0x06).ToString());

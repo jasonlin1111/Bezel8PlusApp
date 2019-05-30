@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Bezel8PlusApp
 {
-    class DataManager
+    class DataHandler
     {
 
         public static char CalculateLRC(string toEncode)
@@ -20,7 +20,7 @@ namespace Bezel8PlusApp
             return Convert.ToChar(LRC);
         }
 
-        static public byte LRCCalculator(byte[] input, int length)
+        public static byte LRCCalculator(byte[] input, int length)
         {
             byte LRC = 0;
 
@@ -35,6 +35,22 @@ namespace Bezel8PlusApp
             }
 
             return LRC;
+        }
+
+        public static byte[] ToByte(string input)
+        {
+            if (input.Length % 2 != 0)
+            {
+                input = input.PadLeft(input.Length + 1, '0');
+            }
+            byte[] byteArray = new byte[input.Length / 2];
+
+            for (int i = 0; i < byteArray.Length; i++)
+            {
+                byteArray[i] = byte.Parse(input.Substring(2*i, 2), System.Globalization.NumberStyles.HexNumber);
+            }
+
+            return byteArray;
         }
     }
 }

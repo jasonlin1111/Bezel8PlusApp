@@ -5,8 +5,11 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 using System.Windows.Forms;
+
+using System.Net;
+using System.IO;
 
 namespace Bezel8PlusApp
 {
@@ -14,6 +17,7 @@ namespace Bezel8PlusApp
     {
         
         private SerialPortManager serialPort = SerialPortManager.Instance;
+
 
         public TxnForm()
         {
@@ -130,42 +134,54 @@ namespace Bezel8PlusApp
                 return;
             }
 
-            if (!t61Response.ToUpper().StartsWith("T620"))
+            TransactionResultAnalyze(t61Response);
+    
+        }
+
+        private void TransactionResultAnalyze(string result)
+        {
+            // Fail
+            if (string.IsNullOrEmpty(result))
+                return;
+            if (!result.ToUpper().StartsWith("T620"))
             {
-                MessageBox.Show(t61Response);
-                //btnStart.Enabled = true;
+                //MessageBox.Show(result);
+                tbOutcome.Text = result;
                 return;
             }
-            
-            string t61ResultCode = t61Response.Substring(4);
-            switch (t61ResultCode)
+
+            // Success
+            switch (result.Substring(4))
             {
                 case TxnResult.OnlineApprove:
-                    MessageBox.Show("OnlineApprove");
+                    tbOutcome.Text = "Online Approve";
                     break;
 
                 case TxnResult.OfflineApprove:
-                    MessageBox.Show("OfflineApprove");
+                    tbOutcome.Text = "Offline Approve";
                     break;
 
                 case TxnResult.OfflineDecline:
-                    MessageBox.Show("OfflineDecline");
+                    tbOutcome.Text = "Offline Decline";
                     break;
 
                 case TxnResult.OnlineDecline:
-                    MessageBox.Show("OnlineDecline");
+                    tbOutcome.Text = "Online Decline";
                     break;
 
                 case TxnResult.OfflineApproveSign:
-                    MessageBox.Show("OfflineApproveSign");
+                    tbOutcome.Text = "Offline Approve";
                     break;
 
                 case TxnResult.TryAnotherInterface:
-                    MessageBox.Show("TryAnotherInterface");
+                    tbOutcome.Text = "Terminated";
                     break;
 
                 case TxnResult.OnlineAuthorizeReq:
-                    MessageBox.Show("OnlineAuthorizeReq");
+                    tbOutcome.Text = "Online Authorizing";
+                    GetOnlineData("0");
+                    GetOnlineData("1");
+                    OnlineAuthorization();
                     break;
 
                 case TxnResult.ExternalPinBlockReq:
@@ -173,18 +189,16 @@ namespace Bezel8PlusApp
                     break;
 
                 default:
-                    MessageBox.Show(t61Response);
-                    return;
+                    MessageBox.Show(result);
+                    break;
 
             }
-            
+            ResetToIdleState();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            //Console.WriteLine("cancel");
             string t6CResponse = String.Empty;
-
             try
             {
                 serialPort.WriteAndReadMessage(PktType.STX, "T6C", "", out t6CResponse);
@@ -197,6 +211,95 @@ namespace Bezel8PlusApp
 
         }
 
+        private void GetOnlineData(string dataType)
+        {
+            int curPkg, totalPkg;
+            string t65Response = String.Empty;
+            string tlvHexString = String.Empty;
+
+            do
+            {
+                try
+                {
+                    serialPort.WriteAndReadMessage(PktType.STX, "T65", dataType, out t65Response);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    return;
+                }
+
+                if (t65Response.ToUpper().StartsWith("T66F"))
+                {
+                    //MessageBox.Show(t65Response);
+                    return;
+                }
+                else if (!Int32.TryParse(t65Response.Substring(3, 1), out curPkg) || !Int32.TryParse(t65Response.Substring(4, 1), out totalPkg))
+                {
+                    MessageBox.Show($"GetDataRecord failed. {t65Response}");
+                    return;
+                }
+
+                int separatorIndex = t65Response.IndexOf(Convert.ToChar(0x1C));
+                if (separatorIndex >= 0)
+                    tlvHexString += t65Response.Substring(separatorIndex + 1);
+                
+            } while (curPkg < totalPkg);
+
+            if (!string.IsNullOrEmpty(tlvHexString))
+            {
+                tbOnlineData.AppendText(tlvHexString + Environment.NewLine);
+            }
+        }
+
+        private void OnlineAuthorization()
+        {
+            string t71Response = String.Empty;
+            string IAD = String.Empty;
+            string ARC = String.Empty;
+
+            if (cbARC.Checked)
+            {
+                if (comBoxARC.SelectedIndex == 0)
+                {
+                    ARC += "00";
+                }
+                else
+                {
+                    ARC += "51";
+                }
+            }
+
+            if (cbIAD.Checked)
+            {
+                IAD += tbIAD.Text;
+            }
+
+            if (cbNoAuthRes.Checked)
+            {
+                try
+                {
+                    serialPort.WriteAndReadMessage(PktType.STX, "T71", "0", out t71Response);
+                    TransactionResultAnalyze(t71Response);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+
+            }
+            else if (cbAutoReply.Checked)
+            {
+                btnHostSend_Click(this, null);
+            }
+            else
+            {
+                btnStart.Enabled = false;
+                btnHostSend.Enabled = true;
+            }
+        }
+
+
         public class TxnResult
         {
             public const string OnlineApprove = "Y4";
@@ -207,6 +310,58 @@ namespace Bezel8PlusApp
             public const string TryAnotherInterface = "B0";
             public const string OnlineAuthorizeReq = "A1";
             public const string ExternalPinBlockReq = "A5";
+        }
+
+        private void btnHostSend_Click(object sender, EventArgs e)
+        {
+
+            string t71Response = String.Empty;
+            string IAD = String.Empty;
+            string ARC = String.Empty;
+
+            if (cbARC.Checked)
+            {
+                if (comBoxARC.SelectedIndex == 0)
+                {
+                    ARC += "00";
+                }
+                else
+                {
+                    ARC += "51";
+                }
+            }
+
+            if (cbIAD.Checked)
+            {
+                IAD += tbIAD.Text;
+            }
+
+            string t71Body = String.Empty;
+            if (cbNoAuthRes.Checked)
+            {
+                t71Body = "0";
+            }
+            else
+            {
+                t71Body = "1" + Convert.ToChar(0x1A).ToString() +
+                    ARC + Convert.ToChar(0x1A).ToString() + IAD;
+            }
+
+            try
+            {
+                serialPort.WriteAndReadMessage(PktType.STX, "T71", t71Body, out t71Response);
+                TransactionResultAnalyze(t71Response);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void ResetToIdleState()
+        {
+            btnStart.Enabled = true;
+            btnHostSend.Enabled = false;
         }
     }
 }

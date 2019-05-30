@@ -44,7 +44,7 @@
             this.cbTimeout = new System.Windows.Forms.CheckBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnHostSend = new System.Windows.Forms.Button();
-            this.tbDiscreData = new System.Windows.Forms.TextBox();
+            this.tbOnlineData = new System.Windows.Forms.TextBox();
             this.tbIssuerScript = new System.Windows.Forms.TextBox();
             this.cbIssuerScript = new System.Windows.Forms.CheckBox();
             this.tbIAD = new System.Windows.Forms.TextBox();
@@ -60,7 +60,7 @@
             this.lbMs = new System.Windows.Forms.Label();
             this.tbAutoRunTime = new System.Windows.Forms.TextBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbOutcome = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanelTxn.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -253,7 +253,7 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.btnHostSend);
-            this.groupBox2.Controls.Add(this.tbDiscreData);
+            this.groupBox2.Controls.Add(this.tbOnlineData);
             this.groupBox2.Controls.Add(this.tbIssuerScript);
             this.groupBox2.Controls.Add(this.cbIssuerScript);
             this.groupBox2.Controls.Add(this.tbIAD);
@@ -271,21 +271,23 @@
             // 
             // btnHostSend
             // 
+            this.btnHostSend.Enabled = false;
             this.btnHostSend.Location = new System.Drawing.Point(177, 18);
             this.btnHostSend.Name = "btnHostSend";
             this.btnHostSend.Size = new System.Drawing.Size(89, 65);
             this.btnHostSend.TabIndex = 9;
             this.btnHostSend.Text = "Send";
             this.btnHostSend.UseVisualStyleBackColor = true;
+            this.btnHostSend.Click += new System.EventHandler(this.btnHostSend_Click);
             // 
-            // tbDiscreData
+            // tbOnlineData
             // 
-            this.tbDiscreData.Dock = System.Windows.Forms.DockStyle.Right;
-            this.tbDiscreData.Location = new System.Drawing.Point(276, 18);
-            this.tbDiscreData.Multiline = true;
-            this.tbDiscreData.Name = "tbDiscreData";
-            this.tbDiscreData.Size = new System.Drawing.Size(242, 202);
-            this.tbDiscreData.TabIndex = 8;
+            this.tbOnlineData.Dock = System.Windows.Forms.DockStyle.Right;
+            this.tbOnlineData.Location = new System.Drawing.Point(276, 18);
+            this.tbOnlineData.Multiline = true;
+            this.tbOnlineData.Name = "tbOnlineData";
+            this.tbOnlineData.Size = new System.Drawing.Size(242, 202);
+            this.tbOnlineData.TabIndex = 8;
             // 
             // tbIssuerScript
             // 
@@ -371,9 +373,9 @@
             // groupBox3
             // 
             this.groupBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBox3.Location = new System.Drawing.Point(536, 41);
+            this.groupBox3.Location = new System.Drawing.Point(536, 60);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(377, 435);
+            this.groupBox3.Size = new System.Drawing.Size(377, 416);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Receipt";
@@ -440,19 +442,22 @@
             this.checkBox1.Text = "Auto run";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // tbOutcome
             // 
-            this.textBox1.Location = new System.Drawing.Point(536, 13);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(381, 22);
-            this.textBox1.TabIndex = 5;
+            this.tbOutcome.Font = new System.Drawing.Font("Arial Black", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.tbOutcome.Location = new System.Drawing.Point(538, 12);
+            this.tbOutcome.Name = "tbOutcome";
+            this.tbOutcome.ReadOnly = true;
+            this.tbOutcome.Size = new System.Drawing.Size(375, 38);
+            this.tbOutcome.TabIndex = 5;
+            this.tbOutcome.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // TxnForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(929, 491);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tbOutcome);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -503,8 +508,8 @@
         private System.Windows.Forms.Label lbMs;
         private System.Windows.Forms.TextBox tbAutoRunTime;
         private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.TextBox tbDiscreData;
+        private System.Windows.Forms.TextBox tbOnlineData;
         private System.Windows.Forms.Button btnHostSend;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbOutcome;
     }
 }

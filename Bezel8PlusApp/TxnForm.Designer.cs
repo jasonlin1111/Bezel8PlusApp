@@ -142,6 +142,7 @@
             // 
             // cbCurrencyExp
             // 
+            this.cbCurrencyExp.AutoCheck = false;
             this.cbCurrencyExp.AutoSize = true;
             this.cbCurrencyExp.Checked = true;
             this.cbCurrencyExp.CheckState = System.Windows.Forms.CheckState.Checked;
@@ -169,12 +170,14 @@
             // 
             // cbCurrencyCode
             // 
+            this.cbCurrencyCode.AutoCheck = false;
             this.cbCurrencyCode.AutoSize = true;
             this.cbCurrencyCode.Checked = true;
             this.cbCurrencyCode.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cbCurrencyCode.Dock = System.Windows.Forms.DockStyle.Left;
             this.cbCurrencyCode.Location = new System.Drawing.Point(3, 114);
             this.cbCurrencyCode.Name = "cbCurrencyCode";
+            this.cbCurrencyCode.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.cbCurrencyCode.Size = new System.Drawing.Size(96, 31);
             this.cbCurrencyCode.TabIndex = 8;
             this.cbCurrencyCode.Text = "Currency Code";

@@ -144,12 +144,13 @@ namespace Bezel8PlusApp
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-                //btnStart.Enabled = true;
+                ResetToIdleState();
                 return;
             }
 
             TransactionResultAnalyze(t61Response);
-    
+            ResetToIdleState();
+
         }
 
         private void TransactionResultAnalyze(string result)
@@ -212,7 +213,6 @@ namespace Bezel8PlusApp
                     break;
 
             }
-            ResetToIdleState();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -220,8 +220,7 @@ namespace Bezel8PlusApp
             string t6CResponse = String.Empty;
             try
             {
-                serialPort.WriteAndReadMessage(PktType.STX, "T6C", "", out t6CResponse);
-                MessageBox.Show(t6CResponse);
+                serialPort.WriteAndReadMessage(PktType.STX, "T6C", "", out t6CResponse, false);
             }
             catch (Exception ex)
             {

@@ -96,6 +96,25 @@ namespace Bezel8PlusApp
             }
             return ascii;
         }
+
+        public static string ConvertLoggingMessage(byte[] buffer)
+        {
+            string output = String.Empty;
+
+            for (int i = 0; i < buffer.Length; i++)
+            {
+                if (buffer[i] < 0x20)
+                {
+                    output += "<" + buffer[i].ToString("X2") + ">";
+                }
+                else
+                {
+                    output += Convert.ToChar(buffer[i]).ToString();
+                }
+            }
+
+            return output;
+        }
     }
 
     class TLVDataObject

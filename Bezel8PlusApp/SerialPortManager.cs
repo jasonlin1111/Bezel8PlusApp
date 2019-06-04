@@ -22,10 +22,14 @@ namespace Bezel8PlusApp
         public static SerialPortManager Instance { get { return lazy.Value; } }
 
         private SerialPort _serialPort;
+        private Thread _readThread;
+        private volatile bool _keepReading;
 
         private SerialPortManager()
         {
             _serialPort = new SerialPort();
+            _readThread = null;
+            _keepReading = false;
 
         }
 

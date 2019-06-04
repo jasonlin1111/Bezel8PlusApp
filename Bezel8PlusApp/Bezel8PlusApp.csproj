@@ -67,6 +67,12 @@
       <DependentUpon>CapkForm.cs</DependentUpon>
     </Compile>
     <Compile Include="DataHandler.cs" />
+    <Compile Include="LoggingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoggingForm.Designer.cs">
+      <DependentUpon>LoggingForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainConfigForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,6 +108,9 @@
     </Compile>
     <EmbeddedResource Include="CapkForm.resx">
       <DependentUpon>CapkForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoggingForm.resx">
+      <DependentUpon>LoggingForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainConfigForm.resx">
       <DependentUpon>MainConfigForm.cs</DependentUpon>

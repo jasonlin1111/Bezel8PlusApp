@@ -15,16 +15,13 @@ namespace Bezel8PlusApp
     {
         private SerialPortManager serialPort = SerialPortManager.Instance;
 
-        private TxnForm txnForm;
-        private MainConfigForm configForm;
-
-        private List<Form> formList;
+        private Dictionary<Button, Form> dictBtnForm;
 
         public MainEntryForm()
         {
             InitializeComponent();
             InitializeComponentValue();
-            InitializeForms();
+            InitializeBtnsAndForms();
         }
 
         private void InitializeComponentValue()
@@ -36,17 +33,14 @@ namespace Bezel8PlusApp
             cbStopBits.SelectedIndex = 0;
         }
 
-        private void InitializeForms()
+        private void InitializeBtnsAndForms()
         {
-            formList = new List<Form>();
+            dictBtnForm = new Dictionary<Button, Form>();
+            dictBtnForm.Add(btnMenuConfig, new MainConfigForm());
+            dictBtnForm.Add(btnMenuTxn, new TxnForm());
+            dictBtnForm.Add(btnMenu3, new LoggingForm());
 
-            txnForm = new TxnForm();
-            configForm = new MainConfigForm();
-
-            formList.Add(txnForm);
-            formList.Add(configForm);
-
-            foreach (Form form in formList)
+            foreach (Form form in dictBtnForm.Values)
             {
                 form.TopLevel = false;
                 form.Visible = false;
@@ -54,9 +48,7 @@ namespace Bezel8PlusApp
                 form.Dock = DockStyle.Fill;
 
                 groupBoxWorkspace.Controls.Add(form);
-
             }
-        
         }
 
         private void cbCOM_Click(object sender, EventArgs e)
@@ -105,24 +97,20 @@ namespace Bezel8PlusApp
                 tableLayoutPanelComSetting.Enabled = true;
             }
         }
-
-        private void btnMenuTxn_Click(object sender, EventArgs e)
+        
+        private void MenuButton_Click(object sender, EventArgs e)
         {
-            foreach (Form form in formList)
+            Button btn = (Button)sender;
+            foreach (Form form in dictBtnForm.Values)
             {
                 form.Visible = false;
             }
-            txnForm.Visible = true;
-        }
 
-        private void btnMenuConfig_Click(object sender, EventArgs e)
-        {
-
-            foreach (Form form in formList)
+            Form targetForm;
+            if (dictBtnForm.TryGetValue(btn, out targetForm))
             {
-                form.Visible = false;
+                targetForm.Visible = true;
             }
-            configForm.Visible = true;
         }
     }
 }

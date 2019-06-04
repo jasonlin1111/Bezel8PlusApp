@@ -289,6 +289,7 @@
             this.tbOnlineData.Location = new System.Drawing.Point(276, 18);
             this.tbOnlineData.Multiline = true;
             this.tbOnlineData.Name = "tbOnlineData";
+            this.tbOnlineData.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.tbOnlineData.Size = new System.Drawing.Size(242, 202);
             this.tbOnlineData.TabIndex = 8;
             // 

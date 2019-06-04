@@ -18,139 +18,27 @@ namespace Bezel8PlusApp
         
         private SerialPortManager serialPort = SerialPortManager.Instance;
         private ReceiptForm receiptForm;
-        private Dictionary<string, string> receiptData;
 
-
+        List<TLVDataObject> dataRecord;
+        List<TLVDataObject> discretionaryData;
 
         public TxnForm()
         {
             InitializeComponent();
             receiptForm = new ReceiptForm();
-            receiptData = new Dictionary<string, string>();
+            dataRecord = new List<TLVDataObject>();
+            discretionaryData = new List<TLVDataObject>();
             comBoxTxnType.SelectedIndex = 0;
             comBoxARC.SelectedIndex = 0;      
         }
 
-        private void PrepareReceiptData()
+        /// <summary>
+        /// Build a string for T61 Packet command
+        /// </summary>
+        private string PrepareTxnData()
         {
-            // txnData[0]: transaction type
-            if (cbTxnType.Checked)
-            {
-                switch (comBoxTxnType.SelectedIndex)
-                {
-                    case 0:
-                        receiptData.Add("9C", "Purchase");
-                        break;
-                    case 1:
-                        receiptData.Add("9C", "Cash");
-                        break;
-                    case 2:
-                        receiptData.Add("9C", "Purchase with cashback");
-                        break;
-                    case 3:
-                        receiptData.Add("9C", "Refund");
-                        break;
-                }
-            }
+            string txnData = String.Empty;
 
-            int exp;
-            if (!Int32.TryParse(textBoxCurrencyExp.Text, out exp))
-                exp = 0;
-
-            // txnData[1]: Amount
-            if (cbAmountAuth.Checked)
-            {
-                if (textBoxAmountAuth.Text.Equals("FFFFFFFFFFFF"))
-                    receiptData.Add("9F02", String.Empty);
-                else if (exp <= textBoxAmountAuth.Text.Length)
-                {
-                    int amount;
-                    if (!Int32.TryParse(textBoxAmountAuth.Text.Substring(0, textBoxAmountAuth.Text.Length - exp), out amount))
-                        amount = 0;
-                    receiptData.Add("9F02", amount.ToString() + "." + textBoxAmountAuth.Text.Substring(textBoxAmountAuth.Text.Length - exp));
-                }
-            }
-
-            // txnData[2]: Amount Other
-            if (cbAmountOther.Checked)
-            {
-                if (textBoxAmountOther.Text.Equals("FFFFFFFFFFFF"))
-                    receiptData.Add("9F03", String.Empty);
-                else if (exp <= textBoxAmountOther.Text.Length)
-                {
-                    int amount;
-                    if (!Int32.TryParse(textBoxAmountOther.Text.Substring(0, textBoxAmountOther.Text.Length - exp), out amount))
-                        amount = 0;
-                    receiptData.Add("9F03", amount.ToString() + "." + textBoxAmountOther.Text.Substring(textBoxAmountOther.Text.Length - exp));
-                }
-            }
-
-            // txnData[3]: Currency Code
-            if (cbCurrencyCode.Checked)
-            {
-                if (textBoxCurrencyCode.Text.Equals("0840"))
-                {
-                    receiptData.Add("5F2A", "US");
-                }
-            }
-
-            // txnData[4]: Transaction Result
-            if (!string.IsNullOrEmpty(tbOutcome.Text))
-            {
-                receiptData.Add("OUTCOME", tbOutcome.Text);
-            }
-
-
-            // T63 to get receipt data
-            int curPkg = 0, totalPkg = 0;
-            string t63Response = String.Empty;
-            string[] receiptTags = new string[] { "9F16", "9F1C", "9A", "9F21", "84", "5A", "9F5D" };          
-            string t63Stream = string.Join(Convert.ToChar(0x1A).ToString(), receiptTags);
-            // t64Stream = the sum of t63Responses
-            string t64Stream = String.Empty;
-
-
-            do
-            {
-                try
-                {
-                    if (curPkg == 0)
-                        serialPort.WriteAndReadMessage(PktType.STX, "T63", t63Stream, out t63Response);
-                    else
-                        serialPort.WriteAndReadMessage(PktType.STX, "T63", "0", out t63Response);
-                }
-                catch (Exception ex)
-                {
-                    //MessageBox.Show(ex.Message);
-                    return;
-                }
-
-                if (t63Response.ToUpper().StartsWith("T64F"))
-                {
-                    //MessageBox.Show(t65Response);
-                    break;
-                }
-                else if (!Int32.TryParse(t63Response.Substring(3, 1), out curPkg) || !Int32.TryParse(t63Response.Substring(4, 1), out totalPkg))
-                {
-                    //MessageBox.Show($"GetDataRecord failed. {t63Response}");
-                    break;
-                }
-
-                int separatorIndex = t63Response.IndexOf(Convert.ToChar(0x1C));
-                if (separatorIndex >= 0)
-                    t64Stream += t63Response.Substring(separatorIndex + 1);
-
-            } while (curPkg < totalPkg);
-
-        }
-
-        private void btnStart_Click(object sender, EventArgs e)
-        {
-            SetTxnInProgressUI();
-            receiptForm.Clear();
-            receiptData.Clear();
-
-            // 1. Build T61 message
             //[AmtAuth][AmtOther][CurExponent + CurCode][TranType][TranInfo][Account Type][Force Online]
             string[] t61Elements = new string[7];
             for (int i = 0; i < t61Elements.Length; i++)
@@ -195,7 +83,7 @@ namespace Bezel8PlusApp
                     if (exp >= 10)
                         exp %= 10;
                 }
-                t61Elements[2] += exp.ToString();      
+                t61Elements[2] += exp.ToString();
             }
             if (cbCurrencyCode.Checked)
             {
@@ -221,10 +109,6 @@ namespace Bezel8PlusApp
                 case "REFUND":
                     t61Elements[3] += "20";
                     break;
-
-                default:
-                    MessageBox.Show("Unknown Transaction Type.");
-                    return;
             }
 
             // TranInfo
@@ -236,11 +120,21 @@ namespace Bezel8PlusApp
             // Force Online
             t61Elements[6] += "0";
 
-            string t61Message = Convert.ToChar(0x1A).ToString() +
+            txnData = Convert.ToChar(0x1A).ToString() +
                 String.Join(Convert.ToChar(0x1A).ToString(), t61Elements) +
                 Convert.ToChar(0x1A).ToString();
 
-            // 2. Send T61 message
+            return txnData;
+
+
+        }
+
+        private void btnStart_Click(object sender, EventArgs e)
+        {
+            SetTxnInProgressUI();
+            receiptForm.Hide();
+
+            string t61Message = PrepareTxnData();
             string t61Response = String.Empty;
 
             try
@@ -274,27 +168,27 @@ namespace Bezel8PlusApp
             switch (result.Substring(4))
             {
                 case TxnResult.OnlineApprove:
-                    receiptForm.Print();
+                    PrintReceipt("Approve", false);
                     tbOutcome.Text = "Online Approve";
                     break;
 
                 case TxnResult.OfflineApprove:
-                    receiptForm.Print();
+                    PrintReceipt("Approve", false);
                     tbOutcome.Text = "Offline Approve";
                     break;
 
                 case TxnResult.OfflineDecline:
-                    receiptForm.Print();
+                    PrintReceipt("Decline", false);
                     tbOutcome.Text = "Offline Decline";
                     break;
 
                 case TxnResult.OnlineDecline:
-                    receiptForm.Print();
+                    PrintReceipt("Decline", false);
                     tbOutcome.Text = "Online Decline";
                     break;
 
                 case TxnResult.OfflineApproveSign:
-                    receiptForm.Print(true);
+                    PrintReceipt("Approve", true);
                     tbOutcome.Text = "Offline Approve";
                     break;
 
@@ -373,7 +267,23 @@ namespace Bezel8PlusApp
 
             if (!string.IsNullOrEmpty(tlvHexString))
             {
-                tbOnlineData.AppendText(tlvHexString + Environment.NewLine);
+                if (dataType == "0")
+                {
+                    dataRecord = TLVDataObject.ConvertToTLVList(tlvHexString);
+                    foreach (TLVDataObject dataObj in dataRecord)
+                    {
+                        tbOnlineData.AppendText(dataObj.TagString() + "\t" + dataObj.ValueString() + Environment.NewLine);
+                    }
+                }
+                else if (dataType == "1")
+                {
+                    discretionaryData = TLVDataObject.ConvertToTLVList(tlvHexString);
+                    foreach (TLVDataObject dataObj in discretionaryData)
+                    {
+                        tbOnlineData.AppendText(dataObj.TagString() + "\t" + dataObj.ValueString() + Environment.NewLine);
+                    }
+                }
+                //Console.WriteLine(tlvHexString);
             }
         }
 
@@ -415,7 +325,7 @@ namespace Bezel8PlusApp
             }
             else if (cbAutoReply.Checked)
             {
-                Thread.Sleep(1500);
+                Thread.Sleep(1000);
                 btnHostSend_Click(this, null);
             }
             else
@@ -425,30 +335,8 @@ namespace Bezel8PlusApp
             }
         }
 
-        private void GetReceipt()
-        {
-
-        }
-
-        public class TxnResult
-        {
-            public const string OnlineApprove = "Y4";
-            public const string OfflineApprove = "Y1";
-            public const string OfflineDecline = "Z1";
-            public const string OnlineDecline = "Z4";
-            public const string OfflineApproveSign = "Y7";
-            public const string TryAnotherInterface = "B0";
-            public const string OnlineAuthorizeReq = "A1";
-            public const string ExternalPinBlockReq = "A5";
-        }
-
-        public class OutcomeDisplayMessage
-        {
-        }
-
         private void btnHostSend_Click(object sender, EventArgs e)
         {
-
             string t71Response = String.Empty;
             string IAD = String.Empty;
             string ARC = String.Empty;
@@ -492,6 +380,146 @@ namespace Bezel8PlusApp
             }
         }
 
+        private Dictionary<string, string> PrepareReceiptData()
+        {
+            Dictionary<string, string> receiptData = new Dictionary<string, string>();
+
+            // Transaction type
+            if (cbTxnType.Checked)
+            {
+                switch (comBoxTxnType.SelectedIndex)
+                {
+                    case 0:
+                        receiptData.Add("9C", "Purchase");
+                        break;
+                    case 1:
+                        receiptData.Add("9C", "Cash");
+                        break;
+                    case 2:
+                        receiptData.Add("9C", "Purchase with cashback");
+                        break;
+                    case 3:
+                        receiptData.Add("9C", "Refund");
+                        break;
+                }
+            }
+
+            int exp;
+            if (!Int32.TryParse(textBoxCurrencyExp.Text, out exp))
+                exp = 0;
+
+            // Amount
+            if (cbAmountAuth.Checked)
+            {
+                if (textBoxAmountAuth.Text.Equals("FFFFFFFFFFFF"))
+                    receiptData.Add("9F02", String.Empty);
+                else if (exp <= textBoxAmountAuth.Text.Length)
+                {
+                    int amount;
+                    if (!Int32.TryParse(textBoxAmountAuth.Text.Substring(0, textBoxAmountAuth.Text.Length - exp), out amount))
+                        amount = 0;
+                    receiptData.Add("9F02", amount.ToString() + "." + textBoxAmountAuth.Text.Substring(textBoxAmountAuth.Text.Length - exp));
+                }
+            }
+
+            // Amount Other
+            if (cbAmountOther.Checked)
+            {
+                if (textBoxAmountOther.Text.Equals("FFFFFFFFFFFF"))
+                    receiptData.Add("9F03", String.Empty);
+                else if (exp <= textBoxAmountOther.Text.Length)
+                {
+                    int amount;
+                    if (!Int32.TryParse(textBoxAmountOther.Text.Substring(0, textBoxAmountOther.Text.Length - exp), out amount))
+                        amount = 0;
+                    receiptData.Add("9F03", amount.ToString() + "." + textBoxAmountOther.Text.Substring(textBoxAmountOther.Text.Length - exp));
+                }
+            }
+
+            // Currency Code
+            if (cbCurrencyCode.Checked)
+            {
+                if (textBoxCurrencyCode.Text.Equals("0840"))
+                {
+                    receiptData.Add("5F2A", "US");
+                }
+            }
+
+            // From Data Record
+            // 9A - Transaction Date
+            // 57 - Track 2 Data
+            foreach (TLVDataObject record in dataRecord)
+            {
+                if (record.TagString().ToUpper().Equals("9A") || record.TagString().Equals("57"))
+                    receiptData.Add(record.TagString(), record.ValueString());
+            }
+
+            // 9F16 - Merchant Identifier
+            // 9F1C - Terminal Identification
+            // 9F21 - Transaction Time
+            // 84   - Dedicated File (DF) Name
+            // 5A   - Application Primary Account Number (PAN)
+            // 9F5D - AOSA
+            string[] receiptTags = new string[] { "9F16", "9F1C", "9F21", "84", "5A", "9F5D" };
+            string t63Stream = string.Join(Convert.ToChar(0x1A).ToString(), receiptTags);
+
+            // t64Stream = the sum of t63Responses
+            string t64Stream = String.Empty;
+            string t63Response = String.Empty;
+
+            int curPkg = 0, totalPkg = 0;
+            do
+            {
+                try
+                {
+                    if (curPkg == 0)
+                        serialPort.WriteAndReadMessage(PktType.STX, "T63", t63Stream, out t63Response);
+                    else
+                        serialPort.WriteAndReadMessage(PktType.STX, "T63", "0", out t63Response);
+                }
+                catch (Exception ex)
+                {
+                    //MessageBox.Show(ex.Message);
+                    break;
+                }
+
+                if (t63Response.ToUpper().StartsWith("T64F"))
+                {
+                    //MessageBox.Show(t65Response);
+                    break;
+                }
+                else if (!Int32.TryParse(t63Response.Substring(3, 1), out curPkg) || !Int32.TryParse(t63Response.Substring(4, 1), out totalPkg))
+                {
+                    //MessageBox.Show($"GetDataRecord failed. {t63Response}");
+                    break;
+                }
+
+                int separatorIndex = t63Response.IndexOf(Convert.ToChar(0x1A));
+                if (separatorIndex >= 0)
+                    t64Stream += t63Response.Substring(separatorIndex + 1);
+
+            } while (curPkg < totalPkg);
+
+            string[] dataObj = t64Stream.Split(Convert.ToChar(0x1A));
+            foreach (string data in dataObj)
+            {
+                string[] tlv = data.Split(Convert.ToChar(0x1C));
+                if (tlv.Length == 3)
+                {
+                    receiptData.Add(tlv[0], tlv[2]);
+                }
+            }
+
+            return receiptData;
+        }
+
+        private void PrintReceipt(string outcome, bool needSign)
+        {
+            Dictionary<string, string> receiptData = PrepareReceiptData();
+            receiptForm.SetupReceipt(ref receiptData, outcome, needSign);
+            receiptForm.Show();
+        }
+
         private void ResetToIdleState()
         {
             btnStart.Enabled = true;
@@ -504,7 +532,18 @@ namespace Bezel8PlusApp
             btnCancel.Enabled = true;
             tbOutcome.Clear();
             tbOnlineData.Clear();
-            //ClearReceipt();
         }
+    }
+
+    public class TxnResult
+    {
+        public const string OnlineApprove = "Y4";
+        public const string OfflineApprove = "Y1";
+        public const string OfflineDecline = "Z1";
+        public const string OnlineDecline = "Z4";
+        public const string OfflineApproveSign = "Y7";
+        public const string TryAnotherInterface = "B0";
+        public const string OnlineAuthorizeReq = "A1";
+        public const string ExternalPinBlockReq = "A5";
     }
 }

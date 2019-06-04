@@ -12,99 +12,138 @@ namespace Bezel8PlusApp
 {
     public partial class ReceiptForm : Form
     {
-        private SerialPortManager serialPort = SerialPortManager.Instance;
-        private string[] receiptTags = new string[] { "9F16", "9F1C", "9A", "9F21", "84", "5A", "9C", "9F02", "9F5D" };
-
-        private Dictionary<string, Label> labelTable = new Dictionary<string, Label>();
 
         public ReceiptForm()
         {
             InitializeComponent();
-            InitializeLabelTable();
+
         }
 
-        private void InitializeLabelTable()
+        public void SetupReceipt(ref Dictionary<string, string> receiptData, string outcome, bool sign)
         {
-            labelTable.Add("9F16", lbMerchantID);
-            labelTable.Add("9F1C", lbTerminalID);
-            labelTable.Add("9A", lbDateTime);
-            labelTable.Add("9F21", lbDateTime);
-            labelTable.Add("84", lbAID);
-            labelTable.Add("5A", lbCardNo);
-            labelTable.Add("9C", lbTxnType);
-            labelTable.Add("9F02", lbAmount);
-            labelTable.Add("9F5D", lbAOSA);
-        }
+            string context = String.Empty;
 
-        private void GetReceiptData()
-        {
-            
-            string t63Response = String.Empty;
-            string t63Stream = string.Join(Convert.ToChar(0x1A).ToString(), labelTable.Keys.ToArray());
-            Console.WriteLine(t63Stream);
+            // Merchant ID
+            if (receiptData.TryGetValue("9F16", out context))
+                lbMerchantID.Text = DataHandler.ConvertHexToAscii(context);
+            else
+                lbMerchantID.Text = String.Empty;
 
+            // Terminal ID
+            if (receiptData.TryGetValue("9F1C", out context))
+                lbTerminalID.Text = DataHandler.ConvertHexToAscii(context);
+            else
+                lbTerminalID.Text = String.Empty;
 
+            // AID
+            if (receiptData.TryGetValue("84", out context))
+                lbAID.Text = context;
+            else
+                lbAID.Text = String.Empty;
 
-            try
+            // Card Type
+            if (lbAID.Text.StartsWith("A000000003"))
             {
-                serialPort.WriteAndReadMessage(PktType.STX, "T63", t63Stream, out t63Response);
-                Console.WriteLine(t63Response);
-            }
-            catch (Exception)
+                lbCardType.Text = "VISA";
+                lbTextCardType.Visible = true;
+                lbCardType.Visible = true;
+            } 
+            else
             {
-
+                lbTextCardType.Visible = false;
+                lbCardType.Visible = false;
             }
 
-            string[] dataObjects = t63Response.Split(Convert.ToChar(0x1A));
+            // Txn Type
+            if (receiptData.TryGetValue("9C", out context))
+                lbTxnType.Text = context;
+            else
+                lbTxnType.Text = String.Empty;
 
-            string date = String.Empty;
-            string time = String.Empty;
-            foreach (string dataObject in dataObjects)
+            // Amount
+            if (receiptData.TryGetValue("9F02", out context))
+                lbAmount.Text = context;
+            else
+                lbAmount.Text = String.Empty;
+
+            // Amount Other
+            if (receiptData.TryGetValue("9F03", out context)) {
+                lbAmountOther.Text = context;
+                lbTextAmountOther.Visible = true;
+                lbAmountOther.Visible = true;
+            }
+            else
             {
-                string[] tlv = dataObject.Split(Convert.ToChar(0x1C));
-                if (tlv.Length == 3 && labelTable.ContainsKey(tlv[0]))
-                {
-                    if (tlv[0].ToUpper().Equals("9A"))
-                    {
-                        int year;
-                        //Int32.TryParse(tlv[2].Substring(0, 2), out year)
-                    } else if (tlv[0].ToUpper().Equals("9F21"))
-                    {
+                lbTextAmountOther.Visible = false;
+                lbAmountOther.Visible = false;
 
-                    }
-                    else
-                    {
-                        Label label;
-                        labelTable.TryGetValue(tlv[0], out label);
-                        label.Text = tlv[2];
-                    }
-                    
-                }
             }
-        }
 
-        public void Print(bool singature = false)
-        {
-            GetReceiptData();
+            // Date n Time
+            if (receiptData.TryGetValue("9A", out context))
+            {
+                int yy = Int32.Parse(context.Substring(0, 2));
+                if (yy >= 50)
+                    yy += 1900;
+                else
+                    yy += 2000;
 
-            if (singature)
+                if (context.Length == 6)
+                    lbDateTime.Text = yy.ToString() + " / " + context.Substring(2, 2) + " / " + context.Substring(4);
+
+                if (receiptData.TryGetValue("9F21", out context))
+                    lbDateTime.Text += "  " + context.Substring(0, 2) + ":" + context.Substring(2, 2);
+            }
+            else
+            {
+                lbDateTime.Text = String.Empty;
+            }
+
+            // AOSA*
+            if (receiptData.TryGetValue("9F5D", out context))
+            {
+                lbAOSA.Text = context;
+                lbTextAOSA.Visible = true;
+                lbAOSA.Visible = true;
+            }
+            else
+            {
+                lbTextAOSA.Visible = false;
+                lbAOSA.Visible = false;
+            }
+
+            // PAN
+            if (receiptData.TryGetValue("5A", out context))
+                lbCardNo.Text = context.Remove(6, 6).Insert(6, "******");
+            else if (receiptData.TryGetValue("57", out context))
+            {
+                int separator = context.IndexOf('D');
+                if (separator > 0)
+                    lbCardNo.Text = context.Substring(0, separator).Remove(6, 6).Insert(6, "******");
+            }
+            else
+            {
+                lbCardNo.Text = String.Empty;
+            }
+
+            // Outcome
+            if (!string.IsNullOrEmpty(outcome))
+                lbOutcome.Text = outcome;
+            else
+                lbOutcome.Text = String.Empty;
+            lbOutcome.Visible = false;
+
+            if (sign)
                 lbSign.Visible = true;
             else
                 lbSign.Visible = false;
 
-            this.Show();
         }
 
-        public void Clear()
+        private void ReceiptForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            foreach (Label l in labelTable.Values)
-            {
-                l.Text = String.Empty;
-            }
-            lbSign.Visible = false;
-
+            e.Cancel = true;
             this.Hide();
         }
-
     }
 }

@@ -32,6 +32,7 @@
             this.tpConfig = new System.Windows.Forms.TabPage();
             this.tpCAPK = new System.Windows.Forms.TabPage();
             this.tpDRL = new System.Windows.Forms.TabPage();
+            this.tpTime = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -40,6 +41,7 @@
             this.tabControl1.Controls.Add(this.tpConfig);
             this.tabControl1.Controls.Add(this.tpCAPK);
             this.tabControl1.Controls.Add(this.tpDRL);
+            this.tabControl1.Controls.Add(this.tpTime);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.ItemSize = new System.Drawing.Size(500, 35);
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
@@ -79,6 +81,16 @@
             this.tpDRL.Text = "DRL";
             this.tpDRL.UseVisualStyleBackColor = true;
             // 
+            // tpTime
+            // 
+            this.tpTime.Location = new System.Drawing.Point(4, 39);
+            this.tpTime.Name = "tpTime";
+            this.tpTime.Padding = new System.Windows.Forms.Padding(3);
+            this.tpTime.Size = new System.Drawing.Size(573, 189);
+            this.tpTime.TabIndex = 4;
+            this.tpTime.Text = "Time & Exception";
+            this.tpTime.UseVisualStyleBackColor = true;
+            // 
             // MainConfigForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -98,5 +110,6 @@
         private System.Windows.Forms.TabPage tpConfig;
         private System.Windows.Forms.TabPage tpCAPK;
         private System.Windows.Forms.TabPage tpDRL;
+        private System.Windows.Forms.TabPage tpTime;
     }
 }

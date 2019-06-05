@@ -18,6 +18,7 @@ namespace Bezel8PlusApp
         
         private SerialPortManager serialPort = SerialPortManager.Instance;
         private ReceiptForm receiptForm;
+        private OnlinePinForm onlinePinForm;
 
         List<TLVDataObject> dataRecord;
         List<TLVDataObject> discretionaryData;
@@ -25,11 +26,15 @@ namespace Bezel8PlusApp
         public TxnForm()
         {
             InitializeComponent();
+
             receiptForm = new ReceiptForm();
+            onlinePinForm = new OnlinePinForm();
+
             dataRecord = new List<TLVDataObject>();
             discretionaryData = new List<TLVDataObject>();
+
             comBoxTxnType.SelectedIndex = 0;
-            comBoxARC.SelectedIndex = 0;      
+            comBoxARC.SelectedIndex = 0;
         }
 
         /// <summary>
@@ -205,7 +210,12 @@ namespace Bezel8PlusApp
                     break;
 
                 case TxnResult.ExternalPinBlockReq:
-                    MessageBox.Show("ExternalPinBlockReq");
+                    onlinePinForm.Show();
+                    while (onlinePinForm.Visible == true)
+                    {
+                        Application.DoEvents();
+                    }
+                    OnlinePINProcess(onlinePinForm.GetPIN());
                     break;
 
                 default:
@@ -220,13 +230,28 @@ namespace Bezel8PlusApp
             string t6CResponse = String.Empty;
             try
             {
-                serialPort.WriteAndReadMessage(PktType.STX, "T6C", "", out t6CResponse, false);
+                serialPort.WriteAndReadMessage(PktType.STX, "T6C", "", out t6CResponse, false); 
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
 
+        }
+
+        private void OnlinePINProcess(string pinText)
+        {
+            if (string.IsNullOrEmpty(pinText)) { }
+
+            try
+            {
+                serialPort.WriteAndReadMessage(PktType.STX, "T6F", "1", out string t6fResponse);
+                TransactionResultAnalyze(t6fResponse);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void GetOnlineData(string dataType)

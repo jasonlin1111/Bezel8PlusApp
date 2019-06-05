@@ -87,7 +87,6 @@
             this.Controls.Add(this.tabControl1);
             this.Name = "MainConfigForm";
             this.Text = "ConfigForm";
-            this.Load += new System.EventHandler(this.MainConfigForm_Load);
             this.tabControl1.ResumeLayout(false);
             this.ResumeLayout(false);
 

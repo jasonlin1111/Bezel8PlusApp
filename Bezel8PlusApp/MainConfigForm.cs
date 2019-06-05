@@ -12,18 +12,13 @@ namespace Bezel8PlusApp
 {
     public partial class MainConfigForm : Form
     {
-
-        private TerAppConfigForm terAndAppForm;
-        private CapkForm capkForm;
-
         public MainConfigForm()
         {
             InitializeComponent();
 
-            terAndAppForm = new TerAppConfigForm();
-            capkForm = new CapkForm();
-            AddFormToTab(terAndAppForm, tpConfig);
-            AddFormToTab(capkForm, tpCAPK);
+            AddFormToTab(new TerAppConfigForm(), tpConfig);
+            AddFormToTab(new CapkForm(), tpCAPK);
+            AddFormToTab(new DRLForm(), tpDRL);
 
         }
 
@@ -34,11 +29,6 @@ namespace Bezel8PlusApp
             form.FormBorderStyle = FormBorderStyle.None;
             form.Dock = DockStyle.Fill;
             tabPage.Controls.Add(form);
-        }
-
-        private void MainConfigForm_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

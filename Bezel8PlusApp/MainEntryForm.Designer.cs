@@ -274,11 +274,11 @@
             // 
             this.tableLayoutPanelMenu.ColumnCount = 1;
             this.tableLayoutPanelMenu.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanelMenu.Controls.Add(this.btnMenuConfig, 0, 1);
             this.tableLayoutPanelMenu.Controls.Add(this.btnMenu5, 0, 4);
             this.tableLayoutPanelMenu.Controls.Add(this.btnMenu4, 0, 3);
             this.tableLayoutPanelMenu.Controls.Add(this.btnMenu3, 0, 2);
-            this.tableLayoutPanelMenu.Controls.Add(this.btnMenuTxn, 0, 1);
-            this.tableLayoutPanelMenu.Controls.Add(this.btnMenuConfig, 0, 0);
+            this.tableLayoutPanelMenu.Controls.Add(this.btnMenuTxn, 0, 0);
             this.tableLayoutPanelMenu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanelMenu.Location = new System.Drawing.Point(3, 18);
             this.tableLayoutPanelMenu.Name = "tableLayoutPanelMenu";
@@ -322,7 +322,8 @@
             // btnMenuTxn
             // 
             this.btnMenuTxn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnMenuTxn.Location = new System.Drawing.Point(3, 102);
+            this.btnMenuTxn.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.btnMenuTxn.Location = new System.Drawing.Point(3, 3);
             this.btnMenuTxn.Name = "btnMenuTxn";
             this.btnMenuTxn.Size = new System.Drawing.Size(85, 93);
             this.btnMenuTxn.TabIndex = 1;
@@ -338,7 +339,8 @@
             this.btnMenuConfig.FlatAppearance.BorderSize = 0;
             this.btnMenuConfig.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ActiveBorder;
             this.btnMenuConfig.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.btnMenuConfig.Location = new System.Drawing.Point(3, 3);
+            this.btnMenuConfig.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.btnMenuConfig.Location = new System.Drawing.Point(3, 102);
             this.btnMenuConfig.Name = "btnMenuConfig";
             this.btnMenuConfig.Size = new System.Drawing.Size(85, 93);
             this.btnMenuConfig.TabIndex = 0;

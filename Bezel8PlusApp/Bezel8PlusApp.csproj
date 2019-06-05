@@ -67,6 +67,12 @@
       <DependentUpon>CapkForm.cs</DependentUpon>
     </Compile>
     <Compile Include="DataHandler.cs" />
+    <Compile Include="DRLForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DRLForm.Designer.cs">
+      <DependentUpon>DRLForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoggingForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -108,6 +114,9 @@
     </Compile>
     <EmbeddedResource Include="CapkForm.resx">
       <DependentUpon>CapkForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DRLForm.resx">
+      <DependentUpon>DRLForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoggingForm.resx">
       <DependentUpon>LoggingForm.cs</DependentUpon>

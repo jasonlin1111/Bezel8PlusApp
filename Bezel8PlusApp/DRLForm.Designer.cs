@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanelDRLs = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.cbAmount0Check4 = new System.Windows.Forms.CheckBox();
             this.cbbAmount0Check4 = new System.Windows.Forms.ComboBox();
@@ -78,12 +78,17 @@
             this.cbRCTLCheck2 = new System.Windows.Forms.CheckBox();
             this.cbRCFLCheck2 = new System.Windows.Forms.CheckBox();
             this.cbCVMCheck2 = new System.Windows.Forms.CheckBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnOpen = new System.Windows.Forms.Button();
+            this.btnDeleteAll = new System.Windows.Forms.Button();
+            this.btnSetAll = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
+            this.tableLayoutPanelDRLs.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -91,7 +96,8 @@
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 90F));
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanelDRLs, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.groupBox1, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -100,24 +106,24 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1138, 572);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // tableLayoutPanel2
+            // tableLayoutPanelDRLs
             // 
-            this.tableLayoutPanel2.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.OutsetDouble;
-            this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel6, 1, 1);
-            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel5, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel4, 1, 0);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(116, 3);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 2;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1019, 566);
-            this.tableLayoutPanel2.TabIndex = 0;
+            this.tableLayoutPanelDRLs.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.OutsetDouble;
+            this.tableLayoutPanelDRLs.ColumnCount = 2;
+            this.tableLayoutPanelDRLs.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanelDRLs.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanelDRLs.Controls.Add(this.tableLayoutPanel6, 1, 1);
+            this.tableLayoutPanelDRLs.Controls.Add(this.tableLayoutPanel5, 0, 1);
+            this.tableLayoutPanelDRLs.Controls.Add(this.tableLayoutPanel3, 0, 0);
+            this.tableLayoutPanelDRLs.Controls.Add(this.tableLayoutPanel4, 1, 0);
+            this.tableLayoutPanelDRLs.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanelDRLs.Location = new System.Drawing.Point(116, 3);
+            this.tableLayoutPanelDRLs.Name = "tableLayoutPanelDRLs";
+            this.tableLayoutPanelDRLs.RowCount = 2;
+            this.tableLayoutPanelDRLs.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanelDRLs.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanelDRLs.Size = new System.Drawing.Size(1019, 566);
+            this.tableLayoutPanelDRLs.TabIndex = 0;
             // 
             // tableLayoutPanel6
             // 
@@ -751,6 +757,48 @@
             this.cbCVMCheck2.CheckedChanged += new System.EventHandler(this.CheckBox_CheckedChanged);
             this.cbCVMCheck2.EnabledChanged += new System.EventHandler(this.CheckBox_EnabledChanged);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.btnSetAll);
+            this.groupBox1.Controls.Add(this.btnDeleteAll);
+            this.groupBox1.Controls.Add(this.btnOpen);
+            this.groupBox1.Location = new System.Drawing.Point(3, 3);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(99, 521);
+            this.groupBox1.TabIndex = 1;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "groupBox1";
+            // 
+            // btnOpen
+            // 
+            this.btnOpen.Location = new System.Drawing.Point(9, 38);
+            this.btnOpen.Name = "btnOpen";
+            this.btnOpen.Size = new System.Drawing.Size(76, 69);
+            this.btnOpen.TabIndex = 0;
+            this.btnOpen.Text = "OPEN";
+            this.btnOpen.UseVisualStyleBackColor = true;
+            this.btnOpen.Click += new System.EventHandler(this.btnOpen_Click);
+            // 
+            // btnDeleteAll
+            // 
+            this.btnDeleteAll.Location = new System.Drawing.Point(9, 113);
+            this.btnDeleteAll.Name = "btnDeleteAll";
+            this.btnDeleteAll.Size = new System.Drawing.Size(76, 73);
+            this.btnDeleteAll.TabIndex = 1;
+            this.btnDeleteAll.Text = "Delete All";
+            this.btnDeleteAll.UseVisualStyleBackColor = true;
+            this.btnDeleteAll.Click += new System.EventHandler(this.btnDeleteAll_Click);
+            // 
+            // btnSetAll
+            // 
+            this.btnSetAll.Location = new System.Drawing.Point(9, 197);
+            this.btnSetAll.Name = "btnSetAll";
+            this.btnSetAll.Size = new System.Drawing.Size(76, 77);
+            this.btnSetAll.TabIndex = 2;
+            this.btnSetAll.Text = "Set";
+            this.btnSetAll.UseVisualStyleBackColor = true;
+            this.btnSetAll.Click += new System.EventHandler(this.btnSetAll_Click);
+            // 
             // DRLForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -760,7 +808,7 @@
             this.Name = "DRLForm";
             this.Text = "DRLForm";
             this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanelDRLs.ResumeLayout(false);
             this.tableLayoutPanel6.ResumeLayout(false);
             this.tableLayoutPanel6.PerformLayout();
             this.tableLayoutPanel5.ResumeLayout(false);
@@ -769,6 +817,7 @@
             this.tableLayoutPanel3.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -776,7 +825,7 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanelDRLs;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
         private System.Windows.Forms.CheckBox cbAmount0Check4;
         private System.Windows.Forms.ComboBox cbbAmount0Check4;
@@ -825,5 +874,9 @@
         private System.Windows.Forms.CheckBox cbRCTLCheck2;
         private System.Windows.Forms.CheckBox cbRCFLCheck2;
         private System.Windows.Forms.CheckBox cbCVMCheck2;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button btnOpen;
+        private System.Windows.Forms.Button btnDeleteAll;
+        private System.Windows.Forms.Button btnSetAll;
     }
 }

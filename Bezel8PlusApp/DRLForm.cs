@@ -399,7 +399,7 @@ namespace Bezel8PlusApp
                 t5fMessage += Convert.ToChar(0x1A).ToString() + "FFFF800A" + Convert.ToChar(0x1C).ToString() +
                     "2" + Convert.ToChar(0x1C).ToString() + val;
 
-                if (cb.Checked)
+                if (cb.Checked && !string.IsNullOrEmpty(tbRCFL.Text))
                 {
                     t5fMessage += Convert.ToChar(0x1A).ToString() + "DF8123" + Convert.ToChar(0x1C).ToString() +
                             "2" + Convert.ToChar(0x1C).ToString() + tbRCFL.Text;

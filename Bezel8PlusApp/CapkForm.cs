@@ -70,7 +70,14 @@ namespace Bezel8PlusApp
                 throw new System.Exception("No PKLen");
 
             if (dictionary.TryGetValue("PKExp".ToUpper(), out value))
-                body += value;
+            {
+                if (value.Equals("03"))
+                    body += "1";
+                else if (value.Equals("010001"))
+                    body += "2";
+                else
+                    throw new System.Exception("Unknown Public Exponent");
+            }
             else
                 throw new System.Exception("No PKExp");
 
@@ -199,7 +206,6 @@ namespace Bezel8PlusApp
                         continue;
                     }
                 }
-                MessageBox.Show("Setup CA public keys Successfully");
             }
         }
 
@@ -244,11 +250,6 @@ namespace Bezel8PlusApp
             {
                 MessageBox.Show("Error Message:\n\n {0}", t59response);
             }
-
-
-
-
-
         }
 
         private void listBoxReaderCAPK_SelectedIndexChanged(object sender, EventArgs e)

@@ -136,6 +136,7 @@ namespace Bezel8PlusApp
 
         private void btnStart_Click(object sender, EventArgs e)
         {
+            AUTO_RUN:
             SetTxnInProgressUI();
             receiptForm.Hide();
 
@@ -156,6 +157,15 @@ namespace Bezel8PlusApp
             TransactionResultAnalyze(t61Response);
             ResetToIdleState();
 
+            if (cbAutoRun.Checked)
+            {
+                int delayTime;
+                if (!Int32.TryParse(tbAutoRunTime.Text, out delayTime))
+                    delayTime = 1000;
+                Thread.Sleep(delayTime);
+                goto AUTO_RUN;
+            }
+
         }
 
         private void TransactionResultAnalyze(string result)
@@ -174,26 +184,37 @@ namespace Bezel8PlusApp
             switch (result.Substring(4))
             {
                 case TxnResult.OnlineApprove:
+                    //GetOutputData("0");
+                    //GetOutputData("1");
                     PrintReceipt("Approve", false);
                     tbOutcome.Text = "Online Approve";
                     break;
 
                 case TxnResult.OfflineApprove:
+                    GetOutputData("0");
+                    GetOutputData("1");
                     PrintReceipt("Approve", false);
                     tbOutcome.Text = "Offline Approve";
                     break;
 
                 case TxnResult.OfflineDecline:
+                case TxnResult.UnOnlineOfflineDeclineSign:
+                    GetOutputData("0");
+                    GetOutputData("1");
                     PrintReceipt("Decline", false);
                     tbOutcome.Text = "Offline Decline";
                     break;
 
                 case TxnResult.OnlineDecline:
+                    //GetOutputData("0");
+                    //GetOutputData("1");
                     PrintReceipt("Decline", false);
                     tbOutcome.Text = "Online Decline";
                     break;
 
                 case TxnResult.OfflineApproveSign:
+                    GetOutputData("0");
+                    GetOutputData("1");
                     PrintReceipt("Approve", true);
                     tbOutcome.Text = "Offline Approve";
                     break;
@@ -204,8 +225,8 @@ namespace Bezel8PlusApp
 
                 case TxnResult.OnlineAuthorizeReq:
                     tbOutcome.Text = "Online Authorizing";
-                    GetOnlineData("0");
-                    GetOnlineData("1");
+                    GetOutputData("0");
+                    GetOutputData("1");
                     OnlineAuthorization();
                     break;
 
@@ -254,7 +275,7 @@ namespace Bezel8PlusApp
             }
         }
 
-        private void GetOnlineData(string dataType)
+        private void GetOutputData(string dataType)
         {
             int curPkg, totalPkg;
             string t65Response = String.Empty;
@@ -569,5 +590,9 @@ namespace Bezel8PlusApp
         public const string TryAnotherInterface = "B0";
         public const string OnlineAuthorizeReq = "A1";
         public const string ExternalPinBlockReq = "A5";
+        public const string UnOnlineOfflineApproveSign = "Y8";
+        public const string UnOnlineOfflineApprove = "Y3";
+        public const string OnlineApproveSign = "Y9";
+        public const string UnOnlineOfflineDeclineSign = "Z3";
     }
 }

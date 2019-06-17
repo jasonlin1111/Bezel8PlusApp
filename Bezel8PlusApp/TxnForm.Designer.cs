@@ -59,7 +59,7 @@
             this.btnStart = new System.Windows.Forms.Button();
             this.lbMs = new System.Windows.Forms.Label();
             this.tbAutoRunTime = new System.Windows.Forms.TextBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.cbAutoRun = new System.Windows.Forms.CheckBox();
             this.tbOutcome = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanelTxn.SuspendLayout();
@@ -70,9 +70,9 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.tableLayoutPanelTxn);
-            this.groupBox1.Location = new System.Drawing.Point(6, 2);
+            this.groupBox1.Location = new System.Drawing.Point(6, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(392, 245);
+            this.groupBox1.Size = new System.Drawing.Size(399, 235);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Transaction Data";
@@ -105,14 +105,14 @@
             this.tableLayoutPanelTxn.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanelTxn.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanelTxn.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanelTxn.Size = new System.Drawing.Size(386, 224);
+            this.tableLayoutPanelTxn.Size = new System.Drawing.Size(393, 214);
             this.tableLayoutPanelTxn.TabIndex = 0;
             // 
             // textBoxTimeout
             // 
             this.textBoxTimeout.Dock = System.Windows.Forms.DockStyle.Left;
             this.textBoxTimeout.Enabled = false;
-            this.textBoxTimeout.Location = new System.Drawing.Point(196, 188);
+            this.textBoxTimeout.Location = new System.Drawing.Point(199, 178);
             this.textBoxTimeout.Name = "textBoxTimeout";
             this.textBoxTimeout.Size = new System.Drawing.Size(70, 22);
             this.textBoxTimeout.TabIndex = 11;
@@ -125,7 +125,7 @@
             "CASH",
             "PURCHASE WITH CASHBACK",
             "REFUND"});
-            this.comBoxTxnType.Location = new System.Drawing.Point(196, 3);
+            this.comBoxTxnType.Location = new System.Drawing.Point(199, 3);
             this.comBoxTxnType.Name = "comBoxTxnType";
             this.comBoxTxnType.Size = new System.Drawing.Size(187, 20);
             this.comBoxTxnType.TabIndex = 1;
@@ -133,7 +133,7 @@
             // textBoxCurrencyExp
             // 
             this.textBoxCurrencyExp.Dock = System.Windows.Forms.DockStyle.Left;
-            this.textBoxCurrencyExp.Location = new System.Drawing.Point(196, 151);
+            this.textBoxCurrencyExp.Location = new System.Drawing.Point(199, 143);
             this.textBoxCurrencyExp.MaxLength = 2;
             this.textBoxCurrencyExp.Name = "textBoxCurrencyExp";
             this.textBoxCurrencyExp.Size = new System.Drawing.Size(70, 22);
@@ -146,7 +146,7 @@
             this.cbCurrencyExp.AutoSize = true;
             this.cbCurrencyExp.Checked = true;
             this.cbCurrencyExp.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbCurrencyExp.Location = new System.Drawing.Point(3, 151);
+            this.cbCurrencyExp.Location = new System.Drawing.Point(3, 143);
             this.cbCurrencyExp.Name = "cbCurrencyExp";
             this.cbCurrencyExp.Size = new System.Drawing.Size(116, 16);
             this.cbCurrencyExp.TabIndex = 9;
@@ -160,9 +160,9 @@
             this.cbAmountAuth.Checked = true;
             this.cbAmountAuth.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cbAmountAuth.Dock = System.Windows.Forms.DockStyle.Left;
-            this.cbAmountAuth.Location = new System.Drawing.Point(3, 40);
+            this.cbAmountAuth.Location = new System.Drawing.Point(3, 38);
             this.cbAmountAuth.Name = "cbAmountAuth";
-            this.cbAmountAuth.Size = new System.Drawing.Size(62, 31);
+            this.cbAmountAuth.Size = new System.Drawing.Size(62, 29);
             this.cbAmountAuth.TabIndex = 2;
             this.cbAmountAuth.Text = "Amount";
             this.cbAmountAuth.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -175,10 +175,10 @@
             this.cbCurrencyCode.Checked = true;
             this.cbCurrencyCode.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cbCurrencyCode.Dock = System.Windows.Forms.DockStyle.Left;
-            this.cbCurrencyCode.Location = new System.Drawing.Point(3, 114);
+            this.cbCurrencyCode.Location = new System.Drawing.Point(3, 108);
             this.cbCurrencyCode.Name = "cbCurrencyCode";
             this.cbCurrencyCode.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.cbCurrencyCode.Size = new System.Drawing.Size(96, 31);
+            this.cbCurrencyCode.Size = new System.Drawing.Size(96, 29);
             this.cbCurrencyCode.TabIndex = 8;
             this.cbCurrencyCode.Text = "Currency Code";
             this.cbCurrencyCode.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -187,7 +187,7 @@
             // textBoxCurrencyCode
             // 
             this.textBoxCurrencyCode.Dock = System.Windows.Forms.DockStyle.Left;
-            this.textBoxCurrencyCode.Location = new System.Drawing.Point(196, 114);
+            this.textBoxCurrencyCode.Location = new System.Drawing.Point(199, 108);
             this.textBoxCurrencyCode.MaxLength = 4;
             this.textBoxCurrencyCode.Name = "textBoxCurrencyCode";
             this.textBoxCurrencyCode.Size = new System.Drawing.Size(70, 22);
@@ -197,7 +197,7 @@
             // textBoxAmountAuth
             // 
             this.textBoxAmountAuth.Dock = System.Windows.Forms.DockStyle.Left;
-            this.textBoxAmountAuth.Location = new System.Drawing.Point(196, 40);
+            this.textBoxAmountAuth.Location = new System.Drawing.Point(199, 38);
             this.textBoxAmountAuth.MaxLength = 12;
             this.textBoxAmountAuth.Name = "textBoxAmountAuth";
             this.textBoxAmountAuth.Size = new System.Drawing.Size(152, 22);
@@ -208,9 +208,9 @@
             // 
             this.cbAmountOther.AutoSize = true;
             this.cbAmountOther.Dock = System.Windows.Forms.DockStyle.Left;
-            this.cbAmountOther.Location = new System.Drawing.Point(3, 77);
+            this.cbAmountOther.Location = new System.Drawing.Point(3, 73);
             this.cbAmountOther.Name = "cbAmountOther";
-            this.cbAmountOther.Size = new System.Drawing.Size(91, 31);
+            this.cbAmountOther.Size = new System.Drawing.Size(91, 29);
             this.cbAmountOther.TabIndex = 3;
             this.cbAmountOther.Text = "Amount Other";
             this.cbAmountOther.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -219,7 +219,7 @@
             // textBoxAmountOther
             // 
             this.textBoxAmountOther.Dock = System.Windows.Forms.DockStyle.Left;
-            this.textBoxAmountOther.Location = new System.Drawing.Point(196, 77);
+            this.textBoxAmountOther.Location = new System.Drawing.Point(199, 73);
             this.textBoxAmountOther.MaxLength = 12;
             this.textBoxAmountOther.Name = "textBoxAmountOther";
             this.textBoxAmountOther.Size = new System.Drawing.Size(152, 22);
@@ -235,7 +235,7 @@
             this.cbTxnType.Dock = System.Windows.Forms.DockStyle.Left;
             this.cbTxnType.Location = new System.Drawing.Point(3, 3);
             this.cbTxnType.Name = "cbTxnType";
-            this.cbTxnType.Size = new System.Drawing.Size(105, 31);
+            this.cbTxnType.Size = new System.Drawing.Size(105, 29);
             this.cbTxnType.TabIndex = 0;
             this.cbTxnType.Text = "Transaction Type";
             this.cbTxnType.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -245,7 +245,7 @@
             // 
             this.cbTimeout.AutoSize = true;
             this.cbTimeout.Dock = System.Windows.Forms.DockStyle.Left;
-            this.cbTimeout.Location = new System.Drawing.Point(3, 188);
+            this.cbTimeout.Location = new System.Drawing.Point(3, 178);
             this.cbTimeout.Name = "cbTimeout";
             this.cbTimeout.Size = new System.Drawing.Size(87, 33);
             this.cbTimeout.TabIndex = 10;
@@ -267,7 +267,7 @@
             this.groupBox2.Controls.Add(this.cbAutoReply);
             this.groupBox2.Location = new System.Drawing.Point(9, 253);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(521, 223);
+            this.groupBox2.Size = new System.Drawing.Size(540, 223);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "HOST";
@@ -286,11 +286,11 @@
             // tbOnlineData
             // 
             this.tbOnlineData.Dock = System.Windows.Forms.DockStyle.Right;
-            this.tbOnlineData.Location = new System.Drawing.Point(276, 18);
+            this.tbOnlineData.Location = new System.Drawing.Point(273, 18);
             this.tbOnlineData.Multiline = true;
             this.tbOnlineData.Name = "tbOnlineData";
             this.tbOnlineData.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.tbOnlineData.Size = new System.Drawing.Size(242, 202);
+            this.tbOnlineData.Size = new System.Drawing.Size(264, 202);
             this.tbOnlineData.TabIndex = 8;
             // 
             // tbIssuerScript
@@ -377,9 +377,9 @@
             // groupBox3
             // 
             this.groupBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBox3.Location = new System.Drawing.Point(536, 60);
+            this.groupBox3.Location = new System.Drawing.Point(555, 60);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(377, 416);
+            this.groupBox3.Size = new System.Drawing.Size(376, 416);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Receipt";
@@ -390,10 +390,10 @@
             this.groupBox5.Controls.Add(this.btnStart);
             this.groupBox5.Controls.Add(this.lbMs);
             this.groupBox5.Controls.Add(this.tbAutoRunTime);
-            this.groupBox5.Controls.Add(this.checkBox1);
-            this.groupBox5.Location = new System.Drawing.Point(404, 2);
+            this.groupBox5.Controls.Add(this.cbAutoRun);
+            this.groupBox5.Location = new System.Drawing.Point(411, 12);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(132, 245);
+            this.groupBox5.Size = new System.Drawing.Size(138, 235);
             this.groupBox5.TabIndex = 4;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Execution";
@@ -436,23 +436,23 @@
             this.tbAutoRunTime.TabIndex = 1;
             this.tbAutoRunTime.Text = "2000";
             // 
-            // checkBox1
+            // cbAutoRun
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(6, 187);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(66, 16);
-            this.checkBox1.TabIndex = 0;
-            this.checkBox1.Text = "Auto run";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.cbAutoRun.AutoSize = true;
+            this.cbAutoRun.Location = new System.Drawing.Point(6, 187);
+            this.cbAutoRun.Name = "cbAutoRun";
+            this.cbAutoRun.Size = new System.Drawing.Size(66, 16);
+            this.cbAutoRun.TabIndex = 0;
+            this.cbAutoRun.Text = "Auto run";
+            this.cbAutoRun.UseVisualStyleBackColor = true;
             // 
             // tbOutcome
             // 
             this.tbOutcome.Font = new System.Drawing.Font("Arial Black", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.tbOutcome.Location = new System.Drawing.Point(538, 12);
+            this.tbOutcome.Location = new System.Drawing.Point(555, 16);
             this.tbOutcome.Name = "tbOutcome";
             this.tbOutcome.ReadOnly = true;
-            this.tbOutcome.Size = new System.Drawing.Size(375, 38);
+            this.tbOutcome.Size = new System.Drawing.Size(376, 38);
             this.tbOutcome.TabIndex = 5;
             this.tbOutcome.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -460,7 +460,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(929, 491);
+            this.ClientSize = new System.Drawing.Size(943, 491);
             this.Controls.Add(this.tbOutcome);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox3);
@@ -511,7 +511,7 @@
         private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.Label lbMs;
         private System.Windows.Forms.TextBox tbAutoRunTime;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox cbAutoRun;
         private System.Windows.Forms.TextBox tbOnlineData;
         private System.Windows.Forms.Button btnHostSend;
         private System.Windows.Forms.TextBox tbOutcome;

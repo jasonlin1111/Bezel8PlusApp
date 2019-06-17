@@ -99,10 +99,11 @@ namespace Bezel8PlusApp
                 lbDateTime.Text = String.Empty;
             }
 
-            // AOSA*
+            // AOSA
             if (receiptData.TryGetValue("9F5D", out context))
             {
-                lbAOSA.Text = context;
+                double aosa = Double.Parse(context) / (double)100;
+                lbAOSA.Text = aosa.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture);
                 lbTextAOSA.Visible = true;
                 lbAOSA.Visible = true;
             }

@@ -282,7 +282,7 @@ namespace Bezel8PlusApp
                 serialPort.WriteAndReadMessage(PktType.STX, "T5H", "", out t5hResponse);
                 if (!t5hResponse.ToUpper().Equals("T5I0"))
                     MessageBox.Show(t5hResponse);
-                else
+                else if (sender.Equals(btnDeleteAll))
                     MessageBox.Show("Delete All DRL sets done.");
             }
             catch (Exception ex)
@@ -293,6 +293,8 @@ namespace Bezel8PlusApp
 
         private void btnSetAll_Click(object sender, EventArgs e)
         {
+            btnDeleteAll_Click(sender, e);
+
             // T5F message: T5F<SUB>[PID]<SUB>[DO]
             string t5fMessage = String.Empty;
             List<string> t5fMessageList = new List<string>();
@@ -303,7 +305,7 @@ namespace Bezel8PlusApp
                 CheckBox cbPID = crl.Controls[7] as CheckBox;
                 if (!cbPID.Checked)
                     continue;
-                
+
                 // Program ID
                 TextBox tbPID = crl.Controls[5] as TextBox;
                 if (string.IsNullOrEmpty(tbPID.Text))
@@ -315,6 +317,10 @@ namespace Bezel8PlusApp
                 {
                     t5fMessage += Convert.ToChar(0x1A).ToString() + tbPID.Text;
                 }
+
+                // Kernel ID: tag DF810C
+                t5fMessage += Convert.ToChar(0x1A).ToString() + "DF810C" + Convert.ToChar(0x1C).ToString() +
+                    "2" + Convert.ToChar(0x1C).ToString() + "03";
 
                 // Status Check: tag FFFF8007
                 CheckBox cb = crl.Controls[3] as CheckBox;
@@ -339,7 +345,7 @@ namespace Bezel8PlusApp
 
                 // RCTL Check: tag FFFF8004
                 cb = crl.Controls[8] as CheckBox;
-                val = cb.Checked ? "01" : "00";
+                val = cb.Checked ? "00" : "01";
                 t5fMessage += Convert.ToChar(0x1A).ToString() + "FFFF8004" + Convert.ToChar(0x1C).ToString() +
                     "2" + Convert.ToChar(0x1C).ToString() + val;
 

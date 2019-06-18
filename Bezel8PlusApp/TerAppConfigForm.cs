@@ -186,6 +186,7 @@ namespace Bezel8PlusApp
         private void btnOpen_Click(object sender, EventArgs e)
         {
             openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "dat files (*.dat)|*.dat|All files (*.*)|*.*";
             string path = String.Empty;
 
             if (openFileDialog.ShowDialog() == DialogResult.OK)
@@ -199,6 +200,8 @@ namespace Bezel8PlusApp
                     while (!sr.EndOfStream)
                     {
                         string configFileName = sr.ReadLine().Trim();
+                        if (!configFileName.Contains(".txt"))
+                            configFileName += ".txt";
                         if (!string.IsNullOrEmpty(configFileName) &&
                             File.Exists(path + configFileName))
                         {
@@ -454,6 +457,48 @@ namespace Bezel8PlusApp
                     MessageBox.Show($"Error message: {ex.Message}\n\n");
                     break;
                 }
+            }
+        }
+
+        private void btnGetAll_Click(object sender, EventArgs e)
+        {
+            // <02>T592<03>[LRC]
+            string t59response = String.Empty;
+            listBoxReaderConfig.Items.Clear();
+            try
+            {
+                serialPort.WriteAndReadMessage(PktType.STX, "T59", "2", out t59response);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
+
+            if (t59response.ToUpper().Equals("T5A21"))
+            {
+                listBoxReaderConfig.Items.Clear();
+                MessageBox.Show("No application configs in the Reader");
+                return;
+            }
+
+            if (t59response.ToUpper().StartsWith("T5A20") ||
+                t59response.ToUpper().StartsWith("T5A23"))
+            {
+                Console.WriteLine(t59response);
+                if (t59response.Length <= 6)
+                    return;
+                t59response = t59response.Substring(6);
+                string[] configs = t59response.Split(Convert.ToChar(0x1C));
+
+                foreach (string config in configs)
+                {
+                    listBoxReaderConfig.Items.Add(config);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Error Message:\n\n {0}", t59response);
             }
         }
     }

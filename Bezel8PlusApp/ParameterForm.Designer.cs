@@ -344,7 +344,6 @@
             this.tbTFL.Name = "tbTFL";
             this.tbTFL.Size = new System.Drawing.Size(192, 22);
             this.tbTFL.TabIndex = 18;
-            this.tbTFL.Text = "000000008000";
             // 
             // cbDRL
             // 

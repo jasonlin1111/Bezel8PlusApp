@@ -209,12 +209,8 @@ namespace Bezel8PlusApp
             t55Message += s1A + "DF8126" + s1C + "2" + s1C + tmp;
 
             // Reader CL Floor Limit Checking: tag FFFF800A
-            int checking = 0;
-            if (cbRCFLCheck.Checked)
-                checking += 1;
-            if (cbTFLCheck.Checked)
-                checking += 10;
-            t55Message += s1A + "FFFF800A" + s1C + "2" + s1C + checking.ToString("00");
+            tmp = cbRCFLCheck.Checked ? "01" : "00";
+            t55Message += s1A + "FFFF800A" + s1C + "2" + s1C + tmp;
 
             // Reader CL Floor Limit: tag DF8123
             tmp = tbRCFL.Text;
@@ -227,11 +223,15 @@ namespace Bezel8PlusApp
 
             // Terminal Floor Limit: tag 9F1B
             tmp = tbTFL.Text;
-            if (!string.IsNullOrEmpty(tmp))
+            if (cbTFLCheck.Checked)
             {
                 if (Int32.TryParse(tmp, out int tfl))
                 {
                     t55Message += s1A + "9F1B" + s1C + "2" + s1C + tfl.ToString("X8");
+                }
+                else
+                {
+                    t55Message += s1A + "9F1B" + s1C + "2" + s1C + "00000000";
                 }
             }
 

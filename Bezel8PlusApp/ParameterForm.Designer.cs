@@ -113,7 +113,7 @@
             // tbTTQ
             // 
             this.tbTTQ.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.tbTTQ.Location = new System.Drawing.Point(280, 27);
+            this.tbTTQ.Location = new System.Drawing.Point(339, 27);
             this.tbTTQ.MaxLength = 8;
             this.tbTTQ.Name = "tbTTQ";
             this.tbTTQ.Size = new System.Drawing.Size(87, 22);
@@ -124,7 +124,7 @@
             // 
             this.lbTTQ.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lbTTQ.AutoSize = true;
-            this.lbTTQ.Location = new System.Drawing.Point(310, 12);
+            this.lbTTQ.Location = new System.Drawing.Point(369, 12);
             this.lbTTQ.Name = "lbTTQ";
             this.lbTTQ.Size = new System.Drawing.Size(27, 12);
             this.lbTTQ.TabIndex = 0;
@@ -251,6 +251,7 @@
             this.cbStatusCheck.AutoSize = true;
             this.cbStatusCheck.Checked = true;
             this.cbStatusCheck.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbStatusCheck.Font = new System.Drawing.Font("新細明體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.cbStatusCheck.Location = new System.Drawing.Point(3, 8);
             this.cbStatusCheck.Name = "cbStatusCheck";
             this.cbStatusCheck.Size = new System.Drawing.Size(99, 16);
@@ -364,7 +365,6 @@
             this.tbRevoList.Name = "tbRevoList";
             this.tbRevoList.Size = new System.Drawing.Size(192, 22);
             this.tbRevoList.TabIndex = 20;
-            this.tbRevoList.Text = "A000000003055103000001";
             // 
             // cbExceptionFile
             // 
@@ -453,9 +453,9 @@
             // tableLayoutPanel11
             // 
             this.tableLayoutPanel11.ColumnCount = 3;
-            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 59.45544F));
-            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.74257F));
-            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.80198F));
+            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
+            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
             this.tableLayoutPanel11.Controls.Add(this.btnGetPara, 2, 0);
             this.tableLayoutPanel11.Controls.Add(this.btnSetPara, 1, 0);
             this.tableLayoutPanel11.Controls.Add(this.tableLayoutPanel12, 0, 0);
@@ -470,9 +470,9 @@
             // btnGetPara
             // 
             this.btnGetPara.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnGetPara.Location = new System.Drawing.Point(526, 3);
+            this.btnGetPara.Location = new System.Drawing.Point(557, 3);
             this.btnGetPara.Name = "btnGetPara";
-            this.btnGetPara.Size = new System.Drawing.Size(124, 69);
+            this.btnGetPara.Size = new System.Drawing.Size(93, 69);
             this.btnGetPara.TabIndex = 3;
             this.btnGetPara.Text = "Get Parameters";
             this.btnGetPara.UseVisualStyleBackColor = true;
@@ -481,9 +481,9 @@
             // btnSetPara
             // 
             this.btnSetPara.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSetPara.Location = new System.Drawing.Point(391, 3);
+            this.btnSetPara.Location = new System.Drawing.Point(460, 3);
             this.btnSetPara.Name = "btnSetPara";
-            this.btnSetPara.Size = new System.Drawing.Size(129, 69);
+            this.btnSetPara.Size = new System.Drawing.Size(91, 69);
             this.btnSetPara.TabIndex = 2;
             this.btnSetPara.Text = "Set Parameters";
             this.btnSetPara.UseVisualStyleBackColor = true;
@@ -507,7 +507,7 @@
             this.tableLayoutPanel12.RowCount = 2;
             this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 35F));
             this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 65F));
-            this.tableLayoutPanel12.Size = new System.Drawing.Size(382, 69);
+            this.tableLayoutPanel12.Size = new System.Drawing.Size(451, 69);
             this.tableLayoutPanel12.TabIndex = 4;
             // 
             // cbbTxnType
@@ -517,19 +517,19 @@
             this.cbbTxnType.FormattingEnabled = true;
             this.cbbTxnType.Items.AddRange(new object[] {
             "Purchase"});
-            this.cbbTxnType.Location = new System.Drawing.Point(159, 27);
+            this.cbbTxnType.Location = new System.Drawing.Point(198, 27);
             this.cbbTxnType.Name = "cbbTxnType";
             this.cbbTxnType.Size = new System.Drawing.Size(99, 20);
             this.cbbTxnType.TabIndex = 5;
             // 
             // cbbTemplate
             // 
-            this.cbbTemplate.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.cbbTemplate.Dock = System.Windows.Forms.DockStyle.Top;
             this.cbbTemplate.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbTemplate.FormattingEnabled = true;
             this.cbbTemplate.Location = new System.Drawing.Point(3, 27);
             this.cbbTemplate.Name = "cbbTemplate";
-            this.cbbTemplate.Size = new System.Drawing.Size(146, 20);
+            this.cbbTemplate.Size = new System.Drawing.Size(174, 20);
             this.cbbTemplate.TabIndex = 7;
             this.cbbTemplate.SelectionChangeCommitted += new System.EventHandler(this.cbbTemplate_SelectionChangeCommitted);
             // 
@@ -537,7 +537,7 @@
             // 
             this.lbTxnType.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lbTxnType.AutoSize = true;
-            this.lbTxnType.Location = new System.Drawing.Point(166, 12);
+            this.lbTxnType.Location = new System.Drawing.Point(204, 12);
             this.lbTxnType.Name = "lbTxnType";
             this.lbTxnType.Size = new System.Drawing.Size(86, 12);
             this.lbTxnType.TabIndex = 4;
@@ -547,7 +547,7 @@
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(52, 12);
+            this.label2.Location = new System.Drawing.Point(66, 12);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(48, 12);
             this.label2.TabIndex = 6;

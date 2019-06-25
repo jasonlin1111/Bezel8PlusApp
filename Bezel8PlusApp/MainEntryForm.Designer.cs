@@ -46,11 +46,11 @@
             this.cbHandShake = new System.Windows.Forms.ComboBox();
             this.groupBoxMenu = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanelMenu = new System.Windows.Forms.TableLayoutPanel();
+            this.btnMenuConfig = new System.Windows.Forms.Button();
             this.btnMenu5 = new System.Windows.Forms.Button();
             this.btnMenu4 = new System.Windows.Forms.Button();
             this.btnMenu3 = new System.Windows.Forms.Button();
             this.btnMenuTxn = new System.Windows.Forms.Button();
-            this.btnMenuConfig = new System.Windows.Forms.Button();
             this.groupBoxWorkspace = new System.Windows.Forms.GroupBox();
             this.groupBoxCom.SuspendLayout();
             this.tableLayoutPanelComSetting.SuspendLayout();
@@ -101,7 +101,7 @@
             this.tableLayoutPanelComSetting.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 78F));
             this.tableLayoutPanelComSetting.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 89F));
             this.tableLayoutPanelComSetting.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 99F));
-            this.tableLayoutPanelComSetting.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 114F));
+            this.tableLayoutPanelComSetting.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 115F));
             this.tableLayoutPanelComSetting.Controls.Add(this.cbparity, 3, 1);
             this.tableLayoutPanelComSetting.Controls.Add(this.cbDataBits, 2, 1);
             this.tableLayoutPanelComSetting.Controls.Add(this.lbParity, 3, 0);
@@ -130,7 +130,7 @@
             this.cbparity.FormattingEnabled = true;
             this.cbparity.Items.AddRange(new object[] {
             "None"});
-            this.cbparity.Location = new System.Drawing.Point(245, 36);
+            this.cbparity.Location = new System.Drawing.Point(244, 36);
             this.cbparity.Name = "cbparity";
             this.cbparity.Size = new System.Drawing.Size(83, 20);
             this.cbparity.TabIndex = 7;
@@ -142,7 +142,7 @@
             this.cbDataBits.FormattingEnabled = true;
             this.cbDataBits.Items.AddRange(new object[] {
             "8"});
-            this.cbDataBits.Location = new System.Drawing.Point(167, 36);
+            this.cbDataBits.Location = new System.Drawing.Point(166, 36);
             this.cbDataBits.Name = "cbDataBits";
             this.cbDataBits.Size = new System.Drawing.Size(72, 20);
             this.cbDataBits.TabIndex = 6;
@@ -151,7 +151,7 @@
             // 
             this.lbParity.AutoSize = true;
             this.lbParity.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lbParity.Location = new System.Drawing.Point(245, 21);
+            this.lbParity.Location = new System.Drawing.Point(244, 21);
             this.lbParity.Name = "lbParity";
             this.lbParity.Size = new System.Drawing.Size(83, 12);
             this.lbParity.TabIndex = 5;
@@ -162,7 +162,7 @@
             // 
             this.lbDataBits.AutoSize = true;
             this.lbDataBits.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lbDataBits.Location = new System.Drawing.Point(167, 21);
+            this.lbDataBits.Location = new System.Drawing.Point(166, 21);
             this.lbDataBits.Name = "lbDataBits";
             this.lbDataBits.Size = new System.Drawing.Size(72, 12);
             this.lbDataBits.TabIndex = 4;
@@ -175,7 +175,7 @@
             this.lbCom.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.lbCom.Location = new System.Drawing.Point(3, 21);
             this.lbCom.Name = "lbCom";
-            this.lbCom.Size = new System.Drawing.Size(72, 12);
+            this.lbCom.Size = new System.Drawing.Size(71, 12);
             this.lbCom.TabIndex = 0;
             this.lbCom.Text = "COM";
             this.lbCom.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -186,7 +186,7 @@
             this.cbCOM.FormattingEnabled = true;
             this.cbCOM.Location = new System.Drawing.Point(3, 36);
             this.cbCOM.Name = "cbCOM";
-            this.cbCOM.Size = new System.Drawing.Size(72, 20);
+            this.cbCOM.Size = new System.Drawing.Size(71, 20);
             this.cbCOM.TabIndex = 1;
             this.cbCOM.Click += new System.EventHandler(this.cbCOM_Click);
             // 
@@ -200,7 +200,7 @@
             "38400",
             "57600",
             "115200"});
-            this.cbBuadRate.Location = new System.Drawing.Point(81, 36);
+            this.cbBuadRate.Location = new System.Drawing.Point(80, 36);
             this.cbBuadRate.Name = "cbBuadRate";
             this.cbBuadRate.Size = new System.Drawing.Size(80, 20);
             this.cbBuadRate.TabIndex = 2;
@@ -209,7 +209,7 @@
             // 
             this.lbBuadrate.AutoSize = true;
             this.lbBuadrate.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lbBuadrate.Location = new System.Drawing.Point(81, 21);
+            this.lbBuadrate.Location = new System.Drawing.Point(80, 21);
             this.lbBuadrate.Name = "lbBuadrate";
             this.lbBuadrate.Size = new System.Drawing.Size(80, 12);
             this.lbBuadrate.TabIndex = 3;
@@ -220,7 +220,7 @@
             // 
             this.lbStopBits.AutoSize = true;
             this.lbStopBits.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lbStopBits.Location = new System.Drawing.Point(334, 21);
+            this.lbStopBits.Location = new System.Drawing.Point(333, 21);
             this.lbStopBits.Name = "lbStopBits";
             this.lbStopBits.Size = new System.Drawing.Size(93, 12);
             this.lbStopBits.TabIndex = 8;
@@ -231,9 +231,9 @@
             // 
             this.lbHandShake.AutoSize = true;
             this.lbHandShake.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lbHandShake.Location = new System.Drawing.Point(433, 21);
+            this.lbHandShake.Location = new System.Drawing.Point(432, 21);
             this.lbHandShake.Name = "lbHandShake";
-            this.lbHandShake.Size = new System.Drawing.Size(109, 12);
+            this.lbHandShake.Size = new System.Drawing.Size(110, 12);
             this.lbHandShake.TabIndex = 9;
             this.lbHandShake.Text = "Hand Shake";
             this.lbHandShake.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -244,7 +244,7 @@
             this.cbStopBits.FormattingEnabled = true;
             this.cbStopBits.Items.AddRange(new object[] {
             "1"});
-            this.cbStopBits.Location = new System.Drawing.Point(334, 36);
+            this.cbStopBits.Location = new System.Drawing.Point(333, 36);
             this.cbStopBits.Name = "cbStopBits";
             this.cbStopBits.Size = new System.Drawing.Size(93, 20);
             this.cbStopBits.TabIndex = 10;
@@ -255,7 +255,7 @@
             this.cbHandShake.FormattingEnabled = true;
             this.cbHandShake.Items.AddRange(new object[] {
             "None"});
-            this.cbHandShake.Location = new System.Drawing.Point(433, 36);
+            this.cbHandShake.Location = new System.Drawing.Point(432, 36);
             this.cbHandShake.Name = "cbHandShake";
             this.cbHandShake.Size = new System.Drawing.Size(93, 20);
             this.cbHandShake.TabIndex = 11;
@@ -290,6 +290,23 @@
             this.tableLayoutPanelMenu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanelMenu.Size = new System.Drawing.Size(91, 498);
             this.tableLayoutPanelMenu.TabIndex = 0;
+            // 
+            // btnMenuConfig
+            // 
+            this.btnMenuConfig.BackColor = System.Drawing.Color.Transparent;
+            this.btnMenuConfig.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnMenuConfig.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnMenuConfig.FlatAppearance.BorderSize = 0;
+            this.btnMenuConfig.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.btnMenuConfig.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.btnMenuConfig.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.btnMenuConfig.Location = new System.Drawing.Point(3, 102);
+            this.btnMenuConfig.Name = "btnMenuConfig";
+            this.btnMenuConfig.Size = new System.Drawing.Size(85, 93);
+            this.btnMenuConfig.TabIndex = 0;
+            this.btnMenuConfig.Text = "Configuration";
+            this.btnMenuConfig.UseVisualStyleBackColor = false;
+            this.btnMenuConfig.Click += new System.EventHandler(this.MenuButton_Click);
             // 
             // btnMenu5
             // 
@@ -330,23 +347,6 @@
             this.btnMenuTxn.Text = "Transaction";
             this.btnMenuTxn.UseVisualStyleBackColor = true;
             this.btnMenuTxn.Click += new System.EventHandler(this.MenuButton_Click);
-            // 
-            // btnMenuConfig
-            // 
-            this.btnMenuConfig.BackColor = System.Drawing.Color.Transparent;
-            this.btnMenuConfig.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnMenuConfig.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnMenuConfig.FlatAppearance.BorderSize = 0;
-            this.btnMenuConfig.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.btnMenuConfig.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.btnMenuConfig.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.btnMenuConfig.Location = new System.Drawing.Point(3, 102);
-            this.btnMenuConfig.Name = "btnMenuConfig";
-            this.btnMenuConfig.Size = new System.Drawing.Size(85, 93);
-            this.btnMenuConfig.TabIndex = 0;
-            this.btnMenuConfig.Text = "Configuration";
-            this.btnMenuConfig.UseVisualStyleBackColor = false;
-            this.btnMenuConfig.Click += new System.EventHandler(this.MenuButton_Click);
             // 
             // groupBoxWorkspace
             // 

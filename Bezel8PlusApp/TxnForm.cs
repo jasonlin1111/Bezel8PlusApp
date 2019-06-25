@@ -27,14 +27,20 @@ namespace Bezel8PlusApp
         {
             InitializeComponent();
 
+            comBoxTxnType.DataSource = new string[] { "PURCHASE", "REFUND" };
+            comBoxARC.DataSource = new string[] { "3030 (Approve)", "3531 (Decline)" };
+
             receiptForm = new ReceiptForm();
             onlinePinForm = new OnlinePinForm();
 
             dataRecord = new List<TLVDataObject>();
             discretionaryData = new List<TLVDataObject>();
 
-            comBoxTxnType.SelectedIndex = 0;
-            comBoxARC.SelectedIndex = 0;
+            receiptForm.TopLevel = false;
+            receiptForm.Visible = false;
+            receiptForm.FormBorderStyle = FormBorderStyle.None;
+            receiptForm.Dock = DockStyle.Fill;
+            gbReceipt.Controls.Add(receiptForm);
         }
 
         /// <summary>
@@ -138,7 +144,7 @@ namespace Bezel8PlusApp
         {
             AUTO_RUN:
             SetTxnInProgressUI();
-            receiptForm.Hide();
+            receiptForm.Visible = false;
 
             string t61Message = PrepareTxnData();
             string t61Response = String.Empty;
@@ -198,9 +204,13 @@ namespace Bezel8PlusApp
                     break;
 
                 case TxnResult.OfflineDecline:
-                case TxnResult.UnOnlineOfflineDeclineSign:
                     GetOutputData("0");
                     GetOutputData("1");
+                    PrintReceipt("Decline", false);
+                    tbOutcome.Text = "Offline Decline";
+                    break;
+
+                case TxnResult.UnOnlineOfflineDeclineSign:
                     PrintReceipt("Decline", false);
                     tbOutcome.Text = "Offline Decline";
                     break;
@@ -319,6 +329,7 @@ namespace Bezel8PlusApp
                     {
                         tbOnlineData.AppendText(dataObj.TagString() + "\t" + dataObj.ValueString() + Environment.NewLine);
                     }
+                    GetPOSEntryMode();
                 }
                 else if (dataType == "1")
                 {
@@ -331,6 +342,40 @@ namespace Bezel8PlusApp
                 //Console.WriteLine(tlvHexString);
             }
         }
+
+        private void GetPOSEntryMode()
+        {
+            string tagPOSEntryMode = "9F39";
+            string tagTerEntryCapability = "FFFF8204";
+            string s1A = Convert.ToChar(0x1A).ToString();
+            string t63Message = tagPOSEntryMode + s1A + tagTerEntryCapability;
+
+            try
+            {
+                serialPort.WriteAndReadMessage(PktType.STX, "T63", t63Message, out string t63Response);
+                if (t63Response.ToUpper().StartsWith("T64F"))
+                    return;
+
+
+                string[] dataObj = t63Response.Split(Convert.ToChar(0x1A));
+                foreach (string data in dataObj)
+                {
+                    string[] tlv = data.Split(Convert.ToChar(0x1C));
+                    if (tlv.Length == 3)
+                    {
+                        if (tlv[0].Equals(tagPOSEntryMode) || tlv[0].Equals(tagTerEntryCapability))
+                            tbOnlineData.AppendText(tlv[0] + "\t" + tlv[2] + Environment.NewLine);
+                    }
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+            }
+
+        }
+
 
         private void OnlineAuthorization()
         {
@@ -562,7 +607,8 @@ namespace Bezel8PlusApp
         {
             Dictionary<string, string> receiptData = PrepareReceiptData();
             receiptForm.SetupReceipt(ref receiptData, outcome, needSign);
-            receiptForm.Show();
+            //receiptForm.Show();
+            receiptForm.Visible = true;
         }
 
         private void ResetToIdleState()

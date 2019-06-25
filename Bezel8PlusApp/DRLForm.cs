@@ -14,13 +14,30 @@ namespace Bezel8PlusApp
     public partial class DRLForm : Form
     {
         private OpenFileDialog openFileDialog;
+        private const string templatePath = @"C:\Users\9390\Desktop\B8p_config\DRL";
+        private Dictionary<string, FileInfo> templateFiles;
 
         private SerialPortManager serialPort = SerialPortManager.Instance;
 
         public DRLForm()
         {
             InitializeComponent();
+            InitializeDRLTemplate();
             InitializeValue();
+        }
+
+        private void InitializeDRLTemplate()
+        {
+            DirectoryInfo dinfo = new DirectoryInfo(templatePath);
+            FileInfo[] templateFilesInfo = dinfo.GetFiles("*.txt");
+
+            if (templateFiles == null)
+                templateFiles = new Dictionary<string, FileInfo>();
+
+            foreach (FileInfo file in templateFilesInfo)
+                templateFiles.Add(Path.GetFileNameWithoutExtension(file.Name), file);
+
+            cbbDRLTemplate.DataSource = templateFiles.Keys.ToList();
         }
 
         private void InitializeValue()
@@ -55,6 +72,11 @@ namespace Bezel8PlusApp
                 //Console.WriteLine(tlp.Controls[0].Name);
 
             }
+        }
+
+        private void SetupUI(FileInfo fileInfo)
+        {
+
         }
 
         private void cbPIDs_CheckedChanged(object sender, EventArgs e)
@@ -204,10 +226,10 @@ namespace Bezel8PlusApp
                                 if (Int32.TryParse(sl.Substring(sl.IndexOf("=") + 1), out int option))
                                 {
                                     ComboBox cbb = crl.Controls[1] as ComboBox;
-                                    if (option == 1)
-                                        cbb.SelectedIndex = 0;
-                                    else
+                                    if (option == 2)
                                         cbb.SelectedIndex = 1;
+                                    else
+                                        cbb.SelectedIndex = 0;
                                 }
                             }
                             else if (sl.StartsWith("RCTLChcek"))
@@ -293,7 +315,16 @@ namespace Bezel8PlusApp
 
         private void btnSetAll_Click(object sender, EventArgs e)
         {
-            btnDeleteAll_Click(sender, e);
+            try
+            {
+                btnDeleteAll_Click(sender, e);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"{ex.Message}");
+                return;
+            }
+
 
             // T5F message: T5F<SUB>[PID]<SUB>[DO]
             string t5fMessage = String.Empty;
@@ -434,6 +465,153 @@ namespace Bezel8PlusApp
                 t5fMessageList.RemoveAt(0);
             }
             MessageBox.Show("Set DRL done.");
+        }
+
+        private void cbbDRLTemplate_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            if (cbbDRLTemplate.SelectedItem == null)
+                return;
+
+            InitializeValue();
+
+            if (templateFiles.TryGetValue(cbbDRLTemplate.SelectedItem.ToString(), out FileInfo file))
+            {
+                int drl_index = -1;
+                Control crl = null;
+                try
+                {
+                    var sr = new StreamReader(file.FullName);
+
+                    while (!sr.EndOfStream)
+                    {
+                        string sl = sr.ReadLine().Trim();
+                        if (!string.IsNullOrEmpty(sl))
+                        {
+                            switch (sl)
+                            {
+                                case "#1":
+                                    drl_index = 0;
+                                    cbPID1.Checked = true;
+                                    crl = tableLayoutPanelDRLs.Controls[2];
+                                    break;
+                                case "#2":
+                                    drl_index = 1;
+                                    cbPID2.Checked = true;
+                                    crl = tableLayoutPanelDRLs.Controls[3];
+                                    break;
+                                case "#3":
+                                    drl_index = 2;
+                                    cbPID3.Checked = true;
+                                    crl = tableLayoutPanelDRLs.Controls[1];
+                                    break;
+                                case "#4":
+                                    drl_index = 3;
+                                    cbPID4.Checked = true;
+                                    crl = tableLayoutPanelDRLs.Controls[0];
+                                    break;
+                                default:
+                                    break;
+                            }
+
+                            if (drl_index >= 0 && drl_index < 4 && crl != null)
+                            {
+                                if (sl.StartsWith("ProgramID"))
+                                {
+                                    TextBox tb = crl.Controls[5] as TextBox;
+                                    tb.Text = sl.Substring(sl.IndexOf("=") + 1);
+                                }
+                                else if (sl.StartsWith("StatusCheck"))
+                                {
+                                    if (Int32.TryParse(sl.Substring(sl.IndexOf("=") + 1), out int check))
+                                    {
+                                        CheckBox cb = crl.Controls[3] as CheckBox;
+                                        if (check == 1)
+                                            cb.Checked = true;
+                                    }
+                                }
+                                else if (sl.StartsWith("AmountZeroCheck"))
+                                {
+                                    if (Int32.TryParse(sl.Substring(sl.IndexOf("=") + 1), out int check))
+                                    {
+                                        CheckBox cb = crl.Controls[0] as CheckBox;
+                                        if (check == 1)
+                                            cb.Checked = true;
+                                    }
+                                }
+                                else if (sl.StartsWith("AmountOption"))
+                                {
+                                    if (Int32.TryParse(sl.Substring(sl.IndexOf("=") + 1), out int option))
+                                    {
+                                        ComboBox cbb = crl.Controls[1] as ComboBox;
+                                        if (option == 2)
+                                            cbb.SelectedIndex = 1;
+                                        else
+                                            cbb.SelectedIndex = 0;
+                                    }
+                                }
+                                else if (sl.StartsWith("RCTLChcek"))
+                                {
+                                    if (Int32.TryParse(sl.Substring(sl.IndexOf("=") + 1), out int check))
+                                    {
+                                        CheckBox cb = crl.Controls[8] as CheckBox;
+                                        if (check == 1)
+                                            cb.Checked = true;
+                                    }
+                                }
+                                else if (sl.StartsWith("RCTL=") || sl.StartsWith("RCTL ="))
+                                {
+                                    TextBox tb = crl.Controls[6] as TextBox;
+                                    string limitValue = sl.Substring(sl.IndexOf("=") + 1).Trim();
+                                    if (limitValue.Equals("FFFFFFFFFFFF"))
+                                        tb.Text = String.Empty;
+                                    else
+                                        tb.Text = limitValue;
+                                }
+                                else if (sl.StartsWith("CVMLCheck"))
+                                {
+                                    if (Int32.TryParse(sl.Substring(sl.IndexOf("=") + 1), out int check))
+                                    {
+                                        CheckBox cb = crl.Controls[10] as CheckBox;
+                                        if (check == 1)
+                                            cb.Checked = true;
+                                    }
+                                }
+                                else if (sl.StartsWith("CVML=") || sl.StartsWith("CVML ="))
+                                {
+                                    TextBox tb = crl.Controls[4] as TextBox;
+                                    string limitValue = sl.Substring(sl.IndexOf("=") + 1).Trim();
+                                    if (limitValue.Equals("FFFFFFFFFFFF"))
+                                        tb.Text = String.Empty;
+                                    else
+                                        tb.Text = limitValue;
+                                }
+                                else if (sl.StartsWith("RCFLCheck"))
+                                {
+                                    if (Int32.TryParse(sl.Substring(sl.IndexOf("=") + 1), out int check))
+                                    {
+                                        CheckBox cb = crl.Controls[9] as CheckBox;
+                                        if (check == 1)
+                                            cb.Checked = true;
+                                    }
+                                }
+                                else if (sl.StartsWith("RCFL=") || sl.StartsWith("RCFL ="))
+                                {
+                                    TextBox tb = crl.Controls[2] as TextBox;
+                                    string limitValue = sl.Substring(sl.IndexOf("=") + 1).Trim();
+                                    if (limitValue.Equals("FFFFFFFFFFFF"))
+                                        tb.Text = String.Empty;
+                                    else
+                                        tb.Text = limitValue;
+                                }
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
         }
     }
 

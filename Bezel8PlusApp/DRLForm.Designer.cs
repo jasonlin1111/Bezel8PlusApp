@@ -79,9 +79,11 @@
             this.cbRCFLCheck2 = new System.Windows.Forms.CheckBox();
             this.cbCVMCheck2 = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnOpen = new System.Windows.Forms.Button();
-            this.btnDeleteAll = new System.Windows.Forms.Button();
             this.btnSetAll = new System.Windows.Forms.Button();
+            this.btnDeleteAll = new System.Windows.Forms.Button();
+            this.btnOpen = new System.Windows.Forms.Button();
+            this.cbbDRLTemplate = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanelDRLs.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
@@ -94,8 +96,8 @@
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 90F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 83.33334F));
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanelDRLs, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.groupBox1, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -117,12 +119,12 @@
             this.tableLayoutPanelDRLs.Controls.Add(this.tableLayoutPanel3, 0, 0);
             this.tableLayoutPanelDRLs.Controls.Add(this.tableLayoutPanel4, 1, 0);
             this.tableLayoutPanelDRLs.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanelDRLs.Location = new System.Drawing.Point(116, 3);
+            this.tableLayoutPanelDRLs.Location = new System.Drawing.Point(192, 3);
             this.tableLayoutPanelDRLs.Name = "tableLayoutPanelDRLs";
             this.tableLayoutPanelDRLs.RowCount = 2;
             this.tableLayoutPanelDRLs.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanelDRLs.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanelDRLs.Size = new System.Drawing.Size(1019, 566);
+            this.tableLayoutPanelDRLs.Size = new System.Drawing.Size(943, 566);
             this.tableLayoutPanelDRLs.TabIndex = 0;
             // 
             // tableLayoutPanel6
@@ -142,7 +144,7 @@
             this.tableLayoutPanel6.Controls.Add(this.cbRCFLCheck4, 0, 5);
             this.tableLayoutPanel6.Controls.Add(this.cbCVMCheck4, 0, 4);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(514, 287);
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(476, 287);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 6;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
@@ -151,7 +153,7 @@
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(499, 273);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(461, 273);
             this.tableLayoutPanel6.TabIndex = 4;
             // 
             // cbAmount0Check4
@@ -171,12 +173,13 @@
             // cbbAmount0Check4
             // 
             this.cbbAmount0Check4.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.cbbAmount0Check4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbAmount0Check4.Enabled = false;
             this.cbbAmount0Check4.FormattingEnabled = true;
             this.cbbAmount0Check4.Items.AddRange(new object[] {
             "Option 1",
             "Option 2"});
-            this.cbbAmount0Check4.Location = new System.Drawing.Point(252, 102);
+            this.cbbAmount0Check4.Location = new System.Drawing.Point(233, 102);
             this.cbbAmount0Check4.Name = "cbbAmount0Check4";
             this.cbbAmount0Check4.Size = new System.Drawing.Size(98, 20);
             this.cbbAmount0Check4.TabIndex = 4;
@@ -185,7 +188,7 @@
             // 
             this.tbRCFL4.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.tbRCFL4.Enabled = false;
-            this.tbRCFL4.Location = new System.Drawing.Point(252, 238);
+            this.tbRCFL4.Location = new System.Drawing.Point(233, 238);
             this.tbRCFL4.Name = "tbRCFL4";
             this.tbRCFL4.Size = new System.Drawing.Size(192, 22);
             this.tbRCFL4.TabIndex = 10;
@@ -206,7 +209,7 @@
             // 
             this.tbCVML4.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.tbCVML4.Enabled = false;
-            this.tbCVML4.Location = new System.Drawing.Point(252, 191);
+            this.tbCVML4.Location = new System.Drawing.Point(233, 191);
             this.tbCVML4.Name = "tbCVML4";
             this.tbCVML4.Size = new System.Drawing.Size(192, 22);
             this.tbCVML4.TabIndex = 9;
@@ -215,16 +218,16 @@
             // 
             this.tbPID4.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.tbPID4.Enabled = false;
-            this.tbPID4.Location = new System.Drawing.Point(252, 11);
+            this.tbPID4.Location = new System.Drawing.Point(233, 11);
             this.tbPID4.Name = "tbPID4";
-            this.tbPID4.Size = new System.Drawing.Size(230, 22);
+            this.tbPID4.Size = new System.Drawing.Size(225, 22);
             this.tbPID4.TabIndex = 1;
             // 
             // tbRCTL4
             // 
             this.tbRCTL4.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.tbRCTL4.Enabled = false;
-            this.tbRCTL4.Location = new System.Drawing.Point(252, 146);
+            this.tbRCTL4.Location = new System.Drawing.Point(233, 146);
             this.tbRCTL4.Name = "tbRCTL4";
             this.tbRCTL4.Size = new System.Drawing.Size(192, 22);
             this.tbRCTL4.TabIndex = 8;
@@ -248,7 +251,7 @@
             this.cbRCTLCheck4.Enabled = false;
             this.cbRCTLCheck4.Location = new System.Drawing.Point(3, 149);
             this.cbRCTLCheck4.Name = "cbRCTLCheck4";
-            this.cbRCTLCheck4.Size = new System.Drawing.Size(230, 16);
+            this.cbRCTLCheck4.Size = new System.Drawing.Size(224, 16);
             this.cbRCTLCheck4.TabIndex = 5;
             this.cbRCTLCheck4.Text = "Reader Contactless Transaction Limit Check";
             this.cbRCTLCheck4.UseVisualStyleBackColor = true;
@@ -309,7 +312,7 @@
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(499, 273);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(461, 273);
             this.tableLayoutPanel5.TabIndex = 3;
             // 
             // cbAmount0Check3
@@ -329,12 +332,13 @@
             // cbbAmount0Check3
             // 
             this.cbbAmount0Check3.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.cbbAmount0Check3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbAmount0Check3.Enabled = false;
             this.cbbAmount0Check3.FormattingEnabled = true;
             this.cbbAmount0Check3.Items.AddRange(new object[] {
             "Option 1",
             "Option 2"});
-            this.cbbAmount0Check3.Location = new System.Drawing.Point(252, 102);
+            this.cbbAmount0Check3.Location = new System.Drawing.Point(233, 102);
             this.cbbAmount0Check3.Name = "cbbAmount0Check3";
             this.cbbAmount0Check3.Size = new System.Drawing.Size(98, 20);
             this.cbbAmount0Check3.TabIndex = 4;
@@ -343,7 +347,7 @@
             // 
             this.tbRCFL3.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.tbRCFL3.Enabled = false;
-            this.tbRCFL3.Location = new System.Drawing.Point(252, 238);
+            this.tbRCFL3.Location = new System.Drawing.Point(233, 238);
             this.tbRCFL3.Name = "tbRCFL3";
             this.tbRCFL3.Size = new System.Drawing.Size(192, 22);
             this.tbRCFL3.TabIndex = 10;
@@ -364,7 +368,7 @@
             // 
             this.tbCVML3.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.tbCVML3.Enabled = false;
-            this.tbCVML3.Location = new System.Drawing.Point(252, 191);
+            this.tbCVML3.Location = new System.Drawing.Point(233, 191);
             this.tbCVML3.Name = "tbCVML3";
             this.tbCVML3.Size = new System.Drawing.Size(192, 22);
             this.tbCVML3.TabIndex = 9;
@@ -373,16 +377,16 @@
             // 
             this.tbPID3.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.tbPID3.Enabled = false;
-            this.tbPID3.Location = new System.Drawing.Point(252, 11);
+            this.tbPID3.Location = new System.Drawing.Point(233, 11);
             this.tbPID3.Name = "tbPID3";
-            this.tbPID3.Size = new System.Drawing.Size(230, 22);
+            this.tbPID3.Size = new System.Drawing.Size(225, 22);
             this.tbPID3.TabIndex = 1;
             // 
             // tbRCTL3
             // 
             this.tbRCTL3.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.tbRCTL3.Enabled = false;
-            this.tbRCTL3.Location = new System.Drawing.Point(252, 146);
+            this.tbRCTL3.Location = new System.Drawing.Point(233, 146);
             this.tbRCTL3.Name = "tbRCTL3";
             this.tbRCTL3.Size = new System.Drawing.Size(192, 22);
             this.tbRCTL3.TabIndex = 8;
@@ -406,7 +410,7 @@
             this.cbRCTLCheck3.Enabled = false;
             this.cbRCTLCheck3.Location = new System.Drawing.Point(3, 149);
             this.cbRCTLCheck3.Name = "cbRCTLCheck3";
-            this.cbRCTLCheck3.Size = new System.Drawing.Size(230, 16);
+            this.cbRCTLCheck3.Size = new System.Drawing.Size(224, 16);
             this.cbRCTLCheck3.TabIndex = 5;
             this.cbRCTLCheck3.Text = "Reader Contactless Transaction Limit Check";
             this.cbRCTLCheck3.UseVisualStyleBackColor = true;
@@ -467,7 +471,7 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(499, 272);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(461, 272);
             this.tableLayoutPanel3.TabIndex = 2;
             // 
             // cbAmount0Check1
@@ -487,12 +491,14 @@
             // cbbAmount0Check1
             // 
             this.cbbAmount0Check1.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.cbbAmount0Check1.BackColor = System.Drawing.SystemColors.Window;
+            this.cbbAmount0Check1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbAmount0Check1.Enabled = false;
             this.cbbAmount0Check1.FormattingEnabled = true;
             this.cbbAmount0Check1.Items.AddRange(new object[] {
             "Option 1",
             "Option 2"});
-            this.cbbAmount0Check1.Location = new System.Drawing.Point(252, 102);
+            this.cbbAmount0Check1.Location = new System.Drawing.Point(233, 102);
             this.cbbAmount0Check1.Name = "cbbAmount0Check1";
             this.cbbAmount0Check1.Size = new System.Drawing.Size(98, 20);
             this.cbbAmount0Check1.TabIndex = 4;
@@ -501,7 +507,7 @@
             // 
             this.tbRCFL1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.tbRCFL1.Enabled = false;
-            this.tbRCFL1.Location = new System.Drawing.Point(252, 237);
+            this.tbRCFL1.Location = new System.Drawing.Point(233, 237);
             this.tbRCFL1.Name = "tbRCFL1";
             this.tbRCFL1.Size = new System.Drawing.Size(192, 22);
             this.tbRCFL1.TabIndex = 10;
@@ -522,7 +528,7 @@
             // 
             this.tbCVML1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.tbCVML1.Enabled = false;
-            this.tbCVML1.Location = new System.Drawing.Point(252, 191);
+            this.tbCVML1.Location = new System.Drawing.Point(233, 191);
             this.tbCVML1.Name = "tbCVML1";
             this.tbCVML1.Size = new System.Drawing.Size(192, 22);
             this.tbCVML1.TabIndex = 9;
@@ -531,16 +537,16 @@
             // 
             this.tbPID1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.tbPID1.Enabled = false;
-            this.tbPID1.Location = new System.Drawing.Point(252, 11);
+            this.tbPID1.Location = new System.Drawing.Point(233, 11);
             this.tbPID1.Name = "tbPID1";
-            this.tbPID1.Size = new System.Drawing.Size(230, 22);
+            this.tbPID1.Size = new System.Drawing.Size(225, 22);
             this.tbPID1.TabIndex = 1;
             // 
             // tbRCTL1
             // 
             this.tbRCTL1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.tbRCTL1.Enabled = false;
-            this.tbRCTL1.Location = new System.Drawing.Point(252, 146);
+            this.tbRCTL1.Location = new System.Drawing.Point(233, 146);
             this.tbRCTL1.Name = "tbRCTL1";
             this.tbRCTL1.Size = new System.Drawing.Size(192, 22);
             this.tbRCTL1.TabIndex = 8;
@@ -564,7 +570,7 @@
             this.cbRCTLCheck1.Enabled = false;
             this.cbRCTLCheck1.Location = new System.Drawing.Point(3, 149);
             this.cbRCTLCheck1.Name = "cbRCTLCheck1";
-            this.cbRCTLCheck1.Size = new System.Drawing.Size(230, 16);
+            this.cbRCTLCheck1.Size = new System.Drawing.Size(224, 16);
             this.cbRCTLCheck1.TabIndex = 5;
             this.cbRCTLCheck1.Text = "Reader Contactless Transaction Limit Check";
             this.cbRCTLCheck1.UseVisualStyleBackColor = true;
@@ -616,7 +622,7 @@
             this.tableLayoutPanel4.Controls.Add(this.cbRCFLCheck2, 0, 5);
             this.tableLayoutPanel4.Controls.Add(this.cbCVMCheck2, 0, 4);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(514, 6);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(476, 6);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 6;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
@@ -625,7 +631,7 @@
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(499, 272);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(461, 272);
             this.tableLayoutPanel4.TabIndex = 1;
             // 
             // cbAmount0Check2
@@ -645,12 +651,13 @@
             // cbbAmount0Check2
             // 
             this.cbbAmount0Check2.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.cbbAmount0Check2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbAmount0Check2.Enabled = false;
             this.cbbAmount0Check2.FormattingEnabled = true;
             this.cbbAmount0Check2.Items.AddRange(new object[] {
             "Option 1",
             "Option 2"});
-            this.cbbAmount0Check2.Location = new System.Drawing.Point(252, 102);
+            this.cbbAmount0Check2.Location = new System.Drawing.Point(233, 102);
             this.cbbAmount0Check2.Name = "cbbAmount0Check2";
             this.cbbAmount0Check2.Size = new System.Drawing.Size(98, 20);
             this.cbbAmount0Check2.TabIndex = 4;
@@ -659,7 +666,7 @@
             // 
             this.tbRCFL2.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.tbRCFL2.Enabled = false;
-            this.tbRCFL2.Location = new System.Drawing.Point(252, 237);
+            this.tbRCFL2.Location = new System.Drawing.Point(233, 237);
             this.tbRCFL2.Name = "tbRCFL2";
             this.tbRCFL2.Size = new System.Drawing.Size(192, 22);
             this.tbRCFL2.TabIndex = 10;
@@ -680,7 +687,7 @@
             // 
             this.tbCVML2.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.tbCVML2.Enabled = false;
-            this.tbCVML2.Location = new System.Drawing.Point(252, 191);
+            this.tbCVML2.Location = new System.Drawing.Point(233, 191);
             this.tbCVML2.Name = "tbCVML2";
             this.tbCVML2.Size = new System.Drawing.Size(192, 22);
             this.tbCVML2.TabIndex = 9;
@@ -689,16 +696,16 @@
             // 
             this.tbPID2.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.tbPID2.Enabled = false;
-            this.tbPID2.Location = new System.Drawing.Point(252, 11);
+            this.tbPID2.Location = new System.Drawing.Point(233, 11);
             this.tbPID2.Name = "tbPID2";
-            this.tbPID2.Size = new System.Drawing.Size(230, 22);
+            this.tbPID2.Size = new System.Drawing.Size(225, 22);
             this.tbPID2.TabIndex = 1;
             // 
             // tbRCTL2
             // 
             this.tbRCTL2.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.tbRCTL2.Enabled = false;
-            this.tbRCTL2.Location = new System.Drawing.Point(252, 146);
+            this.tbRCTL2.Location = new System.Drawing.Point(233, 146);
             this.tbRCTL2.Name = "tbRCTL2";
             this.tbRCTL2.Size = new System.Drawing.Size(192, 22);
             this.tbRCTL2.TabIndex = 8;
@@ -722,7 +729,7 @@
             this.cbRCTLCheck2.Enabled = false;
             this.cbRCTLCheck2.Location = new System.Drawing.Point(3, 149);
             this.cbRCTLCheck2.Name = "cbRCTLCheck2";
-            this.cbRCTLCheck2.Size = new System.Drawing.Size(230, 16);
+            this.cbRCTLCheck2.Size = new System.Drawing.Size(224, 16);
             this.cbRCTLCheck2.TabIndex = 5;
             this.cbRCTLCheck2.Text = "Reader Contactless Transaction Limit Check";
             this.cbRCTLCheck2.UseVisualStyleBackColor = true;
@@ -759,29 +766,31 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.cbbDRLTemplate);
             this.groupBox1.Controls.Add(this.btnSetAll);
             this.groupBox1.Controls.Add(this.btnDeleteAll);
             this.groupBox1.Controls.Add(this.btnOpen);
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(99, 521);
+            this.groupBox1.Size = new System.Drawing.Size(183, 521);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
             // 
-            // btnOpen
+            // btnSetAll
             // 
-            this.btnOpen.Location = new System.Drawing.Point(9, 38);
-            this.btnOpen.Name = "btnOpen";
-            this.btnOpen.Size = new System.Drawing.Size(76, 69);
-            this.btnOpen.TabIndex = 0;
-            this.btnOpen.Text = "OPEN";
-            this.btnOpen.UseVisualStyleBackColor = true;
-            this.btnOpen.Click += new System.EventHandler(this.btnOpen_Click);
+            this.btnSetAll.Location = new System.Drawing.Point(30, 79);
+            this.btnSetAll.Name = "btnSetAll";
+            this.btnSetAll.Size = new System.Drawing.Size(76, 77);
+            this.btnSetAll.TabIndex = 2;
+            this.btnSetAll.Text = "Set";
+            this.btnSetAll.UseVisualStyleBackColor = true;
+            this.btnSetAll.Click += new System.EventHandler(this.btnSetAll_Click);
             // 
             // btnDeleteAll
             // 
-            this.btnDeleteAll.Location = new System.Drawing.Point(9, 113);
+            this.btnDeleteAll.Location = new System.Drawing.Point(30, 162);
             this.btnDeleteAll.Name = "btnDeleteAll";
             this.btnDeleteAll.Size = new System.Drawing.Size(76, 73);
             this.btnDeleteAll.TabIndex = 1;
@@ -789,15 +798,34 @@
             this.btnDeleteAll.UseVisualStyleBackColor = true;
             this.btnDeleteAll.Click += new System.EventHandler(this.btnDeleteAll_Click);
             // 
-            // btnSetAll
+            // btnOpen
             // 
-            this.btnSetAll.Location = new System.Drawing.Point(9, 197);
-            this.btnSetAll.Name = "btnSetAll";
-            this.btnSetAll.Size = new System.Drawing.Size(76, 77);
-            this.btnSetAll.TabIndex = 2;
-            this.btnSetAll.Text = "Set";
-            this.btnSetAll.UseVisualStyleBackColor = true;
-            this.btnSetAll.Click += new System.EventHandler(this.btnSetAll_Click);
+            this.btnOpen.Location = new System.Drawing.Point(30, 241);
+            this.btnOpen.Name = "btnOpen";
+            this.btnOpen.Size = new System.Drawing.Size(76, 69);
+            this.btnOpen.TabIndex = 0;
+            this.btnOpen.Text = "OPEN";
+            this.btnOpen.UseVisualStyleBackColor = true;
+            this.btnOpen.Click += new System.EventHandler(this.btnOpen_Click);
+            // 
+            // cbbDRLTemplate
+            // 
+            this.cbbDRLTemplate.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbDRLTemplate.FormattingEnabled = true;
+            this.cbbDRLTemplate.Location = new System.Drawing.Point(9, 44);
+            this.cbbDRLTemplate.Name = "cbbDRLTemplate";
+            this.cbbDRLTemplate.Size = new System.Drawing.Size(160, 20);
+            this.cbbDRLTemplate.TabIndex = 3;
+            this.cbbDRLTemplate.SelectionChangeCommitted += new System.EventHandler(this.cbbDRLTemplate_SelectionChangeCommitted);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(58, 24);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(48, 12);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Template";
             // 
             // DRLForm
             // 
@@ -818,6 +846,7 @@
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
             this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -878,5 +907,7 @@
         private System.Windows.Forms.Button btnOpen;
         private System.Windows.Forms.Button btnDeleteAll;
         private System.Windows.Forms.Button btnSetAll;
+        private System.Windows.Forms.ComboBox cbbDRLTemplate;
+        private System.Windows.Forms.Label label1;
     }
 }

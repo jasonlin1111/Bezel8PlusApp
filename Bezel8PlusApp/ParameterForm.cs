@@ -25,8 +25,8 @@ namespace Bezel8PlusApp
             templateFiles = new Dictionary<string, FileInfo>();
             cbbTepSource = new List<string>();
             cbbAmount0Check.DataSource = new string[] { "Option 1", "Option 2" };
-            cbbTxnType.SelectedIndex = 0;
-
+            cbbCardType.DataSource = new string[] { "None", "PayWave" };
+            cbbTxnType.DataSource = new string[] { "PURCHASE", "REFUND" };
 
             InitializeTemplates();
         }
@@ -101,7 +101,7 @@ namespace Bezel8PlusApp
                 {
                     serialPort.WriteAndReadMessage(PktType.SI, "18", datetime, out string response);
                     if (response.Equals("180"))
-                        MessageBox.Show("Set date and time sucessfully");
+                        MessageBox.Show("Success");
                     else
                         MessageBox.Show(response);
                 }
@@ -271,14 +271,16 @@ namespace Bezel8PlusApp
             if (string.IsNullOrEmpty(tbPAN.Text))
                 return;
 
-            string t77Message = Convert.ToChar(0x1A).ToString() + tbPAN.Text + Convert.ToChar(0x1A).ToString();
+            string t77Message = Convert.ToChar(0x1A).ToString() + tbPAN.Text;
             try
             {
                 serialPort.WriteAndReadMessage(PktType.STX, "T77", t77Message, out string t77Response);
                 if (t77Response.ToUpper().Equals("T780"))
-                    MessageBox.Show("Add exception file sucessfully");
+                    MessageBox.Show("Success");
+                else if (t77Response.ToUpper().Equals("T7814"))
+                    MessageBox.Show("This exception file exists");
                 else
-                    MessageBox.Show($"Add exception file failed: {t77Response}");
+                    MessageBox.Show($"Failed: {t77Response}");
             }
             catch (Exception ex)
             {
@@ -292,9 +294,9 @@ namespace Bezel8PlusApp
             {
                 serialPort.WriteAndReadMessage(PktType.STX, "T77", Convert.ToChar(0x1A).ToString() + "FF", out string t77Response);
                 if (t77Response.ToUpper().Equals("T780"))
-                    MessageBox.Show("Remove all exception files sucessfully");
+                    MessageBox.Show("Success");
                 else
-                    MessageBox.Show($"Remove all exception files failed: {t77Response}");
+                    MessageBox.Show($"Failed: {t77Response}");
             }
             catch (Exception ex)
             {
@@ -471,6 +473,102 @@ namespace Bezel8PlusApp
                     break;
 
             }
+        }
+
+        private void cbbCardType_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            tbPAN.Text = String.Empty;
+
+            if (cbbCardType.SelectedItem.ToString().Equals("PayWave"))
+            {
+                tbPAN.Text += "4761739001010010";
+            }
+        }
+
+        private void cbTTQSetting_CheckedChanged(object sender, EventArgs e)
+        {
+            if (tbTTQ.Text.Length != 8 || !DataHandler.IsHexString(tbTTQ.Text))
+                return;
+
+            byte[] bTTQ = DataHandler.HexStringToByteArray(tbTTQ.Text);
+
+            if (sender.Equals(cbTTQB1b8))
+            {
+                if (cbTTQB1b8.Checked)
+                    bTTQ[0] |= 0x80;
+                else
+                    bTTQ[0] &= 0x7F;
+            }
+            else if (sender.Equals(cbTTQB1b6))
+            {
+                if (cbTTQB1b6.Checked)
+                    bTTQ[0] |= 0x20;
+                else
+                    bTTQ[0] &= 0xDF;
+
+            }
+            else if (sender.Equals(cbTTQB1b5))
+            {
+                if (cbTTQB1b5.Checked)
+                    bTTQ[0] |= 0x10;
+                else
+                    bTTQ[0] &= 0xEF;
+            }
+            else if (sender.Equals(cbTTQB1b4))
+            {
+                if (cbTTQB1b4.Checked)
+                    bTTQ[0] |= 0x08;
+                else
+                    bTTQ[0] &= 0xF7;
+            }
+            else if (sender.Equals(cbTTQB1b3))
+            {
+                if (cbTTQB1b3.Checked)
+                    bTTQ[0] |= 0x04;
+                else
+                    bTTQ[0] &= 0xFB;
+            }
+            else if (sender.Equals(cbTTQB1b2))
+            {
+                if (cbTTQB1b2.Checked)
+                    bTTQ[0] |= 0x02;
+                else
+                    bTTQ[0] &= 0xFD;
+            }
+            else if (sender.Equals(cbTTQB3b7))
+            {
+                if (cbTTQB3b7.Checked)
+                    bTTQ[2] |= 0x40;
+                else
+                    bTTQ[2] &= 0xBF;
+            }
+
+            tbTTQ.Text = DataHandler.ByteArrayToHexString(bTTQ);
+
+        }
+
+        private void tbTTQ_TextChanged(object sender, EventArgs e)
+        {
+            if (tbTTQ.Text.Length != 8 || !DataHandler.IsHexString(tbTTQ.Text))
+                return;
+
+            byte[] bTTQ = DataHandler.HexStringToByteArray(tbTTQ.Text);
+
+            cbTTQB1b8.Checked = (bTTQ[0] & 0x80) != 0 ? true : false;
+
+            cbTTQB1b6.Checked = (bTTQ[0] & 0x20) != 0 ? true : false;
+
+            cbTTQB1b5.Checked = (bTTQ[0] & 0x10) != 0 ? true : false;
+
+            cbTTQB1b4.Checked = (bTTQ[0] & 0x08) != 0 ? true : false;
+
+            cbTTQB1b3.Checked = (bTTQ[0] & 0x04) != 0 ? true : false;
+
+            cbTTQB1b2.Checked = (bTTQ[0] & 0x02) != 0 ? true : false;
+
+            cbTTQB3b7.Checked = (bTTQ[2] & 0x40) != 0 ? true : false;
+
+
         }
     }
 }

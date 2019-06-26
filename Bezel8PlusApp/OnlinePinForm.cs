@@ -20,6 +20,12 @@ namespace Bezel8PlusApp
             pinText = String.Empty;
         }
 
+        public string GetPINBlock()
+        {
+            string pinLength = pinText.Length.ToString("X2");
+            return pinLength + pinText.PadRight(14, 'F');
+        }
+
         public string GetPIN()
         {
             return pinText;

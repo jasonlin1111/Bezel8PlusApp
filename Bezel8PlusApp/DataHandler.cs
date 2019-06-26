@@ -9,6 +9,11 @@ namespace Bezel8PlusApp
     class DataHandler
     {
 
+        public static bool IsHexString(string input)
+        {
+            return System.Text.RegularExpressions.Regex.IsMatch(input, @"\A\b[0-9a-fA-F]+\b\Z");
+        }
+
         public static char CalculateLRC(string toEncode)
         {
             byte[] bytes = Encoding.ASCII.GetBytes(toEncode);
@@ -37,22 +42,6 @@ namespace Bezel8PlusApp
             return LRC;
         }
 
-        public static byte[] ToByte(string input)
-        {
-            if (input.Length % 2 != 0)
-            {
-                input = input.PadLeft(input.Length + 1, '0');
-            }
-            byte[] byteArray = new byte[input.Length / 2];
-
-            for (int i = 0; i < byteArray.Length; i++)
-            {
-                byteArray[i] = byte.Parse(input.Substring(2*i, 2), System.Globalization.NumberStyles.HexNumber);
-            }
-
-            return byteArray;
-        }
-
         public static List<TLVDataObject> ToDataObjList(byte[] bytes)
         {
             List<TLVDataObject> DOList = new List<TLVDataObject>();
@@ -65,6 +54,9 @@ namespace Bezel8PlusApp
             return DOList;
         }
 
+        /// <summary>
+        /// input: string "B6004000", return byte[] { 0xB6, 0x00, 0x40, 0x00 }
+        /// </summary>
         public static byte[] HexStringToByteArray(string hexString)
         {
             if (string.IsNullOrEmpty(hexString))
@@ -79,6 +71,14 @@ namespace Bezel8PlusApp
                 byteOUT[i / 2] = Convert.ToByte(hexString.Substring(i, 2), 16);
             }
             return byteOUT;
+        }
+
+        /// <summary>
+        /// { 0xFF, 0xD0, 0xFF, 0xD1 } to "FFD0FFD1"
+        /// </summary>
+        public static string ByteArrayToHexString(byte[] byteArray)
+        {
+            return BitConverter.ToString(byteArray).Replace("-" ,"");
         }
 
         public static string ConvertHexToAscii(string hexString)

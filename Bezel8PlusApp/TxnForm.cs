@@ -190,8 +190,6 @@ namespace Bezel8PlusApp
             switch (result.Substring(4))
             {
                 case TxnResult.OnlineApprove:
-                    //GetOutputData("0");
-                    //GetOutputData("1");
                     PrintReceipt("Approve", false);
                     tbOutcome.Text = "Online Approve";
                     break;
@@ -199,6 +197,7 @@ namespace Bezel8PlusApp
                 case TxnResult.OfflineApprove:
                     GetOutputData("0");
                     GetOutputData("1");
+                    GetEntryMode();
                     PrintReceipt("Approve", false);
                     tbOutcome.Text = "Offline Approve";
                     break;
@@ -206,6 +205,7 @@ namespace Bezel8PlusApp
                 case TxnResult.OfflineDecline:
                     GetOutputData("0");
                     GetOutputData("1");
+                    GetEntryMode();
                     PrintReceipt("Decline", false);
                     tbOutcome.Text = "Offline Decline";
                     break;
@@ -216,8 +216,6 @@ namespace Bezel8PlusApp
                     break;
 
                 case TxnResult.OnlineDecline:
-                    //GetOutputData("0");
-                    //GetOutputData("1");
                     PrintReceipt("Decline", false);
                     tbOutcome.Text = "Online Decline";
                     break;
@@ -225,6 +223,7 @@ namespace Bezel8PlusApp
                 case TxnResult.OfflineApproveSign:
                     GetOutputData("0");
                     GetOutputData("1");
+                    GetEntryMode();
                     PrintReceipt("Approve", true);
                     tbOutcome.Text = "Offline Approve";
                     break;
@@ -237,16 +236,20 @@ namespace Bezel8PlusApp
                     tbOutcome.Text = "Online Authorizing";
                     GetOutputData("0");
                     GetOutputData("1");
+                    GetEntryMode();
                     OnlineAuthorization();
                     break;
 
                 case TxnResult.ExternalPinBlockReq:
+                    tbOutcome.Text = "Online Authorizing";
                     onlinePinForm.Show();
                     while (onlinePinForm.Visible == true)
                     {
                         Application.DoEvents();
                     }
                     OnlinePINProcess(onlinePinForm.GetPIN());
+                    if (!string.IsNullOrEmpty(onlinePinForm.GetPIN()))
+                        tbOnlineData.AppendText("PIN BLOCK: " + onlinePinForm.GetPINBlock() + Environment.NewLine);
                     break;
 
                 default:
@@ -329,7 +332,6 @@ namespace Bezel8PlusApp
                     {
                         tbOnlineData.AppendText(dataObj.TagString() + "\t" + dataObj.ValueString() + Environment.NewLine);
                     }
-                    GetPOSEntryMode();
                 }
                 else if (dataType == "1")
                 {
@@ -343,7 +345,7 @@ namespace Bezel8PlusApp
             }
         }
 
-        private void GetPOSEntryMode()
+        private void GetEntryMode()
         {
             string tagPOSEntryMode = "9F39";
             string tagTerEntryCapability = "FFFF8204";
@@ -358,13 +360,16 @@ namespace Bezel8PlusApp
 
 
                 string[] dataObj = t63Response.Split(Convert.ToChar(0x1A));
+                tbOnlineData.AppendText(Environment.NewLine);
                 foreach (string data in dataObj)
                 {
                     string[] tlv = data.Split(Convert.ToChar(0x1C));
                     if (tlv.Length == 3)
                     {
-                        if (tlv[0].Equals(tagPOSEntryMode) || tlv[0].Equals(tagTerEntryCapability))
-                            tbOnlineData.AppendText(tlv[0] + "\t" + tlv[2] + Environment.NewLine);
+                        if (tlv[0].Equals(tagPOSEntryMode))
+                            tbOnlineData.AppendText("POS Entry Mode: " + tlv[2] + Environment.NewLine);
+                        else if (tlv[0].Equals(tagTerEntryCapability))
+                            tbOnlineData.AppendText("Terminal Entry Capability: " + tlv[2] + Environment.NewLine);
                     }
                 }
 

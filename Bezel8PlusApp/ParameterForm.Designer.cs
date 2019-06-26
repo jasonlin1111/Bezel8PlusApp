@@ -90,6 +90,15 @@
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.btnSetTime = new System.Windows.Forms.Button();
             this.btnGetTime = new System.Windows.Forms.Button();
+            this.gbTTQSetting = new System.Windows.Forms.GroupBox();
+            this.tableLayoutPanel13 = new System.Windows.Forms.TableLayoutPanel();
+            this.cbTTQB1b8 = new System.Windows.Forms.CheckBox();
+            this.cbTTQB1b3 = new System.Windows.Forms.CheckBox();
+            this.cbTTQB1b6 = new System.Windows.Forms.CheckBox();
+            this.cbTTQB1b2 = new System.Windows.Forms.CheckBox();
+            this.cbTTQB1b5 = new System.Windows.Forms.CheckBox();
+            this.cbTTQB3b7 = new System.Windows.Forms.CheckBox();
+            this.cbTTQB1b4 = new System.Windows.Forms.CheckBox();
             this.tlpQVSDC.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -108,6 +117,8 @@
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
+            this.gbTTQSetting.SuspendLayout();
+            this.tableLayoutPanel13.SuspendLayout();
             this.SuspendLayout();
             // 
             // tbTTQ
@@ -118,7 +129,8 @@
             this.tbTTQ.Name = "tbTTQ";
             this.tbTTQ.Size = new System.Drawing.Size(87, 22);
             this.tbTTQ.TabIndex = 1;
-            this.tbTTQ.Text = "A6004000";
+            this.tbTTQ.Text = "B6004000";
+            this.tbTTQ.TextChanged += new System.EventHandler(this.tbTTQ_TextChanged);
             // 
             // lbTTQ
             // 
@@ -568,8 +580,9 @@
             // 
             this.tableLayoutPanel7.ColumnCount = 1;
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel7.Controls.Add(this.gbExceptionFile, 0, 1);
-            this.tableLayoutPanel7.Controls.Add(this.gbSetTime, 0, 0);
+            this.tableLayoutPanel7.Controls.Add(this.gbExceptionFile, 0, 2);
+            this.tableLayoutPanel7.Controls.Add(this.gbSetTime, 0, 1);
+            this.tableLayoutPanel7.Controls.Add(this.gbTTQSetting, 0, 0);
             this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel7.Location = new System.Drawing.Point(680, 6);
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
@@ -584,9 +597,9 @@
             // 
             this.gbExceptionFile.Controls.Add(this.tableLayoutPanel8);
             this.gbExceptionFile.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gbExceptionFile.Location = new System.Drawing.Point(3, 174);
+            this.gbExceptionFile.Location = new System.Drawing.Point(3, 345);
             this.gbExceptionFile.Name = "gbExceptionFile";
-            this.gbExceptionFile.Size = new System.Drawing.Size(436, 165);
+            this.gbExceptionFile.Size = new System.Drawing.Size(436, 166);
             this.gbExceptionFile.TabIndex = 6;
             this.gbExceptionFile.TabStop = false;
             this.gbExceptionFile.Text = "Exception Files Setting";
@@ -603,7 +616,7 @@
             this.tableLayoutPanel8.Name = "tableLayoutPanel8";
             this.tableLayoutPanel8.RowCount = 1;
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(430, 144);
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(430, 145);
             this.tableLayoutPanel8.TabIndex = 4;
             // 
             // tableLayoutPanel9
@@ -618,7 +631,7 @@
             this.tableLayoutPanel9.RowCount = 2;
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel9.Size = new System.Drawing.Size(132, 138);
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(132, 139);
             this.tableLayoutPanel9.TabIndex = 5;
             // 
             // btnRemoveAll
@@ -626,7 +639,7 @@
             this.btnRemoveAll.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnRemoveAll.Location = new System.Drawing.Point(3, 72);
             this.btnRemoveAll.Name = "btnRemoveAll";
-            this.btnRemoveAll.Size = new System.Drawing.Size(126, 63);
+            this.btnRemoveAll.Size = new System.Drawing.Size(126, 64);
             this.btnRemoveAll.TabIndex = 1;
             this.btnRemoveAll.Text = "Remove All";
             this.btnRemoveAll.UseVisualStyleBackColor = true;
@@ -655,7 +668,7 @@
             this.tableLayoutPanel10.RowCount = 2;
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 34.32836F));
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 65.67164F));
-            this.tableLayoutPanel10.Size = new System.Drawing.Size(286, 138);
+            this.tableLayoutPanel10.Size = new System.Drawing.Size(286, 139);
             this.tableLayoutPanel10.TabIndex = 0;
             // 
             // cbbCardType
@@ -663,13 +676,11 @@
             this.cbbCardType.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cbbCardType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbCardType.FormattingEnabled = true;
-            this.cbbCardType.Items.AddRange(new object[] {
-            "None",
-            "PayWave"});
             this.cbbCardType.Location = new System.Drawing.Point(3, 3);
             this.cbbCardType.Name = "cbbCardType";
             this.cbbCardType.Size = new System.Drawing.Size(280, 20);
             this.cbbCardType.TabIndex = 0;
+            this.cbbCardType.SelectionChangeCommitted += new System.EventHandler(this.cbbCardType_SelectionChangeCommitted);
             // 
             // tbPAN
             // 
@@ -677,14 +688,14 @@
             this.tbPAN.Location = new System.Drawing.Point(3, 50);
             this.tbPAN.Multiline = true;
             this.tbPAN.Name = "tbPAN";
-            this.tbPAN.Size = new System.Drawing.Size(280, 85);
+            this.tbPAN.Size = new System.Drawing.Size(280, 86);
             this.tbPAN.TabIndex = 1;
             // 
             // gbSetTime
             // 
             this.gbSetTime.Controls.Add(this.tableLayoutPanel4);
             this.gbSetTime.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gbSetTime.Location = new System.Drawing.Point(3, 3);
+            this.gbSetTime.Location = new System.Drawing.Point(3, 174);
             this.gbSetTime.Name = "gbSetTime";
             this.gbSetTime.Size = new System.Drawing.Size(436, 165);
             this.gbSetTime.TabIndex = 5;
@@ -880,6 +891,136 @@
             this.btnGetTime.UseVisualStyleBackColor = true;
             this.btnGetTime.Click += new System.EventHandler(this.btnGetTime_Click);
             // 
+            // gbTTQSetting
+            // 
+            this.gbTTQSetting.Controls.Add(this.tableLayoutPanel13);
+            this.gbTTQSetting.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gbTTQSetting.Location = new System.Drawing.Point(3, 3);
+            this.gbTTQSetting.Name = "gbTTQSetting";
+            this.gbTTQSetting.Size = new System.Drawing.Size(436, 165);
+            this.gbTTQSetting.TabIndex = 7;
+            this.gbTTQSetting.TabStop = false;
+            this.gbTTQSetting.Text = "TTQ Setting";
+            // 
+            // tableLayoutPanel13
+            // 
+            this.tableLayoutPanel13.ColumnCount = 2;
+            this.tableLayoutPanel13.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel13.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel13.Controls.Add(this.cbTTQB1b4, 0, 3);
+            this.tableLayoutPanel13.Controls.Add(this.cbTTQB3b7, 1, 2);
+            this.tableLayoutPanel13.Controls.Add(this.cbTTQB1b5, 0, 2);
+            this.tableLayoutPanel13.Controls.Add(this.cbTTQB1b2, 1, 1);
+            this.tableLayoutPanel13.Controls.Add(this.cbTTQB1b6, 0, 1);
+            this.tableLayoutPanel13.Controls.Add(this.cbTTQB1b3, 1, 0);
+            this.tableLayoutPanel13.Controls.Add(this.cbTTQB1b8, 0, 0);
+            this.tableLayoutPanel13.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel13.Location = new System.Drawing.Point(3, 18);
+            this.tableLayoutPanel13.Name = "tableLayoutPanel13";
+            this.tableLayoutPanel13.RowCount = 4;
+            this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel13.Size = new System.Drawing.Size(430, 144);
+            this.tableLayoutPanel13.TabIndex = 0;
+            // 
+            // cbTTQB1b8
+            // 
+            this.cbTTQB1b8.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.cbTTQB1b8.AutoSize = true;
+            this.cbTTQB1b8.Checked = true;
+            this.cbTTQB1b8.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbTTQB1b8.Location = new System.Drawing.Point(3, 10);
+            this.cbTTQB1b8.Name = "cbTTQB1b8";
+            this.cbTTQB1b8.Size = new System.Drawing.Size(97, 16);
+            this.cbTTQB1b8.TabIndex = 0;
+            this.cbTTQB1b8.Text = "MSD supported";
+            this.cbTTQB1b8.UseVisualStyleBackColor = true;
+            this.cbTTQB1b8.CheckedChanged += new System.EventHandler(this.cbTTQSetting_CheckedChanged);
+            // 
+            // cbTTQB1b3
+            // 
+            this.cbTTQB1b3.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.cbTTQB1b3.AutoSize = true;
+            this.cbTTQB1b3.Checked = true;
+            this.cbTTQB1b3.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbTTQB1b3.Location = new System.Drawing.Point(218, 10);
+            this.cbTTQB1b3.Name = "cbTTQB1b3";
+            this.cbTTQB1b3.Size = new System.Drawing.Size(125, 16);
+            this.cbTTQB1b3.TabIndex = 1;
+            this.cbTTQB1b3.Text = "Online PIN supported";
+            this.cbTTQB1b3.UseVisualStyleBackColor = true;
+            this.cbTTQB1b3.CheckedChanged += new System.EventHandler(this.cbTTQSetting_CheckedChanged);
+            // 
+            // cbTTQB1b6
+            // 
+            this.cbTTQB1b6.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.cbTTQB1b6.AutoSize = true;
+            this.cbTTQB1b6.Checked = true;
+            this.cbTTQB1b6.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbTTQB1b6.Location = new System.Drawing.Point(3, 46);
+            this.cbTTQB1b6.Name = "cbTTQB1b6";
+            this.cbTTQB1b6.Size = new System.Drawing.Size(109, 16);
+            this.cbTTQB1b6.TabIndex = 2;
+            this.cbTTQB1b6.Text = "qVSDC supported";
+            this.cbTTQB1b6.UseVisualStyleBackColor = true;
+            this.cbTTQB1b6.CheckedChanged += new System.EventHandler(this.cbTTQSetting_CheckedChanged);
+            // 
+            // cbTTQB1b2
+            // 
+            this.cbTTQB1b2.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.cbTTQB1b2.AutoSize = true;
+            this.cbTTQB1b2.Checked = true;
+            this.cbTTQB1b2.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbTTQB1b2.Location = new System.Drawing.Point(218, 46);
+            this.cbTTQB1b2.Name = "cbTTQB1b2";
+            this.cbTTQB1b2.Size = new System.Drawing.Size(117, 16);
+            this.cbTTQB1b2.TabIndex = 3;
+            this.cbTTQB1b2.Text = "Signature supported";
+            this.cbTTQB1b2.UseVisualStyleBackColor = true;
+            this.cbTTQB1b2.CheckedChanged += new System.EventHandler(this.cbTTQSetting_CheckedChanged);
+            // 
+            // cbTTQB1b5
+            // 
+            this.cbTTQB1b5.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.cbTTQB1b5.AutoSize = true;
+            this.cbTTQB1b5.Checked = true;
+            this.cbTTQB1b5.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbTTQB1b5.Location = new System.Drawing.Point(3, 82);
+            this.cbTTQB1b5.Name = "cbTTQB1b5";
+            this.cbTTQB1b5.Size = new System.Drawing.Size(157, 16);
+            this.cbTTQB1b5.TabIndex = 4;
+            this.cbTTQB1b5.Text = "EMV contact chip supported";
+            this.cbTTQB1b5.UseVisualStyleBackColor = true;
+            this.cbTTQB1b5.CheckedChanged += new System.EventHandler(this.cbTTQSetting_CheckedChanged);
+            // 
+            // cbTTQB3b7
+            // 
+            this.cbTTQB3b7.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.cbTTQB3b7.AutoSize = true;
+            this.cbTTQB3b7.Checked = true;
+            this.cbTTQB3b7.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbTTQB3b7.Location = new System.Drawing.Point(218, 82);
+            this.cbTTQB3b7.Name = "cbTTQB3b7";
+            this.cbTTQB3b7.Size = new System.Drawing.Size(168, 16);
+            this.cbTTQB3b7.TabIndex = 5;
+            this.cbTTQB3b7.Text = "Mobile functionality supported";
+            this.cbTTQB3b7.UseVisualStyleBackColor = true;
+            this.cbTTQB3b7.CheckedChanged += new System.EventHandler(this.cbTTQSetting_CheckedChanged);
+            // 
+            // cbTTQB1b4
+            // 
+            this.cbTTQB1b4.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.cbTTQB1b4.AutoSize = true;
+            this.cbTTQB1b4.Location = new System.Drawing.Point(3, 118);
+            this.cbTTQB1b4.Name = "cbTTQB1b4";
+            this.cbTTQB1b4.Size = new System.Drawing.Size(114, 16);
+            this.cbTTQB1b4.TabIndex = 6;
+            this.cbTTQB1b4.Text = "Offline-only reader";
+            this.cbTTQB1b4.UseVisualStyleBackColor = true;
+            this.cbTTQB1b4.CheckedChanged += new System.EventHandler(this.cbTTQSetting_CheckedChanged);
+            // 
             // ParameterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -911,6 +1052,9 @@
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel5.PerformLayout();
             this.tableLayoutPanel6.ResumeLayout(false);
+            this.gbTTQSetting.ResumeLayout(false);
+            this.tableLayoutPanel13.ResumeLayout(false);
+            this.tableLayoutPanel13.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -978,5 +1122,14 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel11;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel12;
         private System.Windows.Forms.CheckBox cbExceptionFile;
+        private System.Windows.Forms.GroupBox gbTTQSetting;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel13;
+        private System.Windows.Forms.CheckBox cbTTQB1b4;
+        private System.Windows.Forms.CheckBox cbTTQB3b7;
+        private System.Windows.Forms.CheckBox cbTTQB1b5;
+        private System.Windows.Forms.CheckBox cbTTQB1b2;
+        private System.Windows.Forms.CheckBox cbTTQB1b6;
+        private System.Windows.Forms.CheckBox cbTTQB1b3;
+        private System.Windows.Forms.CheckBox cbTTQB1b8;
     }
 }

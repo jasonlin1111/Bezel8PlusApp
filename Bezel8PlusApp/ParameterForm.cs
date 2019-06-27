@@ -454,7 +454,6 @@ namespace Bezel8PlusApp
 
                 // Certification Revocation List: tag FFFF8211
                 case "FFFF8211":
-                    if (Int32.TryParse(value, out intValue))
                         tbRevoList.Text = value;
                     break;
 

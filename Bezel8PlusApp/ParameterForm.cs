@@ -27,13 +27,14 @@ namespace Bezel8PlusApp
             cbbAmount0Check.DataSource = new string[] { "Option 1", "Option 2" };
             cbbCardType.DataSource = new string[] { "None", "PayWave" };
             cbbTxnType.DataSource = new string[] { "PURCHASE", "REFUND" };
+            cbbAID.DataSource = new string[] { "A000000003", "A0000000999090", "A00000999901" };
 
             InitializeTemplates();
         }
 
         private void ResetUI()
         {
-            tbTTQ.Text = "A6004000";
+
             foreach (Control crl in tlpQVSDC.Controls)
             {
                 if (crl is CheckBox)
@@ -148,7 +149,7 @@ namespace Bezel8PlusApp
 
             string txnType = "00";
             string kID = "030000";
-            string aID = "A000000003";
+            string aID = cbbAID.SelectedItem.ToString();
 
             t55Message += s1A + txnType + s1A + kID + s1A + aID;
 
@@ -307,7 +308,7 @@ namespace Bezel8PlusApp
         private void btnGetPara_Click(object sender, EventArgs e)
         {
             string s1A = Convert.ToChar(0x1A).ToString();
-            string me = s1A + "00" + s1A + "030000" + s1A + "A000000003";
+            string me = s1A + "00" + s1A + "030000" + s1A + cbbAID.SelectedItem.ToString();
             try
             {
                 serialPort.WriteAndReadMessage(PktType.STX, "V052", me, out string v05Response);
@@ -570,5 +571,6 @@ namespace Bezel8PlusApp
 
 
         }
+
     }
 }

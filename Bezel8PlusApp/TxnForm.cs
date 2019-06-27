@@ -194,6 +194,11 @@ namespace Bezel8PlusApp
                     tbOutcome.Text = "Online Approve";
                     break;
 
+                case TxnResult.OnlineApproveSign:
+                    PrintReceipt("Approve", true);
+                    tbOutcome.Text = "Online Approve";
+                    break;
+
                 case TxnResult.OfflineApprove:
                     GetOutputData("0");
                     GetOutputData("1");

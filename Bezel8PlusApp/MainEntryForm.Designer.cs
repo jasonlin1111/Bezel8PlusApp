@@ -101,7 +101,7 @@
             this.tableLayoutPanelComSetting.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 78F));
             this.tableLayoutPanelComSetting.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 89F));
             this.tableLayoutPanelComSetting.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 99F));
-            this.tableLayoutPanelComSetting.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 115F));
+            this.tableLayoutPanelComSetting.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 116F));
             this.tableLayoutPanelComSetting.Controls.Add(this.cbparity, 3, 1);
             this.tableLayoutPanelComSetting.Controls.Add(this.cbDataBits, 2, 1);
             this.tableLayoutPanelComSetting.Controls.Add(this.lbParity, 3, 0);
@@ -126,11 +126,10 @@
             // cbparity
             // 
             this.cbparity.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbparity.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbparity.Enabled = false;
             this.cbparity.FormattingEnabled = true;
-            this.cbparity.Items.AddRange(new object[] {
-            "None"});
-            this.cbparity.Location = new System.Drawing.Point(244, 36);
+            this.cbparity.Location = new System.Drawing.Point(243, 36);
             this.cbparity.Name = "cbparity";
             this.cbparity.Size = new System.Drawing.Size(83, 20);
             this.cbparity.TabIndex = 7;
@@ -138,11 +137,12 @@
             // cbDataBits
             // 
             this.cbDataBits.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbDataBits.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbDataBits.Enabled = false;
             this.cbDataBits.FormattingEnabled = true;
             this.cbDataBits.Items.AddRange(new object[] {
             "8"});
-            this.cbDataBits.Location = new System.Drawing.Point(166, 36);
+            this.cbDataBits.Location = new System.Drawing.Point(165, 36);
             this.cbDataBits.Name = "cbDataBits";
             this.cbDataBits.Size = new System.Drawing.Size(72, 20);
             this.cbDataBits.TabIndex = 6;
@@ -151,7 +151,8 @@
             // 
             this.lbParity.AutoSize = true;
             this.lbParity.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lbParity.Location = new System.Drawing.Point(244, 21);
+            this.lbParity.Enabled = false;
+            this.lbParity.Location = new System.Drawing.Point(243, 21);
             this.lbParity.Name = "lbParity";
             this.lbParity.Size = new System.Drawing.Size(83, 12);
             this.lbParity.TabIndex = 5;
@@ -162,7 +163,8 @@
             // 
             this.lbDataBits.AutoSize = true;
             this.lbDataBits.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lbDataBits.Location = new System.Drawing.Point(166, 21);
+            this.lbDataBits.Enabled = false;
+            this.lbDataBits.Location = new System.Drawing.Point(165, 21);
             this.lbDataBits.Name = "lbDataBits";
             this.lbDataBits.Size = new System.Drawing.Size(72, 12);
             this.lbDataBits.TabIndex = 4;
@@ -183,6 +185,7 @@
             // cbCOM
             // 
             this.cbCOM.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbCOM.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCOM.FormattingEnabled = true;
             this.cbCOM.Location = new System.Drawing.Point(3, 36);
             this.cbCOM.Name = "cbCOM";
@@ -193,16 +196,11 @@
             // cbBuadRate
             // 
             this.cbBuadRate.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbBuadRate.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbBuadRate.FormattingEnabled = true;
-            this.cbBuadRate.Items.AddRange(new object[] {
-            "9600",
-            "19200",
-            "38400",
-            "57600",
-            "115200"});
             this.cbBuadRate.Location = new System.Drawing.Point(80, 36);
             this.cbBuadRate.Name = "cbBuadRate";
-            this.cbBuadRate.Size = new System.Drawing.Size(80, 20);
+            this.cbBuadRate.Size = new System.Drawing.Size(79, 20);
             this.cbBuadRate.TabIndex = 2;
             // 
             // lbBuadrate
@@ -211,7 +209,7 @@
             this.lbBuadrate.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.lbBuadrate.Location = new System.Drawing.Point(80, 21);
             this.lbBuadrate.Name = "lbBuadrate";
-            this.lbBuadrate.Size = new System.Drawing.Size(80, 12);
+            this.lbBuadrate.Size = new System.Drawing.Size(79, 12);
             this.lbBuadrate.TabIndex = 3;
             this.lbBuadrate.Text = "Buadrate";
             this.lbBuadrate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -220,7 +218,8 @@
             // 
             this.lbStopBits.AutoSize = true;
             this.lbStopBits.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lbStopBits.Location = new System.Drawing.Point(333, 21);
+            this.lbStopBits.Enabled = false;
+            this.lbStopBits.Location = new System.Drawing.Point(332, 21);
             this.lbStopBits.Name = "lbStopBits";
             this.lbStopBits.Size = new System.Drawing.Size(93, 12);
             this.lbStopBits.TabIndex = 8;
@@ -231,33 +230,32 @@
             // 
             this.lbHandShake.AutoSize = true;
             this.lbHandShake.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lbHandShake.Location = new System.Drawing.Point(432, 21);
+            this.lbHandShake.Enabled = false;
+            this.lbHandShake.Location = new System.Drawing.Point(431, 21);
             this.lbHandShake.Name = "lbHandShake";
-            this.lbHandShake.Size = new System.Drawing.Size(110, 12);
+            this.lbHandShake.Size = new System.Drawing.Size(111, 12);
             this.lbHandShake.TabIndex = 9;
             this.lbHandShake.Text = "Hand Shake";
             this.lbHandShake.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // cbStopBits
             // 
+            this.cbStopBits.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbStopBits.Enabled = false;
             this.cbStopBits.FormattingEnabled = true;
-            this.cbStopBits.Items.AddRange(new object[] {
-            "1"});
-            this.cbStopBits.Location = new System.Drawing.Point(333, 36);
+            this.cbStopBits.Location = new System.Drawing.Point(332, 36);
             this.cbStopBits.Name = "cbStopBits";
             this.cbStopBits.Size = new System.Drawing.Size(93, 20);
             this.cbStopBits.TabIndex = 10;
             // 
             // cbHandShake
             // 
+            this.cbHandShake.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbHandShake.Enabled = false;
             this.cbHandShake.FormattingEnabled = true;
-            this.cbHandShake.Items.AddRange(new object[] {
-            "None"});
-            this.cbHandShake.Location = new System.Drawing.Point(432, 36);
+            this.cbHandShake.Location = new System.Drawing.Point(431, 36);
             this.cbHandShake.Name = "cbHandShake";
-            this.cbHandShake.Size = new System.Drawing.Size(93, 20);
+            this.cbHandShake.Size = new System.Drawing.Size(111, 20);
             this.cbHandShake.TabIndex = 11;
             // 
             // groupBoxMenu

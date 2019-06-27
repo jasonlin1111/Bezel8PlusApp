@@ -26,11 +26,11 @@ namespace Bezel8PlusApp
 
         private void InitializeComponentValue()
         {
-            cbBuadRate.SelectedIndex = 0;
-            cbDataBits.SelectedIndex = 0;
-            cbparity.SelectedIndex = 0;
-            cbHandShake.SelectedIndex = 0;
-            cbStopBits.SelectedIndex = 0;
+            cbBuadRate.DataSource = new int[] { 9600, 19200, 38400, 57600, 115200 };
+            cbDataBits.DataSource = new int[] { 8 };
+            cbparity.DataSource = new string[] { "None" };
+            cbHandShake.DataSource = new string[] { "None" };
+            cbStopBits.DataSource = new int[] { 1 };
         }
 
         private void InitializeBtnsAndForms()

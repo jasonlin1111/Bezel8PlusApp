@@ -92,13 +92,15 @@
             this.btnGetTime = new System.Windows.Forms.Button();
             this.gbTTQSetting = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel13 = new System.Windows.Forms.TableLayoutPanel();
-            this.cbTTQB1b8 = new System.Windows.Forms.CheckBox();
-            this.cbTTQB1b3 = new System.Windows.Forms.CheckBox();
-            this.cbTTQB1b6 = new System.Windows.Forms.CheckBox();
-            this.cbTTQB1b2 = new System.Windows.Forms.CheckBox();
-            this.cbTTQB1b5 = new System.Windows.Forms.CheckBox();
-            this.cbTTQB3b7 = new System.Windows.Forms.CheckBox();
             this.cbTTQB1b4 = new System.Windows.Forms.CheckBox();
+            this.cbTTQB3b7 = new System.Windows.Forms.CheckBox();
+            this.cbTTQB1b5 = new System.Windows.Forms.CheckBox();
+            this.cbTTQB1b2 = new System.Windows.Forms.CheckBox();
+            this.cbTTQB1b6 = new System.Windows.Forms.CheckBox();
+            this.cbTTQB1b3 = new System.Windows.Forms.CheckBox();
+            this.cbTTQB1b8 = new System.Windows.Forms.CheckBox();
+            this.lbAID = new System.Windows.Forms.Label();
+            this.cbbAID = new System.Windows.Forms.ComboBox();
             this.tlpQVSDC.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -124,7 +126,7 @@
             // tbTTQ
             // 
             this.tbTTQ.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.tbTTQ.Location = new System.Drawing.Point(339, 27);
+            this.tbTTQ.Location = new System.Drawing.Point(350, 27);
             this.tbTTQ.MaxLength = 8;
             this.tbTTQ.Name = "tbTTQ";
             this.tbTTQ.Size = new System.Drawing.Size(87, 22);
@@ -136,7 +138,7 @@
             // 
             this.lbTTQ.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lbTTQ.AutoSize = true;
-            this.lbTTQ.Location = new System.Drawing.Point(369, 12);
+            this.lbTTQ.Location = new System.Drawing.Point(380, 12);
             this.lbTTQ.Name = "lbTTQ";
             this.lbTTQ.Size = new System.Drawing.Size(27, 12);
             this.lbTTQ.TabIndex = 0;
@@ -503,16 +505,19 @@
             // 
             // tableLayoutPanel12
             // 
-            this.tableLayoutPanel12.ColumnCount = 3;
-            this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
-            this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
-            this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
-            this.tableLayoutPanel12.Controls.Add(this.tbTTQ, 2, 1);
-            this.tableLayoutPanel12.Controls.Add(this.lbTTQ, 2, 0);
+            this.tableLayoutPanel12.ColumnCount = 4;
+            this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel12.Controls.Add(this.cbbTxnType, 1, 1);
             this.tableLayoutPanel12.Controls.Add(this.cbbTemplate, 0, 1);
             this.tableLayoutPanel12.Controls.Add(this.lbTxnType, 1, 0);
             this.tableLayoutPanel12.Controls.Add(this.label2, 0, 0);
+            this.tableLayoutPanel12.Controls.Add(this.lbTTQ, 3, 0);
+            this.tableLayoutPanel12.Controls.Add(this.tbTTQ, 3, 1);
+            this.tableLayoutPanel12.Controls.Add(this.lbAID, 2, 0);
+            this.tableLayoutPanel12.Controls.Add(this.cbbAID, 2, 1);
             this.tableLayoutPanel12.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel12.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel12.Name = "tableLayoutPanel12";
@@ -529,7 +534,7 @@
             this.cbbTxnType.FormattingEnabled = true;
             this.cbbTxnType.Items.AddRange(new object[] {
             "Purchase"});
-            this.cbbTxnType.Location = new System.Drawing.Point(198, 27);
+            this.cbbTxnType.Location = new System.Drawing.Point(118, 27);
             this.cbbTxnType.Name = "cbbTxnType";
             this.cbbTxnType.Size = new System.Drawing.Size(99, 20);
             this.cbbTxnType.TabIndex = 5;
@@ -541,7 +546,7 @@
             this.cbbTemplate.FormattingEnabled = true;
             this.cbbTemplate.Location = new System.Drawing.Point(3, 27);
             this.cbbTemplate.Name = "cbbTemplate";
-            this.cbbTemplate.Size = new System.Drawing.Size(174, 20);
+            this.cbbTemplate.Size = new System.Drawing.Size(106, 20);
             this.cbbTemplate.TabIndex = 7;
             this.cbbTemplate.SelectionChangeCommitted += new System.EventHandler(this.cbbTemplate_SelectionChangeCommitted);
             // 
@@ -549,7 +554,7 @@
             // 
             this.lbTxnType.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lbTxnType.AutoSize = true;
-            this.lbTxnType.Location = new System.Drawing.Point(204, 12);
+            this.lbTxnType.Location = new System.Drawing.Point(125, 12);
             this.lbTxnType.Name = "lbTxnType";
             this.lbTxnType.Size = new System.Drawing.Size(86, 12);
             this.lbTxnType.TabIndex = 4;
@@ -559,7 +564,7 @@
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(66, 12);
+            this.label2.Location = new System.Drawing.Point(32, 12);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(48, 12);
             this.label2.TabIndex = 6;
@@ -925,75 +930,17 @@
             this.tableLayoutPanel13.Size = new System.Drawing.Size(430, 144);
             this.tableLayoutPanel13.TabIndex = 0;
             // 
-            // cbTTQB1b8
+            // cbTTQB1b4
             // 
-            this.cbTTQB1b8.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.cbTTQB1b8.AutoSize = true;
-            this.cbTTQB1b8.Checked = true;
-            this.cbTTQB1b8.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbTTQB1b8.Location = new System.Drawing.Point(3, 10);
-            this.cbTTQB1b8.Name = "cbTTQB1b8";
-            this.cbTTQB1b8.Size = new System.Drawing.Size(97, 16);
-            this.cbTTQB1b8.TabIndex = 0;
-            this.cbTTQB1b8.Text = "MSD supported";
-            this.cbTTQB1b8.UseVisualStyleBackColor = true;
-            this.cbTTQB1b8.CheckedChanged += new System.EventHandler(this.cbTTQSetting_CheckedChanged);
-            // 
-            // cbTTQB1b3
-            // 
-            this.cbTTQB1b3.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.cbTTQB1b3.AutoSize = true;
-            this.cbTTQB1b3.Checked = true;
-            this.cbTTQB1b3.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbTTQB1b3.Location = new System.Drawing.Point(218, 10);
-            this.cbTTQB1b3.Name = "cbTTQB1b3";
-            this.cbTTQB1b3.Size = new System.Drawing.Size(125, 16);
-            this.cbTTQB1b3.TabIndex = 1;
-            this.cbTTQB1b3.Text = "Online PIN supported";
-            this.cbTTQB1b3.UseVisualStyleBackColor = true;
-            this.cbTTQB1b3.CheckedChanged += new System.EventHandler(this.cbTTQSetting_CheckedChanged);
-            // 
-            // cbTTQB1b6
-            // 
-            this.cbTTQB1b6.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.cbTTQB1b6.AutoSize = true;
-            this.cbTTQB1b6.Checked = true;
-            this.cbTTQB1b6.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbTTQB1b6.Location = new System.Drawing.Point(3, 46);
-            this.cbTTQB1b6.Name = "cbTTQB1b6";
-            this.cbTTQB1b6.Size = new System.Drawing.Size(109, 16);
-            this.cbTTQB1b6.TabIndex = 2;
-            this.cbTTQB1b6.Text = "qVSDC supported";
-            this.cbTTQB1b6.UseVisualStyleBackColor = true;
-            this.cbTTQB1b6.CheckedChanged += new System.EventHandler(this.cbTTQSetting_CheckedChanged);
-            // 
-            // cbTTQB1b2
-            // 
-            this.cbTTQB1b2.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.cbTTQB1b2.AutoSize = true;
-            this.cbTTQB1b2.Checked = true;
-            this.cbTTQB1b2.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbTTQB1b2.Location = new System.Drawing.Point(218, 46);
-            this.cbTTQB1b2.Name = "cbTTQB1b2";
-            this.cbTTQB1b2.Size = new System.Drawing.Size(117, 16);
-            this.cbTTQB1b2.TabIndex = 3;
-            this.cbTTQB1b2.Text = "Signature supported";
-            this.cbTTQB1b2.UseVisualStyleBackColor = true;
-            this.cbTTQB1b2.CheckedChanged += new System.EventHandler(this.cbTTQSetting_CheckedChanged);
-            // 
-            // cbTTQB1b5
-            // 
-            this.cbTTQB1b5.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.cbTTQB1b5.AutoSize = true;
-            this.cbTTQB1b5.Checked = true;
-            this.cbTTQB1b5.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbTTQB1b5.Location = new System.Drawing.Point(3, 82);
-            this.cbTTQB1b5.Name = "cbTTQB1b5";
-            this.cbTTQB1b5.Size = new System.Drawing.Size(157, 16);
-            this.cbTTQB1b5.TabIndex = 4;
-            this.cbTTQB1b5.Text = "EMV contact chip supported";
-            this.cbTTQB1b5.UseVisualStyleBackColor = true;
-            this.cbTTQB1b5.CheckedChanged += new System.EventHandler(this.cbTTQSetting_CheckedChanged);
+            this.cbTTQB1b4.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.cbTTQB1b4.AutoSize = true;
+            this.cbTTQB1b4.Location = new System.Drawing.Point(3, 118);
+            this.cbTTQB1b4.Name = "cbTTQB1b4";
+            this.cbTTQB1b4.Size = new System.Drawing.Size(114, 16);
+            this.cbTTQB1b4.TabIndex = 6;
+            this.cbTTQB1b4.Text = "Offline-only reader";
+            this.cbTTQB1b4.UseVisualStyleBackColor = true;
+            this.cbTTQB1b4.CheckedChanged += new System.EventHandler(this.cbTTQSetting_CheckedChanged);
             // 
             // cbTTQB3b7
             // 
@@ -1009,17 +956,95 @@
             this.cbTTQB3b7.UseVisualStyleBackColor = true;
             this.cbTTQB3b7.CheckedChanged += new System.EventHandler(this.cbTTQSetting_CheckedChanged);
             // 
-            // cbTTQB1b4
+            // cbTTQB1b5
             // 
-            this.cbTTQB1b4.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.cbTTQB1b4.AutoSize = true;
-            this.cbTTQB1b4.Location = new System.Drawing.Point(3, 118);
-            this.cbTTQB1b4.Name = "cbTTQB1b4";
-            this.cbTTQB1b4.Size = new System.Drawing.Size(114, 16);
-            this.cbTTQB1b4.TabIndex = 6;
-            this.cbTTQB1b4.Text = "Offline-only reader";
-            this.cbTTQB1b4.UseVisualStyleBackColor = true;
-            this.cbTTQB1b4.CheckedChanged += new System.EventHandler(this.cbTTQSetting_CheckedChanged);
+            this.cbTTQB1b5.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.cbTTQB1b5.AutoSize = true;
+            this.cbTTQB1b5.Checked = true;
+            this.cbTTQB1b5.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbTTQB1b5.Location = new System.Drawing.Point(3, 82);
+            this.cbTTQB1b5.Name = "cbTTQB1b5";
+            this.cbTTQB1b5.Size = new System.Drawing.Size(157, 16);
+            this.cbTTQB1b5.TabIndex = 4;
+            this.cbTTQB1b5.Text = "EMV contact chip supported";
+            this.cbTTQB1b5.UseVisualStyleBackColor = true;
+            this.cbTTQB1b5.CheckedChanged += new System.EventHandler(this.cbTTQSetting_CheckedChanged);
+            // 
+            // cbTTQB1b2
+            // 
+            this.cbTTQB1b2.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.cbTTQB1b2.AutoSize = true;
+            this.cbTTQB1b2.Checked = true;
+            this.cbTTQB1b2.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbTTQB1b2.Location = new System.Drawing.Point(218, 46);
+            this.cbTTQB1b2.Name = "cbTTQB1b2";
+            this.cbTTQB1b2.Size = new System.Drawing.Size(117, 16);
+            this.cbTTQB1b2.TabIndex = 3;
+            this.cbTTQB1b2.Text = "Signature supported";
+            this.cbTTQB1b2.UseVisualStyleBackColor = true;
+            this.cbTTQB1b2.CheckedChanged += new System.EventHandler(this.cbTTQSetting_CheckedChanged);
+            // 
+            // cbTTQB1b6
+            // 
+            this.cbTTQB1b6.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.cbTTQB1b6.AutoSize = true;
+            this.cbTTQB1b6.Checked = true;
+            this.cbTTQB1b6.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbTTQB1b6.Location = new System.Drawing.Point(3, 46);
+            this.cbTTQB1b6.Name = "cbTTQB1b6";
+            this.cbTTQB1b6.Size = new System.Drawing.Size(109, 16);
+            this.cbTTQB1b6.TabIndex = 2;
+            this.cbTTQB1b6.Text = "qVSDC supported";
+            this.cbTTQB1b6.UseVisualStyleBackColor = true;
+            this.cbTTQB1b6.CheckedChanged += new System.EventHandler(this.cbTTQSetting_CheckedChanged);
+            // 
+            // cbTTQB1b3
+            // 
+            this.cbTTQB1b3.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.cbTTQB1b3.AutoSize = true;
+            this.cbTTQB1b3.Checked = true;
+            this.cbTTQB1b3.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbTTQB1b3.Location = new System.Drawing.Point(218, 10);
+            this.cbTTQB1b3.Name = "cbTTQB1b3";
+            this.cbTTQB1b3.Size = new System.Drawing.Size(125, 16);
+            this.cbTTQB1b3.TabIndex = 1;
+            this.cbTTQB1b3.Text = "Online PIN supported";
+            this.cbTTQB1b3.UseVisualStyleBackColor = true;
+            this.cbTTQB1b3.CheckedChanged += new System.EventHandler(this.cbTTQSetting_CheckedChanged);
+            // 
+            // cbTTQB1b8
+            // 
+            this.cbTTQB1b8.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.cbTTQB1b8.AutoSize = true;
+            this.cbTTQB1b8.Checked = true;
+            this.cbTTQB1b8.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbTTQB1b8.Location = new System.Drawing.Point(3, 10);
+            this.cbTTQB1b8.Name = "cbTTQB1b8";
+            this.cbTTQB1b8.Size = new System.Drawing.Size(97, 16);
+            this.cbTTQB1b8.TabIndex = 0;
+            this.cbTTQB1b8.Text = "MSD supported";
+            this.cbTTQB1b8.UseVisualStyleBackColor = true;
+            this.cbTTQB1b8.CheckedChanged += new System.EventHandler(this.cbTTQSetting_CheckedChanged);
+            // 
+            // lbAID
+            // 
+            this.lbAID.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.lbAID.AutoSize = true;
+            this.lbAID.Location = new System.Drawing.Point(267, 12);
+            this.lbAID.Name = "lbAID";
+            this.lbAID.Size = new System.Drawing.Size(25, 12);
+            this.lbAID.TabIndex = 8;
+            this.lbAID.Text = "AID";
+            // 
+            // cbbAID
+            // 
+            this.cbbAID.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.cbbAID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbAID.FormattingEnabled = true;
+            this.cbbAID.Location = new System.Drawing.Point(227, 27);
+            this.cbbAID.Name = "cbbAID";
+            this.cbbAID.Size = new System.Drawing.Size(106, 20);
+            this.cbbAID.TabIndex = 9;
             // 
             // ParameterForm
             // 
@@ -1131,5 +1156,7 @@
         private System.Windows.Forms.CheckBox cbTTQB1b6;
         private System.Windows.Forms.CheckBox cbTTQB1b3;
         private System.Windows.Forms.CheckBox cbTTQB1b8;
+        private System.Windows.Forms.Label lbAID;
+        private System.Windows.Forms.ComboBox cbbAID;
     }
 }

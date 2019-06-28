@@ -25,9 +25,9 @@ namespace Bezel8PlusApp
             templateFiles = new Dictionary<string, FileInfo>();
             cbbTepSource = new List<string>();
             cbbAmount0Check.DataSource = new string[] { "Option 1", "Option 2" };
-            cbbCardType.DataSource = new string[] { "None", "PayWave" };
             cbbTxnType.DataSource = new string[] { "PURCHASE", "REFUND" };
             cbbAID.DataSource = new string[] { "A000000003", "A0000000999090", "A00000999901" };
+            cbbCardType.DataSource = new string[] { "None", "PayWave" };
 
             InitializeTemplates();
         }

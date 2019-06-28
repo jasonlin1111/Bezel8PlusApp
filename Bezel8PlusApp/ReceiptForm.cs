@@ -19,7 +19,7 @@ namespace Bezel8PlusApp
 
         }
 
-        public void SetupReceipt(ref Dictionary<string, string> receiptData, string outcome, bool sign)
+        public void SetupReceipt(ref Dictionary<string, string> receiptData, string outcome)
         {
             string context = String.Empty;
 
@@ -127,17 +127,22 @@ namespace Bezel8PlusApp
                 lbCardNo.Text = String.Empty;
             }
 
+            // CVM - signature
+            if (receiptData.TryGetValue("9F34", out context))
+            {
+                byte[] CVMResult = DataHandler.HexStringToByteArray(context);
+                if ((CVMResult[0] & 0x1E) == 0x1E)
+                    lbSign.Visible = true;
+                else
+                    lbSign.Visible = false;
+            }
+
             // Outcome
             if (!string.IsNullOrEmpty(outcome))
                 lbOutcome.Text = outcome;
             else
                 lbOutcome.Text = String.Empty;
             lbOutcome.Visible = false;
-
-            if (sign)
-                lbSign.Visible = true;
-            else
-                lbSign.Visible = false;
 
         }
 

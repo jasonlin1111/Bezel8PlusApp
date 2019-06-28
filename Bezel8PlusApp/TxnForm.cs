@@ -189,21 +189,19 @@ namespace Bezel8PlusApp
             // Success
             switch (result.Substring(4))
             {
+                
                 case TxnResult.OnlineApprove:
-                    PrintReceipt("Approve", false);
-                    tbOutcome.Text = "Online Approve";
-                    break;
-
                 case TxnResult.OnlineApproveSign:
-                    PrintReceipt("Approve", true);
+                    PrintReceipt("Approve");
                     tbOutcome.Text = "Online Approve";
                     break;
 
                 case TxnResult.OfflineApprove:
+                case TxnResult.OfflineApproveSign:
                     GetOutputData("0");
                     GetOutputData("1");
                     GetEntryMode();
-                    PrintReceipt("Approve", false);
+                    PrintReceipt("Approve");
                     tbOutcome.Text = "Offline Approve";
                     break;
 
@@ -211,26 +209,18 @@ namespace Bezel8PlusApp
                     GetOutputData("0");
                     GetOutputData("1");
                     GetEntryMode();
-                    PrintReceipt("Decline", false);
+                    PrintReceipt("Decline");
                     tbOutcome.Text = "Offline Decline";
                     break;
 
                 case TxnResult.UnOnlineOfflineDeclineSign:
-                    PrintReceipt("Decline", false);
+                    PrintReceipt("Decline");
                     tbOutcome.Text = "Offline Decline";
                     break;
 
                 case TxnResult.OnlineDecline:
-                    PrintReceipt("Decline", false);
+                    PrintReceipt("Decline");
                     tbOutcome.Text = "Online Decline";
-                    break;
-
-                case TxnResult.OfflineApproveSign:
-                    GetOutputData("0");
-                    GetOutputData("1");
-                    GetEntryMode();
-                    PrintReceipt("Approve", true);
-                    tbOutcome.Text = "Offline Approve";
                     break;
 
                 case TxnResult.TryAnotherInterface:
@@ -560,7 +550,8 @@ namespace Bezel8PlusApp
             // 84   - Dedicated File (DF) Name
             // 5A   - Application Primary Account Number (PAN)
             // 9F5D - AOSA
-            string[] receiptTags = new string[] { "9F16", "9F1C", "9F21", "84", "5A", "9F5D" };
+            // 9F34 - CVM Result
+            string[] receiptTags = new string[] { "9F16", "9F1C", "9F21", "84", "5A", "9F5D", "9F34" };
             string t63Stream = string.Join(Convert.ToChar(0x1A).ToString(), receiptTags);
 
             // t64Stream = the sum of t63Responses
@@ -613,11 +604,10 @@ namespace Bezel8PlusApp
             return receiptData;
         }
 
-        private void PrintReceipt(string outcome, bool needSign)
+        private void PrintReceipt(string outcome)
         {
             Dictionary<string, string> receiptData = PrepareReceiptData();
-            receiptForm.SetupReceipt(ref receiptData, outcome, needSign);
-            //receiptForm.Show();
+            receiptForm.SetupReceipt(ref receiptData, outcome);
             receiptForm.Visible = true;
         }
 

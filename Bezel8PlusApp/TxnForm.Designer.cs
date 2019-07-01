@@ -105,6 +105,7 @@
             // 
             this.groupBox1.Controls.Add(this.tableLayoutPanelTxn);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox1.Font = new System.Drawing.Font("Calibri Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(478, 256);
@@ -148,9 +149,10 @@
             this.textBoxTimeout.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.textBoxTimeout.Enabled = false;
+            this.textBoxTimeout.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.textBoxTimeout.Location = new System.Drawing.Point(239, 198);
             this.textBoxTimeout.Name = "textBoxTimeout";
-            this.textBoxTimeout.Size = new System.Drawing.Size(70, 22);
+            this.textBoxTimeout.Size = new System.Drawing.Size(70, 26);
             this.textBoxTimeout.TabIndex = 11;
             // 
             // comBoxTxnType
@@ -159,20 +161,22 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.comBoxTxnType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comBoxTxnType.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comBoxTxnType.FormattingEnabled = true;
             this.comBoxTxnType.Location = new System.Drawing.Point(239, 3);
             this.comBoxTxnType.Name = "comBoxTxnType";
-            this.comBoxTxnType.Size = new System.Drawing.Size(230, 20);
+            this.comBoxTxnType.Size = new System.Drawing.Size(230, 26);
             this.comBoxTxnType.TabIndex = 1;
             // 
             // textBoxCurrencyExp
             // 
             this.textBoxCurrencyExp.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.textBoxCurrencyExp.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxCurrencyExp.Location = new System.Drawing.Point(239, 159);
             this.textBoxCurrencyExp.MaxLength = 2;
             this.textBoxCurrencyExp.Name = "textBoxCurrencyExp";
-            this.textBoxCurrencyExp.Size = new System.Drawing.Size(70, 22);
+            this.textBoxCurrencyExp.Size = new System.Drawing.Size(70, 26);
             this.textBoxCurrencyExp.TabIndex = 7;
             this.textBoxCurrencyExp.Text = "02";
             // 
@@ -184,9 +188,10 @@
             this.cbCurrencyExp.AutoSize = true;
             this.cbCurrencyExp.Checked = true;
             this.cbCurrencyExp.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbCurrencyExp.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbCurrencyExp.Location = new System.Drawing.Point(3, 159);
             this.cbCurrencyExp.Name = "cbCurrencyExp";
-            this.cbCurrencyExp.Size = new System.Drawing.Size(116, 33);
+            this.cbCurrencyExp.Size = new System.Drawing.Size(144, 33);
             this.cbCurrencyExp.TabIndex = 9;
             this.cbCurrencyExp.Text = "Currency Exponent";
             this.cbCurrencyExp.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -199,9 +204,10 @@
             this.cbAmountAuth.AutoSize = true;
             this.cbAmountAuth.Checked = true;
             this.cbAmountAuth.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbAmountAuth.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbAmountAuth.Location = new System.Drawing.Point(3, 42);
             this.cbAmountAuth.Name = "cbAmountAuth";
-            this.cbAmountAuth.Size = new System.Drawing.Size(62, 33);
+            this.cbAmountAuth.Size = new System.Drawing.Size(77, 33);
             this.cbAmountAuth.TabIndex = 2;
             this.cbAmountAuth.Text = "Amount";
             this.cbAmountAuth.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -215,10 +221,11 @@
             this.cbCurrencyCode.AutoSize = true;
             this.cbCurrencyCode.Checked = true;
             this.cbCurrencyCode.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbCurrencyCode.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbCurrencyCode.Location = new System.Drawing.Point(3, 120);
             this.cbCurrencyCode.Name = "cbCurrencyCode";
             this.cbCurrencyCode.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.cbCurrencyCode.Size = new System.Drawing.Size(96, 33);
+            this.cbCurrencyCode.Size = new System.Drawing.Size(117, 33);
             this.cbCurrencyCode.TabIndex = 8;
             this.cbCurrencyCode.Text = "Currency Code";
             this.cbCurrencyCode.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -228,10 +235,11 @@
             // 
             this.textBoxCurrencyCode.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.textBoxCurrencyCode.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxCurrencyCode.Location = new System.Drawing.Point(239, 120);
             this.textBoxCurrencyCode.MaxLength = 4;
             this.textBoxCurrencyCode.Name = "textBoxCurrencyCode";
-            this.textBoxCurrencyCode.Size = new System.Drawing.Size(70, 22);
+            this.textBoxCurrencyCode.Size = new System.Drawing.Size(70, 26);
             this.textBoxCurrencyCode.TabIndex = 6;
             this.textBoxCurrencyCode.Text = "0840";
             // 
@@ -239,10 +247,11 @@
             // 
             this.textBoxAmountAuth.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.textBoxAmountAuth.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxAmountAuth.Location = new System.Drawing.Point(239, 42);
             this.textBoxAmountAuth.MaxLength = 12;
             this.textBoxAmountAuth.Name = "textBoxAmountAuth";
-            this.textBoxAmountAuth.Size = new System.Drawing.Size(141, 22);
+            this.textBoxAmountAuth.Size = new System.Drawing.Size(141, 26);
             this.textBoxAmountAuth.TabIndex = 4;
             this.textBoxAmountAuth.Text = "000000000000";
             // 
@@ -251,9 +260,10 @@
             this.cbAmountOther.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.cbAmountOther.AutoSize = true;
+            this.cbAmountOther.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbAmountOther.Location = new System.Drawing.Point(3, 81);
             this.cbAmountOther.Name = "cbAmountOther";
-            this.cbAmountOther.Size = new System.Drawing.Size(91, 33);
+            this.cbAmountOther.Size = new System.Drawing.Size(116, 33);
             this.cbAmountOther.TabIndex = 3;
             this.cbAmountOther.Text = "Amount Other";
             this.cbAmountOther.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -263,10 +273,11 @@
             // 
             this.textBoxAmountOther.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.textBoxAmountOther.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxAmountOther.Location = new System.Drawing.Point(239, 81);
             this.textBoxAmountOther.MaxLength = 12;
             this.textBoxAmountOther.Name = "textBoxAmountOther";
-            this.textBoxAmountOther.Size = new System.Drawing.Size(141, 22);
+            this.textBoxAmountOther.Size = new System.Drawing.Size(141, 26);
             this.textBoxAmountOther.TabIndex = 5;
             this.textBoxAmountOther.Text = "000000000000";
             // 
@@ -278,9 +289,10 @@
             this.cbTxnType.AutoSize = true;
             this.cbTxnType.Checked = true;
             this.cbTxnType.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbTxnType.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbTxnType.Location = new System.Drawing.Point(3, 3);
             this.cbTxnType.Name = "cbTxnType";
-            this.cbTxnType.Size = new System.Drawing.Size(105, 33);
+            this.cbTxnType.Size = new System.Drawing.Size(128, 33);
             this.cbTxnType.TabIndex = 0;
             this.cbTxnType.Text = "Transaction Type";
             this.cbTxnType.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -291,9 +303,10 @@
             this.cbTimeout.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.cbTimeout.AutoSize = true;
+            this.cbTimeout.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbTimeout.Location = new System.Drawing.Point(3, 198);
             this.cbTimeout.Name = "cbTimeout";
-            this.cbTimeout.Size = new System.Drawing.Size(87, 34);
+            this.cbTimeout.Size = new System.Drawing.Size(110, 34);
             this.cbTimeout.TabIndex = 10;
             this.cbTimeout.Text = "Timeout (ms)";
             this.cbTimeout.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -303,6 +316,7 @@
             // 
             this.groupBox2.Controls.Add(this.tableLayoutPanel3);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox2.Font = new System.Drawing.Font("Calibri Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(3, 271);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(692, 285);
@@ -328,7 +342,7 @@
             // tbOnlineData
             // 
             this.tbOnlineData.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbOnlineData.Font = new System.Drawing.Font("Arial", 11.25F);
+            this.tbOnlineData.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbOnlineData.Location = new System.Drawing.Point(311, 3);
             this.tbOnlineData.Multiline = true;
             this.tbOnlineData.Name = "tbOnlineData";
@@ -402,9 +416,10 @@
             // 
             this.cbIAD.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.cbIAD.AutoSize = true;
-            this.cbIAD.Location = new System.Drawing.Point(3, 4);
+            this.cbIAD.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbIAD.Location = new System.Drawing.Point(3, 3);
             this.cbIAD.Name = "cbIAD";
-            this.cbIAD.Size = new System.Drawing.Size(44, 16);
+            this.cbIAD.Size = new System.Drawing.Size(49, 19);
             this.cbIAD.TabIndex = 4;
             this.cbIAD.Text = "IAD";
             this.cbIAD.UseVisualStyleBackColor = true;
@@ -413,10 +428,11 @@
             // 
             this.comBoxARC.Dock = System.Windows.Forms.DockStyle.Fill;
             this.comBoxARC.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comBoxARC.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comBoxARC.FormattingEnabled = true;
             this.comBoxARC.Location = new System.Drawing.Point(90, 3);
             this.comBoxARC.Name = "comBoxARC";
-            this.comBoxARC.Size = new System.Drawing.Size(197, 20);
+            this.comBoxARC.Size = new System.Drawing.Size(197, 26);
             this.comBoxARC.TabIndex = 2;
             // 
             // tbIAD
@@ -447,9 +463,10 @@
             this.cbARC.AutoSize = true;
             this.cbARC.Checked = true;
             this.cbARC.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbARC.Location = new System.Drawing.Point(3, 4);
+            this.cbARC.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbARC.Location = new System.Drawing.Point(3, 3);
             this.cbARC.Name = "cbARC";
-            this.cbARC.Size = new System.Drawing.Size(48, 16);
+            this.cbARC.Size = new System.Drawing.Size(52, 19);
             this.cbARC.TabIndex = 3;
             this.cbARC.Text = "ARC";
             this.cbARC.UseVisualStyleBackColor = true;
@@ -488,9 +505,10 @@
             // 
             this.cbNoAuthRes.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.cbNoAuthRes.AutoSize = true;
-            this.cbNoAuthRes.Location = new System.Drawing.Point(3, 33);
+            this.cbNoAuthRes.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbNoAuthRes.Location = new System.Drawing.Point(3, 30);
             this.cbNoAuthRes.Name = "cbNoAuthRes";
-            this.cbNoAuthRes.Size = new System.Drawing.Size(85, 16);
+            this.cbNoAuthRes.Size = new System.Drawing.Size(108, 22);
             this.cbNoAuthRes.TabIndex = 1;
             this.cbNoAuthRes.Text = "No Response";
             this.cbNoAuthRes.UseVisualStyleBackColor = true;
@@ -501,9 +519,10 @@
             this.cbAutoReply.AutoSize = true;
             this.cbAutoReply.Checked = true;
             this.cbAutoReply.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbAutoReply.Location = new System.Drawing.Point(3, 5);
+            this.cbAutoReply.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbAutoReply.Location = new System.Drawing.Point(3, 3);
             this.cbAutoReply.Name = "cbAutoReply";
-            this.cbAutoReply.Size = new System.Drawing.Size(120, 16);
+            this.cbAutoReply.Size = new System.Drawing.Size(150, 21);
             this.cbAutoReply.TabIndex = 0;
             this.cbAutoReply.Text = "Automatically Reply";
             this.cbAutoReply.UseVisualStyleBackColor = true;
@@ -512,6 +531,7 @@
             // 
             this.btnHostSend.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnHostSend.Enabled = false;
+            this.btnHostSend.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHostSend.Location = new System.Drawing.Point(191, 3);
             this.btnHostSend.Name = "btnHostSend";
             this.btnHostSend.Size = new System.Drawing.Size(96, 55);
@@ -565,9 +585,10 @@
             // 
             this.cbIssuerScript.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.cbIssuerScript.AutoSize = true;
-            this.cbIssuerScript.Location = new System.Drawing.Point(3, 5);
+            this.cbIssuerScript.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbIssuerScript.Location = new System.Drawing.Point(3, 3);
             this.cbIssuerScript.Name = "cbIssuerScript";
-            this.cbIssuerScript.Size = new System.Drawing.Size(81, 16);
+            this.cbIssuerScript.Size = new System.Drawing.Size(102, 20);
             this.cbIssuerScript.TabIndex = 6;
             this.cbIssuerScript.Text = "Issuer Script";
             this.cbIssuerScript.UseVisualStyleBackColor = true;
@@ -606,6 +627,7 @@
             // 
             this.groupBox5.Controls.Add(this.tableLayoutPanel5);
             this.groupBox5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox5.Font = new System.Drawing.Font("Calibri Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox5.Location = new System.Drawing.Point(487, 3);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(202, 256);
@@ -651,10 +673,10 @@
             // 
             this.lbMs.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lbMs.AutoSize = true;
-            this.lbMs.Font = new System.Drawing.Font("新細明體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.lbMs.Location = new System.Drawing.Point(126, 7);
+            this.lbMs.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbMs.Location = new System.Drawing.Point(126, 6);
             this.lbMs.Name = "lbMs";
-            this.lbMs.Size = new System.Drawing.Size(23, 15);
+            this.lbMs.Size = new System.Drawing.Size(26, 18);
             this.lbMs.TabIndex = 2;
             this.lbMs.Text = "ms";
             // 
@@ -662,9 +684,10 @@
             // 
             this.cbAutoRun.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.cbAutoRun.AutoSize = true;
-            this.cbAutoRun.Location = new System.Drawing.Point(3, 180);
+            this.cbAutoRun.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbAutoRun.Location = new System.Drawing.Point(3, 174);
             this.cbAutoRun.Name = "cbAutoRun";
-            this.cbAutoRun.Size = new System.Drawing.Size(66, 16);
+            this.cbAutoRun.Size = new System.Drawing.Size(81, 22);
             this.cbAutoRun.TabIndex = 0;
             this.cbAutoRun.Text = "Auto run";
             this.cbAutoRun.UseVisualStyleBackColor = true;
@@ -672,6 +695,7 @@
             // btnStart
             // 
             this.btnStart.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnStart.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStart.Location = new System.Drawing.Point(3, 3);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(190, 76);
@@ -683,6 +707,7 @@
             // btnCancel
             // 
             this.btnCancel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnCancel.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.Location = new System.Drawing.Point(3, 85);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(190, 76);
@@ -707,6 +732,7 @@
             this.gbOutcome.Controls.Add(this.gbReceipt);
             this.gbOutcome.Controls.Add(this.tbOutcome);
             this.gbOutcome.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gbOutcome.Font = new System.Drawing.Font("Calibri Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbOutcome.Location = new System.Drawing.Point(707, 3);
             this.gbOutcome.Name = "gbOutcome";
             this.gbOutcome.Size = new System.Drawing.Size(464, 559);

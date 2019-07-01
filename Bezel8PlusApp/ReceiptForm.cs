@@ -92,7 +92,7 @@ namespace Bezel8PlusApp
                     lbDateTime.Text = yy.ToString() + " / " + context.Substring(2, 2) + " / " + context.Substring(4);
 
                 if (receiptData.TryGetValue("9F21", out context))
-                    lbDateTime.Text += "  " + context.Substring(0, 2) + ":" + context.Substring(2, 2);
+                    lbDateTime.Text += "    " + context.Substring(0, 2) + ":" + context.Substring(2, 2);
             }
             else
             {
@@ -151,5 +151,6 @@ namespace Bezel8PlusApp
             e.Cancel = true;
             this.Hide();
         }
+
     }
 }

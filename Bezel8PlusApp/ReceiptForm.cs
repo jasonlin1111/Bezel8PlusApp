@@ -131,7 +131,7 @@ namespace Bezel8PlusApp
             if (receiptData.TryGetValue("9F34", out context))
             {
                 byte[] CVMResult = DataHandler.HexStringToByteArray(context);
-                if ((CVMResult[0] & 0x1E) == 0x1E)
+                if (CVMResult[0] == 0x1E)
                     lbSign.Visible = true;
                 else
                     lbSign.Visible = false;

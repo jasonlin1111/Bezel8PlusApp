@@ -66,7 +66,7 @@
             this.groupBoxCom.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBoxCom.Location = new System.Drawing.Point(0, 0);
             this.groupBoxCom.Name = "groupBoxCom";
-            this.groupBoxCom.Size = new System.Drawing.Size(1089, 87);
+            this.groupBoxCom.Size = new System.Drawing.Size(1084, 87);
             this.groupBoxCom.TabIndex = 0;
             this.groupBoxCom.TabStop = false;
             // 
@@ -264,7 +264,7 @@
             this.groupBoxMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.groupBoxMenu.Location = new System.Drawing.Point(0, 87);
             this.groupBoxMenu.Name = "groupBoxMenu";
-            this.groupBoxMenu.Size = new System.Drawing.Size(97, 523);
+            this.groupBoxMenu.Size = new System.Drawing.Size(97, 534);
             this.groupBoxMenu.TabIndex = 1;
             this.groupBoxMenu.TabStop = false;
             // 
@@ -286,7 +286,7 @@
             this.tableLayoutPanelMenu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanelMenu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanelMenu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanelMenu.Size = new System.Drawing.Size(91, 502);
+            this.tableLayoutPanelMenu.Size = new System.Drawing.Size(91, 513);
             this.tableLayoutPanelMenu.TabIndex = 0;
             // 
             // btnMenuConfig
@@ -298,9 +298,9 @@
             this.btnMenuConfig.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ActiveBorder;
             this.btnMenuConfig.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ActiveBorder;
             this.btnMenuConfig.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.btnMenuConfig.Location = new System.Drawing.Point(3, 103);
+            this.btnMenuConfig.Location = new System.Drawing.Point(3, 105);
             this.btnMenuConfig.Name = "btnMenuConfig";
-            this.btnMenuConfig.Size = new System.Drawing.Size(85, 94);
+            this.btnMenuConfig.Size = new System.Drawing.Size(85, 96);
             this.btnMenuConfig.TabIndex = 0;
             this.btnMenuConfig.Text = "Configuration";
             this.btnMenuConfig.UseVisualStyleBackColor = false;
@@ -309,27 +309,27 @@
             // btnMenu5
             // 
             this.btnMenu5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnMenu5.Location = new System.Drawing.Point(3, 403);
+            this.btnMenu5.Location = new System.Drawing.Point(3, 411);
             this.btnMenu5.Name = "btnMenu5";
-            this.btnMenu5.Size = new System.Drawing.Size(85, 96);
+            this.btnMenu5.Size = new System.Drawing.Size(85, 99);
             this.btnMenu5.TabIndex = 4;
             this.btnMenu5.UseVisualStyleBackColor = true;
             // 
             // btnMenu4
             // 
             this.btnMenu4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnMenu4.Location = new System.Drawing.Point(3, 303);
+            this.btnMenu4.Location = new System.Drawing.Point(3, 309);
             this.btnMenu4.Name = "btnMenu4";
-            this.btnMenu4.Size = new System.Drawing.Size(85, 94);
+            this.btnMenu4.Size = new System.Drawing.Size(85, 96);
             this.btnMenu4.TabIndex = 3;
             this.btnMenu4.UseVisualStyleBackColor = true;
             // 
             // btnMenu3
             // 
             this.btnMenu3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnMenu3.Location = new System.Drawing.Point(3, 203);
+            this.btnMenu3.Location = new System.Drawing.Point(3, 207);
             this.btnMenu3.Name = "btnMenu3";
-            this.btnMenu3.Size = new System.Drawing.Size(85, 94);
+            this.btnMenu3.Size = new System.Drawing.Size(85, 96);
             this.btnMenu3.TabIndex = 2;
             this.btnMenu3.UseVisualStyleBackColor = true;
             this.btnMenu3.Click += new System.EventHandler(this.MenuButton_Click);
@@ -340,7 +340,7 @@
             this.btnMenuTxn.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.btnMenuTxn.Location = new System.Drawing.Point(3, 3);
             this.btnMenuTxn.Name = "btnMenuTxn";
-            this.btnMenuTxn.Size = new System.Drawing.Size(85, 94);
+            this.btnMenuTxn.Size = new System.Drawing.Size(85, 96);
             this.btnMenuTxn.TabIndex = 1;
             this.btnMenuTxn.Text = "Transaction";
             this.btnMenuTxn.UseVisualStyleBackColor = true;
@@ -351,7 +351,7 @@
             this.groupBoxWorkspace.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBoxWorkspace.Location = new System.Drawing.Point(97, 87);
             this.groupBoxWorkspace.Name = "groupBoxWorkspace";
-            this.groupBoxWorkspace.Size = new System.Drawing.Size(992, 523);
+            this.groupBoxWorkspace.Size = new System.Drawing.Size(987, 534);
             this.groupBoxWorkspace.TabIndex = 2;
             this.groupBoxWorkspace.TabStop = false;
             // 
@@ -360,10 +360,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1089, 610);
+            this.ClientSize = new System.Drawing.Size(1084, 621);
             this.Controls.Add(this.groupBoxWorkspace);
             this.Controls.Add(this.groupBoxMenu);
             this.Controls.Add(this.groupBoxCom);
+            this.MinimumSize = new System.Drawing.Size(1100, 660);
             this.Name = "MainEntryForm";
             this.Text = "MainEntryForm";
             this.groupBoxCom.ResumeLayout(false);

@@ -624,6 +624,20 @@ namespace Bezel8PlusApp
             tbOutcome.Clear();
             tbOnlineData.Clear();
         }
+
+        private void cbAutoRun_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbAutoRun.Checked)
+            {
+                tbAutoRunTime.Enabled = true;
+                lbMs.Enabled = true;
+            }
+            else
+            {
+                tbAutoRunTime.Enabled = false;
+                lbMs.Enabled = false;
+            }
+        }
     }
 
     public class TxnResult

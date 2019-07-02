@@ -20,6 +20,9 @@ namespace Bezel8PlusApp
         private ReceiptForm receiptForm;
         private OnlinePinForm onlinePinForm;
 
+        private bool btnHostSendPressed = false;
+        private bool btnCancelPressed = false;
+
         List<TLVDataObject> dataRecord;
         List<TLVDataObject> discretionaryData;
 
@@ -145,6 +148,8 @@ namespace Bezel8PlusApp
             AUTO_RUN:
             SetTxnInProgressUI();
             receiptForm.Visible = false;
+            btnHostSendPressed = false;
+            btnCancelPressed = false;
 
             string t61Message = PrepareTxnData();
             string t61Response = String.Empty;
@@ -256,6 +261,7 @@ namespace Bezel8PlusApp
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
+            btnCancelPressed = true;
             string t6CResponse = String.Empty;
             try
             {
@@ -422,14 +428,23 @@ namespace Bezel8PlusApp
             {
                 btnStart.Enabled = false;
                 btnHostSend.Enabled = true;
+
+                while (!btnHostSendPressed && !btnCancelPressed)
+                {
+                    Application.DoEvents();
+                }
+
             }
         }
+
 
         private void btnHostSend_Click(object sender, EventArgs e)
         {
             string t71Response = String.Empty;
             string IAD = String.Empty;
             string ARC = String.Empty;
+
+            btnHostSendPressed = true;
 
             if (cbARC.Checked)
             {

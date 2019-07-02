@@ -51,6 +51,9 @@ namespace Bezel8PlusApp
 
         private void PrintLog(string direction, byte[] message)
         {
+            if (!cbShowLog.Checked)
+                return;
+
             string time = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss.fff");
 
             tbLog.AppendText(time + "  " + direction + ":" + Environment.NewLine);
@@ -60,6 +63,12 @@ namespace Bezel8PlusApp
         private void btnClearLog_Click(object sender, EventArgs e)
         {
             tbLog.Clear();
+        }
+
+        private void LoggingForm_VisibleChanged(object sender, EventArgs e)
+        {
+            tbLog.SelectionStart = tbLog.TextLength;
+            tbLog.ScrollToCaret();
         }
     }
 }

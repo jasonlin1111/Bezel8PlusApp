@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.gbReceipt = new System.Windows.Forms.GroupBox();
+            this.lbOutcome = new System.Windows.Forms.Label();
+            this.lbReceiptTitle = new System.Windows.Forms.Label();
+            this.lbSign = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -52,9 +55,6 @@
             this.lbAID = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.lbOutcome = new System.Windows.Forms.Label();
-            this.lbSign = new System.Windows.Forms.Label();
-            this.lbReceiptTitle = new System.Windows.Forms.Label();
             this.gbReceipt.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -72,13 +72,48 @@
             this.gbReceipt.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gbReceipt.Location = new System.Drawing.Point(0, 0);
             this.gbReceipt.Name = "gbReceipt";
-            this.gbReceipt.Size = new System.Drawing.Size(352, 501);
+            this.gbReceipt.Size = new System.Drawing.Size(358, 422);
             this.gbReceipt.TabIndex = 0;
             this.gbReceipt.TabStop = false;
             // 
+            // lbOutcome
+            // 
+            this.lbOutcome.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.lbOutcome.AutoSize = true;
+            this.lbOutcome.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbOutcome.Location = new System.Drawing.Point(125, 387);
+            this.lbOutcome.Name = "lbOutcome";
+            this.lbOutcome.Size = new System.Drawing.Size(88, 26);
+            this.lbOutcome.TabIndex = 3;
+            this.lbOutcome.Text = "outcome";
+            // 
+            // lbReceiptTitle
+            // 
+            this.lbReceiptTitle.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lbReceiptTitle.AutoSize = true;
+            this.lbReceiptTitle.Font = new System.Drawing.Font("Calibri Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbReceiptTitle.Location = new System.Drawing.Point(126, 18);
+            this.lbReceiptTitle.Margin = new System.Windows.Forms.Padding(3, 0, 3, 8);
+            this.lbReceiptTitle.Name = "lbReceiptTitle";
+            this.lbReceiptTitle.Size = new System.Drawing.Size(99, 38);
+            this.lbReceiptTitle.TabIndex = 12;
+            this.lbReceiptTitle.Text = "UIC BOOTH\r\nCARTES PARIS";
+            this.lbReceiptTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lbSign
+            // 
+            this.lbSign.AutoSize = true;
+            this.lbSign.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbSign.Location = new System.Drawing.Point(6, 351);
+            this.lbSign.Name = "lbSign";
+            this.lbSign.Size = new System.Drawing.Size(260, 27);
+            this.lbSign.TabIndex = 1;
+            this.lbSign.Text = "Signature: __________";
+            // 
             // tableLayoutPanel2
             // 
-            this.tableLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
@@ -86,12 +121,12 @@
             this.tableLayoutPanel2.Controls.Add(this.label8, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.lbMerchantID, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.lbTerminalID, 1, 1);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(6, 119);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(6, 79);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(340, 47);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(346, 47);
             this.tableLayoutPanel2.TabIndex = 2;
             // 
             // label9
@@ -121,7 +156,7 @@
             this.lbMerchantID.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lbMerchantID.AutoSize = true;
             this.lbMerchantID.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbMerchantID.Location = new System.Drawing.Point(139, 2);
+            this.lbMerchantID.Location = new System.Drawing.Point(141, 2);
             this.lbMerchantID.Name = "lbMerchantID";
             this.lbMerchantID.Size = new System.Drawing.Size(21, 19);
             this.lbMerchantID.TabIndex = 3;
@@ -132,7 +167,7 @@
             this.lbTerminalID.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lbTerminalID.AutoSize = true;
             this.lbTerminalID.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTerminalID.Location = new System.Drawing.Point(139, 25);
+            this.lbTerminalID.Location = new System.Drawing.Point(141, 25);
             this.lbTerminalID.Name = "lbTerminalID";
             this.lbTerminalID.Size = new System.Drawing.Size(21, 19);
             this.lbTerminalID.TabIndex = 4;
@@ -140,21 +175,22 @@
             // 
             // tableLayoutPanel3
             // 
-            this.tableLayoutPanel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel3.ColumnCount = 2;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
             this.tableLayoutPanel3.Controls.Add(this.lbAmountOther, 1, 1);
             this.tableLayoutPanel3.Controls.Add(this.lbTextAmountOther, 0, 1);
-            this.tableLayoutPanel3.Controls.Add(this.label5, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.lbAmount, 1, 0);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(6, 311);
+            this.tableLayoutPanel3.Controls.Add(this.label5, 0, 0);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(6, 288);
             this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 2;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(340, 45);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(346, 45);
             this.tableLayoutPanel3.TabIndex = 11;
             // 
             // lbAmountOther
@@ -162,7 +198,7 @@
             this.lbAmountOther.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lbAmountOther.AutoSize = true;
             this.lbAmountOther.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbAmountOther.Location = new System.Drawing.Point(139, 24);
+            this.lbAmountOther.Location = new System.Drawing.Point(141, 24);
             this.lbAmountOther.Name = "lbAmountOther";
             this.lbAmountOther.Size = new System.Drawing.Size(21, 19);
             this.lbAmountOther.TabIndex = 12;
@@ -195,7 +231,7 @@
             this.lbAmount.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lbAmount.AutoSize = true;
             this.lbAmount.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbAmount.Location = new System.Drawing.Point(139, 1);
+            this.lbAmount.Location = new System.Drawing.Point(141, 1);
             this.lbAmount.Name = "lbAmount";
             this.lbAmount.Size = new System.Drawing.Size(21, 19);
             this.lbAmount.TabIndex = 10;
@@ -203,7 +239,8 @@
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
@@ -219,7 +256,7 @@
             this.tableLayoutPanel1.Controls.Add(this.lbAID, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.label3, 0, 3);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(6, 172);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(6, 144);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 6;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
@@ -228,7 +265,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(340, 133);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(346, 133);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // lbCardType
@@ -236,7 +273,7 @@
             this.lbCardType.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lbCardType.AutoSize = true;
             this.lbCardType.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCardType.Location = new System.Drawing.Point(139, 1);
+            this.lbCardType.Location = new System.Drawing.Point(141, 1);
             this.lbCardType.Name = "lbCardType";
             this.lbCardType.Size = new System.Drawing.Size(21, 19);
             this.lbCardType.TabIndex = 12;
@@ -247,7 +284,7 @@
             this.lbAOSA.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lbAOSA.AutoSize = true;
             this.lbAOSA.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbAOSA.Location = new System.Drawing.Point(139, 112);
+            this.lbAOSA.Location = new System.Drawing.Point(141, 112);
             this.lbAOSA.Name = "lbAOSA";
             this.lbAOSA.Size = new System.Drawing.Size(21, 19);
             this.lbAOSA.TabIndex = 11;
@@ -280,7 +317,7 @@
             this.lbDateTime.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lbDateTime.AutoSize = true;
             this.lbDateTime.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbDateTime.Location = new System.Drawing.Point(139, 89);
+            this.lbDateTime.Location = new System.Drawing.Point(141, 89);
             this.lbDateTime.Name = "lbDateTime";
             this.lbDateTime.Size = new System.Drawing.Size(21, 19);
             this.lbDateTime.TabIndex = 9;
@@ -291,7 +328,7 @@
             this.lbTxnType.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lbTxnType.AutoSize = true;
             this.lbTxnType.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTxnType.Location = new System.Drawing.Point(139, 67);
+            this.lbTxnType.Location = new System.Drawing.Point(141, 67);
             this.lbTxnType.Name = "lbTxnType";
             this.lbTxnType.Size = new System.Drawing.Size(21, 19);
             this.lbTxnType.TabIndex = 8;
@@ -324,7 +361,7 @@
             this.lbCardNo.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lbCardNo.AutoSize = true;
             this.lbCardNo.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCardNo.Location = new System.Drawing.Point(139, 23);
+            this.lbCardNo.Location = new System.Drawing.Point(141, 23);
             this.lbCardNo.Name = "lbCardNo";
             this.lbCardNo.Size = new System.Drawing.Size(21, 19);
             this.lbCardNo.TabIndex = 7;
@@ -335,7 +372,7 @@
             this.lbAID.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lbAID.AutoSize = true;
             this.lbAID.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbAID.Location = new System.Drawing.Point(139, 45);
+            this.lbAID.Location = new System.Drawing.Point(141, 45);
             this.lbAID.Name = "lbAID";
             this.lbAID.Size = new System.Drawing.Size(21, 19);
             this.lbAID.TabIndex = 6;
@@ -363,46 +400,11 @@
             this.label3.TabIndex = 2;
             this.label3.Text = "Transaction Type";
             // 
-            // lbOutcome
-            // 
-            this.lbOutcome.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.lbOutcome.AutoSize = true;
-            this.lbOutcome.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbOutcome.Location = new System.Drawing.Point(122, 466);
-            this.lbOutcome.Name = "lbOutcome";
-            this.lbOutcome.Size = new System.Drawing.Size(88, 26);
-            this.lbOutcome.TabIndex = 3;
-            this.lbOutcome.Text = "outcome";
-            // 
-            // lbSign
-            // 
-            this.lbSign.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lbSign.AutoSize = true;
-            this.lbSign.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbSign.Location = new System.Drawing.Point(8, 405);
-            this.lbSign.Name = "lbSign";
-            this.lbSign.Size = new System.Drawing.Size(260, 27);
-            this.lbSign.TabIndex = 1;
-            this.lbSign.Text = "Signature: __________";
-            // 
-            // lbReceiptTitle
-            // 
-            this.lbReceiptTitle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.lbReceiptTitle.AutoSize = true;
-            this.lbReceiptTitle.Font = new System.Drawing.Font("Calibri Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbReceiptTitle.Location = new System.Drawing.Point(123, 18);
-            this.lbReceiptTitle.Margin = new System.Windows.Forms.Padding(3, 0, 3, 8);
-            this.lbReceiptTitle.Name = "lbReceiptTitle";
-            this.lbReceiptTitle.Size = new System.Drawing.Size(99, 38);
-            this.lbReceiptTitle.TabIndex = 12;
-            this.lbReceiptTitle.Text = "UIC BOOTH\r\nCARTES PARIS";
-            this.lbReceiptTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // ReceiptForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(352, 501);
+            this.ClientSize = new System.Drawing.Size(358, 422);
             this.Controls.Add(this.gbReceipt);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "ReceiptForm";

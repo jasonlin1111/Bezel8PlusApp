@@ -51,17 +51,17 @@
             this.cbExceptionFile = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.gbMSD = new System.Windows.Forms.GroupBox();
-            this.gbParameter = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnGetPara = new System.Windows.Forms.Button();
             this.btnSetPara = new System.Windows.Forms.Button();
+            this.btnGetPara = new System.Windows.Forms.Button();
             this.tableLayoutPanel12 = new System.Windows.Forms.TableLayoutPanel();
             this.cbbTxnType = new System.Windows.Forms.ComboBox();
             this.cbbTemplate = new System.Windows.Forms.ComboBox();
             this.lbTxnType = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.lbAID = new System.Windows.Forms.Label();
+            this.cbbAID = new System.Windows.Forms.ComboBox();
+            this.gbMSD = new System.Windows.Forms.GroupBox();
             this.gbQVSDC = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.gbExceptionFile = new System.Windows.Forms.GroupBox();
@@ -99,16 +99,14 @@
             this.cbTTQB1b6 = new System.Windows.Forms.CheckBox();
             this.cbTTQB1b3 = new System.Windows.Forms.CheckBox();
             this.cbTTQB1b8 = new System.Windows.Forms.CheckBox();
-            this.lbAID = new System.Windows.Forms.Label();
-            this.cbbAID = new System.Windows.Forms.ComboBox();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel14 = new System.Windows.Forms.TableLayoutPanel();
             this.tlpQVSDC.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
-            this.gbMSD.SuspendLayout();
-            this.gbParameter.SuspendLayout();
             this.tableLayoutPanel11.SuspendLayout();
             this.tableLayoutPanel12.SuspendLayout();
+            this.gbMSD.SuspendLayout();
             this.gbQVSDC.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
             this.gbExceptionFile.SuspendLayout();
@@ -121,15 +119,19 @@
             this.tableLayoutPanel6.SuspendLayout();
             this.gbTTQSetting.SuspendLayout();
             this.tableLayoutPanel13.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
+            this.tableLayoutPanel14.SuspendLayout();
             this.SuspendLayout();
             // 
             // tbTTQ
             // 
-            this.tbTTQ.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.tbTTQ.Location = new System.Drawing.Point(388, 27);
+            this.tbTTQ.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbTTQ.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.tbTTQ.Location = new System.Drawing.Point(522, 29);
             this.tbTTQ.MaxLength = 8;
             this.tbTTQ.Name = "tbTTQ";
-            this.tbTTQ.Size = new System.Drawing.Size(86, 22);
+            this.tbTTQ.Size = new System.Drawing.Size(118, 26);
             this.tbTTQ.TabIndex = 1;
             this.tbTTQ.Text = "B6004000";
             this.tbTTQ.TextChanged += new System.EventHandler(this.tbTTQ_TextChanged);
@@ -138,9 +140,10 @@
             // 
             this.lbTTQ.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lbTTQ.AutoSize = true;
-            this.lbTTQ.Location = new System.Drawing.Point(417, 12);
+            this.lbTTQ.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.lbTTQ.Location = new System.Drawing.Point(565, 8);
             this.lbTTQ.Name = "lbTTQ";
-            this.lbTTQ.Size = new System.Drawing.Size(27, 12);
+            this.lbTTQ.Size = new System.Drawing.Size(32, 18);
             this.lbTTQ.TabIndex = 0;
             this.lbTTQ.Text = "TTQ";
             // 
@@ -150,9 +153,10 @@
             this.cbRCTLCheck.AutoSize = true;
             this.cbRCTLCheck.Checked = true;
             this.cbRCTLCheck.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbRCTLCheck.Location = new System.Drawing.Point(3, 87);
+            this.cbRCTLCheck.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbRCTLCheck.Location = new System.Drawing.Point(3, 69);
             this.cbRCTLCheck.Name = "cbRCTLCheck";
-            this.cbRCTLCheck.Size = new System.Drawing.Size(208, 16);
+            this.cbRCTLCheck.Size = new System.Drawing.Size(253, 22);
             this.cbRCTLCheck.TabIndex = 11;
             this.cbRCTLCheck.Text = "Reader CL Transaction Limit Checking";
             this.cbRCTLCheck.UseVisualStyleBackColor = true;
@@ -164,11 +168,12 @@
             this.cbRCFLCheck.AutoSize = true;
             this.cbRCFLCheck.Checked = true;
             this.cbRCFLCheck.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbRCFLCheck.Location = new System.Drawing.Point(3, 163);
+            this.cbRCFLCheck.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbRCFLCheck.Location = new System.Drawing.Point(3, 133);
             this.cbRCFLCheck.Name = "cbRCFLCheck";
-            this.cbRCFLCheck.Size = new System.Drawing.Size(216, 16);
+            this.cbRCFLCheck.Size = new System.Drawing.Size(216, 22);
             this.cbRCFLCheck.TabIndex = 13;
-            this.cbRCFLCheck.Text = "Reader Contactless Floor Limit Checking";
+            this.cbRCFLCheck.Text = "Reader CL Floor Limit Checking";
             this.cbRCFLCheck.UseVisualStyleBackColor = true;
             this.cbRCFLCheck.CheckedChanged += new System.EventHandler(this.CheckBox_CheckedChanged);
             // 
@@ -178,9 +183,10 @@
             this.cbCVMCheck.AutoSize = true;
             this.cbCVMCheck.Checked = true;
             this.cbCVMCheck.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbCVMCheck.Location = new System.Drawing.Point(3, 125);
+            this.cbCVMCheck.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbCVMCheck.Location = new System.Drawing.Point(3, 101);
             this.cbCVMCheck.Name = "cbCVMCheck";
-            this.cbCVMCheck.Size = new System.Drawing.Size(208, 16);
+            this.cbCVMCheck.Size = new System.Drawing.Size(256, 22);
             this.cbCVMCheck.TabIndex = 12;
             this.cbCVMCheck.Text = "Reader CVM Required Limit Checking";
             this.cbCVMCheck.UseVisualStyleBackColor = true;
@@ -190,9 +196,10 @@
             // 
             this.cbTFLCheck.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.cbTFLCheck.AutoSize = true;
-            this.cbTFLCheck.Location = new System.Drawing.Point(3, 201);
+            this.cbTFLCheck.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbTFLCheck.Location = new System.Drawing.Point(3, 165);
             this.cbTFLCheck.Name = "cbTFLCheck";
-            this.cbTFLCheck.Size = new System.Drawing.Size(158, 16);
+            this.cbTFLCheck.Size = new System.Drawing.Size(201, 22);
             this.cbTFLCheck.TabIndex = 17;
             this.cbTFLCheck.Text = "Terminal Floor Limit Present";
             this.cbTFLCheck.UseVisualStyleBackColor = true;
@@ -202,22 +209,24 @@
             // 
             this.cbTrack1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.cbTrack1.AutoSize = true;
-            this.cbTrack1.Location = new System.Drawing.Point(3, 43);
+            this.cbTrack1.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbTrack1.Location = new System.Drawing.Point(3, 37);
             this.cbTrack1.Name = "cbTrack1";
-            this.cbTrack1.Size = new System.Drawing.Size(114, 16);
+            this.cbTrack1.Size = new System.Drawing.Size(99, 22);
             this.cbTrack1.TabIndex = 12;
-            this.cbTrack1.Text = "Track 1 Formatting";
+            this.cbTrack1.Text = "Track 1 Data";
             this.cbTrack1.UseVisualStyleBackColor = true;
             // 
             // cbTrack2
             // 
             this.cbTrack2.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.cbTrack2.AutoSize = true;
-            this.cbTrack2.Location = new System.Drawing.Point(3, 78);
+            this.cbTrack2.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbTrack2.Location = new System.Drawing.Point(3, 70);
             this.cbTrack2.Name = "cbTrack2";
-            this.cbTrack2.Size = new System.Drawing.Size(114, 16);
+            this.cbTrack2.Size = new System.Drawing.Size(99, 22);
             this.cbTrack2.TabIndex = 13;
-            this.cbTrack2.Text = "Track 2 Formatting";
+            this.cbTrack2.Text = "Track 2 Data";
             this.cbTrack2.UseVisualStyleBackColor = true;
             // 
             // cbCVN17
@@ -226,9 +235,10 @@
             this.cbCVN17.AutoSize = true;
             this.cbCVN17.Checked = true;
             this.cbCVN17.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbCVN17.Location = new System.Drawing.Point(3, 9);
+            this.cbCVN17.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbCVN17.Location = new System.Drawing.Point(3, 5);
             this.cbCVN17.Name = "cbCVN17";
-            this.cbCVN17.Size = new System.Drawing.Size(63, 16);
+            this.cbCVN17.Size = new System.Drawing.Size(71, 22);
             this.cbCVN17.TabIndex = 14;
             this.cbCVN17.Text = "CVN 17";
             this.cbCVN17.UseVisualStyleBackColor = true;
@@ -237,9 +247,10 @@
             // 
             this.cbRevoList.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.cbRevoList.AutoSize = true;
-            this.cbRevoList.Location = new System.Drawing.Point(3, 307);
+            this.cbRevoList.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbRevoList.Location = new System.Drawing.Point(3, 229);
             this.cbRevoList.Name = "cbRevoList";
-            this.cbRevoList.Size = new System.Drawing.Size(97, 15);
+            this.cbRevoList.Size = new System.Drawing.Size(119, 22);
             this.cbRevoList.TabIndex = 19;
             this.cbRevoList.Text = "Revocation List";
             this.cbRevoList.UseVisualStyleBackColor = true;
@@ -251,9 +262,10 @@
             this.cbAmount0Check.AutoSize = true;
             this.cbAmount0Check.Checked = true;
             this.cbAmount0Check.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbAmount0Check.Location = new System.Drawing.Point(3, 49);
+            this.cbAmount0Check.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbAmount0Check.Location = new System.Drawing.Point(3, 37);
             this.cbAmount0Check.Name = "cbAmount0Check";
-            this.cbAmount0Check.Size = new System.Drawing.Size(135, 16);
+            this.cbAmount0Check.Size = new System.Drawing.Size(167, 22);
             this.cbAmount0Check.TabIndex = 25;
             this.cbAmount0Check.Text = "Amount Zero Checking";
             this.cbAmount0Check.UseVisualStyleBackColor = true;
@@ -265,10 +277,10 @@
             this.cbStatusCheck.AutoSize = true;
             this.cbStatusCheck.Checked = true;
             this.cbStatusCheck.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbStatusCheck.Font = new System.Drawing.Font("新細明體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.cbStatusCheck.Location = new System.Drawing.Point(3, 11);
+            this.cbStatusCheck.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbStatusCheck.Location = new System.Drawing.Point(3, 5);
             this.cbStatusCheck.Name = "cbStatusCheck";
-            this.cbStatusCheck.Size = new System.Drawing.Size(99, 16);
+            this.cbStatusCheck.Size = new System.Drawing.Size(124, 22);
             this.cbStatusCheck.TabIndex = 23;
             this.cbStatusCheck.Text = "Status Checking";
             this.cbStatusCheck.UseVisualStyleBackColor = true;
@@ -291,62 +303,68 @@
             this.tlpQVSDC.Controls.Add(this.cbTFLCheck, 0, 5);
             this.tlpQVSDC.Controls.Add(this.tbTFL, 1, 5);
             this.tlpQVSDC.Controls.Add(this.cbDRL, 0, 6);
-            this.tlpQVSDC.Controls.Add(this.tbRevoList, 1, 8);
-            this.tlpQVSDC.Controls.Add(this.cbExceptionFile, 0, 7);
-            this.tlpQVSDC.Controls.Add(this.cbRevoList, 0, 8);
+            this.tlpQVSDC.Controls.Add(this.tbRevoList, 1, 7);
+            this.tlpQVSDC.Controls.Add(this.cbRevoList, 0, 7);
+            this.tlpQVSDC.Controls.Add(this.cbExceptionFile, 0, 8);
             this.tlpQVSDC.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlpQVSDC.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tlpQVSDC.Location = new System.Drawing.Point(3, 18);
+            this.tlpQVSDC.Margin = new System.Windows.Forms.Padding(1);
             this.tlpQVSDC.Name = "tlpQVSDC";
             this.tlpQVSDC.RowCount = 9;
-            this.tlpQVSDC.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tlpQVSDC.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tlpQVSDC.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tlpQVSDC.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tlpQVSDC.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tlpQVSDC.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tlpQVSDC.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tlpQVSDC.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tlpQVSDC.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlpQVSDC.Size = new System.Drawing.Size(708, 325);
+            this.tlpQVSDC.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
+            this.tlpQVSDC.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
+            this.tlpQVSDC.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
+            this.tlpQVSDC.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
+            this.tlpQVSDC.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
+            this.tlpQVSDC.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
+            this.tlpQVSDC.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
+            this.tlpQVSDC.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
+            this.tlpQVSDC.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
+            this.tlpQVSDC.Size = new System.Drawing.Size(643, 291);
             this.tlpQVSDC.TabIndex = 1;
             // 
             // cbbAmount0Check
             // 
             this.cbbAmount0Check.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.cbbAmount0Check.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbAmount0Check.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbAmount0Check.FormattingEnabled = true;
-            this.cbbAmount0Check.Location = new System.Drawing.Point(357, 47);
+            this.cbbAmount0Check.Location = new System.Drawing.Point(324, 35);
             this.cbbAmount0Check.Name = "cbbAmount0Check";
-            this.cbbAmount0Check.Size = new System.Drawing.Size(98, 20);
+            this.cbbAmount0Check.Size = new System.Drawing.Size(98, 26);
             this.cbbAmount0Check.TabIndex = 24;
             // 
             // tbRCTL
             // 
             this.tbRCTL.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.tbRCTL.Location = new System.Drawing.Point(357, 84);
+            this.tbRCTL.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbRCTL.Location = new System.Drawing.Point(324, 67);
             this.tbRCTL.MaxLength = 12;
             this.tbRCTL.Name = "tbRCTL";
-            this.tbRCTL.Size = new System.Drawing.Size(192, 22);
+            this.tbRCTL.Size = new System.Drawing.Size(192, 26);
             this.tbRCTL.TabIndex = 14;
             this.tbRCTL.Text = "000000010000";
             // 
             // tbCVML
             // 
             this.tbCVML.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.tbCVML.Location = new System.Drawing.Point(357, 122);
+            this.tbCVML.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbCVML.Location = new System.Drawing.Point(324, 99);
             this.tbCVML.MaxLength = 12;
             this.tbCVML.Name = "tbCVML";
-            this.tbCVML.Size = new System.Drawing.Size(192, 22);
+            this.tbCVML.Size = new System.Drawing.Size(192, 26);
             this.tbCVML.TabIndex = 15;
             this.tbCVML.Text = "000000006000";
             // 
             // tbRCFL
             // 
             this.tbRCFL.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.tbRCFL.Location = new System.Drawing.Point(357, 160);
+            this.tbRCFL.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbRCFL.Location = new System.Drawing.Point(324, 131);
             this.tbRCFL.MaxLength = 12;
             this.tbRCFL.Name = "tbRCFL";
-            this.tbRCFL.Size = new System.Drawing.Size(192, 22);
+            this.tbRCFL.Size = new System.Drawing.Size(192, 26);
             this.tbRCFL.TabIndex = 16;
             this.tbRCFL.Text = "000000008000";
             // 
@@ -354,39 +372,42 @@
             // 
             this.tbTFL.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.tbTFL.Enabled = false;
-            this.tbTFL.Location = new System.Drawing.Point(357, 198);
+            this.tbTFL.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbTFL.Location = new System.Drawing.Point(324, 163);
             this.tbTFL.MaxLength = 12;
             this.tbTFL.Name = "tbTFL";
-            this.tbTFL.Size = new System.Drawing.Size(192, 22);
+            this.tbTFL.Size = new System.Drawing.Size(192, 26);
             this.tbTFL.TabIndex = 18;
             // 
             // cbDRL
             // 
             this.cbDRL.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.cbDRL.AutoSize = true;
-            this.cbDRL.Location = new System.Drawing.Point(3, 239);
+            this.cbDRL.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbDRL.Location = new System.Drawing.Point(3, 197);
             this.cbDRL.Name = "cbDRL";
-            this.cbDRL.Size = new System.Drawing.Size(200, 16);
+            this.cbDRL.Size = new System.Drawing.Size(245, 22);
             this.cbDRL.TabIndex = 26;
             this.cbDRL.Text = "Dynamic Reader Limits(DRL) Enable";
             this.cbDRL.UseVisualStyleBackColor = true;
             // 
             // tbRevoList
             // 
-            this.tbRevoList.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.tbRevoList.Enabled = false;
-            this.tbRevoList.Location = new System.Drawing.Point(357, 307);
+            this.tbRevoList.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbRevoList.Location = new System.Drawing.Point(324, 227);
             this.tbRevoList.Name = "tbRevoList";
-            this.tbRevoList.Size = new System.Drawing.Size(192, 22);
+            this.tbRevoList.Size = new System.Drawing.Size(192, 26);
             this.tbRevoList.TabIndex = 20;
             // 
             // cbExceptionFile
             // 
             this.cbExceptionFile.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.cbExceptionFile.AutoSize = true;
-            this.cbExceptionFile.Location = new System.Drawing.Point(3, 277);
+            this.cbExceptionFile.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbExceptionFile.Location = new System.Drawing.Point(3, 262);
             this.cbExceptionFile.Name = "cbExceptionFile";
-            this.cbExceptionFile.Size = new System.Drawing.Size(139, 16);
+            this.cbExceptionFile.Size = new System.Drawing.Size(172, 22);
             this.cbExceptionFile.TabIndex = 27;
             this.cbExceptionFile.Text = "Exception File Checking";
             this.cbExceptionFile.UseVisualStyleBackColor = true;
@@ -399,13 +420,15 @@
             this.tableLayoutPanel3.Controls.Add(this.cbTrack2, 0, 2);
             this.tableLayoutPanel3.Controls.Add(this.cbTrack1, 0, 1);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel3.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 18);
+            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 3;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.34F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(708, 104);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(379, 99);
             this.tableLayoutPanel3.TabIndex = 2;
             // 
             // tableLayoutPanel1
@@ -421,86 +444,48 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1126, 600);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1008, 527);
             this.tableLayoutPanel1.TabIndex = 3;
-            // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.ColumnCount = 1;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Controls.Add(this.gbMSD, 0, 2);
-            this.tableLayoutPanel2.Controls.Add(this.gbParameter, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.gbQVSDC, 0, 1);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(6, 6);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 3;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(720, 588);
-            this.tableLayoutPanel2.TabIndex = 4;
-            // 
-            // gbMSD
-            // 
-            this.gbMSD.Controls.Add(this.tableLayoutPanel3);
-            this.gbMSD.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gbMSD.Location = new System.Drawing.Point(3, 460);
-            this.gbMSD.Name = "gbMSD";
-            this.gbMSD.Size = new System.Drawing.Size(714, 125);
-            this.gbMSD.TabIndex = 2;
-            this.gbMSD.TabStop = false;
-            this.gbMSD.Text = "MSD Options";
-            // 
-            // gbParameter
-            // 
-            this.gbParameter.Controls.Add(this.tableLayoutPanel11);
-            this.gbParameter.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gbParameter.Location = new System.Drawing.Point(3, 3);
-            this.gbParameter.Name = "gbParameter";
-            this.gbParameter.Size = new System.Drawing.Size(714, 99);
-            this.gbParameter.TabIndex = 0;
-            this.gbParameter.TabStop = false;
-            this.gbParameter.Text = "Parameter Setting";
             // 
             // tableLayoutPanel11
             // 
-            this.tableLayoutPanel11.ColumnCount = 3;
-            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 72F));
-            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14F));
-            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14F));
-            this.tableLayoutPanel11.Controls.Add(this.btnGetPara, 2, 0);
-            this.tableLayoutPanel11.Controls.Add(this.btnSetPara, 1, 0);
-            this.tableLayoutPanel11.Controls.Add(this.tableLayoutPanel12, 0, 0);
+            this.tableLayoutPanel11.ColumnCount = 2;
+            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel11.Controls.Add(this.btnSetPara, 0, 0);
+            this.tableLayoutPanel11.Controls.Add(this.btnGetPara, 1, 0);
             this.tableLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel11.Location = new System.Drawing.Point(3, 18);
+            this.tableLayoutPanel11.Location = new System.Drawing.Point(385, 8);
+            this.tableLayoutPanel11.Margin = new System.Windows.Forms.Padding(0, 8, 0, 0);
             this.tableLayoutPanel11.Name = "tableLayoutPanel11";
             this.tableLayoutPanel11.RowCount = 1;
-            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel11.Size = new System.Drawing.Size(708, 78);
-            this.tableLayoutPanel11.TabIndex = 7;
-            // 
-            // btnGetPara
-            // 
-            this.btnGetPara.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnGetPara.Location = new System.Drawing.Point(570, 3);
-            this.btnGetPara.Name = "btnGetPara";
-            this.btnGetPara.Size = new System.Drawing.Size(80, 69);
-            this.btnGetPara.TabIndex = 3;
-            this.btnGetPara.Text = "Get Parameters";
-            this.btnGetPara.UseVisualStyleBackColor = true;
-            this.btnGetPara.Click += new System.EventHandler(this.btnGetPara_Click);
+            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel11.Size = new System.Drawing.Size(258, 112);
+            this.tableLayoutPanel11.TabIndex = 4;
             // 
             // btnSetPara
             // 
             this.btnSetPara.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSetPara.Location = new System.Drawing.Point(486, 3);
+            this.btnSetPara.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.btnSetPara.Location = new System.Drawing.Point(3, 3);
             this.btnSetPara.Name = "btnSetPara";
-            this.btnSetPara.Size = new System.Drawing.Size(78, 69);
+            this.btnSetPara.Size = new System.Drawing.Size(123, 106);
             this.btnSetPara.TabIndex = 2;
             this.btnSetPara.Text = "Set Parameters";
             this.btnSetPara.UseVisualStyleBackColor = true;
             this.btnSetPara.Click += new System.EventHandler(this.btnSetPara_Click);
+            // 
+            // btnGetPara
+            // 
+            this.btnGetPara.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnGetPara.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.btnGetPara.Location = new System.Drawing.Point(132, 3);
+            this.btnGetPara.Name = "btnGetPara";
+            this.btnGetPara.Size = new System.Drawing.Size(123, 106);
+            this.btnGetPara.TabIndex = 3;
+            this.btnGetPara.Text = "Get Parameters";
+            this.btnGetPara.UseVisualStyleBackColor = true;
+            this.btnGetPara.Click += new System.EventHandler(this.btnGetPara_Click);
             // 
             // tableLayoutPanel12
             // 
@@ -523,29 +508,33 @@
             this.tableLayoutPanel12.RowCount = 2;
             this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 35F));
             this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 65F));
-            this.tableLayoutPanel12.Size = new System.Drawing.Size(477, 69);
+            this.tableLayoutPanel12.Size = new System.Drawing.Size(643, 77);
             this.tableLayoutPanel12.TabIndex = 4;
             // 
             // cbbTxnType
             // 
-            this.cbbTxnType.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.cbbTxnType.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cbbTxnType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbTxnType.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.cbbTxnType.FormattingEnabled = true;
             this.cbbTxnType.Items.AddRange(new object[] {
             "Purchase"});
-            this.cbbTxnType.Location = new System.Drawing.Point(157, 27);
+            this.cbbTxnType.Location = new System.Drawing.Point(208, 29);
             this.cbbTxnType.Name = "cbbTxnType";
-            this.cbbTxnType.Size = new System.Drawing.Size(99, 20);
+            this.cbbTxnType.Size = new System.Drawing.Size(141, 26);
             this.cbbTxnType.TabIndex = 5;
             // 
             // cbbTemplate
             // 
-            this.cbbTemplate.Dock = System.Windows.Forms.DockStyle.Top;
+            this.cbbTemplate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cbbTemplate.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbTemplate.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.cbbTemplate.FormattingEnabled = true;
-            this.cbbTemplate.Location = new System.Drawing.Point(3, 27);
+            this.cbbTemplate.Location = new System.Drawing.Point(3, 29);
             this.cbbTemplate.Name = "cbbTemplate";
-            this.cbbTemplate.Size = new System.Drawing.Size(146, 20);
+            this.cbbTemplate.Size = new System.Drawing.Size(199, 26);
             this.cbbTemplate.TabIndex = 7;
             this.cbbTemplate.SelectionChangeCommitted += new System.EventHandler(this.cbbTemplate_SelectionChangeCommitted);
             // 
@@ -553,29 +542,69 @@
             // 
             this.lbTxnType.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lbTxnType.AutoSize = true;
-            this.lbTxnType.Location = new System.Drawing.Point(163, 12);
+            this.lbTxnType.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.lbTxnType.Location = new System.Drawing.Point(260, 8);
             this.lbTxnType.Name = "lbTxnType";
-            this.lbTxnType.Size = new System.Drawing.Size(86, 12);
+            this.lbTxnType.Size = new System.Drawing.Size(37, 18);
             this.lbTxnType.TabIndex = 4;
-            this.lbTxnType.Text = "Transaction Type";
+            this.lbTxnType.Text = "Type";
             // 
             // label2
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(52, 12);
+            this.label2.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label2.Location = new System.Drawing.Point(69, 8);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(48, 12);
+            this.label2.Size = new System.Drawing.Size(66, 18);
             this.label2.TabIndex = 6;
             this.label2.Text = "Template";
+            // 
+            // lbAID
+            // 
+            this.lbAID.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.lbAID.AutoSize = true;
+            this.lbAID.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.lbAID.Location = new System.Drawing.Point(420, 8);
+            this.lbAID.Name = "lbAID";
+            this.lbAID.Size = new System.Drawing.Size(30, 18);
+            this.lbAID.TabIndex = 8;
+            this.lbAID.Text = "AID";
+            // 
+            // cbbAID
+            // 
+            this.cbbAID.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbbAID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbAID.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.cbbAID.FormattingEnabled = true;
+            this.cbbAID.Location = new System.Drawing.Point(355, 29);
+            this.cbbAID.Name = "cbbAID";
+            this.cbbAID.Size = new System.Drawing.Size(161, 26);
+            this.cbbAID.TabIndex = 9;
+            // 
+            // gbMSD
+            // 
+            this.gbMSD.Controls.Add(this.tableLayoutPanel3);
+            this.gbMSD.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gbMSD.Font = new System.Drawing.Font("Calibri Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbMSD.Location = new System.Drawing.Point(0, 0);
+            this.gbMSD.Margin = new System.Windows.Forms.Padding(0);
+            this.gbMSD.Name = "gbMSD";
+            this.gbMSD.Size = new System.Drawing.Size(385, 120);
+            this.gbMSD.TabIndex = 2;
+            this.gbMSD.TabStop = false;
+            this.gbMSD.Text = "MSD Options";
             // 
             // gbQVSDC
             // 
             this.gbQVSDC.Controls.Add(this.tlpQVSDC);
             this.gbQVSDC.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gbQVSDC.Location = new System.Drawing.Point(3, 108);
+            this.gbQVSDC.Font = new System.Drawing.Font("Calibri Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbQVSDC.Location = new System.Drawing.Point(0, 83);
+            this.gbQVSDC.Margin = new System.Windows.Forms.Padding(0);
             this.gbQVSDC.Name = "gbQVSDC";
-            this.gbQVSDC.Size = new System.Drawing.Size(714, 346);
+            this.gbQVSDC.Size = new System.Drawing.Size(649, 312);
             this.gbQVSDC.TabIndex = 1;
             this.gbQVSDC.TabStop = false;
             this.gbQVSDC.Text = "qVSDC Options";
@@ -588,22 +617,23 @@
             this.tableLayoutPanel7.Controls.Add(this.gbSetTime, 0, 1);
             this.tableLayoutPanel7.Controls.Add(this.gbTTQSetting, 0, 0);
             this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel7.Location = new System.Drawing.Point(735, 6);
+            this.tableLayoutPanel7.Location = new System.Drawing.Point(658, 6);
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
             this.tableLayoutPanel7.RowCount = 3;
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.34F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(385, 588);
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(344, 515);
             this.tableLayoutPanel7.TabIndex = 5;
             // 
             // gbExceptionFile
             // 
             this.gbExceptionFile.Controls.Add(this.tableLayoutPanel8);
             this.gbExceptionFile.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gbExceptionFile.Location = new System.Drawing.Point(3, 393);
+            this.gbExceptionFile.Font = new System.Drawing.Font("Calibri Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbExceptionFile.Location = new System.Drawing.Point(3, 345);
             this.gbExceptionFile.Name = "gbExceptionFile";
-            this.gbExceptionFile.Size = new System.Drawing.Size(379, 192);
+            this.gbExceptionFile.Size = new System.Drawing.Size(338, 167);
             this.gbExceptionFile.TabIndex = 6;
             this.gbExceptionFile.TabStop = false;
             this.gbExceptionFile.Text = "Exception Files Setting";
@@ -620,7 +650,7 @@
             this.tableLayoutPanel8.Name = "tableLayoutPanel8";
             this.tableLayoutPanel8.RowCount = 1;
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(373, 171);
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(332, 146);
             this.tableLayoutPanel8.TabIndex = 4;
             // 
             // tableLayoutPanel9
@@ -630,20 +660,21 @@
             this.tableLayoutPanel9.Controls.Add(this.btnRemoveAll, 0, 1);
             this.tableLayoutPanel9.Controls.Add(this.btnSet, 0, 0);
             this.tableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel9.Location = new System.Drawing.Point(256, 3);
+            this.tableLayoutPanel9.Location = new System.Drawing.Point(228, 3);
             this.tableLayoutPanel9.Name = "tableLayoutPanel9";
             this.tableLayoutPanel9.RowCount = 2;
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel9.Size = new System.Drawing.Size(114, 165);
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(101, 140);
             this.tableLayoutPanel9.TabIndex = 5;
             // 
             // btnRemoveAll
             // 
             this.btnRemoveAll.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnRemoveAll.Location = new System.Drawing.Point(3, 85);
+            this.btnRemoveAll.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRemoveAll.Location = new System.Drawing.Point(3, 73);
             this.btnRemoveAll.Name = "btnRemoveAll";
-            this.btnRemoveAll.Size = new System.Drawing.Size(108, 77);
+            this.btnRemoveAll.Size = new System.Drawing.Size(95, 64);
             this.btnRemoveAll.TabIndex = 1;
             this.btnRemoveAll.Text = "Remove All";
             this.btnRemoveAll.UseVisualStyleBackColor = true;
@@ -652,9 +683,10 @@
             // btnSet
             // 
             this.btnSet.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnSet.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSet.Location = new System.Drawing.Point(3, 3);
             this.btnSet.Name = "btnSet";
-            this.btnSet.Size = new System.Drawing.Size(108, 76);
+            this.btnSet.Size = new System.Drawing.Size(95, 64);
             this.btnSet.TabIndex = 0;
             this.btnSet.Text = "Set";
             this.btnSet.UseVisualStyleBackColor = true;
@@ -672,36 +704,39 @@
             this.tableLayoutPanel10.RowCount = 2;
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 34.32836F));
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 65.67164F));
-            this.tableLayoutPanel10.Size = new System.Drawing.Size(247, 165);
+            this.tableLayoutPanel10.Size = new System.Drawing.Size(219, 140);
             this.tableLayoutPanel10.TabIndex = 0;
             // 
             // cbbCardType
             // 
             this.cbbCardType.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cbbCardType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbCardType.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbCardType.FormattingEnabled = true;
             this.cbbCardType.Location = new System.Drawing.Point(3, 3);
             this.cbbCardType.Name = "cbbCardType";
-            this.cbbCardType.Size = new System.Drawing.Size(241, 20);
+            this.cbbCardType.Size = new System.Drawing.Size(213, 22);
             this.cbbCardType.TabIndex = 0;
             this.cbbCardType.SelectionChangeCommitted += new System.EventHandler(this.cbbCardType_SelectionChangeCommitted);
             // 
             // tbPAN
             // 
             this.tbPAN.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbPAN.Location = new System.Drawing.Point(3, 59);
+            this.tbPAN.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbPAN.Location = new System.Drawing.Point(3, 51);
             this.tbPAN.Multiline = true;
             this.tbPAN.Name = "tbPAN";
-            this.tbPAN.Size = new System.Drawing.Size(241, 103);
+            this.tbPAN.Size = new System.Drawing.Size(213, 86);
             this.tbPAN.TabIndex = 1;
             // 
             // gbSetTime
             // 
             this.gbSetTime.Controls.Add(this.tableLayoutPanel4);
             this.gbSetTime.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gbSetTime.Location = new System.Drawing.Point(3, 198);
+            this.gbSetTime.Font = new System.Drawing.Font("Calibri Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbSetTime.Location = new System.Drawing.Point(3, 174);
             this.gbSetTime.Name = "gbSetTime";
-            this.gbSetTime.Size = new System.Drawing.Size(379, 189);
+            this.gbSetTime.Size = new System.Drawing.Size(338, 165);
             this.gbSetTime.TabIndex = 5;
             this.gbSetTime.TabStop = false;
             this.gbSetTime.Text = "Date / Time Setting";
@@ -718,7 +753,7 @@
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(373, 168);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(332, 144);
             this.tableLayoutPanel4.TabIndex = 0;
             // 
             // tableLayoutPanel5
@@ -740,6 +775,7 @@
             this.tableLayoutPanel5.Controls.Add(this.lbYear, 0, 0);
             this.tableLayoutPanel5.Controls.Add(this.tbYear, 0, 1);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel5.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 4;
@@ -747,56 +783,61 @@
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(273, 162);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(243, 138);
             this.tableLayoutPanel5.TabIndex = 0;
             // 
             // tbSecond
             // 
             this.tbSecond.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbSecond.Location = new System.Drawing.Point(183, 130);
+            this.tbSecond.Location = new System.Drawing.Point(163, 109);
             this.tbSecond.Name = "tbSecond";
-            this.tbSecond.Size = new System.Drawing.Size(87, 22);
+            this.tbSecond.Size = new System.Drawing.Size(77, 22);
             this.tbSecond.TabIndex = 17;
             // 
             // tbMinute
             // 
             this.tbMinute.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbMinute.Location = new System.Drawing.Point(93, 130);
+            this.tbMinute.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbMinute.Location = new System.Drawing.Point(83, 109);
             this.tbMinute.Name = "tbMinute";
-            this.tbMinute.Size = new System.Drawing.Size(84, 22);
+            this.tbMinute.Size = new System.Drawing.Size(74, 22);
             this.tbMinute.TabIndex = 16;
             // 
             // tbHour
             // 
             this.tbHour.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbHour.Location = new System.Drawing.Point(3, 130);
+            this.tbHour.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbHour.Location = new System.Drawing.Point(3, 109);
             this.tbHour.Name = "tbHour";
-            this.tbHour.Size = new System.Drawing.Size(84, 22);
+            this.tbHour.Size = new System.Drawing.Size(74, 22);
             this.tbHour.TabIndex = 15;
             // 
             // tbDay
             // 
             this.tbDay.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbDay.Location = new System.Drawing.Point(183, 49);
+            this.tbDay.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbDay.Location = new System.Drawing.Point(163, 40);
             this.tbDay.Name = "tbDay";
-            this.tbDay.Size = new System.Drawing.Size(87, 22);
+            this.tbDay.Size = new System.Drawing.Size(77, 22);
             this.tbDay.TabIndex = 14;
             // 
             // tbMonth
             // 
             this.tbMonth.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbMonth.Location = new System.Drawing.Point(93, 49);
+            this.tbMonth.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbMonth.Location = new System.Drawing.Point(83, 40);
             this.tbMonth.Name = "tbMonth";
-            this.tbMonth.Size = new System.Drawing.Size(84, 22);
+            this.tbMonth.Size = new System.Drawing.Size(74, 22);
             this.tbMonth.TabIndex = 13;
             // 
             // label7
             // 
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(207, 108);
+            this.label7.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(178, 88);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(39, 12);
+            this.label7.Size = new System.Drawing.Size(46, 14);
             this.label7.TabIndex = 9;
             this.label7.Text = "Second";
             // 
@@ -804,9 +845,10 @@
             // 
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(116, 108);
+            this.label6.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(97, 88);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(38, 12);
+            this.label6.Size = new System.Drawing.Size(46, 14);
             this.label6.TabIndex = 8;
             this.label6.Text = "Minute";
             // 
@@ -814,9 +856,10 @@
             // 
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(30, 108);
+            this.label5.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(23, 88);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(29, 12);
+            this.label5.Size = new System.Drawing.Size(33, 14);
             this.label5.TabIndex = 7;
             this.label5.Text = "Hour";
             // 
@@ -824,9 +867,10 @@
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(214, 28);
+            this.label4.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(188, 20);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(24, 12);
+            this.label4.Size = new System.Drawing.Size(27, 14);
             this.label4.TabIndex = 3;
             this.label4.Text = "Day";
             // 
@@ -834,9 +878,10 @@
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(117, 28);
+            this.label1.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(99, 20);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(36, 12);
+            this.label1.Size = new System.Drawing.Size(42, 14);
             this.label1.TabIndex = 2;
             this.label1.Text = "Month";
             // 
@@ -844,18 +889,20 @@
             // 
             this.lbYear.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lbYear.AutoSize = true;
-            this.lbYear.Location = new System.Drawing.Point(31, 28);
+            this.lbYear.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbYear.Location = new System.Drawing.Point(25, 20);
             this.lbYear.Name = "lbYear";
-            this.lbYear.Size = new System.Drawing.Size(27, 12);
+            this.lbYear.Size = new System.Drawing.Size(30, 14);
             this.lbYear.TabIndex = 0;
             this.lbYear.Text = "Year";
             // 
             // tbYear
             // 
             this.tbYear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbYear.Location = new System.Drawing.Point(3, 49);
+            this.tbYear.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbYear.Location = new System.Drawing.Point(3, 40);
             this.tbYear.Name = "tbYear";
-            this.tbYear.Size = new System.Drawing.Size(84, 22);
+            this.tbYear.Size = new System.Drawing.Size(74, 22);
             this.tbYear.TabIndex = 4;
             // 
             // tableLayoutPanel6
@@ -865,20 +912,21 @@
             this.tableLayoutPanel6.Controls.Add(this.btnSetTime, 0, 0);
             this.tableLayoutPanel6.Controls.Add(this.btnGetTime, 0, 1);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(282, 3);
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(252, 3);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 2;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(88, 162);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(77, 138);
             this.tableLayoutPanel6.TabIndex = 1;
             // 
             // btnSetTime
             // 
             this.btnSetTime.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnSetTime.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSetTime.Location = new System.Drawing.Point(3, 3);
             this.btnSetTime.Name = "btnSetTime";
-            this.btnSetTime.Size = new System.Drawing.Size(82, 75);
+            this.btnSetTime.Size = new System.Drawing.Size(71, 63);
             this.btnSetTime.TabIndex = 1;
             this.btnSetTime.Text = "Set Time";
             this.btnSetTime.UseVisualStyleBackColor = true;
@@ -887,9 +935,10 @@
             // btnGetTime
             // 
             this.btnGetTime.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnGetTime.Location = new System.Drawing.Point(3, 84);
+            this.btnGetTime.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGetTime.Location = new System.Drawing.Point(3, 72);
             this.btnGetTime.Name = "btnGetTime";
-            this.btnGetTime.Size = new System.Drawing.Size(82, 75);
+            this.btnGetTime.Size = new System.Drawing.Size(71, 63);
             this.btnGetTime.TabIndex = 2;
             this.btnGetTime.Text = "Get Time";
             this.btnGetTime.UseVisualStyleBackColor = true;
@@ -899,9 +948,10 @@
             // 
             this.gbTTQSetting.Controls.Add(this.tableLayoutPanel13);
             this.gbTTQSetting.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gbTTQSetting.Font = new System.Drawing.Font("Calibri Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbTTQSetting.Location = new System.Drawing.Point(3, 3);
             this.gbTTQSetting.Name = "gbTTQSetting";
-            this.gbTTQSetting.Size = new System.Drawing.Size(379, 189);
+            this.gbTTQSetting.Size = new System.Drawing.Size(338, 165);
             this.gbTTQSetting.TabIndex = 7;
             this.gbTTQSetting.TabStop = false;
             this.gbTTQSetting.Text = "TTQ Setting";
@@ -926,19 +976,21 @@
             this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel13.Size = new System.Drawing.Size(373, 168);
+            this.tableLayoutPanel13.Size = new System.Drawing.Size(332, 144);
             this.tableLayoutPanel13.TabIndex = 0;
             // 
             // cbTTQB1b4
             // 
             this.cbTTQB1b4.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.cbTTQB1b4.AutoSize = true;
-            this.cbTTQB1b4.Location = new System.Drawing.Point(3, 139);
+            this.cbTTQB1b4.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbTTQB1b4.Location = new System.Drawing.Point(3, 115);
             this.cbTTQB1b4.Name = "cbTTQB1b4";
-            this.cbTTQB1b4.Size = new System.Drawing.Size(114, 16);
+            this.cbTTQB1b4.Size = new System.Drawing.Size(145, 22);
             this.cbTTQB1b4.TabIndex = 6;
             this.cbTTQB1b4.Text = "Offline-only reader";
             this.cbTTQB1b4.UseVisualStyleBackColor = true;
+            this.cbTTQB1b4.Visible = false;
             this.cbTTQB1b4.CheckedChanged += new System.EventHandler(this.cbTTQSetting_CheckedChanged);
             // 
             // cbTTQB3b7
@@ -947,9 +999,10 @@
             this.cbTTQB3b7.AutoSize = true;
             this.cbTTQB3b7.Checked = true;
             this.cbTTQB3b7.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbTTQB3b7.Location = new System.Drawing.Point(189, 97);
+            this.cbTTQB3b7.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbTTQB3b7.Location = new System.Drawing.Point(169, 79);
             this.cbTTQB3b7.Name = "cbTTQB3b7";
-            this.cbTTQB3b7.Size = new System.Drawing.Size(168, 16);
+            this.cbTTQB3b7.Size = new System.Drawing.Size(160, 22);
             this.cbTTQB3b7.TabIndex = 5;
             this.cbTTQB3b7.Text = "Mobile functionality supported";
             this.cbTTQB3b7.UseVisualStyleBackColor = true;
@@ -961,9 +1014,10 @@
             this.cbTTQB1b5.AutoSize = true;
             this.cbTTQB1b5.Checked = true;
             this.cbTTQB1b5.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbTTQB1b5.Location = new System.Drawing.Point(3, 97);
+            this.cbTTQB1b5.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbTTQB1b5.Location = new System.Drawing.Point(3, 79);
             this.cbTTQB1b5.Name = "cbTTQB1b5";
-            this.cbTTQB1b5.Size = new System.Drawing.Size(157, 16);
+            this.cbTTQB1b5.Size = new System.Drawing.Size(160, 22);
             this.cbTTQB1b5.TabIndex = 4;
             this.cbTTQB1b5.Text = "EMV contact chip supported";
             this.cbTTQB1b5.UseVisualStyleBackColor = true;
@@ -975,9 +1029,10 @@
             this.cbTTQB1b2.AutoSize = true;
             this.cbTTQB1b2.Checked = true;
             this.cbTTQB1b2.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbTTQB1b2.Location = new System.Drawing.Point(189, 55);
+            this.cbTTQB1b2.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbTTQB1b2.Location = new System.Drawing.Point(169, 43);
             this.cbTTQB1b2.Name = "cbTTQB1b2";
-            this.cbTTQB1b2.Size = new System.Drawing.Size(117, 16);
+            this.cbTTQB1b2.Size = new System.Drawing.Size(153, 22);
             this.cbTTQB1b2.TabIndex = 3;
             this.cbTTQB1b2.Text = "Signature supported";
             this.cbTTQB1b2.UseVisualStyleBackColor = true;
@@ -989,9 +1044,10 @@
             this.cbTTQB1b6.AutoSize = true;
             this.cbTTQB1b6.Checked = true;
             this.cbTTQB1b6.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbTTQB1b6.Location = new System.Drawing.Point(3, 55);
+            this.cbTTQB1b6.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbTTQB1b6.Location = new System.Drawing.Point(3, 43);
             this.cbTTQB1b6.Name = "cbTTQB1b6";
-            this.cbTTQB1b6.Size = new System.Drawing.Size(109, 16);
+            this.cbTTQB1b6.Size = new System.Drawing.Size(135, 22);
             this.cbTTQB1b6.TabIndex = 2;
             this.cbTTQB1b6.Text = "qVSDC supported";
             this.cbTTQB1b6.UseVisualStyleBackColor = true;
@@ -1003,9 +1059,10 @@
             this.cbTTQB1b3.AutoSize = true;
             this.cbTTQB1b3.Checked = true;
             this.cbTTQB1b3.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbTTQB1b3.Location = new System.Drawing.Point(189, 13);
+            this.cbTTQB1b3.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbTTQB1b3.Location = new System.Drawing.Point(169, 7);
             this.cbTTQB1b3.Name = "cbTTQB1b3";
-            this.cbTTQB1b3.Size = new System.Drawing.Size(125, 16);
+            this.cbTTQB1b3.Size = new System.Drawing.Size(160, 22);
             this.cbTTQB1b3.TabIndex = 1;
             this.cbTTQB1b3.Text = "Online PIN supported";
             this.cbTTQB1b3.UseVisualStyleBackColor = true;
@@ -1017,39 +1074,53 @@
             this.cbTTQB1b8.AutoSize = true;
             this.cbTTQB1b8.Checked = true;
             this.cbTTQB1b8.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbTTQB1b8.Location = new System.Drawing.Point(3, 13);
+            this.cbTTQB1b8.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbTTQB1b8.Location = new System.Drawing.Point(3, 7);
             this.cbTTQB1b8.Name = "cbTTQB1b8";
-            this.cbTTQB1b8.Size = new System.Drawing.Size(97, 16);
+            this.cbTTQB1b8.Size = new System.Drawing.Size(122, 22);
             this.cbTTQB1b8.TabIndex = 0;
             this.cbTTQB1b8.Text = "MSD supported";
             this.cbTTQB1b8.UseVisualStyleBackColor = true;
             this.cbTTQB1b8.CheckedChanged += new System.EventHandler(this.cbTTQSetting_CheckedChanged);
             // 
-            // lbAID
+            // tableLayoutPanel2
             // 
-            this.lbAID.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.lbAID.AutoSize = true;
-            this.lbAID.Location = new System.Drawing.Point(310, 12);
-            this.lbAID.Name = "lbAID";
-            this.lbAID.Size = new System.Drawing.Size(25, 12);
-            this.lbAID.TabIndex = 8;
-            this.lbAID.Text = "AID";
+            this.tableLayoutPanel2.ColumnCount = 1;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel14, 0, 2);
+            this.tableLayoutPanel2.Controls.Add(this.gbQVSDC, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel12, 0, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 3;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 24F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(649, 521);
+            this.tableLayoutPanel2.TabIndex = 5;
             // 
-            // cbbAID
+            // tableLayoutPanel14
             // 
-            this.cbbAID.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.cbbAID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbAID.FormattingEnabled = true;
-            this.cbbAID.Location = new System.Drawing.Point(264, 27);
-            this.cbbAID.Name = "cbbAID";
-            this.cbbAID.Size = new System.Drawing.Size(118, 20);
-            this.cbbAID.TabIndex = 9;
+            this.tableLayoutPanel14.ColumnCount = 2;
+            this.tableLayoutPanel14.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
+            this.tableLayoutPanel14.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
+            this.tableLayoutPanel14.Controls.Add(this.tableLayoutPanel11, 1, 0);
+            this.tableLayoutPanel14.Controls.Add(this.gbMSD, 0, 0);
+            this.tableLayoutPanel14.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel14.Location = new System.Drawing.Point(3, 398);
+            this.tableLayoutPanel14.Name = "tableLayoutPanel14";
+            this.tableLayoutPanel14.RowCount = 1;
+            this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel14.Size = new System.Drawing.Size(643, 120);
+            this.tableLayoutPanel14.TabIndex = 6;
             // 
             // ParameterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1126, 600);
+            this.ClientSize = new System.Drawing.Size(1008, 527);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "ParameterForm";
             this.Text = "ParameterForm";
@@ -1058,12 +1129,10 @@
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel2.ResumeLayout(false);
-            this.gbMSD.ResumeLayout(false);
-            this.gbParameter.ResumeLayout(false);
             this.tableLayoutPanel11.ResumeLayout(false);
             this.tableLayoutPanel12.ResumeLayout(false);
             this.tableLayoutPanel12.PerformLayout();
+            this.gbMSD.ResumeLayout(false);
             this.gbQVSDC.ResumeLayout(false);
             this.tableLayoutPanel7.ResumeLayout(false);
             this.gbExceptionFile.ResumeLayout(false);
@@ -1079,6 +1148,8 @@
             this.gbTTQSetting.ResumeLayout(false);
             this.tableLayoutPanel13.ResumeLayout(false);
             this.tableLayoutPanel13.PerformLayout();
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel14.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1099,9 +1170,7 @@
         private System.Windows.Forms.TableLayoutPanel tlpQVSDC;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.GroupBox gbMSD;
-        private System.Windows.Forms.GroupBox gbParameter;
         private System.Windows.Forms.Button btnGetPara;
         private System.Windows.Forms.Button btnSetPara;
         private System.Windows.Forms.GroupBox gbQVSDC;
@@ -1143,7 +1212,6 @@
         private System.Windows.Forms.TextBox tbRevoList;
         private System.Windows.Forms.ComboBox cbbTemplate;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel11;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel12;
         private System.Windows.Forms.CheckBox cbExceptionFile;
         private System.Windows.Forms.GroupBox gbTTQSetting;
@@ -1157,5 +1225,8 @@
         private System.Windows.Forms.CheckBox cbTTQB1b8;
         private System.Windows.Forms.Label lbAID;
         private System.Windows.Forms.ComboBox cbbAID;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel11;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel14;
     }
 }

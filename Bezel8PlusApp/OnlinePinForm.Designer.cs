@@ -59,18 +59,18 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 24.16357F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 75.83643F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(232, 269);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(243, 319);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // textBoxScreen
             // 
-            this.textBoxScreen.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBoxScreen.Font = new System.Drawing.Font("新細明體", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.textBoxScreen.Location = new System.Drawing.Point(6, 18);
+            this.textBoxScreen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxScreen.Font = new System.Drawing.Font("Calibri", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxScreen.Location = new System.Drawing.Point(3, 24);
             this.textBoxScreen.MaxLength = 12;
             this.textBoxScreen.Name = "textBoxScreen";
             this.textBoxScreen.ReadOnly = true;
-            this.textBoxScreen.Size = new System.Drawing.Size(220, 28);
+            this.textBoxScreen.Size = new System.Drawing.Size(237, 28);
             this.textBoxScreen.TabIndex = 0;
             this.textBoxScreen.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -93,23 +93,24 @@
             this.tableLayoutPanel2.Controls.Add(this.button2, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.button1, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 68);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 80);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 4;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(226, 198);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(237, 236);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
             // buttonEnter
             // 
             this.buttonEnter.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonEnter.Enabled = false;
-            this.buttonEnter.Location = new System.Drawing.Point(153, 150);
+            this.buttonEnter.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonEnter.Location = new System.Drawing.Point(160, 180);
             this.buttonEnter.Name = "buttonEnter";
-            this.buttonEnter.Size = new System.Drawing.Size(70, 45);
+            this.buttonEnter.Size = new System.Drawing.Size(74, 53);
             this.buttonEnter.TabIndex = 11;
             this.buttonEnter.Text = "Enter";
             this.buttonEnter.UseVisualStyleBackColor = true;
@@ -118,9 +119,10 @@
             // button0
             // 
             this.button0.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button0.Location = new System.Drawing.Point(78, 150);
+            this.button0.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button0.Location = new System.Drawing.Point(81, 180);
             this.button0.Name = "button0";
-            this.button0.Size = new System.Drawing.Size(69, 45);
+            this.button0.Size = new System.Drawing.Size(73, 53);
             this.button0.TabIndex = 10;
             this.button0.Text = "0";
             this.button0.UseVisualStyleBackColor = true;
@@ -129,9 +131,10 @@
             // buttonClear
             // 
             this.buttonClear.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonClear.Location = new System.Drawing.Point(3, 150);
+            this.buttonClear.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonClear.Location = new System.Drawing.Point(3, 180);
             this.buttonClear.Name = "buttonClear";
-            this.buttonClear.Size = new System.Drawing.Size(69, 45);
+            this.buttonClear.Size = new System.Drawing.Size(72, 53);
             this.buttonClear.TabIndex = 9;
             this.buttonClear.Text = "Clear";
             this.buttonClear.UseVisualStyleBackColor = true;
@@ -140,9 +143,10 @@
             // button9
             // 
             this.button9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button9.Location = new System.Drawing.Point(153, 101);
+            this.button9.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button9.Location = new System.Drawing.Point(160, 121);
             this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(70, 43);
+            this.button9.Size = new System.Drawing.Size(74, 53);
             this.button9.TabIndex = 8;
             this.button9.Text = "9";
             this.button9.UseVisualStyleBackColor = true;
@@ -151,9 +155,10 @@
             // button8
             // 
             this.button8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button8.Location = new System.Drawing.Point(78, 101);
+            this.button8.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button8.Location = new System.Drawing.Point(81, 121);
             this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(69, 43);
+            this.button8.Size = new System.Drawing.Size(73, 53);
             this.button8.TabIndex = 7;
             this.button8.Text = "8";
             this.button8.UseVisualStyleBackColor = true;
@@ -162,9 +167,10 @@
             // button7
             // 
             this.button7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button7.Location = new System.Drawing.Point(3, 101);
+            this.button7.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button7.Location = new System.Drawing.Point(3, 121);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(69, 43);
+            this.button7.Size = new System.Drawing.Size(72, 53);
             this.button7.TabIndex = 6;
             this.button7.Text = "7";
             this.button7.UseVisualStyleBackColor = true;
@@ -173,9 +179,10 @@
             // button6
             // 
             this.button6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button6.Location = new System.Drawing.Point(153, 52);
+            this.button6.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button6.Location = new System.Drawing.Point(160, 62);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(70, 43);
+            this.button6.Size = new System.Drawing.Size(74, 53);
             this.button6.TabIndex = 5;
             this.button6.Text = "6";
             this.button6.UseVisualStyleBackColor = true;
@@ -184,9 +191,10 @@
             // button5
             // 
             this.button5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button5.Location = new System.Drawing.Point(78, 52);
+            this.button5.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.Location = new System.Drawing.Point(81, 62);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(69, 43);
+            this.button5.Size = new System.Drawing.Size(73, 53);
             this.button5.TabIndex = 4;
             this.button5.Text = "5";
             this.button5.UseVisualStyleBackColor = true;
@@ -195,9 +203,10 @@
             // button4
             // 
             this.button4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button4.Location = new System.Drawing.Point(3, 52);
+            this.button4.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.Location = new System.Drawing.Point(3, 62);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(69, 43);
+            this.button4.Size = new System.Drawing.Size(72, 53);
             this.button4.TabIndex = 3;
             this.button4.Text = "4";
             this.button4.UseVisualStyleBackColor = true;
@@ -206,9 +215,10 @@
             // button3
             // 
             this.button3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button3.Location = new System.Drawing.Point(153, 3);
+            this.button3.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Location = new System.Drawing.Point(160, 3);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(70, 43);
+            this.button3.Size = new System.Drawing.Size(74, 53);
             this.button3.TabIndex = 2;
             this.button3.Text = "3";
             this.button3.UseVisualStyleBackColor = true;
@@ -217,9 +227,10 @@
             // button2
             // 
             this.button2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button2.Location = new System.Drawing.Point(78, 3);
+            this.button2.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(81, 3);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(69, 43);
+            this.button2.Size = new System.Drawing.Size(73, 53);
             this.button2.TabIndex = 1;
             this.button2.Text = "2";
             this.button2.UseVisualStyleBackColor = true;
@@ -228,9 +239,10 @@
             // button1
             // 
             this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button1.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(3, 3);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(69, 43);
+            this.button1.Size = new System.Drawing.Size(72, 53);
             this.button1.TabIndex = 0;
             this.button1.Text = "1";
             this.button1.UseVisualStyleBackColor = true;
@@ -238,10 +250,11 @@
             // 
             // OnlinePinForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(232, 269);
+            this.ClientSize = new System.Drawing.Size(243, 319);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "OnlinePinForm";
             this.ShowIcon = false;
             this.Text = "Virtual PIN Pad";

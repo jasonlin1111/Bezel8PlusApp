@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tpConfig = new System.Windows.Forms.TabPage();
-            this.tpCAPK = new System.Windows.Forms.TabPage();
-            this.tpDRL = new System.Windows.Forms.TabPage();
-            this.tpTime = new System.Windows.Forms.TabPage();
             this.tpParameter = new System.Windows.Forms.TabPage();
+            this.tpDRL = new System.Windows.Forms.TabPage();
+            this.tpCAPK = new System.Windows.Forms.TabPage();
+            this.tpConfig = new System.Windows.Forms.TabPage();
+            this.tpTime = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -45,22 +45,34 @@
             this.tabControl1.Controls.Add(this.tpConfig);
             this.tabControl1.Controls.Add(this.tpTime);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl1.ItemSize = new System.Drawing.Size(500, 35);
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(671, 315);
             this.tabControl1.TabIndex = 0;
             // 
-            // tpConfig
+            // tpParameter
             // 
-            this.tpConfig.BackColor = System.Drawing.Color.Transparent;
-            this.tpConfig.Location = new System.Drawing.Point(4, 39);
-            this.tpConfig.Name = "tpConfig";
-            this.tpConfig.Padding = new System.Windows.Forms.Padding(3);
-            this.tpConfig.Size = new System.Drawing.Size(663, 272);
-            this.tpConfig.TabIndex = 0;
-            this.tpConfig.Text = "Terminal & Application";
+            this.tpParameter.Location = new System.Drawing.Point(4, 39);
+            this.tpParameter.Name = "tpParameter";
+            this.tpParameter.Padding = new System.Windows.Forms.Padding(3);
+            this.tpParameter.Size = new System.Drawing.Size(663, 272);
+            this.tpParameter.TabIndex = 5;
+            this.tpParameter.Text = "Parameter Setting";
+            this.tpParameter.UseVisualStyleBackColor = true;
+            // 
+            // tpDRL
+            // 
+            this.tpDRL.Location = new System.Drawing.Point(4, 39);
+            this.tpDRL.Name = "tpDRL";
+            this.tpDRL.Padding = new System.Windows.Forms.Padding(3);
+            this.tpDRL.Size = new System.Drawing.Size(663, 272);
+            this.tpDRL.TabIndex = 3;
+            this.tpDRL.Text = "DRL";
+            this.tpDRL.UseVisualStyleBackColor = true;
             // 
             // tpCAPK
             // 
@@ -73,15 +85,15 @@
             this.tpCAPK.Text = "CA Keys";
             this.tpCAPK.UseVisualStyleBackColor = true;
             // 
-            // tpDRL
+            // tpConfig
             // 
-            this.tpDRL.Location = new System.Drawing.Point(4, 39);
-            this.tpDRL.Name = "tpDRL";
-            this.tpDRL.Padding = new System.Windows.Forms.Padding(3);
-            this.tpDRL.Size = new System.Drawing.Size(663, 272);
-            this.tpDRL.TabIndex = 3;
-            this.tpDRL.Text = "DRL";
-            this.tpDRL.UseVisualStyleBackColor = true;
+            this.tpConfig.BackColor = System.Drawing.Color.Transparent;
+            this.tpConfig.Location = new System.Drawing.Point(4, 39);
+            this.tpConfig.Name = "tpConfig";
+            this.tpConfig.Padding = new System.Windows.Forms.Padding(3);
+            this.tpConfig.Size = new System.Drawing.Size(663, 272);
+            this.tpConfig.TabIndex = 0;
+            this.tpConfig.Text = "Terminal & Application";
             // 
             // tpTime
             // 
@@ -92,16 +104,6 @@
             this.tpTime.TabIndex = 4;
             this.tpTime.Text = "Time & Exception";
             this.tpTime.UseVisualStyleBackColor = true;
-            // 
-            // tpParameter
-            // 
-            this.tpParameter.Location = new System.Drawing.Point(4, 39);
-            this.tpParameter.Name = "tpParameter";
-            this.tpParameter.Padding = new System.Windows.Forms.Padding(3);
-            this.tpParameter.Size = new System.Drawing.Size(663, 272);
-            this.tpParameter.TabIndex = 5;
-            this.tpParameter.Text = "Parameter Setting";
-            this.tpParameter.UseVisualStyleBackColor = true;
             // 
             // MainConfigForm
             // 

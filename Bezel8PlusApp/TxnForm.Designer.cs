@@ -82,7 +82,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Calibri Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(416, 257);
+            this.groupBox1.Size = new System.Drawing.Size(414, 236);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Transaction Data";
@@ -115,7 +115,7 @@
             this.tableLayoutPanelTxn.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanelTxn.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanelTxn.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanelTxn.Size = new System.Drawing.Size(410, 236);
+            this.tableLayoutPanelTxn.Size = new System.Drawing.Size(408, 215);
             this.tableLayoutPanelTxn.TabIndex = 0;
             // 
             // textBoxTimeout
@@ -124,7 +124,7 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.textBoxTimeout.Enabled = false;
             this.textBoxTimeout.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.textBoxTimeout.Location = new System.Drawing.Point(208, 198);
+            this.textBoxTimeout.Location = new System.Drawing.Point(207, 178);
             this.textBoxTimeout.Name = "textBoxTimeout";
             this.textBoxTimeout.Size = new System.Drawing.Size(70, 26);
             this.textBoxTimeout.TabIndex = 11;
@@ -137,9 +137,9 @@
             this.comBoxTxnType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comBoxTxnType.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comBoxTxnType.FormattingEnabled = true;
-            this.comBoxTxnType.Location = new System.Drawing.Point(208, 3);
+            this.comBoxTxnType.Location = new System.Drawing.Point(207, 3);
             this.comBoxTxnType.Name = "comBoxTxnType";
-            this.comBoxTxnType.Size = new System.Drawing.Size(199, 26);
+            this.comBoxTxnType.Size = new System.Drawing.Size(198, 26);
             this.comBoxTxnType.TabIndex = 1;
             // 
             // textBoxCurrencyExp
@@ -147,7 +147,7 @@
             this.textBoxCurrencyExp.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.textBoxCurrencyExp.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxCurrencyExp.Location = new System.Drawing.Point(208, 159);
+            this.textBoxCurrencyExp.Location = new System.Drawing.Point(207, 143);
             this.textBoxCurrencyExp.MaxLength = 2;
             this.textBoxCurrencyExp.Name = "textBoxCurrencyExp";
             this.textBoxCurrencyExp.Size = new System.Drawing.Size(70, 26);
@@ -163,9 +163,9 @@
             this.cbCurrencyExp.Checked = true;
             this.cbCurrencyExp.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cbCurrencyExp.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbCurrencyExp.Location = new System.Drawing.Point(3, 159);
+            this.cbCurrencyExp.Location = new System.Drawing.Point(3, 143);
             this.cbCurrencyExp.Name = "cbCurrencyExp";
-            this.cbCurrencyExp.Size = new System.Drawing.Size(144, 33);
+            this.cbCurrencyExp.Size = new System.Drawing.Size(144, 29);
             this.cbCurrencyExp.TabIndex = 9;
             this.cbCurrencyExp.Text = "Currency Exponent";
             this.cbCurrencyExp.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -179,9 +179,9 @@
             this.cbAmountAuth.Checked = true;
             this.cbAmountAuth.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cbAmountAuth.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbAmountAuth.Location = new System.Drawing.Point(3, 42);
+            this.cbAmountAuth.Location = new System.Drawing.Point(3, 38);
             this.cbAmountAuth.Name = "cbAmountAuth";
-            this.cbAmountAuth.Size = new System.Drawing.Size(77, 33);
+            this.cbAmountAuth.Size = new System.Drawing.Size(77, 29);
             this.cbAmountAuth.TabIndex = 2;
             this.cbAmountAuth.Text = "Amount";
             this.cbAmountAuth.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -196,10 +196,10 @@
             this.cbCurrencyCode.Checked = true;
             this.cbCurrencyCode.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cbCurrencyCode.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbCurrencyCode.Location = new System.Drawing.Point(3, 120);
+            this.cbCurrencyCode.Location = new System.Drawing.Point(3, 108);
             this.cbCurrencyCode.Name = "cbCurrencyCode";
             this.cbCurrencyCode.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.cbCurrencyCode.Size = new System.Drawing.Size(117, 33);
+            this.cbCurrencyCode.Size = new System.Drawing.Size(117, 29);
             this.cbCurrencyCode.TabIndex = 8;
             this.cbCurrencyCode.Text = "Currency Code";
             this.cbCurrencyCode.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -210,7 +210,7 @@
             this.textBoxCurrencyCode.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.textBoxCurrencyCode.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxCurrencyCode.Location = new System.Drawing.Point(208, 120);
+            this.textBoxCurrencyCode.Location = new System.Drawing.Point(207, 108);
             this.textBoxCurrencyCode.MaxLength = 4;
             this.textBoxCurrencyCode.Name = "textBoxCurrencyCode";
             this.textBoxCurrencyCode.Size = new System.Drawing.Size(70, 26);
@@ -222,7 +222,7 @@
             this.textBoxAmountAuth.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.textBoxAmountAuth.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxAmountAuth.Location = new System.Drawing.Point(208, 42);
+            this.textBoxAmountAuth.Location = new System.Drawing.Point(207, 38);
             this.textBoxAmountAuth.MaxLength = 12;
             this.textBoxAmountAuth.Name = "textBoxAmountAuth";
             this.textBoxAmountAuth.Size = new System.Drawing.Size(141, 26);
@@ -235,9 +235,9 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.cbAmountOther.AutoSize = true;
             this.cbAmountOther.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbAmountOther.Location = new System.Drawing.Point(3, 81);
+            this.cbAmountOther.Location = new System.Drawing.Point(3, 73);
             this.cbAmountOther.Name = "cbAmountOther";
-            this.cbAmountOther.Size = new System.Drawing.Size(116, 33);
+            this.cbAmountOther.Size = new System.Drawing.Size(116, 29);
             this.cbAmountOther.TabIndex = 3;
             this.cbAmountOther.Text = "Amount Other";
             this.cbAmountOther.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -248,7 +248,7 @@
             this.textBoxAmountOther.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.textBoxAmountOther.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxAmountOther.Location = new System.Drawing.Point(208, 81);
+            this.textBoxAmountOther.Location = new System.Drawing.Point(207, 73);
             this.textBoxAmountOther.MaxLength = 12;
             this.textBoxAmountOther.Name = "textBoxAmountOther";
             this.textBoxAmountOther.Size = new System.Drawing.Size(141, 26);
@@ -266,7 +266,7 @@
             this.cbTxnType.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbTxnType.Location = new System.Drawing.Point(3, 3);
             this.cbTxnType.Name = "cbTxnType";
-            this.cbTxnType.Size = new System.Drawing.Size(128, 33);
+            this.cbTxnType.Size = new System.Drawing.Size(128, 29);
             this.cbTxnType.TabIndex = 0;
             this.cbTxnType.Text = "Transaction Type";
             this.cbTxnType.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -278,9 +278,9 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.cbTimeout.AutoSize = true;
             this.cbTimeout.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbTimeout.Location = new System.Drawing.Point(3, 198);
+            this.cbTimeout.Location = new System.Drawing.Point(3, 178);
             this.cbTimeout.Name = "cbTimeout";
-            this.cbTimeout.Size = new System.Drawing.Size(110, 35);
+            this.cbTimeout.Size = new System.Drawing.Size(110, 34);
             this.cbTimeout.TabIndex = 10;
             this.cbTimeout.Text = "Timeout (ms)";
             this.cbTimeout.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -300,9 +300,9 @@
             this.groupBox2.Controls.Add(this.comBoxARC);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Font = new System.Drawing.Font("Calibri Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(3, 272);
+            this.groupBox2.Location = new System.Drawing.Point(3, 251);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(604, 286);
+            this.groupBox2.Size = new System.Drawing.Size(601, 264);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Host";
@@ -314,7 +314,7 @@
             this.tbIssuerScript.Location = new System.Drawing.Point(6, 173);
             this.tbIssuerScript.Multiline = true;
             this.tbIssuerScript.Name = "tbIssuerScript";
-            this.tbIssuerScript.Size = new System.Drawing.Size(228, 107);
+            this.tbIssuerScript.Size = new System.Drawing.Size(219, 85);
             this.tbIssuerScript.TabIndex = 7;
             // 
             // cbIssuerScript
@@ -337,21 +337,21 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbOnlineData.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbOnlineData.Location = new System.Drawing.Point(240, 15);
+            this.tbOnlineData.Location = new System.Drawing.Point(231, 15);
             this.tbOnlineData.Multiline = true;
             this.tbOnlineData.Name = "tbOnlineData";
             this.tbOnlineData.ReadOnly = true;
             this.tbOnlineData.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.tbOnlineData.Size = new System.Drawing.Size(358, 265);
+            this.tbOnlineData.Size = new System.Drawing.Size(364, 243);
             this.tbOnlineData.TabIndex = 8;
             // 
             // btnHostSend
             // 
             this.btnHostSend.Enabled = false;
             this.btnHostSend.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHostSend.Location = new System.Drawing.Point(166, 23);
+            this.btnHostSend.Location = new System.Drawing.Point(157, 15);
             this.btnHostSend.Name = "btnHostSend";
-            this.btnHostSend.Size = new System.Drawing.Size(68, 56);
+            this.btnHostSend.Size = new System.Drawing.Size(68, 64);
             this.btnHostSend.TabIndex = 9;
             this.btnHostSend.Text = "Send";
             this.btnHostSend.UseVisualStyleBackColor = true;
@@ -363,7 +363,7 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.tbIAD.Location = new System.Drawing.Point(68, 117);
             this.tbIAD.Name = "tbIAD";
-            this.tbIAD.Size = new System.Drawing.Size(166, 22);
+            this.tbIAD.Size = new System.Drawing.Size(157, 22);
             this.tbIAD.TabIndex = 5;
             // 
             // cbIAD
@@ -440,7 +440,7 @@
             this.comBoxARC.FormattingEnabled = true;
             this.comBoxARC.Location = new System.Drawing.Point(68, 85);
             this.comBoxARC.Name = "comBoxARC";
-            this.comBoxARC.Size = new System.Drawing.Size(166, 26);
+            this.comBoxARC.Size = new System.Drawing.Size(157, 26);
             this.comBoxARC.TabIndex = 2;
             // 
             // gbReceipt
@@ -450,19 +450,20 @@
             this.gbReceipt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.gbReceipt.Location = new System.Drawing.Point(3, 56);
             this.gbReceipt.Name = "gbReceipt";
-            this.gbReceipt.Size = new System.Drawing.Size(400, 502);
+            this.gbReceipt.Size = new System.Drawing.Size(397, 459);
             this.gbReceipt.TabIndex = 2;
             this.gbReceipt.TabStop = false;
             this.gbReceipt.Text = "Receipt";
             // 
             // tbAutoRunTime
             // 
+            this.tbAutoRunTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.tbAutoRunTime.Enabled = false;
             this.tbAutoRunTime.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.tbAutoRunTime.Location = new System.Drawing.Point(23, 200);
+            this.tbAutoRunTime.Location = new System.Drawing.Point(87, 206);
             this.tbAutoRunTime.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
             this.tbAutoRunTime.Name = "tbAutoRunTime";
-            this.tbAutoRunTime.Size = new System.Drawing.Size(52, 26);
+            this.tbAutoRunTime.Size = new System.Drawing.Size(50, 26);
             this.tbAutoRunTime.TabIndex = 1;
             this.tbAutoRunTime.Text = "2000";
             // 
@@ -475,19 +476,20 @@
             this.groupBox5.Controls.Add(this.cbAutoRun);
             this.groupBox5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox5.Font = new System.Drawing.Font("Calibri Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox5.Location = new System.Drawing.Point(425, 3);
+            this.groupBox5.Location = new System.Drawing.Point(423, 3);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(176, 257);
+            this.groupBox5.Size = new System.Drawing.Size(175, 236);
             this.groupBox5.TabIndex = 4;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Operation";
             // 
             // lbMs
             // 
+            this.lbMs.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lbMs.AutoSize = true;
             this.lbMs.Enabled = false;
             this.lbMs.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbMs.Location = new System.Drawing.Point(81, 203);
+            this.lbMs.Location = new System.Drawing.Point(138, 209);
             this.lbMs.Name = "lbMs";
             this.lbMs.Size = new System.Drawing.Size(26, 18);
             this.lbMs.TabIndex = 2;
@@ -500,7 +502,7 @@
             this.btnStart.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStart.Location = new System.Drawing.Point(6, 18);
             this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(164, 74);
+            this.btnStart.Size = new System.Drawing.Size(163, 89);
             this.btnStart.TabIndex = 3;
             this.btnStart.Text = "Start";
             this.btnStart.UseVisualStyleBackColor = true;
@@ -511,9 +513,9 @@
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancel.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(6, 95);
+            this.btnCancel.Location = new System.Drawing.Point(6, 113);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(164, 74);
+            this.btnCancel.Size = new System.Drawing.Size(163, 83);
             this.btnCancel.TabIndex = 4;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -521,9 +523,10 @@
             // 
             // cbAutoRun
             // 
+            this.cbAutoRun.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.cbAutoRun.AutoSize = true;
             this.cbAutoRun.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbAutoRun.Location = new System.Drawing.Point(6, 175);
+            this.cbAutoRun.Location = new System.Drawing.Point(6, 208);
             this.cbAutoRun.Name = "cbAutoRun";
             this.cbAutoRun.Size = new System.Drawing.Size(81, 22);
             this.cbAutoRun.TabIndex = 0;
@@ -538,7 +541,7 @@
             this.tbOutcome.Location = new System.Drawing.Point(3, 18);
             this.tbOutcome.Name = "tbOutcome";
             this.tbOutcome.ReadOnly = true;
-            this.tbOutcome.Size = new System.Drawing.Size(400, 38);
+            this.tbOutcome.Size = new System.Drawing.Size(397, 38);
             this.tbOutcome.TabIndex = 5;
             this.tbOutcome.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -548,9 +551,9 @@
             this.gbOutcome.Controls.Add(this.tbOutcome);
             this.gbOutcome.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gbOutcome.Font = new System.Drawing.Font("Calibri Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbOutcome.Location = new System.Drawing.Point(619, 3);
+            this.gbOutcome.Location = new System.Drawing.Point(616, 3);
             this.gbOutcome.Name = "gbOutcome";
-            this.gbOutcome.Size = new System.Drawing.Size(406, 561);
+            this.gbOutcome.Size = new System.Drawing.Size(403, 518);
             this.gbOutcome.TabIndex = 7;
             this.gbOutcome.TabStop = false;
             this.gbOutcome.Text = "Outcome";
@@ -567,7 +570,7 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1028, 567);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1022, 524);
             this.tableLayoutPanel1.TabIndex = 8;
             // 
             // tableLayoutPanel2
@@ -582,7 +585,7 @@
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 48F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 52F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(610, 561);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(607, 518);
             this.tableLayoutPanel2.TabIndex = 8;
             // 
             // tableLayoutPanel15
@@ -597,14 +600,14 @@
             this.tableLayoutPanel15.Name = "tableLayoutPanel15";
             this.tableLayoutPanel15.RowCount = 1;
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel15.Size = new System.Drawing.Size(604, 263);
+            this.tableLayoutPanel15.Size = new System.Drawing.Size(601, 242);
             this.tableLayoutPanel15.TabIndex = 10;
             // 
             // TxnForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1028, 567);
+            this.ClientSize = new System.Drawing.Size(1022, 524);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "TxnForm";
             this.Text = "TxnForm";

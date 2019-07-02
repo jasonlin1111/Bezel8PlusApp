@@ -128,6 +128,7 @@
             this.textBoxTimeout.Name = "textBoxTimeout";
             this.textBoxTimeout.Size = new System.Drawing.Size(70, 26);
             this.textBoxTimeout.TabIndex = 11;
+            this.textBoxTimeout.Text = "60";
             // 
             // comBoxTxnType
             // 
@@ -280,11 +281,12 @@
             this.cbTimeout.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbTimeout.Location = new System.Drawing.Point(3, 178);
             this.cbTimeout.Name = "cbTimeout";
-            this.cbTimeout.Size = new System.Drawing.Size(110, 34);
+            this.cbTimeout.Size = new System.Drawing.Size(136, 34);
             this.cbTimeout.TabIndex = 10;
-            this.cbTimeout.Text = "Timeout (ms)";
+            this.cbTimeout.Text = "Timeout (second)";
             this.cbTimeout.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.cbTimeout.UseVisualStyleBackColor = true;
+            this.cbTimeout.CheckedChanged += new System.EventHandler(this.cbTimeout_CheckedChanged);
             // 
             // groupBox2
             // 

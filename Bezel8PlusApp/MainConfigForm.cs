@@ -19,7 +19,6 @@ namespace Bezel8PlusApp
             AddFormToTab(new TerAppConfigForm(), tpConfig);
             AddFormToTab(new CapkForm(), tpCAPK);
             AddFormToTab(new DRLForm(), tpDRL);
-            AddFormToTab(new TimeSettingForm(), tpTime);
             AddFormToTab(new ParameterForm(), tpParameter);
 
         }

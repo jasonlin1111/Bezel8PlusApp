@@ -653,6 +653,14 @@ namespace Bezel8PlusApp
                 lbMs.Enabled = false;
             }
         }
+
+        private void cbTimeout_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbTimeout.Checked)
+                textBoxTimeout.Enabled = true;
+            else
+                textBoxTimeout.Enabled = false;
+        }
     }
 
     public class TxnResult

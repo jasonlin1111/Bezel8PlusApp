@@ -22,6 +22,7 @@ namespace Bezel8PlusApp
             InitializeComponent();
             InitializeComponentValue();
             InitializeBtnsAndForms();
+
         }
 
         private void InitializeComponentValue()

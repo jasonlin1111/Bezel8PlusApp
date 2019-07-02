@@ -118,12 +118,6 @@
     <Compile Include="TerAppConfigForm.Designer.cs">
       <DependentUpon>TerAppConfigForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="TimeSettingForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="TimeSettingForm.Designer.cs">
-      <DependentUpon>TimeSettingForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="TxnForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -165,9 +159,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TerAppConfigForm.resx">
       <DependentUpon>TerAppConfigForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="TimeSettingForm.resx">
-      <DependentUpon>TimeSettingForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TxnForm.resx">
       <DependentUpon>TxnForm.cs</DependentUpon>

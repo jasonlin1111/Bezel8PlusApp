@@ -33,7 +33,6 @@
             this.tpDRL = new System.Windows.Forms.TabPage();
             this.tpCAPK = new System.Windows.Forms.TabPage();
             this.tpConfig = new System.Windows.Forms.TabPage();
-            this.tpTime = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -43,7 +42,6 @@
             this.tabControl1.Controls.Add(this.tpDRL);
             this.tabControl1.Controls.Add(this.tpCAPK);
             this.tabControl1.Controls.Add(this.tpConfig);
-            this.tabControl1.Controls.Add(this.tpTime);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl1.ItemSize = new System.Drawing.Size(500, 35);
@@ -51,7 +49,7 @@
             this.tabControl1.Margin = new System.Windows.Forms.Padding(0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(671, 315);
+            this.tabControl1.Size = new System.Drawing.Size(603, 487);
             this.tabControl1.TabIndex = 0;
             // 
             // tpParameter
@@ -59,7 +57,7 @@
             this.tpParameter.Location = new System.Drawing.Point(4, 39);
             this.tpParameter.Name = "tpParameter";
             this.tpParameter.Padding = new System.Windows.Forms.Padding(3);
-            this.tpParameter.Size = new System.Drawing.Size(663, 272);
+            this.tpParameter.Size = new System.Drawing.Size(595, 444);
             this.tpParameter.TabIndex = 5;
             this.tpParameter.Text = "Parameter Setting";
             this.tpParameter.UseVisualStyleBackColor = true;
@@ -80,7 +78,7 @@
             this.tpCAPK.Location = new System.Drawing.Point(4, 39);
             this.tpCAPK.Name = "tpCAPK";
             this.tpCAPK.Padding = new System.Windows.Forms.Padding(3);
-            this.tpCAPK.Size = new System.Drawing.Size(663, 272);
+            this.tpCAPK.Size = new System.Drawing.Size(595, 444);
             this.tpCAPK.TabIndex = 2;
             this.tpCAPK.Text = "CA Keys";
             this.tpCAPK.UseVisualStyleBackColor = true;
@@ -91,25 +89,15 @@
             this.tpConfig.Location = new System.Drawing.Point(4, 39);
             this.tpConfig.Name = "tpConfig";
             this.tpConfig.Padding = new System.Windows.Forms.Padding(3);
-            this.tpConfig.Size = new System.Drawing.Size(663, 272);
+            this.tpConfig.Size = new System.Drawing.Size(595, 444);
             this.tpConfig.TabIndex = 0;
             this.tpConfig.Text = "Terminal & Application";
-            // 
-            // tpTime
-            // 
-            this.tpTime.Location = new System.Drawing.Point(4, 39);
-            this.tpTime.Name = "tpTime";
-            this.tpTime.Padding = new System.Windows.Forms.Padding(3);
-            this.tpTime.Size = new System.Drawing.Size(663, 272);
-            this.tpTime.TabIndex = 4;
-            this.tpTime.Text = "Time & Exception";
-            this.tpTime.UseVisualStyleBackColor = true;
             // 
             // MainConfigForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(671, 315);
+            this.ClientSize = new System.Drawing.Size(603, 487);
             this.Controls.Add(this.tabControl1);
             this.Name = "MainConfigForm";
             this.Text = "ConfigForm";
@@ -124,7 +112,6 @@
         private System.Windows.Forms.TabPage tpConfig;
         private System.Windows.Forms.TabPage tpCAPK;
         private System.Windows.Forms.TabPage tpDRL;
-        private System.Windows.Forms.TabPage tpTime;
         private System.Windows.Forms.TabPage tpParameter;
     }
 }

@@ -51,9 +51,13 @@
             this.cbExceptionFile = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel14 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
             this.btnSetPara = new System.Windows.Forms.Button();
             this.btnGetPara = new System.Windows.Forms.Button();
+            this.gbMSD = new System.Windows.Forms.GroupBox();
+            this.gbQVSDC = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel12 = new System.Windows.Forms.TableLayoutPanel();
             this.cbbTxnType = new System.Windows.Forms.ComboBox();
             this.cbbTemplate = new System.Windows.Forms.ComboBox();
@@ -61,8 +65,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.lbAID = new System.Windows.Forms.Label();
             this.cbbAID = new System.Windows.Forms.ComboBox();
-            this.gbMSD = new System.Windows.Forms.GroupBox();
-            this.gbQVSDC = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.gbExceptionFile = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
@@ -99,15 +101,15 @@
             this.cbTTQB1b6 = new System.Windows.Forms.CheckBox();
             this.cbTTQB1b3 = new System.Windows.Forms.CheckBox();
             this.cbTTQB1b8 = new System.Windows.Forms.CheckBox();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel14 = new System.Windows.Forms.TableLayoutPanel();
             this.tlpQVSDC.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
+            this.tableLayoutPanel14.SuspendLayout();
             this.tableLayoutPanel11.SuspendLayout();
-            this.tableLayoutPanel12.SuspendLayout();
             this.gbMSD.SuspendLayout();
             this.gbQVSDC.SuspendLayout();
+            this.tableLayoutPanel12.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
             this.gbExceptionFile.SuspendLayout();
             this.tableLayoutPanel8.SuspendLayout();
@@ -119,8 +121,6 @@
             this.tableLayoutPanel6.SuspendLayout();
             this.gbTTQSetting.SuspendLayout();
             this.tableLayoutPanel13.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
-            this.tableLayoutPanel14.SuspendLayout();
             this.SuspendLayout();
             // 
             // tbTTQ
@@ -447,6 +447,39 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1008, 527);
             this.tableLayoutPanel1.TabIndex = 3;
             // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 1;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel14, 0, 2);
+            this.tableLayoutPanel2.Controls.Add(this.gbQVSDC, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel12, 0, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 3;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 24F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(649, 521);
+            this.tableLayoutPanel2.TabIndex = 5;
+            // 
+            // tableLayoutPanel14
+            // 
+            this.tableLayoutPanel14.ColumnCount = 2;
+            this.tableLayoutPanel14.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
+            this.tableLayoutPanel14.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
+            this.tableLayoutPanel14.Controls.Add(this.tableLayoutPanel11, 1, 0);
+            this.tableLayoutPanel14.Controls.Add(this.gbMSD, 0, 0);
+            this.tableLayoutPanel14.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel14.Location = new System.Drawing.Point(3, 398);
+            this.tableLayoutPanel14.Name = "tableLayoutPanel14";
+            this.tableLayoutPanel14.RowCount = 1;
+            this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel14.Size = new System.Drawing.Size(643, 120);
+            this.tableLayoutPanel14.TabIndex = 6;
+            // 
             // tableLayoutPanel11
             // 
             this.tableLayoutPanel11.ColumnCount = 2;
@@ -486,6 +519,32 @@
             this.btnGetPara.Text = "Get Parameters";
             this.btnGetPara.UseVisualStyleBackColor = true;
             this.btnGetPara.Click += new System.EventHandler(this.btnGetPara_Click);
+            // 
+            // gbMSD
+            // 
+            this.gbMSD.Controls.Add(this.tableLayoutPanel3);
+            this.gbMSD.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gbMSD.Font = new System.Drawing.Font("Calibri Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbMSD.Location = new System.Drawing.Point(0, 0);
+            this.gbMSD.Margin = new System.Windows.Forms.Padding(0);
+            this.gbMSD.Name = "gbMSD";
+            this.gbMSD.Size = new System.Drawing.Size(385, 120);
+            this.gbMSD.TabIndex = 2;
+            this.gbMSD.TabStop = false;
+            this.gbMSD.Text = "MSD Options";
+            // 
+            // gbQVSDC
+            // 
+            this.gbQVSDC.Controls.Add(this.tlpQVSDC);
+            this.gbQVSDC.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gbQVSDC.Font = new System.Drawing.Font("Calibri Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbQVSDC.Location = new System.Drawing.Point(0, 83);
+            this.gbQVSDC.Margin = new System.Windows.Forms.Padding(0);
+            this.gbQVSDC.Name = "gbQVSDC";
+            this.gbQVSDC.Size = new System.Drawing.Size(649, 312);
+            this.gbQVSDC.TabIndex = 1;
+            this.gbQVSDC.TabStop = false;
+            this.gbQVSDC.Text = "qVSDC Options";
             // 
             // tableLayoutPanel12
             // 
@@ -582,32 +641,6 @@
             this.cbbAID.Name = "cbbAID";
             this.cbbAID.Size = new System.Drawing.Size(161, 26);
             this.cbbAID.TabIndex = 9;
-            // 
-            // gbMSD
-            // 
-            this.gbMSD.Controls.Add(this.tableLayoutPanel3);
-            this.gbMSD.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gbMSD.Font = new System.Drawing.Font("Calibri Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbMSD.Location = new System.Drawing.Point(0, 0);
-            this.gbMSD.Margin = new System.Windows.Forms.Padding(0);
-            this.gbMSD.Name = "gbMSD";
-            this.gbMSD.Size = new System.Drawing.Size(385, 120);
-            this.gbMSD.TabIndex = 2;
-            this.gbMSD.TabStop = false;
-            this.gbMSD.Text = "MSD Options";
-            // 
-            // gbQVSDC
-            // 
-            this.gbQVSDC.Controls.Add(this.tlpQVSDC);
-            this.gbQVSDC.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gbQVSDC.Font = new System.Drawing.Font("Calibri Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbQVSDC.Location = new System.Drawing.Point(0, 83);
-            this.gbQVSDC.Margin = new System.Windows.Forms.Padding(0);
-            this.gbQVSDC.Name = "gbQVSDC";
-            this.gbQVSDC.Size = new System.Drawing.Size(649, 312);
-            this.gbQVSDC.TabIndex = 1;
-            this.gbQVSDC.TabStop = false;
-            this.gbQVSDC.Text = "qVSDC Options";
             // 
             // tableLayoutPanel7
             // 
@@ -1083,39 +1116,6 @@
             this.cbTTQB1b8.UseVisualStyleBackColor = true;
             this.cbTTQB1b8.CheckedChanged += new System.EventHandler(this.cbTTQSetting_CheckedChanged);
             // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.ColumnCount = 1;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel14, 0, 2);
-            this.tableLayoutPanel2.Controls.Add(this.gbQVSDC, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel12, 0, 0);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 3;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 24F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(649, 521);
-            this.tableLayoutPanel2.TabIndex = 5;
-            // 
-            // tableLayoutPanel14
-            // 
-            this.tableLayoutPanel14.ColumnCount = 2;
-            this.tableLayoutPanel14.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
-            this.tableLayoutPanel14.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
-            this.tableLayoutPanel14.Controls.Add(this.tableLayoutPanel11, 1, 0);
-            this.tableLayoutPanel14.Controls.Add(this.gbMSD, 0, 0);
-            this.tableLayoutPanel14.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel14.Location = new System.Drawing.Point(3, 398);
-            this.tableLayoutPanel14.Name = "tableLayoutPanel14";
-            this.tableLayoutPanel14.RowCount = 1;
-            this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel14.Size = new System.Drawing.Size(643, 120);
-            this.tableLayoutPanel14.TabIndex = 6;
-            // 
             // ParameterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1129,11 +1129,13 @@
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel14.ResumeLayout(false);
             this.tableLayoutPanel11.ResumeLayout(false);
-            this.tableLayoutPanel12.ResumeLayout(false);
-            this.tableLayoutPanel12.PerformLayout();
             this.gbMSD.ResumeLayout(false);
             this.gbQVSDC.ResumeLayout(false);
+            this.tableLayoutPanel12.ResumeLayout(false);
+            this.tableLayoutPanel12.PerformLayout();
             this.tableLayoutPanel7.ResumeLayout(false);
             this.gbExceptionFile.ResumeLayout(false);
             this.tableLayoutPanel8.ResumeLayout(false);
@@ -1148,8 +1150,6 @@
             this.gbTTQSetting.ResumeLayout(false);
             this.tableLayoutPanel13.ResumeLayout(false);
             this.tableLayoutPanel13.PerformLayout();
-            this.tableLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel14.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

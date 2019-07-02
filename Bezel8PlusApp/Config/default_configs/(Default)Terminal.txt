@@ -1,0 +1,12 @@
+9F15 6 0001                             // Merchant Category Code
+9F16 4 VMNY_SY00000001                  // Merchant Identifier
+9F1A 6 0840                             // Terminal Country Code
+9F1C 3 00001768                         // Terminal Identification
+9F1E 3 00000001                         // Interface Device (IFD) Serial Number 
+9F4E 4 UIC_PDRD                         // Merchant Name and Location
+9F35 6 25              		        // Terminal Type
+9F33 2 E0F0C8				// Terminal Capabilities
+
+
+
+

@@ -14,8 +14,9 @@ namespace Bezel8PlusApp
     public partial class DRLForm : Form
     {
         private OpenFileDialog openFileDialog;
-        private const string templatePath = @"C:\Users\9390\Desktop\B8p_config\DRL";
         private Dictionary<string, FileInfo> templateFiles;
+        private readonly string templateDirectory = Environment.CurrentDirectory.Substring(0, Environment.CurrentDirectory.LastIndexOf("bin"))
+            + @"Config\" + "DRL";
 
         private SerialPortManager serialPort = SerialPortManager.Instance;
 
@@ -28,7 +29,7 @@ namespace Bezel8PlusApp
 
         private void InitializeDRLTemplate()
         {
-            DirectoryInfo dinfo = new DirectoryInfo(templatePath);
+            DirectoryInfo dinfo = new DirectoryInfo(templateDirectory);
             FileInfo[] templateFilesInfo = dinfo.GetFiles("*.txt");
 
             if (templateFiles == null)

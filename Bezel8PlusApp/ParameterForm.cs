@@ -13,15 +13,17 @@ namespace Bezel8PlusApp
 {
     public partial class ParameterForm : Form
     {
-        private SerialPortManager serialPort = SerialPortManager.Instance;
-        private readonly string path = @"C:\Users\9390\Desktop\B8p_config\template";
+        private SerialPortManager serialPort = SerialPortManager.Instance;    
         private Dictionary<string, FileInfo> templateFiles;
         private List<string> cbbTepSource;
+        private readonly string templateDirectory = Environment.CurrentDirectory.Substring(0, Environment.CurrentDirectory.LastIndexOf("bin"))
+            + @"Config\" + "template";
 
 
         public ParameterForm()
         {
             InitializeComponent();
+
             templateFiles = new Dictionary<string, FileInfo>();
             cbbTepSource = new List<string>();
             cbbAmount0Check.DataSource = new string[] { "Option 1", "Option 2" };
@@ -64,7 +66,7 @@ namespace Bezel8PlusApp
 
         private void InitializeTemplates()
         {
-            DirectoryInfo dinfo = new DirectoryInfo(path);
+            DirectoryInfo dinfo = new DirectoryInfo(templateDirectory);
             FileInfo[] templateFilesInfo = dinfo.GetFiles("*.txt");
 
             foreach (FileInfo file in templateFilesInfo)

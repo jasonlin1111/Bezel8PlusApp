@@ -1,0 +1,18 @@
+9F06 = A000000003              // AID
+9C = 00                        // Transaction Type
+DF810C = 030000                // Kernel ID
+FFFF8007 = 01                  // Status Checking
+FFFF8005 = 01                  // Amunt Zero Checking
+FFFF8008 = 02                  // Amount Option 1/2
+FFFF8004 = 00                  // Reader CL Transaction Limit Checking DISABLE
+DF8124 = 000000003000          // Reader CL Transaction Limit
+FFFF800A = 01                  // Reader CL Floor Limit Checking
+DF8123 = 000000002000          // Reader CL Floor Limit
+FFFF8009 = 01                  // CVM Required Limit Checking
+DF8126 = 000000001000          // CVM Required Limit
+FFFF800C = 00                  // Exception File Checking
+FFFF8006 = 01                  // CVN17 Enable
+FFFF800F = 01                  // Dynamic Reader Limits Enable
+9F1B = 000021FC
+
+

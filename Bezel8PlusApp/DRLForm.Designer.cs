@@ -83,18 +83,18 @@
             this.btnDeleteAll = new System.Windows.Forms.Button();
             this.btnOpen = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanelDRLs.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
-            this.tableLayoutPanel7.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel9.SuspendLayout();
+            this.tableLayoutPanel7.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanelDRLs
@@ -169,7 +169,7 @@
             this.cbbAmount0Check4.Items.AddRange(new object[] {
             "Option 1",
             "Option 2"});
-            this.cbbAmount0Check4.Location = new System.Drawing.Point(222, 79);
+            this.cbbAmount0Check4.Location = new System.Drawing.Point(222, 82);
             this.cbbAmount0Check4.Name = "cbbAmount0Check4";
             this.cbbAmount0Check4.Size = new System.Drawing.Size(98, 26);
             this.cbbAmount0Check4.TabIndex = 4;
@@ -329,7 +329,7 @@
             this.cbbAmount0Check3.Items.AddRange(new object[] {
             "Option 1",
             "Option 2"});
-            this.cbbAmount0Check3.Location = new System.Drawing.Point(222, 79);
+            this.cbbAmount0Check3.Location = new System.Drawing.Point(222, 82);
             this.cbbAmount0Check3.Name = "cbbAmount0Check3";
             this.cbbAmount0Check3.Size = new System.Drawing.Size(98, 26);
             this.cbbAmount0Check3.TabIndex = 4;
@@ -490,7 +490,7 @@
             this.cbbAmount0Check1.Items.AddRange(new object[] {
             "Option 1",
             "Option 2"});
-            this.cbbAmount0Check1.Location = new System.Drawing.Point(222, 82);
+            this.cbbAmount0Check1.Location = new System.Drawing.Point(222, 79);
             this.cbbAmount0Check1.Name = "cbbAmount0Check1";
             this.cbbAmount0Check1.Size = new System.Drawing.Size(98, 26);
             this.cbbAmount0Check1.TabIndex = 4;
@@ -650,7 +650,7 @@
             this.cbbAmount0Check2.Items.AddRange(new object[] {
             "Option 1",
             "Option 2"});
-            this.cbbAmount0Check2.Location = new System.Drawing.Point(222, 79);
+            this.cbbAmount0Check2.Location = new System.Drawing.Point(222, 82);
             this.cbbAmount0Check2.Name = "cbbAmount0Check2";
             this.cbbAmount0Check2.Size = new System.Drawing.Size(98, 26);
             this.cbbAmount0Check2.TabIndex = 4;
@@ -834,21 +834,6 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(871, 556);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
-            // tableLayoutPanel7
-            // 
-            this.tableLayoutPanel7.ColumnCount = 1;
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel7.Controls.Add(this.cbbDRLTemplate, 0, 1);
-            this.tableLayoutPanel7.Controls.Add(this.label1, 0, 0);
-            this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel7.Location = new System.Drawing.Point(3, 3);
-            this.tableLayoutPanel7.Name = "tableLayoutPanel7";
-            this.tableLayoutPanel7.RowCount = 2;
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(253, 71);
-            this.tableLayoutPanel7.TabIndex = 2;
-            // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 2;
@@ -883,6 +868,21 @@
             this.tableLayoutPanel9.Size = new System.Drawing.Size(606, 77);
             this.tableLayoutPanel9.TabIndex = 5;
             // 
+            // tableLayoutPanel7
+            // 
+            this.tableLayoutPanel7.ColumnCount = 1;
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel7.Controls.Add(this.cbbDRLTemplate, 0, 1);
+            this.tableLayoutPanel7.Controls.Add(this.label1, 0, 0);
+            this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel7.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel7.Name = "tableLayoutPanel7";
+            this.tableLayoutPanel7.RowCount = 2;
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(253, 71);
+            this.tableLayoutPanel7.TabIndex = 2;
+            // 
             // DRLForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -901,10 +901,10 @@
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel7.ResumeLayout(false);
-            this.tableLayoutPanel7.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel9.ResumeLayout(false);
+            this.tableLayoutPanel7.ResumeLayout(false);
+            this.tableLayoutPanel7.PerformLayout();
             this.ResumeLayout(false);
 
         }

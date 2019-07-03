@@ -30,7 +30,7 @@ namespace Bezel8PlusApp
         {
             InitializeComponent();
 
-            comBoxTxnType.DataSource = new string[] { "PURCHASE", "REFUND" };
+            comBoxTxnType.DataSource = new string[] { "Purchase", "Refund" };
             comBoxARC.DataSource = new string[] { "3030 (Approve)", "3531 (Decline)" };
 
             receiptForm = new ReceiptForm();
@@ -241,7 +241,7 @@ namespace Bezel8PlusApp
                     break;
 
                 case TxnResult.ExternalPinBlockReq:
-                    tbOutcome.Text = "Online Authorizing";
+                    tbOutcome.Text = "Please Enter PIN";
                     onlinePinForm.Show();
                     while (onlinePinForm.Visible == true)
                     {
@@ -491,23 +491,8 @@ namespace Bezel8PlusApp
 
             // Transaction type
             if (cbTxnType.Checked)
-            {
-                switch (comBoxTxnType.SelectedIndex)
-                {
-                    case 0:
-                        receiptData.Add("9C", "Purchase");
-                        break;
-                    case 1:
-                        receiptData.Add("9C", "Cash");
-                        break;
-                    case 2:
-                        receiptData.Add("9C", "Purchase with cashback");
-                        break;
-                    case 3:
-                        receiptData.Add("9C", "Refund");
-                        break;
-                }
-            }
+                receiptData.Add("9C", comBoxTxnType.SelectedItem.ToString());
+
 
             int exp;
             if (!Int32.TryParse(textBoxCurrencyExp.Text, out exp))

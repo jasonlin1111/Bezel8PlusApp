@@ -149,7 +149,7 @@ namespace Bezel8PlusApp
             string t55Message = String.Empty;
             string tmp = String.Empty;
 
-            string txnType = "00";
+            string txnType = cbbTxnType.SelectedItem.ToString().ToUpper().Equals("PURCHASE") ? "00" : "20";
             string kID = "030000";
             string aID = cbbAID.SelectedItem.ToString();
 

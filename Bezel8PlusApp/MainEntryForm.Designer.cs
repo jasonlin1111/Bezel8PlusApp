@@ -52,6 +52,7 @@
             this.btnMenu3 = new System.Windows.Forms.Button();
             this.btnMenuTxn = new System.Windows.Forms.Button();
             this.groupBoxWorkspace = new System.Windows.Forms.GroupBox();
+            this.btnDefaultSetting = new System.Windows.Forms.Button();
             this.groupBoxCom.SuspendLayout();
             this.tableLayoutPanelComSetting.SuspendLayout();
             this.groupBoxMenu.SuspendLayout();
@@ -60,6 +61,7 @@
             // 
             // groupBoxCom
             // 
+            this.groupBoxCom.Controls.Add(this.btnDefaultSetting);
             this.groupBoxCom.Controls.Add(this.btnCloseCom);
             this.groupBoxCom.Controls.Add(this.btnOpenCom);
             this.groupBoxCom.Controls.Add(this.tableLayoutPanelComSetting);
@@ -374,6 +376,17 @@
             this.groupBoxWorkspace.TabIndex = 2;
             this.groupBoxWorkspace.TabStop = false;
             // 
+            // btnDefaultSetting
+            // 
+            this.btnDefaultSetting.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDefaultSetting.Location = new System.Drawing.Point(744, 12);
+            this.btnDefaultSetting.Name = "btnDefaultSetting";
+            this.btnDefaultSetting.Size = new System.Drawing.Size(87, 69);
+            this.btnDefaultSetting.TabIndex = 4;
+            this.btnDefaultSetting.Text = "Default Setting";
+            this.btnDefaultSetting.UseVisualStyleBackColor = true;
+            this.btnDefaultSetting.Click += new System.EventHandler(this.btnDefaultSetting_Click);
+            // 
             // MainEntryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -421,5 +434,6 @@
         private System.Windows.Forms.Button btnMenu3;
         private System.Windows.Forms.Button btnMenuTxn;
         private System.Windows.Forms.Button btnMenuConfig;
+        private System.Windows.Forms.Button btnDefaultSetting;
     }
 }

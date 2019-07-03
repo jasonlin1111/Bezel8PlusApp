@@ -209,20 +209,7 @@
     <EmbeddedResource Include="Config\CAPKs\A000009999E4.txt" />
     <EmbeddedResource Include="Config\CAPKs\A000009999E5.txt" />
     <EmbeddedResource Include="Config\CAPKs\A000009999E6.txt" />
-    <EmbeddedResource Include="Config\CAPKs\VCPS\A00000000350.txt" />
-    <EmbeddedResource Include="Config\CAPKs\VCPS\A00000000351.txt" />
-    <EmbeddedResource Include="Config\CAPKs\VCPS\A00000000352.txt" />
-    <EmbeddedResource Include="Config\CAPKs\VCPS\A00000000353.txt" />
-    <EmbeddedResource Include="Config\CAPKs\VCPS\A00000000358.txt" />
-    <EmbeddedResource Include="Config\CAPKs\VCPS\A00000000396.txt" />
-    <EmbeddedResource Include="Config\CAPKs\VCPS\A000009999E1.txt" />
-    <EmbeddedResource Include="Config\CAPKs\VCPS\A000009999E2.txt" />
-    <EmbeddedResource Include="Config\CAPKs\VCPS\A000009999E3.txt" />
-    <EmbeddedResource Include="Config\CAPKs\VCPS\A000009999E4.txt" />
-    <EmbeddedResource Include="Config\CAPKs\VCPS\A000009999E5.txt" />
-    <EmbeddedResource Include="Config\CAPKs\VCPS\A000009999E6.txt" />
-    <EmbeddedResource Include="Config\default_configs\%28Default%29A000000003_purchase.txt" />
-    <EmbeddedResource Include="Config\default_configs\%28Default%29Terminal.txt" />
+    <None Include="Config\Default_configs\Terminal.txt" />
     <None Include="Config\DRL\CLQ.D.014.00&amp;01.txt" />
     <None Include="Config\DRL\CLQ.D.015.00&amp;01.txt" />
     <None Include="Config\DRL\CLQ.D.016.00.txt" />
@@ -264,5 +251,26 @@
     <None Include="Config\template\CLQ.N.046.xx.txt" />
     <None Include="Config\template\Default.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Config\Default_configs\App_config\T00-K03-A000000003.txt" />
+    <Content Include="Config\Default_configs\App_config\T00-K03-A0000000999090.txt" />
+    <Content Include="Config\Default_configs\App_config\T00-K03-A00000999901.txt" />
+    <Content Include="Config\Default_configs\App_config\T20-K03-A000000003.txt" />
+    <Content Include="Config\Default_configs\App_config\T20-K03-A0000000999090.txt" />
+    <Content Include="Config\Default_configs\App_config\T20-K03-A00000999901.txt" />
+    <Content Include="Config\Default_configs\CAPK\A00000000350.txt" />
+    <Content Include="Config\Default_configs\CAPK\A00000000351.txt" />
+    <Content Include="Config\Default_configs\CAPK\A00000000352.txt" />
+    <Content Include="Config\Default_configs\CAPK\A00000000353.txt" />
+    <Content Include="Config\Default_configs\CAPK\A00000000358.txt" />
+    <Content Include="Config\Default_configs\CAPK\A00000000396.txt" />
+    <Content Include="Config\Default_configs\CAPK\A000009999E1.txt" />
+    <Content Include="Config\Default_configs\CAPK\A000009999E2.txt" />
+    <Content Include="Config\Default_configs\CAPK\A000009999E3.txt" />
+    <Content Include="Config\Default_configs\CAPK\A000009999E4.txt" />
+    <Content Include="Config\Default_configs\CAPK\A000009999E5.txt" />
+    <Content Include="Config\Default_configs\CAPK\A000009999E6.txt" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

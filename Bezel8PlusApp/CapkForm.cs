@@ -21,6 +21,27 @@ namespace Bezel8PlusApp
         {
             InitializeComponent();
             capkDataSet = new DataSet();
+
+            TxnForm.TxnStartEventHandler += DisableAllButtons;
+            TxnForm.TxnFinishEventHandler += EnableAllButtons;
+        }
+
+        private void DisableAllButtons(object sender, EventArgs e)
+        {
+            btnOpenCAPK.Enabled = false;
+            btnSetAll.Enabled = false;
+            btnGetAll.Enabled = false;
+            btnRemoveOne.Enabled = false;
+            btnRemoveAll.Enabled = false;
+        }
+
+        private void EnableAllButtons(object sender, EventArgs e)
+        {
+            btnOpenCAPK.Enabled = true;
+            btnSetAll.Enabled = true;
+            btnGetAll.Enabled = true;
+            btnRemoveOne.Enabled = true;
+            btnRemoveAll.Enabled = true;
         }
 
         private void SetupCapkToReader(DataTable capkTable)

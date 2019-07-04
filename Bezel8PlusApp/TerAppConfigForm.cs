@@ -28,7 +28,33 @@ namespace Bezel8PlusApp
             BuildFormatTable();
 
             confDataSet = new DataSet();
+
+            TxnForm.TxnStartEventHandler += DisableAllButtons;
+            TxnForm.TxnFinishEventHandler += EnableAllButtons;
         }
+
+        private void DisableAllButtons(object sender, EventArgs e)
+        {
+            btnOpen.Enabled = false;
+            btnSetSelected.Enabled = false;
+            btnSetAll.Enabled = false;
+            btnGetAll.Enabled = false;
+            btnAddItem.Enabled = false;
+            btnDeleteItem.Enabled = false;
+            btnRemoveOne.Enabled = false;
+        }
+
+        private void EnableAllButtons(object sender, EventArgs e)
+        {
+            btnOpen.Enabled = true;
+            btnSetSelected.Enabled = true;
+            btnSetAll.Enabled = true;
+            btnGetAll.Enabled = true;
+            btnAddItem.Enabled = true;
+            btnDeleteItem.Enabled = true;
+            btnRemoveOne.Enabled = true;
+        }
+
 
         private void BuildFormatTable()
         {

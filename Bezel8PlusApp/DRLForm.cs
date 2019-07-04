@@ -25,6 +25,23 @@ namespace Bezel8PlusApp
             InitializeComponent();
             InitializeDRLTemplate();
             InitializeValue();
+
+            TxnForm.TxnStartEventHandler += DisableAllButtons;
+            TxnForm.TxnFinishEventHandler += EnableAllButtons;
+        }
+
+        private void DisableAllButtons(object sender, EventArgs e)
+        {
+            btnSetAll.Enabled = false;
+            btnDeleteAll.Enabled = false;
+            btnOpen.Enabled = false;
+        }
+
+        private void EnableAllButtons(object sender, EventArgs e)
+        {
+            btnSetAll.Enabled = true;
+            btnDeleteAll.Enabled = true;
+            btnOpen.Enabled = true;
         }
 
         private void InitializeDRLTemplate()
@@ -73,11 +90,6 @@ namespace Bezel8PlusApp
                 //Console.WriteLine(tlp.Controls[0].Name);
 
             }
-        }
-
-        private void SetupUI(FileInfo fileInfo)
-        {
-
         }
 
         private void cbPIDs_CheckedChanged(object sender, EventArgs e)

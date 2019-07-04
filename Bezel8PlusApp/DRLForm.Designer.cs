@@ -169,7 +169,7 @@
             this.cbbAmount0Check4.Items.AddRange(new object[] {
             "Option 1",
             "Option 2"});
-            this.cbbAmount0Check4.Location = new System.Drawing.Point(222, 82);
+            this.cbbAmount0Check4.Location = new System.Drawing.Point(222, 79);
             this.cbbAmount0Check4.Name = "cbbAmount0Check4";
             this.cbbAmount0Check4.Size = new System.Drawing.Size(98, 26);
             this.cbbAmount0Check4.TabIndex = 4;
@@ -329,7 +329,7 @@
             this.cbbAmount0Check3.Items.AddRange(new object[] {
             "Option 1",
             "Option 2"});
-            this.cbbAmount0Check3.Location = new System.Drawing.Point(222, 82);
+            this.cbbAmount0Check3.Location = new System.Drawing.Point(222, 79);
             this.cbbAmount0Check3.Name = "cbbAmount0Check3";
             this.cbbAmount0Check3.Size = new System.Drawing.Size(98, 26);
             this.cbbAmount0Check3.TabIndex = 4;
@@ -490,7 +490,7 @@
             this.cbbAmount0Check1.Items.AddRange(new object[] {
             "Option 1",
             "Option 2"});
-            this.cbbAmount0Check1.Location = new System.Drawing.Point(222, 79);
+            this.cbbAmount0Check1.Location = new System.Drawing.Point(222, 82);
             this.cbbAmount0Check1.Name = "cbbAmount0Check1";
             this.cbbAmount0Check1.Size = new System.Drawing.Size(98, 26);
             this.cbbAmount0Check1.TabIndex = 4;
@@ -650,7 +650,7 @@
             this.cbbAmount0Check2.Items.AddRange(new object[] {
             "Option 1",
             "Option 2"});
-            this.cbbAmount0Check2.Location = new System.Drawing.Point(222, 82);
+            this.cbbAmount0Check2.Location = new System.Drawing.Point(222, 79);
             this.cbbAmount0Check2.Name = "cbbAmount0Check2";
             this.cbbAmount0Check2.Size = new System.Drawing.Size(98, 26);
             this.cbbAmount0Check2.TabIndex = 4;

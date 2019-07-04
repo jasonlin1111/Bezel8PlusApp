@@ -447,12 +447,14 @@
             // 
             // gbReceipt
             // 
+            this.gbReceipt.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gbReceipt.AutoSize = true;
-            this.gbReceipt.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gbReceipt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.gbReceipt.Location = new System.Drawing.Point(3, 56);
+            this.gbReceipt.Location = new System.Drawing.Point(6, 62);
             this.gbReceipt.Name = "gbReceipt";
-            this.gbReceipt.Size = new System.Drawing.Size(397, 459);
+            this.gbReceipt.Size = new System.Drawing.Size(388, 450);
             this.gbReceipt.TabIndex = 2;
             this.gbReceipt.TabStop = false;
             this.gbReceipt.Text = "Receipt";
@@ -538,7 +540,7 @@
             // 
             // tbOutcome
             // 
-            this.tbOutcome.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tbOutcome.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbOutcome.Font = new System.Drawing.Font("Arial Black", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.tbOutcome.Location = new System.Drawing.Point(3, 18);
             this.tbOutcome.Name = "tbOutcome";

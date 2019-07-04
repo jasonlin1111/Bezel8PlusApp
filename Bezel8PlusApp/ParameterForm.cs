@@ -32,6 +32,29 @@ namespace Bezel8PlusApp
             cbbCardType.DataSource = new string[] { "None", "PayWave" };
 
             InitializeTemplates();
+
+            TxnForm.TxnStartEventHandler += DisableAllButtons;
+            TxnForm.TxnFinishEventHandler += EnableAllButtons;
+        }
+
+        private void DisableAllButtons(object sender, EventArgs e)
+        {
+            btnSetPara.Enabled = false;
+            btnGetPara.Enabled = false;
+            btnSetTime.Enabled = false;
+            btnGetTime.Enabled = false;
+            btnSet.Enabled = false;
+            btnRemoveAll.Enabled = false;
+        }
+
+        private void EnableAllButtons(object sender, EventArgs e)
+        {
+            btnSetPara.Enabled = true;
+            btnGetPara.Enabled = true;
+            btnSetTime.Enabled = true;
+            btnGetTime.Enabled = true;
+            btnSet.Enabled = true;
+            btnRemoveAll.Enabled = true;
         }
 
         private void ResetUI()

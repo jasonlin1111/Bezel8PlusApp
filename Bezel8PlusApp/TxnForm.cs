@@ -26,12 +26,17 @@ namespace Bezel8PlusApp
         List<TLVDataObject> dataRecord;
         List<TLVDataObject> discretionaryData;
 
+        public static event EventHandler TxnStartEventHandler;
+        public static event EventHandler TxnFinishEventHandler;
+
+
+
         public TxnForm()
         {
             InitializeComponent();
 
             comBoxTxnType.DataSource = new string[] { "Purchase", "Refund" };
-            comBoxARC.DataSource = new string[] { "3030 (Approve)", "3531 (Decline)" };
+            comBoxARC.DataSource = new string[] { "3030  (Approve)", "3531  (Decline)" };
 
             receiptForm = new ReceiptForm();
             onlinePinForm = new OnlinePinForm();
@@ -44,6 +49,26 @@ namespace Bezel8PlusApp
             receiptForm.FormBorderStyle = FormBorderStyle.None;
             receiptForm.Dock = DockStyle.Fill;
             gbReceipt.Controls.Add(receiptForm);
+        }
+
+        public void OnTxnStartEventCall(EventArgs e)
+        {
+            tbOutcome.Text = "Processing ...";
+            //tbOutcome.Clear();
+            tbOnlineData.Clear();
+            btnStart.Enabled = false;
+            receiptForm.Visible = false;
+
+            if (TxnStartEventHandler != null)
+                TxnStartEventHandler(this, e);
+        }
+
+        public void OnTxnFinishEventCall(EventArgs e)
+        {
+            btnStart.Enabled = true;
+
+            if (TxnFinishEventHandler != null)
+                TxnFinishEventHandler(this, e);
         }
 
         /// <summary>
@@ -146,10 +171,7 @@ namespace Bezel8PlusApp
         private void btnStart_Click(object sender, EventArgs e)
         {
             AUTO_RUN:
-            SetTxnInProgressUI();
-            receiptForm.Visible = false;
-            btnHostSendPressed = false;
-            btnCancelPressed = false;
+            OnTxnStartEventCall(e);
 
             string t61Message = PrepareTxnData();
             string t61Response = String.Empty;
@@ -161,12 +183,13 @@ namespace Bezel8PlusApp
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-                ResetToIdleState();
+                OnTxnFinishEventCall(e);
                 return;
             }
 
             TransactionResultAnalyze(t61Response);
-            ResetToIdleState();
+            OnTxnFinishEventCall(e);
+
 
             if (cbAutoRun.Checked)
             {
@@ -181,82 +204,99 @@ namespace Bezel8PlusApp
 
         private void TransactionResultAnalyze(string result)
         {
-            // Fail
             if (string.IsNullOrEmpty(result))
                 return;
-            if (!result.ToUpper().StartsWith("T620"))
+
+            if (result.ToUpper().StartsWith("T6211"))
             {
-                //MessageBox.Show(result);
+                string error_code = result.Substring(5);
+                switch (error_code)
+                {
+                    case TxnResult.EndApplication:
+                        tbOutcome.Text = "Terminated";
+                        break;
+
+                    case TxnResult.TransactionCancelled:
+                        tbOutcome.Clear();
+                        break;
+
+                    default:
+                        tbOutcome.Text = result;
+                        break;
+                }
+            }
+            else if (result.ToUpper().StartsWith("T620"))
+            {
+                string outcome = result.Substring(4);
+                switch (result.Substring(4))
+                {
+                    case TxnResult.OnlineApprove:
+                    case TxnResult.OnlineApproveSign:
+                        PrintReceipt("Approve");
+                        tbOutcome.Text = "Online Approved";
+                        break;
+
+                    case TxnResult.OfflineApprove:
+                    case TxnResult.OfflineApproveSign:
+                        GetOutputData("0");
+                        GetOutputData("1");
+                        GetEntryMode();
+                        PrintReceipt("Approve");
+                        tbOutcome.Text = "Offline Approved";
+                        break;
+
+                    case TxnResult.OfflineDecline:
+                        GetOutputData("0");
+                        GetOutputData("1");
+                        GetEntryMode();
+                        PrintReceipt("Decline");
+                        tbOutcome.Text = "Offline Declined";
+                        break;
+
+                    case TxnResult.UnOnlineOfflineDeclineSign:
+                        PrintReceipt("Decline");
+                        tbOutcome.Text = "Offline Declined";
+                        break;
+
+                    case TxnResult.OnlineDecline:
+                        PrintReceipt("Decline");
+                        tbOutcome.Text = "Online Declined";
+                        break;
+
+                    case TxnResult.TryAnotherInterface:
+                        // Shall launch a cantact transaction
+                        tbOutcome.Text = "Terminated";
+                        break;
+
+                    case TxnResult.OnlineAuthorizeReq:
+                        tbOutcome.Text = "Online Authorizing";
+                        GetOutputData("0");
+                        GetOutputData("1");
+                        GetEntryMode();
+                        OnlineAuthorization();
+                        break;
+
+                    case TxnResult.ExternalPinBlockReq:
+                        tbOutcome.Text = "Please Enter PIN";
+                        onlinePinForm.Show();
+                        while (onlinePinForm.Visible == true)
+                        {
+                            Application.DoEvents();
+                        }
+                        OnlinePINProcess(onlinePinForm.GetPIN());
+                        if (!string.IsNullOrEmpty(onlinePinForm.GetPIN()))
+                            tbOnlineData.AppendText("PIN BLOCK: " + onlinePinForm.GetPINBlock() + Environment.NewLine);
+                        break;
+
+                    default:
+                        tbOutcome.Text = result;
+                        break;
+                }
+            }
+            else
+            {
                 tbOutcome.Text = result;
-                return;
-            }
-
-            // Success
-            switch (result.Substring(4))
-            {
-                
-                case TxnResult.OnlineApprove:
-                case TxnResult.OnlineApproveSign:
-                    PrintReceipt("Approve");
-                    tbOutcome.Text = "Online Approve";
-                    break;
-
-                case TxnResult.OfflineApprove:
-                case TxnResult.OfflineApproveSign:
-                    GetOutputData("0");
-                    GetOutputData("1");
-                    GetEntryMode();
-                    PrintReceipt("Approve");
-                    tbOutcome.Text = "Offline Approve";
-                    break;
-
-                case TxnResult.OfflineDecline:
-                    GetOutputData("0");
-                    GetOutputData("1");
-                    GetEntryMode();
-                    PrintReceipt("Decline");
-                    tbOutcome.Text = "Offline Decline";
-                    break;
-
-                case TxnResult.UnOnlineOfflineDeclineSign:
-                    PrintReceipt("Decline");
-                    tbOutcome.Text = "Offline Decline";
-                    break;
-
-                case TxnResult.OnlineDecline:
-                    PrintReceipt("Decline");
-                    tbOutcome.Text = "Online Decline";
-                    break;
-
-                case TxnResult.TryAnotherInterface:
-                    tbOutcome.Text = "Terminated";
-                    break;
-
-                case TxnResult.OnlineAuthorizeReq:
-                    tbOutcome.Text = "Online Authorizing";
-                    GetOutputData("0");
-                    GetOutputData("1");
-                    GetEntryMode();
-                    OnlineAuthorization();
-                    break;
-
-                case TxnResult.ExternalPinBlockReq:
-                    tbOutcome.Text = "Please Enter PIN";
-                    onlinePinForm.Show();
-                    while (onlinePinForm.Visible == true)
-                    {
-                        Application.DoEvents();
-                    }
-                    OnlinePINProcess(onlinePinForm.GetPIN());
-                    if (!string.IsNullOrEmpty(onlinePinForm.GetPIN()))
-                        tbOnlineData.AppendText("PIN BLOCK: " + onlinePinForm.GetPINBlock() + Environment.NewLine);
-                    break;
-
-                default:
-                    MessageBox.Show(result);
-                    break;
-
-            }
+            } 
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -373,8 +413,6 @@ namespace Bezel8PlusApp
                             tbOnlineData.AppendText("Terminal Entry Capability: " + tlv[2] + Environment.NewLine);
                     }
                 }
-
-
             }
             catch (Exception ex)
             {
@@ -388,6 +426,10 @@ namespace Bezel8PlusApp
             string t71Response = String.Empty;
             string IAD = String.Empty;
             string ARC = String.Empty;
+
+            btnHostSendPressed = false;
+            btnCancelPressed = false;
+            btnHostSend.Enabled = true;
 
             if (cbARC.Checked)
             {
@@ -426,15 +468,12 @@ namespace Bezel8PlusApp
             }
             else
             {
-                btnStart.Enabled = false;
-                btnHostSend.Enabled = true;
-
                 while (!btnHostSendPressed && !btnCancelPressed)
                 {
                     Application.DoEvents();
                 }
-
             }
+            btnHostSend.Enabled = false;
         }
 
 
@@ -611,20 +650,6 @@ namespace Bezel8PlusApp
             receiptForm.Visible = true;
         }
 
-        private void ResetToIdleState()
-        {
-            btnStart.Enabled = true;
-            btnHostSend.Enabled = false;
-        }
-
-        private void SetTxnInProgressUI()
-        {
-            btnStart.Enabled = false;
-            btnCancel.Enabled = true;
-            tbOutcome.Clear();
-            tbOnlineData.Clear();
-        }
-
         private void cbAutoRun_CheckedChanged(object sender, EventArgs e)
         {
             if (cbAutoRun.Checked)
@@ -662,5 +687,10 @@ namespace Bezel8PlusApp
         public const string UnOnlineOfflineApprove = "Y3";
         public const string OnlineApproveSign = "Y9";
         public const string UnOnlineOfflineDeclineSign = "Z3";
+
+        public const string TransactionCancelled = "F1111111";
+        public const string EndApplication = "00000007";
+
     }
+
 }

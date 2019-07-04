@@ -27,6 +27,19 @@ namespace Bezel8PlusApp
             InitializeComponentValue();
             InitializeBtnsAndForms();
 
+            TxnForm.TxnStartEventHandler += TxnInProgress;
+            TxnForm.TxnFinishEventHandler += OnIdleState;
+
+        }
+
+        private void TxnInProgress(object sender, EventArgs e)
+        {
+            btnDefaultSetting.Enabled = false;
+        }
+
+        private void OnIdleState(object sender, EventArgs e)
+        {
+            btnDefaultSetting.Enabled = true;
         }
 
         private void InitializeComponentValue()

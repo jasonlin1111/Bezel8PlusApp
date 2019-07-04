@@ -210,15 +210,12 @@
     <EmbeddedResource Include="Config\CAPKs\A000009999E5.txt" />
     <EmbeddedResource Include="Config\CAPKs\A000009999E6.txt" />
     <None Include="Config\Default_configs\Terminal.txt" />
-    <None Include="Config\DRL\CLQ.D.014.00&amp;01.txt" />
-    <None Include="Config\DRL\CLQ.D.015.00&amp;01.txt" />
     <None Include="Config\DRL\CLQ.D.016.00.txt" />
     <None Include="Config\DRL\CLQ.D.016.00_Modified.txt" />
     <None Include="Config\DRL\CLQ.D.016.01.txt" />
     <None Include="Config\DRL\CLQ.D.016.01_Modified.txt" />
     <None Include="Config\DRL\CLQ.D.017.00.txt" />
     <None Include="Config\DRL\CLQ.D.017.01.txt" />
-    <None Include="Config\DRL\CLQ.D.018&amp;19.00.txt" />
     <None Include="Config\DRL\CLQ.D.019.01.txt" />
     <None Include="Config\DRL\CLQ.D.020.00.txt" />
     <None Include="Config\DRL\CLQ.D.020.01.txt" />
@@ -238,16 +235,12 @@
     <None Include="Config\template\CLQ.B.017.00.txt" />
     <None Include="Config\template\CLQ.B.017.03.txt" />
     <None Include="Config\template\CLQ.B.017.04.txt" />
-    <None Include="Config\template\CLQ.D.014&amp;015&amp;016.txt" />
     <None Include="Config\template\CLQ.D.017.xx.txt" />
-    <None Include="Config\template\CLQ.D.018&amp;019.txt" />
     <None Include="Config\template\CLQ.D.019.01.txt" />
     <None Include="Config\template\CLQ.D.020.00.txt" />
-    <None Include="Config\template\CLQ.D.020.01&amp;02.txt" />
     <None Include="Config\template\CLQ.D.020.03.txt" />
     <None Include="Config\template\CLQ.D.020.04.txt" />
     <None Include="Config\template\CLQ.D.020.05.txt" />
-    <None Include="Config\template\CLQ.D.021~028.txt" />
     <None Include="Config\template\CLQ.N.046.xx.txt" />
     <None Include="Config\template\Default.txt" />
   </ItemGroup>
@@ -270,6 +263,13 @@
     <Content Include="Config\Default_configs\CAPK\A000009999E4.txt" />
     <Content Include="Config\Default_configs\CAPK\A000009999E5.txt" />
     <Content Include="Config\Default_configs\CAPK\A000009999E6.txt" />
+    <Content Include="Config\DRL\CLQ.D.014.00 &amp; 01.txt" />
+    <Content Include="Config\DRL\CLQ.D.015.00 &amp; 01.txt" />
+    <Content Include="Config\DRL\CLQ.D.018 &amp; 19.00.txt" />
+    <Content Include="Config\template\CLQ.D.014 &amp; 015 &amp; 016.txt" />
+    <Content Include="Config\template\CLQ.D.018 &amp; 019.txt" />
+    <Content Include="Config\template\CLQ.D.020.01 &amp; 02.txt" />
+    <Content Include="Config\template\CLQ.D.021 ~ 028.txt" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -6,8 +6,33 @@ using System.Threading.Tasks;
 
 namespace Bezel8PlusApp
 {
+    public enum ConfigType
+    {
+        ICC = 0,
+        PCD = 1
+    }
+
     class DataHandler
     {
+        public static int UICFormatConvertor(string format)
+        {
+            if (string.IsNullOrEmpty(format))
+                return 7;
+
+            if (Int32.TryParse(format, out int iFormat))
+                return iFormat;
+
+            switch (format.ToLower())
+            {
+                case "a": return 1;
+                case "b": return 2;
+                case "an": return 3;
+                case "ans": return 4;
+                case "cn": return 5;
+                case "n": return 6;
+                default: return 7;
+            }
+        }
 
         public static bool IsHexString(string input)
         {

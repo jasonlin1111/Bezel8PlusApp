@@ -56,7 +56,7 @@ namespace Bezel8PlusApp
             dictBtnForm = new Dictionary<Button, Form>();
             dictBtnForm.Add(btnMenuConfig, new MainConfigForm());
             dictBtnForm.Add(btnMenuTxn, new TxnForm());
-            dictBtnForm.Add(btnMenu3, new LoggingForm());
+            dictBtnForm.Add(btnMenu3, new LogForm());
 
             foreach (Form form in dictBtnForm.Values)
             {
@@ -86,14 +86,19 @@ namespace Bezel8PlusApp
                 MessageBox.Show("Invalid Port");
                 return;
             }
-
-            serialPort.Open(
-            cbCOM.SelectedItem.ToString(),
-            Int32.Parse(cbBuadRate.SelectedItem.ToString()),
-            Parity.None,
-            Int32.Parse(cbDataBits.SelectedItem.ToString()),
-            StopBits.One,
-            Handshake.None);
+            try
+            {
+                serialPort.Open(cbCOM.SelectedItem.ToString(),
+                    Int32.Parse(cbBuadRate.SelectedItem.ToString()),
+                    Parity.None,
+                    Int32.Parse(cbDataBits.SelectedItem.ToString()),
+                    StopBits.One,
+                    Handshake.None);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
 
             if (serialPort.IsOpen)
             {
@@ -146,18 +151,25 @@ namespace Bezel8PlusApp
             }
         }
 
-        private void SetTerminalConfig(string fullName)
+        private void SetTerminalConfig(ConfigType type, string fullName)
         {
-            string t51Message = String.Empty;  
+            string message_body = String.Empty;
+            string message_head = (type == ConfigType.ICC) ? "T01" : "T51";
             try
             {
                 var sr = new StreamReader(fullName);
+
                 while (!sr.EndOfStream)
                 {
                     string sl = sr.ReadLine();
 
                     if (!string.IsNullOrEmpty(sl))
                     {
+                        if (sl.ToUpper().StartsWith("NOTE"))
+                        {
+                            break;
+                        }     
+
                         // Description string handling
                         string description = String.Empty;
                         if (sl.Contains("//"))
@@ -170,12 +182,12 @@ namespace Bezel8PlusApp
                         // Tag Format Value string handling
                         string[] tagFormatValue = sl.Trim().Split(' ');
                         if (tagFormatValue.Length == 3)
-                            t51Message += Convert.ToChar(0x1A).ToString() + string.Join(Convert.ToChar(0x1C).ToString(), tagFormatValue);
+                            message_body += Convert.ToChar(0x1A).ToString() + string.Join(Convert.ToChar(0x1C).ToString(), tagFormatValue);
                     }
 
                 }
-                serialPort.WriteAndReadMessage(PktType.STX, "T5111", t51Message, out string t51Response);
-                if (!t51Response.Equals("T520"))
+                serialPort.WriteAndReadMessage(PktType.STX, message_head + "11", message_body, out string t51Response);
+                if (!t51Response.Equals("T520") && !t51Response.Equals("T020"))
                     throw new System.FormatException();
 
             }
@@ -185,7 +197,7 @@ namespace Bezel8PlusApp
             }
         }
 
-        private void SetApplicationConfig(string fullName)
+        private void SetPCDApplicationConfig(string fullName)
         {
             string s1A = Convert.ToChar(0x1A).ToString();
             string s1C = Convert.ToChar(0x1C).ToString();
@@ -195,7 +207,9 @@ namespace Bezel8PlusApp
                 string txnType = String.Empty;
                 string kid = String.Empty;
                 string aid = String.Empty;
+
                 var sr = new StreamReader(fullName);
+
                 while (!sr.EndOfStream)
                 {
                     string sl = sr.ReadLine();
@@ -239,6 +253,86 @@ namespace Bezel8PlusApp
             {
                 throw ex;
             }
+        }
+
+        private void SetICCApplicationConfig(string fullName, int buffer_len = -1)
+        {
+            string s1A = Convert.ToChar(0x1A).ToString();
+            string s1C = Convert.ToChar(0x1C).ToString();
+
+            if (buffer_len < 0)
+                buffer_len = serialPort.GetWriteBufferSize();
+
+            int max_body_length = buffer_len - 25;
+            List<string> message_body_list = new List<string>();
+
+            try
+            {
+                string aid = String.Empty;
+                string message_body = String.Empty;
+
+                var sr = new StreamReader(fullName);
+
+
+                while (!sr.EndOfStream)
+                {
+                    string sl = sr.ReadLine();
+
+                    if (sl.ToUpper().StartsWith("NOTE"))
+                        break;
+
+                    // Description string handling
+                    string description = String.Empty;
+                    if (sl.Contains("//"))
+                    {
+                        int descripePosition = sl.IndexOf("//");
+                        description = sl.Substring(descripePosition + 2).Trim();
+                        sl = sl.Substring(0, descripePosition);
+                    }
+
+                    // Tag Format Value string handling
+                    string[] tagFormatValue = sl.Trim().Split(' ');
+                    if (tagFormatValue.Length == 3)
+                    {
+                        if (tagFormatValue[0].ToUpper().Equals("9F06"))
+                            aid = tagFormatValue[2];
+
+                        tagFormatValue[1] = DataHandler.UICFormatConvertor(tagFormatValue[1]).ToString();
+                        string data_object = string.Join(s1C, tagFormatValue);
+                        if ((message_body.Length + data_object.Length) > max_body_length)
+                        {
+                            message_body_list.Add(message_body);
+                            message_body = String.Empty;
+                        }
+                        message_body += s1A + data_object;
+                    }
+                }
+                message_body_list.Add(message_body);
+
+
+                if (string.IsNullOrEmpty(aid))
+                    throw new System.FormatException("Missing AID 9F06");
+
+                int current_pkg = 1;
+                int total_pkg = message_body_list.Count;
+                while (current_pkg <= total_pkg)
+                {
+                    string pre_fix = current_pkg == 1 ? (s1A + aid) : "";
+
+                    serialPort.WriteAndReadMessage(PktType.STX, "T05" + current_pkg.ToString() + total_pkg.ToString(),
+                        pre_fix + message_body_list[current_pkg - 1], out string response);
+                    if (!response.Equals("T060"))
+                        throw new System.FormatException();
+
+                    current_pkg += 1;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
         }
 
         private void SetCAPK(string fileName)
@@ -355,10 +449,13 @@ namespace Bezel8PlusApp
             System.Threading.Thread.Sleep(200);
 
             // 2. Terminal Config
-            string fileName = defaultConfigDirectory + "Terminal.txt";
             try
             {
-                SetTerminalConfig(fileName);
+                string fileName = defaultConfigDirectory + @"PCD/PCD_Terminal.txt";
+                SetTerminalConfig(ConfigType.PCD, fileName);
+
+                fileName = defaultConfigDirectory + @"ICC/ICC_Terminal.txt";
+                SetTerminalConfig(ConfigType.ICC, fileName);
             }
             catch (FileNotFoundException)
             {
@@ -375,18 +472,15 @@ namespace Bezel8PlusApp
                 return;
             }
 
-
-
-            // 3. Application Config
-            DirectoryInfo app_dinfo = new DirectoryInfo(defaultConfigDirectory + "App_config");
-            FileInfo[] appFiles = app_dinfo.GetFiles("*.txt");
-
-            foreach (FileInfo appFile in appFiles)
+            // 3-1. ICC Application Config
+            DirectoryInfo icc_app_dinfo = new DirectoryInfo(defaultConfigDirectory + @"ICC/App_config/");
+            FileInfo[] icc_appFiles = icc_app_dinfo.GetFiles("*.txt");
+            foreach (FileInfo appFile in icc_appFiles)
             {
                 try
                 {
                     System.Threading.Thread.Sleep(200);
-                    SetApplicationConfig(appFile.FullName);
+                    SetICCApplicationConfig(appFile.FullName);
                 }
                 catch (FileNotFoundException)
                 {
@@ -404,9 +498,37 @@ namespace Bezel8PlusApp
             }
 
 
+            // 3. PCD Application Config
+            DirectoryInfo pcd_app_dinfo = new DirectoryInfo(defaultConfigDirectory + @"PCD/App_config");
+            FileInfo[] pcd_appFiles = pcd_app_dinfo.GetFiles("*.txt");
+
+            foreach (FileInfo appFile in pcd_appFiles)
+            {
+                try
+                {
+                    System.Threading.Thread.Sleep(200);
+                    SetPCDApplicationConfig(appFile.FullName);
+                }
+                catch (FileNotFoundException)
+                {
+                    continue;
+                }
+                catch (FormatException)
+                {
+                    continue;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    return;
+                }
+            }
+
+            
+
             // 4. CA Public Keys
             //string capkDirectory = defaultConfigDirectory + @"CAPK\";
-            DirectoryInfo capk_dinfo = new DirectoryInfo(defaultConfigDirectory + "CAPK");
+            DirectoryInfo capk_dinfo = new DirectoryInfo(defaultConfigDirectory + @"PCD/CAPK");
             FileInfo[] capkFiles = capk_dinfo.GetFiles("*.txt");
 
             foreach (FileInfo capkFile in capkFiles)
@@ -434,5 +556,28 @@ namespace Bezel8PlusApp
 
         }
 
+        private void btnIccTxnStart_Click(object sender, EventArgs e)
+        {
+
+            
+            try
+            {
+                // Step 1: Application Select - T11
+                serialPort.WriteAndReadMessage(PktType.STX, "T11", "", out string t11Response);
+                if (!t11Response.StartsWith("T120"))
+                {
+                    MessageBox.Show(t11Response);
+                    return;
+                }
+                string aid = t11Response.Substring(4);
+
+                // Step 2: Start Transaction - T15
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

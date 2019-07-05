@@ -1,6 +1,6 @@
 ﻿namespace Bezel8PlusApp
 {
-    partial class LoggingForm
+    partial class LogForm
     {
         /// <summary>
         /// Required designer variable.

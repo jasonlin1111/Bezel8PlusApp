@@ -10,13 +10,13 @@ using System.Windows.Forms;
 
 namespace Bezel8PlusApp
 {
-    public partial class LoggingForm : Form
+    public partial class LogForm : Form
     {
 
         private delegate void SafeCallDelegate(object sender, byte[] text);
         private SerialPortManager serialPort = SerialPortManager.Instance;
 
-        public LoggingForm()
+        public LogForm()
         {
             InitializeComponent();
             serialPort.OnDataReceived += LogReceivedData;

@@ -53,6 +53,7 @@
             this.btnMenu3 = new System.Windows.Forms.Button();
             this.btnMenuTxn = new System.Windows.Forms.Button();
             this.groupBoxWorkspace = new System.Windows.Forms.GroupBox();
+            this.btnIccTxnStart = new System.Windows.Forms.Button();
             this.groupBoxCom.SuspendLayout();
             this.tableLayoutPanelComSetting.SuspendLayout();
             this.groupBoxMenu.SuspendLayout();
@@ -61,6 +62,7 @@
             // 
             // groupBoxCom
             // 
+            this.groupBoxCom.Controls.Add(this.btnIccTxnStart);
             this.groupBoxCom.Controls.Add(this.btnDefaultSetting);
             this.groupBoxCom.Controls.Add(this.btnCloseCom);
             this.groupBoxCom.Controls.Add(this.btnOpenCom);
@@ -387,6 +389,16 @@
             this.groupBoxWorkspace.TabIndex = 2;
             this.groupBoxWorkspace.TabStop = false;
             // 
+            // btnIccTxnStart
+            // 
+            this.btnIccTxnStart.Location = new System.Drawing.Point(837, 12);
+            this.btnIccTxnStart.Name = "btnIccTxnStart";
+            this.btnIccTxnStart.Size = new System.Drawing.Size(86, 69);
+            this.btnIccTxnStart.TabIndex = 5;
+            this.btnIccTxnStart.Text = "ICC Transaction";
+            this.btnIccTxnStart.UseVisualStyleBackColor = true;
+            this.btnIccTxnStart.Click += new System.EventHandler(this.btnIccTxnStart_Click);
+            // 
             // MainEntryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -435,5 +447,6 @@
         private System.Windows.Forms.Button btnMenuTxn;
         private System.Windows.Forms.Button btnMenuConfig;
         private System.Windows.Forms.Button btnDefaultSetting;
+        private System.Windows.Forms.Button btnIccTxnStart;
     }
 }

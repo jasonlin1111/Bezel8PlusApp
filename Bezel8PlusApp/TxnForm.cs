@@ -30,7 +30,6 @@ namespace Bezel8PlusApp
         public static event EventHandler TxnFinishEventHandler;
 
 
-
         public TxnForm()
         {
             InitializeComponent();
@@ -218,6 +217,10 @@ namespace Bezel8PlusApp
 
                     case TxnResult.TransactionCancelled:
                         tbOutcome.Clear();
+                        break;
+
+                    case TxnResult.InterruptedByICC:
+                        // Contact Transaction
                         break;
 
                     default:
@@ -420,7 +423,6 @@ namespace Bezel8PlusApp
 
         }
 
-
         private void OnlineAuthorization()
         {
             string t71Response = String.Empty;
@@ -475,7 +477,6 @@ namespace Bezel8PlusApp
             }
             btnHostSend.Enabled = false;
         }
-
 
         private void btnHostSend_Click(object sender, EventArgs e)
         {
@@ -675,6 +676,7 @@ namespace Bezel8PlusApp
 
     public class TxnResult
     {
+        // Success
         public const string OnlineApprove = "Y4";
         public const string OfflineApprove = "Y1";
         public const string OfflineDecline = "Z1";
@@ -688,7 +690,9 @@ namespace Bezel8PlusApp
         public const string OnlineApproveSign = "Y9";
         public const string UnOnlineOfflineDeclineSign = "Z3";
 
+        // Error
         public const string TransactionCancelled = "F1111111";
+        public const string InterruptedByICC = "F1111112";
         public const string EndApplication = "00000007";
 
     }

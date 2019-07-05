@@ -73,11 +73,11 @@
     <Compile Include="DRLForm.Designer.cs">
       <DependentUpon>DRLForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="LoggingForm.cs">
+    <Compile Include="LogForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LoggingForm.Designer.cs">
-      <DependentUpon>LoggingForm.cs</DependentUpon>
+    <Compile Include="LogForm.Designer.cs">
+      <DependentUpon>LogForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MainConfigForm.cs">
       <SubType>Form</SubType>
@@ -130,8 +130,8 @@
     <EmbeddedResource Include="DRLForm.resx">
       <DependentUpon>DRLForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LoggingForm.resx">
-      <DependentUpon>LoggingForm.cs</DependentUpon>
+    <EmbeddedResource Include="LogForm.resx">
+      <DependentUpon>LogForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainConfigForm.resx">
       <DependentUpon>MainConfigForm.cs</DependentUpon>
@@ -209,7 +209,7 @@
     <EmbeddedResource Include="Config\CAPKs\A000009999E4.txt" />
     <EmbeddedResource Include="Config\CAPKs\A000009999E5.txt" />
     <EmbeddedResource Include="Config\CAPKs\A000009999E6.txt" />
-    <None Include="Config\Default_configs\Terminal.txt" />
+    <None Include="Config\Default_configs\PCD\PCD_Terminal.txt" />
     <None Include="Config\DRL\CLQ.D.016.00.txt" />
     <None Include="Config\DRL\CLQ.D.016.00_Modified.txt" />
     <None Include="Config\DRL\CLQ.D.016.01.txt" />
@@ -245,24 +245,26 @@
     <None Include="Config\template\Default.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Config\Default_configs\App_config\T00-K03-A000000003.txt" />
-    <Content Include="Config\Default_configs\App_config\T00-K03-A0000000999090.txt" />
-    <Content Include="Config\Default_configs\App_config\T00-K03-A00000999901.txt" />
-    <Content Include="Config\Default_configs\App_config\T20-K03-A000000003.txt" />
-    <Content Include="Config\Default_configs\App_config\T20-K03-A0000000999090.txt" />
-    <Content Include="Config\Default_configs\App_config\T20-K03-A00000999901.txt" />
-    <Content Include="Config\Default_configs\CAPK\A00000000350.txt" />
-    <Content Include="Config\Default_configs\CAPK\A00000000351.txt" />
-    <Content Include="Config\Default_configs\CAPK\A00000000352.txt" />
-    <Content Include="Config\Default_configs\CAPK\A00000000353.txt" />
-    <Content Include="Config\Default_configs\CAPK\A00000000358.txt" />
-    <Content Include="Config\Default_configs\CAPK\A00000000396.txt" />
-    <Content Include="Config\Default_configs\CAPK\A000009999E1.txt" />
-    <Content Include="Config\Default_configs\CAPK\A000009999E2.txt" />
-    <Content Include="Config\Default_configs\CAPK\A000009999E3.txt" />
-    <Content Include="Config\Default_configs\CAPK\A000009999E4.txt" />
-    <Content Include="Config\Default_configs\CAPK\A000009999E5.txt" />
-    <Content Include="Config\Default_configs\CAPK\A000009999E6.txt" />
+    <Content Include="Config\Default_configs\PCD\App_config\T00-K03-A000000003.txt" />
+    <Content Include="Config\Default_configs\PCD\App_config\T00-K03-A0000000999090.txt" />
+    <Content Include="Config\Default_configs\PCD\App_config\T00-K03-A00000999901.txt" />
+    <Content Include="Config\Default_configs\PCD\App_config\T20-K03-A000000003.txt" />
+    <Content Include="Config\Default_configs\PCD\App_config\T20-K03-A0000000999090.txt" />
+    <Content Include="Config\Default_configs\PCD\App_config\T20-K03-A00000999901.txt" />
+    <Content Include="Config\Default_configs\PCD\CAPK\A00000000350.txt" />
+    <Content Include="Config\Default_configs\PCD\CAPK\A00000000351.txt" />
+    <Content Include="Config\Default_configs\PCD\CAPK\A00000000352.txt" />
+    <Content Include="Config\Default_configs\PCD\CAPK\A00000000353.txt" />
+    <Content Include="Config\Default_configs\PCD\CAPK\A00000000358.txt" />
+    <Content Include="Config\Default_configs\PCD\CAPK\A00000000396.txt" />
+    <Content Include="Config\Default_configs\PCD\CAPK\A000009999E1.txt" />
+    <Content Include="Config\Default_configs\PCD\CAPK\A000009999E2.txt" />
+    <Content Include="Config\Default_configs\PCD\CAPK\A000009999E3.txt" />
+    <Content Include="Config\Default_configs\PCD\CAPK\A000009999E4.txt" />
+    <Content Include="Config\Default_configs\PCD\CAPK\A000009999E5.txt" />
+    <Content Include="Config\Default_configs\PCD\CAPK\A000009999E6.txt" />
+    <Content Include="Config\Default_configs\ICC\App_config\A0000000031010.txt" />
+    <Content Include="Config\Default_configs\ICC\ICC_Terminal.txt" />
     <Content Include="Config\DRL\CLQ.D.014.00 &amp; 01.txt" />
     <Content Include="Config\DRL\CLQ.D.015.00 &amp; 01.txt" />
     <Content Include="Config\DRL\CLQ.D.018 &amp; 19.00.txt" />

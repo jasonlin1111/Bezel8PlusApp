@@ -431,56 +431,84 @@ namespace Bezel8PlusApp
 
         private void btnDefaultSetting_Click(object sender, EventArgs e)
         {
+
+            DirectoryInfo icc_app_dinfo = new DirectoryInfo(defaultConfigDirectory + @"ICC/App_config/");
+            FileInfo[] icc_appFiles = icc_app_dinfo.GetFiles("*.txt");
+
+            DirectoryInfo pcd_app_dinfo = new DirectoryInfo(defaultConfigDirectory + @"PCD/App_config");
+            FileInfo[] pcd_appFiles = pcd_app_dinfo.GetFiles("*.txt");
+
+            DirectoryInfo capk_dinfo = new DirectoryInfo(defaultConfigDirectory + @"PCD/CAPK");
+            FileInfo[] capkFiles = capk_dinfo.GetFiles("*.txt");
+
+            int loading = 3 + icc_appFiles.Length + pcd_appFiles.Length + capkFiles.Length;
+            ProgressBarForm pgf = new ProgressBarForm(loading);
+
             // 1. Date and Time
+            pgf.AppendText("Setting current date and time ...");
             try
             {
                 SetCurrentTime();
+                pgf.AppendText("Done." + Environment.NewLine);
             }
             catch (FormatException)
             {
                 // Fail continue setting next part
+                pgf.AppendText("Failed." + Environment.NewLine);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+                pgf.Close();
                 return;
             }
+            pgf.IncreaseValue(1);
 
-            System.Threading.Thread.Sleep(200);
+
+            System.Threading.Thread.Sleep(100);
 
             // 2. Terminal Config
+            pgf.AppendText("Setting default Terminal configs ...");
             try
             {
                 string fileName = defaultConfigDirectory + @"PCD/PCD_Terminal.txt";
                 SetTerminalConfig(ConfigType.PCD, fileName);
+                pgf.IncreaseValue(1);
 
                 fileName = defaultConfigDirectory + @"ICC/ICC_Terminal.txt";
                 SetTerminalConfig(ConfigType.ICC, fileName);
+                pgf.IncreaseValue(1);
+
+                pgf.AppendText("Done" + Environment.NewLine);
             }
             catch (FileNotFoundException)
             {
                 // Fail, continue setting next part
-                //Console.WriteLine("File Not Found");
+                pgf.AppendText("Failed" + Environment.NewLine);
+                pgf.IncreaseValue(2);
             }
             catch (FormatException)
             {
                 // Fail, continue setting next part
+                pgf.AppendText("Failed" + Environment.NewLine);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+                pgf.Close();
                 return;
-            }
+            }   
+            
 
             // 3-1. ICC Application Config
-            DirectoryInfo icc_app_dinfo = new DirectoryInfo(defaultConfigDirectory + @"ICC/App_config/");
-            FileInfo[] icc_appFiles = icc_app_dinfo.GetFiles("*.txt");
+            pgf.AppendText("Setting default ICC Application configs ...");
             foreach (FileInfo appFile in icc_appFiles)
             {
                 try
                 {
-                    System.Threading.Thread.Sleep(200);
+                    System.Threading.Thread.Sleep(100);
                     SetICCApplicationConfig(appFile.FullName);
+                    pgf.IncreaseValue(1);
                 }
                 catch (FileNotFoundException)
                 {
@@ -496,18 +524,19 @@ namespace Bezel8PlusApp
                     return;
                 }
             }
+            pgf.AppendText("Done" + Environment.NewLine);
+            
 
 
             // 3. PCD Application Config
-            DirectoryInfo pcd_app_dinfo = new DirectoryInfo(defaultConfigDirectory + @"PCD/App_config");
-            FileInfo[] pcd_appFiles = pcd_app_dinfo.GetFiles("*.txt");
-
+            pgf.AppendText("Setting default PCD Application config ...");
             foreach (FileInfo appFile in pcd_appFiles)
             {
                 try
                 {
-                    System.Threading.Thread.Sleep(200);
+                    System.Threading.Thread.Sleep(100);
                     SetPCDApplicationConfig(appFile.FullName);
+                    pgf.IncreaseValue(1);
                 }
                 catch (FileNotFoundException)
                 {
@@ -523,20 +552,19 @@ namespace Bezel8PlusApp
                     return;
                 }
             }
-
+            pgf.AppendText("Done" + Environment.NewLine);
             
 
-            // 4. CA Public Keys
-            //string capkDirectory = defaultConfigDirectory + @"CAPK\";
-            DirectoryInfo capk_dinfo = new DirectoryInfo(defaultConfigDirectory + @"PCD/CAPK");
-            FileInfo[] capkFiles = capk_dinfo.GetFiles("*.txt");
 
+            // 4. CA Public Keys
+            pgf.AppendText("Setting default CA Public keys ...");
             foreach (FileInfo capkFile in capkFiles)
             {
                 try
                 {
-                    System.Threading.Thread.Sleep(200);
+                    System.Threading.Thread.Sleep(100);
                     SetCAPK(capkFile.FullName);
+                    pgf.IncreaseValue(1);
                 }
                 catch (FileNotFoundException)
                 {
@@ -553,13 +581,19 @@ namespace Bezel8PlusApp
                 }
 
             }
+            pgf.AppendText("Done" + Environment.NewLine);
+            
+            if (pgf != null)
+                pgf.Close();
 
         }
 
         private void btnIccTxnStart_Click(object sender, EventArgs e)
         {
 
-            
+            serialPort.WriteAndReadMessage(PktType.STX, "T1C", "", out string response);
+            return;
+
             try
             {
                 // Step 1: Application Select - T11

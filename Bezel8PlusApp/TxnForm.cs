@@ -29,7 +29,6 @@ namespace Bezel8PlusApp
         public static event EventHandler TxnStartEventHandler;
         public static event EventHandler TxnFinishEventHandler;
 
-
         public TxnForm()
         {
             InitializeComponent();
@@ -70,6 +69,31 @@ namespace Bezel8PlusApp
                 TxnFinishEventHandler(this, e);
         }
 
+        private void ICCTransaction()
+        {
+            try
+            {
+                // Step 1: Application Select - T11
+                serialPort.WriteAndReadMessage(PktType.STX, "T11", "", out string t11Response);
+                if (!t11Response.StartsWith("T120"))
+                {
+                    MessageBox.Show(t11Response);
+                    return;
+                }
+                string aid = t11Response.Substring(4);
+
+                // Step 2: Start Transaction - T15
+                string t15Message = PrepareTxnData();
+                serialPort.WriteAndReadMessage(PktType.STX, "T15", t15Message, out string t15Response);
+                MessageBox.Show(t15Response);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
         /// <summary>
         /// Build a string for T61 Packet command
         /// </summary>
@@ -78,9 +102,9 @@ namespace Bezel8PlusApp
             string txnData = String.Empty;
 
             //[AmtAuth][AmtOther][CurExponent + CurCode][TranType][TranInfo][Account Type][Force Online]
-            string[] t61Elements = new string[7];
-            for (int i = 0; i < t61Elements.Length; i++)
-                t61Elements[i] = String.Empty;
+            string[] elements = new string[7];
+            for (int i = 0; i < elements.Length; i++)
+                elements[i] = String.Empty;
 
             // AmtAuth
             if (cbAmountAuth.Checked)
@@ -88,12 +112,12 @@ namespace Bezel8PlusApp
                 // Amount present
                 if (textBoxAmountAuth.Text.Length != 0)
                 {
-                    t61Elements[0] += textBoxAmountAuth.Text.PadLeft(12, '0');
+                    elements[0] += textBoxAmountAuth.Text.PadLeft(12, '0');
                 }
                 else
                 {
                     // Amount present but empty
-                    t61Elements[0] += String.Empty.PadLeft(12, 'F');
+                    elements[0] += String.Empty.PadLeft(12, 'F');
                 }
             }
 
@@ -103,12 +127,12 @@ namespace Bezel8PlusApp
                 // Amount, Other present
                 if (textBoxAmountOther.Text.Length != 0)
                 {
-                    t61Elements[1] += textBoxAmountOther.Text.PadLeft(12, '0');
+                    elements[1] += textBoxAmountOther.Text.PadLeft(12, '0');
                 }
                 else
                 {
                     // Amount, Other present but empty
-                    t61Elements[1] += String.Empty.PadLeft(12, 'F');
+                    elements[1] += String.Empty.PadLeft(12, 'F');
                 }
             }
 
@@ -121,45 +145,45 @@ namespace Bezel8PlusApp
                     if (exp >= 10)
                         exp %= 10;
                 }
-                t61Elements[2] += exp.ToString();
+                elements[2] += exp.ToString();
             }
             if (cbCurrencyCode.Checked)
             {
                 string cc = textBoxCurrencyCode.Text.PadLeft(4, '0').Substring(1);
-                t61Elements[2] += cc;
+                elements[2] += cc;
             }
 
             // TranType
             switch (comBoxTxnType.SelectedItem.ToString().ToUpper())
             {
                 case "PURCHASE":
-                    t61Elements[3] += "00";
+                    elements[3] += "00";
                     break;
 
                 case "CASH":
-                    t61Elements[3] += "01";
+                    elements[3] += "01";
                     break;
 
                 case "PURCHASE WITH CASHBACK":
-                    t61Elements[3] += "09";
+                    elements[3] += "09";
                     break;
 
                 case "REFUND":
-                    t61Elements[3] += "20";
+                    elements[3] += "20";
                     break;
             }
 
             // TranInfo
-            t61Elements[4] += "40"; // Goods
+            elements[4] += "40"; // Goods
 
             // Account Type
-            t61Elements[5] += "00"; // Default
+            elements[5] += "00"; // Default
 
             // Force Online
-            t61Elements[6] += "0";
+            elements[6] += "0";
 
             txnData = Convert.ToChar(0x1A).ToString() +
-                String.Join(Convert.ToChar(0x1A).ToString(), t61Elements) +
+                String.Join(Convert.ToChar(0x1A).ToString(), elements) +
                 Convert.ToChar(0x1A).ToString();
 
             return txnData;
@@ -304,6 +328,9 @@ namespace Bezel8PlusApp
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
+            ICCTransaction();
+            return;
+
             btnCancelPressed = true;
             string t6CResponse = String.Empty;
             try

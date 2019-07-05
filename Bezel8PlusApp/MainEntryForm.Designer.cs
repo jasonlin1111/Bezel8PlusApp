@@ -79,7 +79,7 @@
             this.btnDefaultSetting.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDefaultSetting.Location = new System.Drawing.Point(744, 12);
             this.btnDefaultSetting.Name = "btnDefaultSetting";
-            this.btnDefaultSetting.Size = new System.Drawing.Size(87, 69);
+            this.btnDefaultSetting.Size = new System.Drawing.Size(85, 69);
             this.btnDefaultSetting.TabIndex = 4;
             this.btnDefaultSetting.Text = "Default Setting";
             this.btnDefaultSetting.UseVisualStyleBackColor = true;
@@ -391,7 +391,7 @@
             // 
             // btnIccTxnStart
             // 
-            this.btnIccTxnStart.Location = new System.Drawing.Point(837, 12);
+            this.btnIccTxnStart.Location = new System.Drawing.Point(1106, 12);
             this.btnIccTxnStart.Name = "btnIccTxnStart";
             this.btnIccTxnStart.Size = new System.Drawing.Size(86, 69);
             this.btnIccTxnStart.TabIndex = 5;

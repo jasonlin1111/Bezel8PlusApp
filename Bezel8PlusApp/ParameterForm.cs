@@ -19,6 +19,8 @@ namespace Bezel8PlusApp
         private readonly string templateDirectory = Environment.CurrentDirectory.Substring(0, Environment.CurrentDirectory.LastIndexOf("bin"))
             + @"Config\" + "template";
 
+        static bool track1Enabled;
+        static bool track2Enabled;
 
         public ParameterForm()
         {
@@ -35,6 +37,20 @@ namespace Bezel8PlusApp
 
             TxnForm.TxnStartEventHandler += DisableAllButtons;
             TxnForm.TxnFinishEventHandler += EnableAllButtons;
+
+            track1Enabled = cbTrack1.Checked;
+            track2Enabled = cbTrack2.Checked;
+
+        }
+
+        static public bool IsTrack1Enabled()
+        {
+            return track1Enabled;
+        }
+
+        static public bool IsTrack2Enabled()
+        {
+            return track2Enabled;
         }
 
         private void DisableAllButtons(object sender, EventArgs e)
@@ -277,6 +293,9 @@ namespace Bezel8PlusApp
             tmp = cbExceptionFile.Checked ? "01" : "00";
             t55Message += s1A + "FFFF800C" + s1C + "2" + s1C + tmp;
 
+            track1Enabled = cbTrack1.Checked ? true : false;
+            track2Enabled = cbTrack2.Checked ? true : false;
+
             // Sending T55 Message
             try
             {
@@ -335,6 +354,7 @@ namespace Bezel8PlusApp
             string s1A = Convert.ToChar(0x1A).ToString();
             string txnType = cbbTxnType.SelectedItem.ToString().ToUpper().Equals("PURCHASE") ? "00" : "20";
             string me = s1A + txnType + s1A + "030000" + s1A + cbbAID.SelectedItem.ToString();
+
             try
             {
                 serialPort.WriteAndReadMessage(PktType.STX, "V052", me, out string v05Response);
@@ -352,6 +372,8 @@ namespace Bezel8PlusApp
                     if (tagFormatValue.Length == 3)
                         SetupUI(tagFormatValue[0], tagFormatValue[2]);
                 }
+                cbTrack1.Checked = track1Enabled ? true : false;
+                cbTrack2.Checked = track2Enabled ? true : false;
             }
             catch (Exception ex)
             {

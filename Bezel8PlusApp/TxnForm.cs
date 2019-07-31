@@ -268,6 +268,7 @@ namespace Bezel8PlusApp
                         GetOutputData("0");
                         GetOutputData("1");
                         GetEntryMode();
+                        GetTrackData();
                         PrintReceipt("Approve");
                         tbOutcome.Text = "Offline Approved";
                         break;
@@ -276,6 +277,7 @@ namespace Bezel8PlusApp
                         GetOutputData("0");
                         GetOutputData("1");
                         GetEntryMode();
+                        GetTrackData();
                         PrintReceipt("Decline");
                         tbOutcome.Text = "Offline Declined";
                         break;
@@ -300,6 +302,7 @@ namespace Bezel8PlusApp
                         GetOutputData("0");
                         GetOutputData("1");
                         GetEntryMode();
+                        GetTrackData();
                         OnlineAuthorization();
                         break;
 
@@ -328,8 +331,8 @@ namespace Bezel8PlusApp
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            ICCTransaction();
-            return;
+            //ICCTransaction();
+            //return;
 
             btnCancelPressed = true;
             string t6CResponse = String.Empty;
@@ -413,6 +416,39 @@ namespace Bezel8PlusApp
                     }
                 }
                 //Console.WriteLine(tlvHexString);
+            }
+        }
+
+        private void GetTrackData()
+        {
+            string s1A = Convert.ToChar(0x1A).ToString();
+            string tagTrack1Data = "FFFF81D1";
+            string tagTrack2Data = "FFFF81D2";
+            string t63Message = tagTrack1Data + s1A + tagTrack2Data;
+
+            try
+            {
+                serialPort.WriteAndReadMessage(PktType.STX, "T63", t63Message, out string t63Response);
+                if (t63Response.ToUpper().StartsWith("T64F"))
+                    return;
+
+
+                string[] dataObj = t63Response.Split(Convert.ToChar(0x1A));
+                tbOnlineData.AppendText(Environment.NewLine);
+                foreach (string data in dataObj)
+                {
+                    string[] tlv = data.Split(Convert.ToChar(0x1C));
+                    if (tlv.Length == 3)
+                    {
+                        if (tlv[0].Equals(tagTrack1Data) && ParameterForm.IsTrack1Enabled())
+                            tbOnlineData.AppendText("Track 1: " + tlv[2] + Environment.NewLine);
+                        else if (tlv[0].Equals(tagTrack2Data) && ParameterForm.IsTrack2Enabled())
+                            tbOnlineData.AppendText("Track 2: " + tlv[2] + Environment.NewLine);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
             }
         }
 

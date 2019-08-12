@@ -147,6 +147,7 @@
             // 
             this.textBoxCurrencyExp.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.textBoxCurrencyExp.Enabled = false;
             this.textBoxCurrencyExp.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxCurrencyExp.Location = new System.Drawing.Point(207, 143);
             this.textBoxCurrencyExp.MaxLength = 2;
@@ -163,6 +164,7 @@
             this.cbCurrencyExp.AutoSize = true;
             this.cbCurrencyExp.Checked = true;
             this.cbCurrencyExp.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbCurrencyExp.Enabled = false;
             this.cbCurrencyExp.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbCurrencyExp.Location = new System.Drawing.Point(3, 143);
             this.cbCurrencyExp.Name = "cbCurrencyExp";
@@ -235,6 +237,7 @@
             this.cbAmountOther.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.cbAmountOther.AutoSize = true;
+            this.cbAmountOther.Enabled = false;
             this.cbAmountOther.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbAmountOther.Location = new System.Drawing.Point(3, 73);
             this.cbAmountOther.Name = "cbAmountOther";
@@ -248,6 +251,7 @@
             // 
             this.textBoxAmountOther.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.textBoxAmountOther.Enabled = false;
             this.textBoxAmountOther.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxAmountOther.Location = new System.Drawing.Point(207, 73);
             this.textBoxAmountOther.MaxLength = 12;

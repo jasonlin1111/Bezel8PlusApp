@@ -69,7 +69,24 @@ namespace Bezel8PlusApp
                 TxnFinishEventHandler(this, e);
         }
 
-        private void ICCTransaction()
+        private void MagneticStripeTransaction()
+        {
+            try
+            {
+                serialPort.WriteAndReadMessage(PktType.STX, "V07", "", out string response);
+                string[] trackData = response.Split(Convert.ToChar(0x1A));
+                tbOnlineData.AppendText("Track 1: " + trackData[1] + Environment.NewLine);
+                tbOnlineData.AppendText("Track 2: " + trackData[2] + Environment.NewLine);
+                //tbOnlineData.AppendText("Track 3: " + trackData[3] + Environment.NewLine);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void ContactTransaction()
         {
             try
             {
@@ -201,6 +218,14 @@ namespace Bezel8PlusApp
 
             try
             {
+                if (cbTimeout.Checked)
+                {
+                    serialPort.WriteAndReadMessage(PktType.STX, "V09", Convert.ToChar(0x1A).ToString() + textBoxTimeout.Text, out string v09Response);
+                    if (!v09Response.ToUpper().Equals("V0A0"))
+                    {
+                        throw new Exception("Setting Timeout Period Failed");
+                    }
+                }
                 serialPort.WriteAndReadMessage(PktType.STX, "T61", t61Message, out t61Response);
             }
             catch (Exception ex)
@@ -245,6 +270,12 @@ namespace Bezel8PlusApp
 
                     case TxnResult.InterruptedByICC:
                         // Contact Transaction
+                        tbOutcome.Text = "Contact Transaction";
+                        break;
+
+                    case TxnResult.InterruptedByMSR:
+                        tbOutcome.Text = "Magnetic Stripe Transaction";
+                        MagneticStripeTransaction();
                         break;
 
                     default:
@@ -756,6 +787,7 @@ namespace Bezel8PlusApp
         // Error
         public const string TransactionCancelled = "F1111111";
         public const string InterruptedByICC = "F1111112";
+        public const string InterruptedByMSR = "F1111113";
         public const string EndApplication = "00000007";
 
     }

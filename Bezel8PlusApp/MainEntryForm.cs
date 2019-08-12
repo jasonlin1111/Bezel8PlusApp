@@ -587,31 +587,5 @@ namespace Bezel8PlusApp
                 pgf.Close();
 
         }
-
-        private void btnIccTxnStart_Click(object sender, EventArgs e)
-        {
-
-            serialPort.WriteAndReadMessage(PktType.STX, "T1C", "", out string response);
-            return;
-
-            try
-            {
-                // Step 1: Application Select - T11
-                serialPort.WriteAndReadMessage(PktType.STX, "T11", "", out string t11Response);
-                if (!t11Response.StartsWith("T120"))
-                {
-                    MessageBox.Show(t11Response);
-                    return;
-                }
-                string aid = t11Response.Substring(4);
-
-                // Step 2: Start Transaction - T15
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
     }
 }

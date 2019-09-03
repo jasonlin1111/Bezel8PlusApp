@@ -230,7 +230,7 @@
             this.textBoxAmountAuth.Name = "textBoxAmountAuth";
             this.textBoxAmountAuth.Size = new System.Drawing.Size(141, 26);
             this.textBoxAmountAuth.TabIndex = 4;
-            this.textBoxAmountAuth.Text = "000000000000";
+            this.textBoxAmountAuth.Text = "000000001500";
             // 
             // cbAmountOther
             // 
@@ -512,7 +512,7 @@
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(163, 89);
             this.btnStart.TabIndex = 3;
-            this.btnStart.Text = "Start";
+            this.btnStart.Text = "START";
             this.btnStart.UseVisualStyleBackColor = true;
             this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
@@ -525,7 +525,7 @@
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(163, 83);
             this.btnCancel.TabIndex = 4;
-            this.btnCancel.Text = "Cancel";
+            this.btnCancel.Text = "CANCEL";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 

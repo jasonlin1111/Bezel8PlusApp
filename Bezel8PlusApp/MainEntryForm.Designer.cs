@@ -68,7 +68,7 @@
             this.groupBoxCom.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBoxCom.Location = new System.Drawing.Point(0, 0);
             this.groupBoxCom.Name = "groupBoxCom";
-            this.groupBoxCom.Size = new System.Drawing.Size(1204, 87);
+            this.groupBoxCom.Size = new System.Drawing.Size(1242, 87);
             this.groupBoxCom.TabIndex = 0;
             this.groupBoxCom.TabStop = false;
             // 
@@ -116,7 +116,7 @@
             this.tableLayoutPanelComSetting.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 78F));
             this.tableLayoutPanelComSetting.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 89F));
             this.tableLayoutPanelComSetting.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 99F));
-            this.tableLayoutPanelComSetting.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 126F));
+            this.tableLayoutPanelComSetting.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 127F));
             this.tableLayoutPanelComSetting.Controls.Add(this.cbparity, 3, 1);
             this.tableLayoutPanelComSetting.Controls.Add(this.cbDataBits, 2, 1);
             this.tableLayoutPanelComSetting.Controls.Add(this.lbParity, 3, 0);
@@ -146,7 +146,7 @@
             this.cbparity.Enabled = false;
             this.cbparity.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbparity.FormattingEnabled = true;
-            this.cbparity.Location = new System.Drawing.Point(233, 36);
+            this.cbparity.Location = new System.Drawing.Point(232, 36);
             this.cbparity.Name = "cbparity";
             this.cbparity.Size = new System.Drawing.Size(83, 22);
             this.cbparity.TabIndex = 7;
@@ -160,7 +160,7 @@
             this.cbDataBits.FormattingEnabled = true;
             this.cbDataBits.Items.AddRange(new object[] {
             "8"});
-            this.cbDataBits.Location = new System.Drawing.Point(155, 36);
+            this.cbDataBits.Location = new System.Drawing.Point(154, 36);
             this.cbDataBits.Name = "cbDataBits";
             this.cbDataBits.Size = new System.Drawing.Size(72, 22);
             this.cbDataBits.TabIndex = 6;
@@ -171,7 +171,7 @@
             this.lbParity.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.lbParity.Enabled = false;
             this.lbParity.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbParity.Location = new System.Drawing.Point(233, 18);
+            this.lbParity.Location = new System.Drawing.Point(232, 18);
             this.lbParity.Name = "lbParity";
             this.lbParity.Size = new System.Drawing.Size(83, 15);
             this.lbParity.TabIndex = 5;
@@ -184,7 +184,7 @@
             this.lbDataBits.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.lbDataBits.Enabled = false;
             this.lbDataBits.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbDataBits.Location = new System.Drawing.Point(155, 18);
+            this.lbDataBits.Location = new System.Drawing.Point(154, 18);
             this.lbDataBits.Name = "lbDataBits";
             this.lbDataBits.Size = new System.Drawing.Size(72, 15);
             this.lbDataBits.TabIndex = 4;
@@ -198,7 +198,7 @@
             this.lbCom.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbCom.Location = new System.Drawing.Point(3, 18);
             this.lbCom.Name = "lbCom";
-            this.lbCom.Size = new System.Drawing.Size(66, 15);
+            this.lbCom.Size = new System.Drawing.Size(65, 15);
             this.lbCom.TabIndex = 0;
             this.lbCom.Text = "COM";
             this.lbCom.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -211,7 +211,7 @@
             this.cbCOM.FormattingEnabled = true;
             this.cbCOM.Location = new System.Drawing.Point(3, 36);
             this.cbCOM.Name = "cbCOM";
-            this.cbCOM.Size = new System.Drawing.Size(66, 22);
+            this.cbCOM.Size = new System.Drawing.Size(65, 22);
             this.cbCOM.TabIndex = 1;
             this.cbCOM.Click += new System.EventHandler(this.cbCOM_Click);
             // 
@@ -221,7 +221,7 @@
             this.cbBuadRate.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbBuadRate.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbBuadRate.FormattingEnabled = true;
-            this.cbBuadRate.Location = new System.Drawing.Point(75, 36);
+            this.cbBuadRate.Location = new System.Drawing.Point(74, 36);
             this.cbBuadRate.Name = "cbBuadRate";
             this.cbBuadRate.Size = new System.Drawing.Size(74, 22);
             this.cbBuadRate.TabIndex = 2;
@@ -231,7 +231,7 @@
             this.lbBuadrate.AutoSize = true;
             this.lbBuadrate.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.lbBuadrate.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbBuadrate.Location = new System.Drawing.Point(75, 18);
+            this.lbBuadrate.Location = new System.Drawing.Point(74, 18);
             this.lbBuadrate.Name = "lbBuadrate";
             this.lbBuadrate.Size = new System.Drawing.Size(74, 15);
             this.lbBuadrate.TabIndex = 3;
@@ -244,7 +244,7 @@
             this.lbStopBits.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.lbStopBits.Enabled = false;
             this.lbStopBits.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbStopBits.Location = new System.Drawing.Point(322, 18);
+            this.lbStopBits.Location = new System.Drawing.Point(321, 18);
             this.lbStopBits.Name = "lbStopBits";
             this.lbStopBits.Size = new System.Drawing.Size(93, 15);
             this.lbStopBits.TabIndex = 8;
@@ -257,9 +257,9 @@
             this.lbHandShake.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.lbHandShake.Enabled = false;
             this.lbHandShake.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbHandShake.Location = new System.Drawing.Point(421, 18);
+            this.lbHandShake.Location = new System.Drawing.Point(420, 18);
             this.lbHandShake.Name = "lbHandShake";
-            this.lbHandShake.Size = new System.Drawing.Size(121, 15);
+            this.lbHandShake.Size = new System.Drawing.Size(122, 15);
             this.lbHandShake.TabIndex = 9;
             this.lbHandShake.Text = "Hand Shake";
             this.lbHandShake.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -270,7 +270,7 @@
             this.cbStopBits.Enabled = false;
             this.cbStopBits.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbStopBits.FormattingEnabled = true;
-            this.cbStopBits.Location = new System.Drawing.Point(322, 36);
+            this.cbStopBits.Location = new System.Drawing.Point(321, 36);
             this.cbStopBits.Name = "cbStopBits";
             this.cbStopBits.Size = new System.Drawing.Size(93, 22);
             this.cbStopBits.TabIndex = 10;
@@ -281,7 +281,7 @@
             this.cbHandShake.Enabled = false;
             this.cbHandShake.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbHandShake.FormattingEnabled = true;
-            this.cbHandShake.Location = new System.Drawing.Point(421, 36);
+            this.cbHandShake.Location = new System.Drawing.Point(420, 36);
             this.cbHandShake.Name = "cbHandShake";
             this.cbHandShake.Size = new System.Drawing.Size(111, 22);
             this.cbHandShake.TabIndex = 11;
@@ -293,7 +293,7 @@
             this.groupBoxMenu.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBoxMenu.Location = new System.Drawing.Point(0, 87);
             this.groupBoxMenu.Name = "groupBoxMenu";
-            this.groupBoxMenu.Size = new System.Drawing.Size(97, 574);
+            this.groupBoxMenu.Size = new System.Drawing.Size(109, 574);
             this.groupBoxMenu.TabIndex = 1;
             this.groupBoxMenu.TabStop = false;
             // 
@@ -315,7 +315,7 @@
             this.tableLayoutPanelMenu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanelMenu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanelMenu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanelMenu.Size = new System.Drawing.Size(91, 553);
+            this.tableLayoutPanelMenu.Size = new System.Drawing.Size(103, 553);
             this.tableLayoutPanelMenu.TabIndex = 0;
             // 
             // btnMenuConfig
@@ -326,10 +326,10 @@
             this.btnMenuConfig.FlatAppearance.BorderSize = 0;
             this.btnMenuConfig.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ActiveBorder;
             this.btnMenuConfig.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.btnMenuConfig.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMenuConfig.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMenuConfig.Location = new System.Drawing.Point(3, 113);
             this.btnMenuConfig.Name = "btnMenuConfig";
-            this.btnMenuConfig.Size = new System.Drawing.Size(85, 104);
+            this.btnMenuConfig.Size = new System.Drawing.Size(97, 104);
             this.btnMenuConfig.TabIndex = 0;
             this.btnMenuConfig.Text = "Configuration";
             this.btnMenuConfig.UseVisualStyleBackColor = false;
@@ -341,7 +341,7 @@
             this.btnMenu5.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMenu5.Location = new System.Drawing.Point(3, 443);
             this.btnMenu5.Name = "btnMenu5";
-            this.btnMenu5.Size = new System.Drawing.Size(85, 107);
+            this.btnMenu5.Size = new System.Drawing.Size(97, 107);
             this.btnMenu5.TabIndex = 4;
             this.btnMenu5.UseVisualStyleBackColor = true;
             this.btnMenu5.Visible = false;
@@ -352,7 +352,7 @@
             this.btnMenu4.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMenu4.Location = new System.Drawing.Point(3, 333);
             this.btnMenu4.Name = "btnMenu4";
-            this.btnMenu4.Size = new System.Drawing.Size(85, 104);
+            this.btnMenu4.Size = new System.Drawing.Size(97, 104);
             this.btnMenu4.TabIndex = 3;
             this.btnMenu4.UseVisualStyleBackColor = true;
             this.btnMenu4.Visible = false;
@@ -363,7 +363,7 @@
             this.btnMenu3.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMenu3.Location = new System.Drawing.Point(3, 223);
             this.btnMenu3.Name = "btnMenu3";
-            this.btnMenu3.Size = new System.Drawing.Size(85, 104);
+            this.btnMenu3.Size = new System.Drawing.Size(97, 104);
             this.btnMenu3.TabIndex = 2;
             this.btnMenu3.UseVisualStyleBackColor = true;
             this.btnMenu3.Click += new System.EventHandler(this.MenuButton_Click);
@@ -371,10 +371,10 @@
             // btnMenuTxn
             // 
             this.btnMenuTxn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnMenuTxn.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMenuTxn.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMenuTxn.Location = new System.Drawing.Point(3, 3);
             this.btnMenuTxn.Name = "btnMenuTxn";
-            this.btnMenuTxn.Size = new System.Drawing.Size(85, 104);
+            this.btnMenuTxn.Size = new System.Drawing.Size(97, 104);
             this.btnMenuTxn.TabIndex = 1;
             this.btnMenuTxn.Text = "Transaction";
             this.btnMenuTxn.UseVisualStyleBackColor = true;
@@ -383,9 +383,9 @@
             // groupBoxWorkspace
             // 
             this.groupBoxWorkspace.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBoxWorkspace.Location = new System.Drawing.Point(97, 87);
+            this.groupBoxWorkspace.Location = new System.Drawing.Point(109, 87);
             this.groupBoxWorkspace.Name = "groupBoxWorkspace";
-            this.groupBoxWorkspace.Size = new System.Drawing.Size(1107, 574);
+            this.groupBoxWorkspace.Size = new System.Drawing.Size(1133, 574);
             this.groupBoxWorkspace.TabIndex = 2;
             this.groupBoxWorkspace.TabStop = false;
             // 
@@ -394,7 +394,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1204, 661);
+            this.ClientSize = new System.Drawing.Size(1242, 661);
             this.Controls.Add(this.groupBoxWorkspace);
             this.Controls.Add(this.groupBoxMenu);
             this.Controls.Add(this.groupBoxCom);

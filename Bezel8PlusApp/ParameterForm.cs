@@ -16,8 +16,7 @@ namespace Bezel8PlusApp
         private SerialPortManager serialPort = SerialPortManager.Instance;    
         private Dictionary<string, FileInfo> templateFiles;
         private List<string> cbbTepSource;
-        private readonly string templateDirectory = Environment.CurrentDirectory.Substring(0, Environment.CurrentDirectory.LastIndexOf("bin"))
-            + @"Config\" + "template";
+        private readonly string templateDirectory = Environment.CurrentDirectory + @"\Config\template";
 
         static bool track1Enabled;
         static bool track2Enabled;

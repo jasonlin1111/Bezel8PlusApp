@@ -18,8 +18,7 @@ namespace Bezel8PlusApp
 
         private Dictionary<Button, Form> dictBtnForm;
 
-        private readonly string defaultConfigDirectory = Environment.CurrentDirectory.Substring(0, Environment.CurrentDirectory.LastIndexOf("bin")) 
-            + @"Config\Default_configs\";
+        private readonly string defaultConfigDirectory = Environment.CurrentDirectory + @"\Config\Default_configs\";
 
         public MainEntryForm()
         {

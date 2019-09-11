@@ -15,8 +15,7 @@ namespace Bezel8PlusApp
     {
         private OpenFileDialog openFileDialog;
         private Dictionary<string, FileInfo> templateFiles;
-        private readonly string templateDirectory = Environment.CurrentDirectory.Substring(0, Environment.CurrentDirectory.LastIndexOf("bin"))
-            + @"Config\" + "DRL";
+        private readonly string templateDirectory = Environment.CurrentDirectory + @"\Config\DRL";
 
         private SerialPortManager serialPort = SerialPortManager.Instance;
 

@@ -64,9 +64,23 @@ namespace Bezel8PlusApp
         public void OnTxnFinishEventCall(EventArgs e)
         {
             btnStart.Enabled = true;
+            btnCancel.Enabled = true;
+            btnHostSend.Enabled = false;
 
             if (TxnFinishEventHandler != null)
                 TxnFinishEventHandler(this, e);
+        }
+
+        public void OnTxnWaitForHostEventCall()
+        {
+            btnCancel.Enabled = false;
+            btnHostSend.Enabled = true;
+        }
+
+        public void OnResetToIdleEventCall(EventArgs e)
+        {
+            tbOutcome.Clear();
+            OnTxnFinishEventCall(e);
         }
 
         private void MagneticStripeTransaction()
@@ -83,6 +97,7 @@ namespace Bezel8PlusApp
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+                OnResetToIdleEventCall(null);
             }
         }
 
@@ -231,7 +246,7 @@ namespace Bezel8PlusApp
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-                OnTxnFinishEventCall(e);
+                OnResetToIdleEventCall(e);
                 return;
             }
 
@@ -296,21 +311,37 @@ namespace Bezel8PlusApp
 
                     case TxnResult.OfflineApprove:
                     case TxnResult.OfflineApproveSign:
-                        GetOutputData("0");
-                        GetOutputData("1");
-                        GetEntryMode();
-                        GetTrackData();
-                        PrintReceipt("Approve");
-                        tbOutcome.Text = "Offline Approved";
+                        try
+                        {
+                            GetOutputData("0");
+                            GetOutputData("1");
+                            GetEntryMode();
+                            GetTrackData();
+                            PrintReceipt("Approve");
+                            tbOutcome.Text = "Offline Approved";
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message);
+                            OnResetToIdleEventCall(null);
+                        }  
                         break;
 
                     case TxnResult.OfflineDecline:
-                        GetOutputData("0");
-                        GetOutputData("1");
-                        GetEntryMode();
-                        GetTrackData();
-                        PrintReceipt("Decline");
-                        tbOutcome.Text = "Offline Declined";
+                        try
+                        {
+                            GetOutputData("0");
+                            GetOutputData("1");
+                            GetEntryMode();
+                            GetTrackData();
+                            PrintReceipt("Decline");
+                            tbOutcome.Text = "Offline Declined";
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message);
+                            OnResetToIdleEventCall(null);
+                        }
                         break;
 
                     case TxnResult.UnOnlineOfflineDeclineSign:
@@ -330,11 +361,19 @@ namespace Bezel8PlusApp
 
                     case TxnResult.OnlineAuthorizeReq:
                         tbOutcome.Text = "Online Authorizing";
-                        GetOutputData("0");
-                        GetOutputData("1");
-                        GetEntryMode();
-                        GetTrackData();
-                        OnlineAuthorization();
+                        try
+                        {
+                            GetOutputData("0");
+                            GetOutputData("1");
+                            GetEntryMode();
+                            GetTrackData();
+                            OnlineAuthorization();
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message);
+                            OnResetToIdleEventCall(null);
+                        }
                         break;
 
                     case TxnResult.ExternalPinBlockReq:
@@ -362,8 +401,6 @@ namespace Bezel8PlusApp
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            //ICCTransaction();
-            //return;
 
             btnCancelPressed = true;
             string t6CResponse = String.Empty;
@@ -374,6 +411,7 @@ namespace Bezel8PlusApp
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+                OnResetToIdleEventCall(e);
             }
 
         }
@@ -390,6 +428,7 @@ namespace Bezel8PlusApp
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+                OnResetToIdleEventCall(null);
             }
         }
 
@@ -407,14 +446,12 @@ namespace Bezel8PlusApp
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message);
-                    return;
+                    throw ex;
                 }
 
                 if (t65Response.ToUpper().StartsWith("T66F"))
                 {
-                    //MessageBox.Show(t65Response);
-                    return;
+                    throw new Exception(t65Response);
                 }
                 else if (!Int32.TryParse(t65Response.Substring(3, 1), out curPkg) || !Int32.TryParse(t65Response.Substring(4, 1), out totalPkg))
                 {
@@ -446,7 +483,6 @@ namespace Bezel8PlusApp
                         tbOnlineData.AppendText(dataObj.TagString() + "\t" + dataObj.ValueString() + Environment.NewLine);
                     }
                 }
-                //Console.WriteLine(tlvHexString);
             }
         }
 
@@ -462,7 +498,6 @@ namespace Bezel8PlusApp
                 serialPort.WriteAndReadMessage(PktType.STX, "T63", t63Message, out string t63Response);
                 if (t63Response.ToUpper().StartsWith("T64F"))
                     return;
-
 
                 string[] dataObj = t63Response.Split(Convert.ToChar(0x1A));
                 tbOnlineData.AppendText(Environment.NewLine);
@@ -480,6 +515,7 @@ namespace Bezel8PlusApp
             }
             catch (Exception ex)
             {
+                throw ex;
             }
         }
 
@@ -513,6 +549,7 @@ namespace Bezel8PlusApp
             }
             catch (Exception ex)
             {
+                throw ex;
             }
 
         }
@@ -553,7 +590,7 @@ namespace Bezel8PlusApp
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message);
+                    throw ex;
                 }
 
             }
@@ -564,12 +601,13 @@ namespace Bezel8PlusApp
             }
             else
             {
+                OnTxnWaitForHostEventCall();
                 while (!btnHostSendPressed && !btnCancelPressed)
                 {
                     Application.DoEvents();
                 }
             }
-            btnHostSend.Enabled = false;
+
         }
 
         private void btnHostSend_Click(object sender, EventArgs e)

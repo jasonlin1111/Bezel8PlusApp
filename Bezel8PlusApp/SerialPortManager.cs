@@ -90,20 +90,9 @@ namespace Bezel8PlusApp
                 _serialPort.Open();
                 //StartReading();
             }
-            catch (IOException)
-            {
-                if (OnStatusChanged != null)
-                    OnStatusChanged(this, string.Format("{0} does not exist.", portname));
-            }
-            catch (UnauthorizedAccessException)
-            {
-                if (OnStatusChanged != null)
-                    OnStatusChanged(this, string.Format("{0} already in use.", portname));
-            }
             catch (Exception ex)
             {
-                if (OnStatusChanged != null)
-                    OnStatusChanged(this, "Error: " + ex.Message);
+                throw ex;
             }
 
             if (_serialPort.IsOpen)

@@ -20,11 +20,15 @@ namespace Bezel8PlusApp
 
         private readonly string defaultConfigDirectory = Environment.CurrentDirectory + @"\Config\Default_configs\";
 
-        public MainEntryForm()
+        public MainEntryForm(string version = "")
         {
             InitializeComponent();
             InitializeComponentValue();
             InitializeBtnsAndForms();
+            if (!String.IsNullOrEmpty(version))
+            {
+                this.Text = "B8p payWave SDK v" + version;
+            }
 
             TxnForm.TxnStartEventHandler += TxnInProgress;
             TxnForm.TxnFinishEventHandler += OnIdleState;

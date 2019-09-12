@@ -451,7 +451,7 @@ namespace Bezel8PlusApp
 
                 if (t65Response.ToUpper().StartsWith("T66F"))
                 {
-                    throw new Exception(t65Response);
+                    return;
                 }
                 else if (!Int32.TryParse(t65Response.Substring(3, 1), out curPkg) || !Int32.TryParse(t65Response.Substring(4, 1), out totalPkg))
                 {

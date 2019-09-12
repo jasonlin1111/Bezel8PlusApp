@@ -115,7 +115,7 @@ namespace Bezel8PlusApp
                 string aid = t11Response.Substring(4);
 
                 // Step 2: Start Transaction - T15
-                string t15Message = PrepareTxnData();
+                string t15Message = PrepareTxnData(true);
                 serialPort.WriteAndReadMessage(PktType.STX, "T15", t15Message, out string t15Response);
                 MessageBox.Show(t15Response);
 
@@ -129,7 +129,7 @@ namespace Bezel8PlusApp
         /// <summary>
         /// Build a string for T61 Packet command
         /// </summary>
-        private string PrepareTxnData()
+        private string PrepareTxnData(bool contact_version = false)
         {
             string txnData = String.Empty;
 
@@ -154,7 +154,11 @@ namespace Bezel8PlusApp
             }
 
             // AmtOther
-            if (cbAmountOther.Checked)
+            if (contact_version)
+            {
+                elements[1] += String.Empty.PadLeft(12, '0');
+            }
+            else if (cbAmountOther.Checked)
             {
                 // Amount, Other present
                 if (textBoxAmountOther.Text.Length != 0)
@@ -214,13 +218,12 @@ namespace Bezel8PlusApp
             // Force Online
             elements[6] += "0";
 
-            txnData = Convert.ToChar(0x1A).ToString() +
-                String.Join(Convert.ToChar(0x1A).ToString(), elements) +
-                Convert.ToChar(0x1A).ToString();
-
+            txnData = Convert.ToChar(0x1A).ToString() + String.Join(Convert.ToChar(0x1A).ToString(), elements);
+            if (!contact_version)
+            {
+                txnData += Convert.ToChar(0x1A).ToString();
+            }
             return txnData;
-
-
         }
 
         private void btnStart_Click(object sender, EventArgs e)
@@ -286,6 +289,7 @@ namespace Bezel8PlusApp
                     case TxnResult.InterruptedByICC:
                         // Contact Transaction
                         tbOutcome.Text = "Contact Transaction";
+                        ContactTransaction();
                         break;
 
                     case TxnResult.InterruptedByMSR:

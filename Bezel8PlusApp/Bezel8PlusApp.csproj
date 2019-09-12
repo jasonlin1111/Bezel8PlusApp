@@ -198,89 +198,251 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Config\CAPKs\A00000000301.txt" />
-    <EmbeddedResource Include="Config\CAPKs\A00000000307.txt" />
-    <EmbeddedResource Include="Config\CAPKs\A00000000308.txt" />
-    <EmbeddedResource Include="Config\CAPKs\A00000000309.txt" />
-    <EmbeddedResource Include="Config\CAPKs\A00000000350.txt" />
-    <EmbeddedResource Include="Config\CAPKs\A00000000351.txt" />
-    <EmbeddedResource Include="Config\CAPKs\A00000000352.txt" />
-    <EmbeddedResource Include="Config\CAPKs\A00000000353.txt" />
-    <EmbeddedResource Include="Config\CAPKs\A00000000358.txt" />
-    <EmbeddedResource Include="Config\CAPKs\A00000000392.txt" />
-    <EmbeddedResource Include="Config\CAPKs\A00000000394.txt" />
-    <EmbeddedResource Include="Config\CAPKs\A00000000395.txt" />
-    <EmbeddedResource Include="Config\CAPKs\A00000000396.txt" />
-    <EmbeddedResource Include="Config\CAPKs\A00000000399.txt" />
-    <EmbeddedResource Include="Config\CAPKs\A000009999E1.txt" />
-    <EmbeddedResource Include="Config\CAPKs\A000009999E2.txt" />
-    <EmbeddedResource Include="Config\CAPKs\A000009999E3.txt" />
-    <EmbeddedResource Include="Config\CAPKs\A000009999E4.txt" />
-    <EmbeddedResource Include="Config\CAPKs\A000009999E5.txt" />
-    <EmbeddedResource Include="Config\CAPKs\A000009999E6.txt" />
-    <None Include="Config\Default_configs\PCD\PCD_Terminal.txt" />
-    <None Include="Config\DRL\CLQ.D.016.00.txt" />
-    <None Include="Config\DRL\CLQ.D.016.00_Modified.txt" />
-    <None Include="Config\DRL\CLQ.D.016.01.txt" />
-    <None Include="Config\DRL\CLQ.D.016.01_Modified.txt" />
-    <None Include="Config\DRL\CLQ.D.017.00.txt" />
-    <None Include="Config\DRL\CLQ.D.017.01.txt" />
-    <None Include="Config\DRL\CLQ.D.019.01.txt" />
-    <None Include="Config\DRL\CLQ.D.020.00.txt" />
-    <None Include="Config\DRL\CLQ.D.020.01.txt" />
-    <None Include="Config\DRL\CLQ.D.020.02.txt" />
-    <None Include="Config\DRL\CLQ.D.020.03.txt" />
-    <None Include="Config\DRL\CLQ.D.020.04.txt" />
-    <None Include="Config\DRL\CLQ.D.020.05.txt" />
-    <None Include="Config\DRL\CLQ.D.021.00.txt" />
-    <None Include="Config\DRL\CLQ.D.022.00.txt" />
-    <None Include="Config\DRL\CLQ.D.023.00.txt" />
-    <None Include="Config\DRL\CLQ.D.024.00.txt" />
-    <None Include="Config\DRL\CLQ.D.025.00.txt" />
-    <None Include="Config\DRL\CLQ.D.026.00.txt" />
-    <None Include="Config\DRL\CLQ.D.027.00.txt" />
-    <None Include="Config\DRL\CLQ.D.028.00.txt" />
-    <None Include="Config\DRL\CLQ.K.001.02.05.txt" />
-    <None Include="Config\template\CLQ.B.017.00.txt" />
-    <None Include="Config\template\CLQ.B.017.03.txt" />
-    <None Include="Config\template\CLQ.B.017.04.txt" />
-    <None Include="Config\template\CLQ.D.017.xx.txt" />
-    <None Include="Config\template\CLQ.D.019.01.txt" />
-    <None Include="Config\template\CLQ.D.020.00.txt" />
-    <None Include="Config\template\CLQ.D.020.03.txt" />
-    <None Include="Config\template\CLQ.D.020.04.txt" />
-    <None Include="Config\template\CLQ.D.020.05.txt" />
-    <None Include="Config\template\CLQ.N.046.xx.txt" />
-    <None Include="Config\template\Default.txt" />
+    <EmbeddedResource Include="Config\CAPKs\A00000000301.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Config\CAPKs\A00000000307.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Config\CAPKs\A00000000308.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Config\CAPKs\A00000000309.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Config\CAPKs\A00000000350.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Config\CAPKs\A00000000351.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Config\CAPKs\A00000000352.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Config\CAPKs\A00000000353.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Config\CAPKs\A00000000358.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Config\CAPKs\A00000000392.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Config\CAPKs\A00000000394.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Config\CAPKs\A00000000395.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Config\CAPKs\A00000000396.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Config\CAPKs\A00000000399.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Config\CAPKs\A000009999E1.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Config\CAPKs\A000009999E2.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Config\CAPKs\A000009999E3.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Config\CAPKs\A000009999E4.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Config\CAPKs\A000009999E5.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Config\CAPKs\A000009999E6.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <None Include="Config\Default_configs\PCD\PCD_Terminal.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Config\DRL\CLQ.D.016.00.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Config\DRL\CLQ.D.016.00_Modified.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Config\DRL\CLQ.D.016.01.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Config\DRL\CLQ.D.016.01_Modified.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Config\DRL\CLQ.D.017.00.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Config\DRL\CLQ.D.017.01.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Config\DRL\CLQ.D.019.01.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Config\DRL\CLQ.D.020.00.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Config\DRL\CLQ.D.020.01.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Config\DRL\CLQ.D.020.02.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Config\DRL\CLQ.D.020.03.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Config\DRL\CLQ.D.020.04.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Config\DRL\CLQ.D.020.05.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Config\DRL\CLQ.D.021.00.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Config\DRL\CLQ.D.022.00.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Config\DRL\CLQ.D.023.00.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Config\DRL\CLQ.D.024.00.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Config\DRL\CLQ.D.025.00.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Config\DRL\CLQ.D.026.00.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Config\DRL\CLQ.D.027.00.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Config\DRL\CLQ.D.028.00.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Config\DRL\CLQ.K.001.02.05.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Config\template\CLQ.B.017.00.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Config\template\CLQ.B.017.03.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Config\template\CLQ.B.017.04.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Config\template\CLQ.D.017.xx.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Config\template\CLQ.D.019.01.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Config\template\CLQ.D.020.00.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Config\template\CLQ.D.020.03.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Config\template\CLQ.D.020.04.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Config\template\CLQ.D.020.05.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Config\template\CLQ.N.046.xx.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Config\template\Default.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Config\Default_configs\PCD\App_config\T00-K03-A000000003.txt" />
-    <Content Include="Config\Default_configs\PCD\App_config\T00-K03-A0000000999090.txt" />
-    <Content Include="Config\Default_configs\PCD\App_config\T00-K03-A00000999901.txt" />
-    <Content Include="Config\Default_configs\PCD\App_config\T20-K03-A000000003.txt" />
-    <Content Include="Config\Default_configs\PCD\App_config\T20-K03-A0000000999090.txt" />
-    <Content Include="Config\Default_configs\PCD\App_config\T20-K03-A00000999901.txt" />
-    <Content Include="Config\Default_configs\PCD\CAPK\A00000000350.txt" />
-    <Content Include="Config\Default_configs\PCD\CAPK\A00000000351.txt" />
-    <Content Include="Config\Default_configs\PCD\CAPK\A00000000352.txt" />
-    <Content Include="Config\Default_configs\PCD\CAPK\A00000000353.txt" />
-    <Content Include="Config\Default_configs\PCD\CAPK\A00000000358.txt" />
-    <Content Include="Config\Default_configs\PCD\CAPK\A00000000396.txt" />
-    <Content Include="Config\Default_configs\PCD\CAPK\A000009999E1.txt" />
-    <Content Include="Config\Default_configs\PCD\CAPK\A000009999E2.txt" />
-    <Content Include="Config\Default_configs\PCD\CAPK\A000009999E3.txt" />
-    <Content Include="Config\Default_configs\PCD\CAPK\A000009999E4.txt" />
-    <Content Include="Config\Default_configs\PCD\CAPK\A000009999E5.txt" />
-    <Content Include="Config\Default_configs\PCD\CAPK\A000009999E6.txt" />
-    <Content Include="Config\Default_configs\ICC\App_config\A0000000031010.txt" />
-    <Content Include="Config\Default_configs\ICC\ICC_Terminal.txt" />
-    <Content Include="Config\DRL\CLQ.D.014.00 &amp; 01.txt" />
-    <Content Include="Config\DRL\CLQ.D.015.00 &amp; 01.txt" />
-    <Content Include="Config\DRL\CLQ.D.018 &amp; 19.00.txt" />
-    <Content Include="Config\template\CLQ.D.014 &amp; 015 &amp; 016.txt" />
-    <Content Include="Config\template\CLQ.D.018 &amp; 019.txt" />
-    <Content Include="Config\template\CLQ.D.020.01 &amp; 02.txt" />
-    <Content Include="Config\template\CLQ.D.021 ~ 028.txt" />
+    <Content Include="Config\Default_configs\PCD\App_config\T00-K03-A000000003.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Config\Default_configs\PCD\App_config\T00-K03-A0000000999090.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Config\Default_configs\PCD\App_config\T00-K03-A00000999901.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Config\Default_configs\PCD\App_config\T20-K03-A000000003.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Config\Default_configs\PCD\App_config\T20-K03-A0000000999090.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Config\Default_configs\PCD\App_config\T20-K03-A00000999901.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Config\Default_configs\PCD\CAPK\A00000000350.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Config\Default_configs\PCD\CAPK\A00000000351.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Config\Default_configs\PCD\CAPK\A00000000352.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Config\Default_configs\PCD\CAPK\A00000000353.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Config\Default_configs\PCD\CAPK\A00000000358.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Config\Default_configs\PCD\CAPK\A00000000396.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Config\Default_configs\PCD\CAPK\A000009999E1.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Config\Default_configs\PCD\CAPK\A000009999E2.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Config\Default_configs\PCD\CAPK\A000009999E3.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Config\Default_configs\PCD\CAPK\A000009999E4.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Config\Default_configs\PCD\CAPK\A000009999E5.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Config\Default_configs\PCD\CAPK\A000009999E6.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Config\Default_configs\ICC\App_config\A0000000031010.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Config\Default_configs\ICC\ICC_Terminal.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Config\DRL\CLQ.D.014.00 &amp; 01.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Config\DRL\CLQ.D.015.00 &amp; 01.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Config\DRL\CLQ.D.018 &amp; 19.00.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Config\template\CLQ.D.014 &amp; 015 &amp; 016.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Config\template\CLQ.D.018 &amp; 019.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Config\template\CLQ.D.020.01 &amp; 02.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Config\template\CLQ.D.021 ~ 028.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

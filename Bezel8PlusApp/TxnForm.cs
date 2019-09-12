@@ -109,20 +109,84 @@ namespace Bezel8PlusApp
                 serialPort.WriteAndReadMessage(PktType.STX, "T11", "", out string t11Response);
                 if (!t11Response.StartsWith("T120"))
                 {
-                    MessageBox.Show(t11Response);
+                    tbOutcome.Text = "Contact - Terminated";
                     return;
                 }
                 string aid = t11Response.Substring(4);
+                if (String.IsNullOrEmpty(aid))
+                {
+                    tbOutcome.Text = "Contact - Candidate List Empty";
+                    return;
+                }
 
                 // Step 2: Start Transaction - T15
                 string t15Message = PrepareTxnData(true);
                 serialPort.WriteAndReadMessage(PktType.STX, "T15", t15Message, out string t15Response);
-                MessageBox.Show(t15Response);
-
+                if (!t15Response.StartsWith("T160"))
+                {
+                    tbOutcome.Text = "Contact - Transaction Fail";
+                    return;
+                }
+                ContactTransactionResultAnalyze(t15Response.Substring(4, 2));
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void ContactTransactionResultAnalyze(string result)
+        {
+            switch (result)
+            {
+                case TxnResult.OfflineApprove:
+                case TxnResult.OnlineApprove:
+                    tbOutcome.Text = "Contact - Approved";
+                    break;
+
+                case TxnResult.OnlineDecline:
+                case TxnResult.OfflineDecline:
+                    tbOutcome.Text = "Contact - Declined";
+                    break;
+
+                case TxnResult.OnlineAuthorizeReq:
+                    tbOutcome.Text = "Contact - Online Authorizing";
+                    Thread.Sleep(1000);
+                    string t17Message = Convert.ToChar(0x1A).ToString() + "00" + Convert.ToChar(0x1A).ToString();
+                    try
+                    {
+                        serialPort.WriteAndReadMessage(PktType.STX, "T171", t17Message, out string t17Response);
+                        if (!t17Response.StartsWith("T160"))
+                        {
+                            throw new Exception();
+                        }
+                        ContactTransactionResultAnalyze(t17Response.Substring(4, 2));
+                    }
+                    catch (Exception)
+                    {
+                        tbOutcome.Text = "Contact - Transaction Fail";
+                        serialPort.WriteAndReadMessage(PktType.STX, "T1C", "", out string response1, false);
+                    }
+                    break;
+
+                case TxnResult.ExternalPinBlockReq:
+                    tbOutcome.Text = "Please Enter PIN";
+                    onlinePinForm.Show();
+                    while (onlinePinForm.Visible == true)
+                    {
+                        Application.DoEvents();
+                    }
+                    OnlinePINProcess(onlinePinForm.GetPIN(), true);
+                    /*
+                    if (!string.IsNullOrEmpty(onlinePinForm.GetPIN()))
+                        tbOnlineData.AppendText("PIN BLOCK: " + onlinePinForm.GetPINBlock() + Environment.NewLine);
+                    */
+                    break;
+
+                default:
+                    tbOutcome.Text = "Contact Transaction Result - " + result;
+                    serialPort.WriteAndReadMessage(PktType.STX, "T1C", "", out string response, false);
+                    break;
             }
         }
 
@@ -420,14 +484,23 @@ namespace Bezel8PlusApp
 
         }
 
-        private void OnlinePINProcess(string pinText)
+        private void OnlinePINProcess(string pinText, bool contact_version = false)
         {
             if (string.IsNullOrEmpty(pinText)) { }
 
             try
             {
-                serialPort.WriteAndReadMessage(PktType.STX, "T6F", "1", out string t6fResponse);
-                TransactionResultAnalyze(t6fResponse);
+                string head = contact_version ? "T1F" : "T6F";
+                serialPort.WriteAndReadMessage(PktType.STX, head, "1", out string response);
+                if (contact_version)
+                {
+                    ContactTransactionResultAnalyze(TxnResult.OnlineAuthorizeReq);
+                }
+                else
+                {
+                    TransactionResultAnalyze(response);
+                }
+                
             }
             catch (Exception ex)
             {

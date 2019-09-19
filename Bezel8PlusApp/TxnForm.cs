@@ -583,10 +583,12 @@ namespace Bezel8PlusApp
                     string[] tlv = data.Split(Convert.ToChar(0x1C));
                     if (tlv.Length == 3)
                     {
+                        byte[] track = DataHandler.HexStringToByteArray(tlv[2]);
+                        byte lrc = DataHandler.LRCCalculator(track, track.Length, true);
                         if (tlv[0].Equals(tagTrack1Data) && ParameterForm.IsTrack1Enabled())
-                            tbOnlineData.AppendText("Track 1: " + tlv[2] + Environment.NewLine);
+                            tbOnlineData.AppendText("Track 1(Hex): " + tlv[2] + lrc.ToString("X2") + Environment.NewLine);
                         else if (tlv[0].Equals(tagTrack2Data) && ParameterForm.IsTrack2Enabled())
-                            tbOnlineData.AppendText("Track 2: " + tlv[2] + Environment.NewLine);
+                            tbOnlineData.AppendText("Track 2(Hex): " + tlv[2] + lrc.ToString("X2") + Environment.NewLine);
                     }
                 }
             }

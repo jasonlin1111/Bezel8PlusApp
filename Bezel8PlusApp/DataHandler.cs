@@ -50,7 +50,7 @@ namespace Bezel8PlusApp
             return Convert.ToChar(LRC);
         }
 
-        public static byte LRCCalculator(byte[] input, int length)
+        public static byte LRCCalculator(byte[] input, int length, bool fromBegin = false)
         {
             byte LRC = 0;
 
@@ -58,12 +58,12 @@ namespace Bezel8PlusApp
             {
                 length = input.Length;
             }
-
-            for (int i = 1; i < length; i++)
+            int i = fromBegin ? 0 : 1;
+ 
+            for (; i < length; i++)
             {
                 LRC ^= input[i];
             }
-
             return LRC;
         }
 

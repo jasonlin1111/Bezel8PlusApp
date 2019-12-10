@@ -18,8 +18,6 @@ namespace Bezel8PlusApp
         private List<string> cbbTepSource;
         private readonly string templateDirectory = Environment.CurrentDirectory + @"\Config\template";
 
-        static bool track1Enabled;
-        static bool track2Enabled;
 
         public ParameterForm()
         {
@@ -37,19 +35,6 @@ namespace Bezel8PlusApp
             TxnForm.TxnStartEventHandler += DisableAllButtons;
             TxnForm.TxnFinishEventHandler += EnableAllButtons;
 
-            track1Enabled = cbTrack1.Checked;
-            track2Enabled = cbTrack2.Checked;
-
-        }
-
-        static public bool IsTrack1Enabled()
-        {
-            return track1Enabled;
-        }
-
-        static public bool IsTrack2Enabled()
-        {
-            return track2Enabled;
         }
 
         private void DisableAllButtons(object sender, EventArgs e)
@@ -292,8 +277,14 @@ namespace Bezel8PlusApp
             tmp = cbExceptionFile.Checked ? "01" : "00";
             t55Message += s1A + "FFFF800C" + s1C + "2" + s1C + tmp;
 
-            track1Enabled = cbTrack1.Checked ? true : false;
-            track2Enabled = cbTrack2.Checked ? true : false;
+            // Track 1/2 Enable
+            byte te = 0x01;
+            if (cbTrack1.Checked)
+                te |= 0x02;
+            if (cbTrack2.Checked)
+                te |= 0x04;
+            t55Message += s1A + "FFFF8012" + s1C + "2" + s1C + te.ToString("X2");
+
 
             // Sending T55 Message
             try
@@ -371,8 +362,6 @@ namespace Bezel8PlusApp
                     if (tagFormatValue.Length == 3)
                         SetupUI(tagFormatValue[0], tagFormatValue[2]);
                 }
-                cbTrack1.Checked = track1Enabled ? true : false;
-                cbTrack2.Checked = track2Enabled ? true : false;
             }
             catch (Exception ex)
             {
@@ -514,6 +503,15 @@ namespace Bezel8PlusApp
                 case "FFFF800C":
                     if (Int32.TryParse(value, out intValue))
                         cbExceptionFile.Checked = (intValue == 1) ? true : false;
+                    break;
+
+                // Track 1/2 Enable
+                case "FFFF8012":
+                    byte by = Convert.ToByte(value);
+                    if ((by & 0x02) != 0)
+                        cbTrack1.Checked = true;
+                    if ((by & 0x04) != 0)
+                        cbTrack2.Checked = true;
                     break;
 
                 default:

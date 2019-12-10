@@ -13,5 +13,6 @@ DF8126 2 000000006000          // CVM Required Limit
 FFFF800C 2 00                  // Exception File Checking
 FFFF8006 2 01                  // CVN17 Enable
 FFFF800F 2 00                  // Dynamic Reader Limits Enable
+FFFF8012 2 07		           // Track 1/2 Enable - 03: track 1, 05: track 2, 07: both
 9F66 2 B6004000                // Terminal Transaction Qualifiers
 

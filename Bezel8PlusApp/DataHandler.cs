@@ -187,8 +187,8 @@ namespace Bezel8PlusApp
             while (isNext && offset < TLVData.Length)
             {
                 tag.Add(TLVData[offset]);
-                offset++;
                 isNext = (TLVData[offset] & AnotherByteMask) == AnotherByteMask;
+                offset++;
             }
             return tag.ToArray();
         }

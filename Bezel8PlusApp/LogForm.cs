@@ -19,6 +19,7 @@ namespace Bezel8PlusApp
         public LogForm()
         {
             InitializeComponent();
+
             serialPort.OnDataReceived += LogReceivedData;
             serialPort.OnDataSent += LogSendingData;
         }
@@ -69,6 +70,52 @@ namespace Bezel8PlusApp
         {
             tbLog.SelectionStart = tbLog.TextLength;
             tbLog.ScrollToCaret();
+        }
+
+        private void btnSend_Click(object sender, EventArgs e)
+        {
+            if (String.IsNullOrEmpty(tbMessage.Text))
+                return;
+
+            try
+            {
+                btnSend.Enabled = false;
+                string message = tbMessage.Text.Trim().Replace("<1A>", Convert.ToChar(0x1A).ToString()).Replace("<1C>", Convert.ToChar(0x1C).ToString());
+
+                if (message.StartsWith("<02>"))
+                {
+                    Console.WriteLine("1");
+                    message = message.Substring(4, message.IndexOf("<03>") - 4);
+                    if (Int32.TryParse(tbTimeout.Text, out int timeout) && timeout > 0)
+                        serialPort.WriteAndReadMessage(PktType.STX, "", message, out string response, true, timeout);
+                    else
+                        serialPort.WriteAndReadMessage(PktType.STX, "", message, out string response, false);
+                }
+                else if (message.StartsWith("<0F>"))
+                {
+                    Console.WriteLine("2");
+                    message = message.Substring(4, message.IndexOf("<0E>") - 4);
+                    if (Int32.TryParse(tbTimeout.Text, out int timeout) && timeout > 0)
+                        serialPort.WriteAndReadMessage(PktType.SI, "", message, out string response, true, timeout);
+                    else
+                        serialPort.WriteAndReadMessage(PktType.SI, "", message, out string response, false);
+                }
+                else
+                {
+                    // Unknown format
+                    throw new FormatException("Format Error");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            btnSend.Enabled = true;
+        }
+
+        private void cbPPSQA_CheckedChanged(object sender, EventArgs e)
+        {
+            gbPPSQA.Visible = cbPPSQA.Checked;
         }
     }
 }

@@ -91,6 +91,12 @@
     <Compile Include="MainEntryForm.Designer.cs">
       <DependentUpon>MainEntryForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="MainToolForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainToolForm.Designer.cs">
+      <DependentUpon>MainToolForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="OnlinePinForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -124,6 +130,12 @@
     <Compile Include="TerAppConfigForm.Designer.cs">
       <DependentUpon>TerAppConfigForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ToolTvrDecoderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ToolTvrDecoderForm.Designer.cs">
+      <DependentUpon>ToolTvrDecoderForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="TxnForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -144,6 +156,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainEntryForm.resx">
       <DependentUpon>MainEntryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainToolForm.resx">
+      <DependentUpon>MainToolForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OnlinePinForm.resx">
       <DependentUpon>OnlinePinForm.cs</DependentUpon>
@@ -168,6 +183,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TerAppConfigForm.resx">
       <DependentUpon>TerAppConfigForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ToolTvrDecoderForm.resx">
+      <DependentUpon>ToolTvrDecoderForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TxnForm.resx">
       <DependentUpon>TxnForm.cs</DependentUpon>

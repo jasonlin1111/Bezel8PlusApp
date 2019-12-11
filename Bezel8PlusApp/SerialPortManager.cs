@@ -73,8 +73,10 @@ namespace Bezel8PlusApp
             StopBits stopbits = StopBits.One,
             Handshake handshake = Handshake.None)
         {
-            Close();
-
+            if (_serialPort.IsOpen)
+            {
+                return;
+            }
             try
             {
                 _serialPort.PortName = portname;
@@ -150,148 +152,6 @@ namespace Bezel8PlusApp
 
             if (OnSerialPortOpened != null)
                 OnSerialPortOpened(this, false);
-        }
-
-        public void WriteAndReadMessage_old(PktType type, string head, string body, out string responseOut, bool keepWaitting = true, int readTimeOut = 0)
-        {
-            string prefix = String.Empty;
-            string suffix = String.Empty;
-            responseOut = String.Empty;
-
-            if (type == PktType.SI)
-            {
-                prefix = Convert.ToChar(0x0F).ToString();
-                suffix = Convert.ToChar(0x0E).ToString();
-            }
-            else if (type == PktType.STX)
-            {
-                prefix = Convert.ToChar(0x02).ToString();
-                suffix = Convert.ToChar(0x03).ToString();
-            }
-
-
-            string packed_meaasge = prefix + head + body + suffix;
-            byte lrc = DataHandler.LRCCalculator(Encoding.ASCII.GetBytes(packed_meaasge), packed_meaasge.Length);
-
-
-            if (_serialPort.BytesToRead > 0)
-                _serialPort.DiscardInBuffer();
-
-            if (_serialPort.BytesToWrite > 0)
-                _serialPort.DiscardOutBuffer();
-
-
-            // Sending message
-            try
-            {
-                _serialPort.Write(packed_meaasge + Convert.ToChar(lrc).ToString());
-                if (OnDataSent != null)
-                {
-                    byte[] data_sent = Encoding.ASCII.GetBytes(packed_meaasge + Convert.ToChar(lrc).ToString());
-                    OnDataSent(this, data_sent);
-                }
-            }
-            catch(InvalidOperationException)
-            {
-                throw new System.InvalidOperationException("Serial Port is not open.");
-            }
-            catch (Exception)
-            {
-                throw new System.Exception("Sending message failed.");
-            }
-
-
-            // Check if ACK is received
-            try
-            {
-                byte[] controlCode = new byte[1];
-                _serialPort.Read(controlCode, 0, 1);
-
-                if (OnDataReceived != null)
-                {
-                    OnDataReceived(this, controlCode);
-                }
-
-                switch (controlCode[0])
-                {
-                    case 0x06:
-                    case 0x04:
-                        Console.WriteLine("Received 0x{0} from the reader.", controlCode[0].ToString("X2"));
-                        //Console.WriteLine("BytesToWrite = {0}", _serialPort.BytesToWrite);
-                        break;
-
-                    case 0x15:
-                        // NAK
-                        throw new System.Exception("Received NAK from reader: Incorrect LRC.");
-
-                    default:
-                        // Unknown
-                        throw new System.Exception("Unknown response: 0x" + controlCode[0].ToString("X2"));
-                }
-            }
-            catch (TimeoutException)
-            {
-                // Reader no response;
-                throw new System.TimeoutException("Timeout: No ACK");
-            }
-            catch (Exception)
-            {
-                throw new System.Exception("Waitting ACK failed.");
-            }
-
-            if (!keepWaitting)
-                return;
-
-            // Waitting for reply from reader
-            Stopwatch s = new Stopwatch();
-            if (readTimeOut > 0)
-                s.Start();
-            while (s.Elapsed <= TimeSpan.FromMilliseconds(readTimeOut))
-            {
-                Application.DoEvents();
-                if (_serialPort.BytesToRead > 0)
-                    break;
-            }
-            s.Reset();
-
-            if (_serialPort.BytesToRead > 0)
-            {
-                int bytes = _serialPort.BytesToRead;
-                byte[] readBuffer = new byte[bytes];
-                _serialPort.Read(readBuffer, 0, bytes);
-                if (OnDataReceived != null)
-                {
-                    OnDataReceived(this, readBuffer);
-                }
-
-                // Well recevied, check LRC
-                if (readBuffer[bytes - 1] == DataHandler.LRCCalculator(readBuffer, bytes - 1))
-                {
-                    // Send ACK
-                    _serialPort.Write(Convert.ToChar(0x06).ToString());
-                    if (OnDataSent != null)
-                    {
-                        byte[] ack = Encoding.ASCII.GetBytes(Convert.ToChar(0x06).ToString());
-                        OnDataSent(this, ack);
-                    }
-                    responseOut = Encoding.ASCII.GetString(readBuffer, 1, bytes - 3);
-                }
-                else
-                {
-                    // Send NAK
-                    _serialPort.Write(Convert.ToChar(0x15).ToString());
-                    if (OnDataSent != null)
-                    {
-                        byte[] nak = Encoding.ASCII.GetBytes(Convert.ToChar(0x15).ToString());
-                        OnDataSent(this, nak);
-                    }
-                }
-            }
-            else
-            {
-                throw new System.TimeoutException("Timeout: No response");
-            }
-
         }
 
         public void WriteAndReadMessage(PktType type, string head, string body, out string responseOut, bool keepWaitting = true, int readTimeOut = 0)

@@ -1,6 +1,6 @@
 ﻿namespace Bezel8PlusApp
 {
-    partial class ReceiptForm
+    partial class TxnReceiptForm
     {
         /// <summary>
         /// Required designer variable.

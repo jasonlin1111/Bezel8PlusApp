@@ -11,13 +11,13 @@ using System.Windows.Forms;
 
 namespace Bezel8PlusApp
 {
-    public partial class CapkForm : Form
+    public partial class CfgLoadKeyForm : Form
     {
         private SerialPortManager serialPort = SerialPortManager.Instance;
         private FolderBrowserDialog folderBrowserDialog;
         private DataSet capkDataSet;
 
-        public CapkForm()
+        public CfgLoadKeyForm()
         {
             InitializeComponent();
             capkDataSet = new DataSet();

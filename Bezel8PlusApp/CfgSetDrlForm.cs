@@ -11,7 +11,7 @@ using System.IO;
 
 namespace Bezel8PlusApp
 {
-    public partial class DRLForm : Form
+    public partial class CfgSetDrlForm : Form
     {
         private OpenFileDialog openFileDialog;
         private Dictionary<string, FileInfo> templateFiles;
@@ -19,7 +19,7 @@ namespace Bezel8PlusApp
 
         private SerialPortManager serialPort = SerialPortManager.Instance;
 
-        public DRLForm()
+        public CfgSetDrlForm()
         {
             InitializeComponent();
             InitializeDRLTemplate();

@@ -30,12 +30,10 @@ namespace Bezel8PlusApp
             try
             {
                 treeView1.Nodes.Clear();
-                treeView1.BeginUpdate();
                 TreeNode rootTreeNode = new TreeNode();
-                test(tbInput.Text, ref rootTreeNode);
+                BuildTlvTree(tbInput.Text, ref rootTreeNode);
                 treeView1.Nodes.Add(rootTreeNode);
                 rootTreeNode.ExpandAll();
-                treeView1.EndUpdate();
             }
             catch (Exception ex)
             {
@@ -43,7 +41,7 @@ namespace Bezel8PlusApp
             }
         }
 
-        private void test(string stringIn, ref TreeNode parentNode)
+        private void BuildTlvTree(string stringIn, ref TreeNode parentNode)
         {
             List<TLVDataObject> tlvlist = TLVDataObject.ConvertToTLVList(stringIn);
 
@@ -53,7 +51,7 @@ namespace Bezel8PlusApp
                 parentNode.Nodes.Add(tn);
                 if (tlv.IsConstructed)
                 {
-                    test(tlv.ValueString(), ref tn);
+                    BuildTlvTree(tlv.ValueString(), ref tn);
                 }
             }
             return;

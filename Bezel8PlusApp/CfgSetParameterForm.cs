@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace Bezel8PlusApp
 {
-    public partial class ParameterForm : Form
+    public partial class CfgSetParameterForm : Form
     {
         private SerialPortManager serialPort = SerialPortManager.Instance;    
         private Dictionary<string, FileInfo> templateFiles;
@@ -19,7 +19,7 @@ namespace Bezel8PlusApp
         private readonly string templateDirectory = Environment.CurrentDirectory + @"\Config\template";
 
 
-        public ParameterForm()
+        public CfgSetParameterForm()
         {
             InitializeComponent();
 

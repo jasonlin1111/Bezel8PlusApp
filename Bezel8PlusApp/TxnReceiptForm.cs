@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace Bezel8PlusApp
 {
-    public partial class ReceiptForm : Form
+    public partial class TxnReceiptForm : Form
     {
 
-        public ReceiptForm()
+        public TxnReceiptForm()
         {
             InitializeComponent();
 

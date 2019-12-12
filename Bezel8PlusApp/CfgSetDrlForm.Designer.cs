@@ -1,6 +1,6 @@
 ﻿namespace Bezel8PlusApp
 {
-    partial class DRLForm
+    partial class CfgSetDrlForm
     {
         /// <summary>
         /// Required designer variable.

@@ -1,6 +1,6 @@
 ﻿namespace Bezel8PlusApp
 {
-    partial class ProgressBarForm
+    partial class CfgProgressBarForm
     {
         /// <summary>
         /// Required designer variable.

@@ -446,7 +446,7 @@ namespace Bezel8PlusApp
             FileInfo[] capkFiles = capk_dinfo.GetFiles("*.txt");
 
             int loading = 3 + icc_appFiles.Length + pcd_appFiles.Length + capkFiles.Length;
-            ProgressBarForm pgf = new ProgressBarForm(loading);
+            CfgProgressBarForm pgf = new CfgProgressBarForm(loading);
 
             // 1. Date and Time
             pgf.AppendText("Setting current date and time ...");

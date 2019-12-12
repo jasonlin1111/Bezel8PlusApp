@@ -1,6 +1,6 @@
 ﻿namespace Bezel8PlusApp
 {
-    partial class ParameterForm
+    partial class CfgSetParameterForm
     {
         /// <summary>
         /// Required designer variable.

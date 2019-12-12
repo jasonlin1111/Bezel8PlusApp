@@ -60,18 +60,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CapkForm.cs">
+    <Compile Include="CfgLoadKeyForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CapkForm.Designer.cs">
-      <DependentUpon>CapkForm.cs</DependentUpon>
+    <Compile Include="CfgLoadKeyForm.Designer.cs">
+      <DependentUpon>CfgLoadKeyForm.cs</DependentUpon>
     </Compile>
     <Compile Include="DataHandler.cs" />
-    <Compile Include="DRLForm.cs">
+    <Compile Include="CfgSetDrlForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DRLForm.Designer.cs">
-      <DependentUpon>DRLForm.cs</DependentUpon>
+    <Compile Include="CfgSetDrlForm.Designer.cs">
+      <DependentUpon>CfgSetDrlForm.cs</DependentUpon>
     </Compile>
     <Compile Include="LogForm.cs">
       <SubType>Form</SubType>
@@ -97,38 +97,38 @@
     <Compile Include="MainToolForm.Designer.cs">
       <DependentUpon>MainToolForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="OnlinePinForm.cs">
+    <Compile Include="TxnOnlinePinForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="OnlinePinForm.Designer.cs">
-      <DependentUpon>OnlinePinForm.cs</DependentUpon>
+    <Compile Include="TxnOnlinePinForm.Designer.cs">
+      <DependentUpon>TxnOnlinePinForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ParameterForm.cs">
+    <Compile Include="CfgSetParameterForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ParameterForm.Designer.cs">
-      <DependentUpon>ParameterForm.cs</DependentUpon>
+    <Compile Include="CfgSetParameterForm.Designer.cs">
+      <DependentUpon>CfgSetParameterForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
-    <Compile Include="ProgressBarForm.cs">
+    <Compile Include="CfgProgressBarForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ProgressBarForm.Designer.cs">
-      <DependentUpon>ProgressBarForm.cs</DependentUpon>
+    <Compile Include="CfgProgressBarForm.Designer.cs">
+      <DependentUpon>CfgProgressBarForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ReceiptForm.cs">
+    <Compile Include="TxnReceiptForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ReceiptForm.Designer.cs">
-      <DependentUpon>ReceiptForm.cs</DependentUpon>
+    <Compile Include="TxnReceiptForm.Designer.cs">
+      <DependentUpon>TxnReceiptForm.cs</DependentUpon>
     </Compile>
     <Compile Include="SerialPortManager.cs" />
-    <Compile Include="TerAppConfigForm.cs">
+    <Compile Include="CfgLoadFileForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TerAppConfigForm.Designer.cs">
-      <DependentUpon>TerAppConfigForm.cs</DependentUpon>
+    <Compile Include="CfgLoadFileForm.Designer.cs">
+      <DependentUpon>CfgLoadFileForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ToolTlvParserForm.cs">
       <SubType>Form</SubType>
@@ -142,11 +142,11 @@
     <Compile Include="TxnForm.Designer.cs">
       <DependentUpon>TxnForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="CapkForm.resx">
-      <DependentUpon>CapkForm.cs</DependentUpon>
+    <EmbeddedResource Include="CfgLoadKeyForm.resx">
+      <DependentUpon>CfgLoadKeyForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DRLForm.resx">
-      <DependentUpon>DRLForm.cs</DependentUpon>
+    <EmbeddedResource Include="CfgSetDrlForm.resx">
+      <DependentUpon>CfgSetDrlForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LogForm.resx">
       <DependentUpon>LogForm.cs</DependentUpon>
@@ -160,14 +160,14 @@
     <EmbeddedResource Include="MainToolForm.resx">
       <DependentUpon>MainToolForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="OnlinePinForm.resx">
-      <DependentUpon>OnlinePinForm.cs</DependentUpon>
+    <EmbeddedResource Include="TxnOnlinePinForm.resx">
+      <DependentUpon>TxnOnlinePinForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ParameterForm.resx">
-      <DependentUpon>ParameterForm.cs</DependentUpon>
+    <EmbeddedResource Include="CfgSetParameterForm.resx">
+      <DependentUpon>CfgSetParameterForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ProgressBarForm.resx">
-      <DependentUpon>ProgressBarForm.cs</DependentUpon>
+    <EmbeddedResource Include="CfgProgressBarForm.resx">
+      <DependentUpon>CfgProgressBarForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -178,11 +178,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="ReceiptForm.resx">
-      <DependentUpon>ReceiptForm.cs</DependentUpon>
+    <EmbeddedResource Include="TxnReceiptForm.resx">
+      <DependentUpon>TxnReceiptForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TerAppConfigForm.resx">
-      <DependentUpon>TerAppConfigForm.cs</DependentUpon>
+    <EmbeddedResource Include="CfgLoadFileForm.resx">
+      <DependentUpon>CfgLoadFileForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ToolTlvParserForm.resx">
       <DependentUpon>ToolTlvParserForm.cs</DependentUpon>

@@ -1,6 +1,6 @@
 ﻿namespace Bezel8PlusApp
 {
-    partial class OnlinePinForm
+    partial class TxnOnlinePinForm
     {
         /// <summary>
         /// Required designer variable.

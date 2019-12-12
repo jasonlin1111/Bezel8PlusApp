@@ -1,6 +1,6 @@
 ﻿namespace Bezel8PlusApp
 {
-    partial class TerAppConfigForm
+    partial class CfgLoadFileForm
     {
         /// <summary>
         /// Required designer variable.

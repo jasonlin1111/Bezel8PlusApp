@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace Bezel8PlusApp
 {
-    public partial class OnlinePinForm : Form
+    public partial class TxnOnlinePinForm : Form
     {
         private string pinText; 
 
-        public OnlinePinForm()
+        public TxnOnlinePinForm()
         {
             InitializeComponent();
             pinText = String.Empty;

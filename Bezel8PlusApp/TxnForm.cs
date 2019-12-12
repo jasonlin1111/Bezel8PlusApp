@@ -17,8 +17,8 @@ namespace Bezel8PlusApp
     {
         
         private SerialPortManager serialPort = SerialPortManager.Instance;
-        private ReceiptForm receiptForm;
-        private OnlinePinForm onlinePinForm;
+        private TxnReceiptForm receiptForm;
+        private TxnOnlinePinForm onlinePinForm;
 
         private bool btnHostSendPressed = false;
         private bool btnCancelPressed = false;
@@ -36,8 +36,8 @@ namespace Bezel8PlusApp
             comBoxTxnType.DataSource = new string[] { "Purchase", "Refund" };
             comBoxARC.DataSource = new string[] { "3030  (Approve)", "3531  (Decline)" };
 
-            receiptForm = new ReceiptForm();
-            onlinePinForm = new OnlinePinForm();
+            receiptForm = new TxnReceiptForm();
+            onlinePinForm = new TxnOnlinePinForm();
 
             dataRecord = new List<TLVDataObject>();
             discretionaryData = new List<TLVDataObject>();

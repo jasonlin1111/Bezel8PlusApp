@@ -13,7 +13,7 @@ using System.IO;
 
 namespace Bezel8PlusApp
 {
-    public partial class TerAppConfigForm : Form
+    public partial class CfgLoadFileForm : Form
     {
         
         private SerialPortManager serialPort = SerialPortManager.Instance;
@@ -22,7 +22,7 @@ namespace Bezel8PlusApp
 
         public Dictionary<string, string> formatTable = new Dictionary<string, string>();
 
-        public TerAppConfigForm()
+        public CfgLoadFileForm()
         {
             InitializeComponent();
             BuildFormatTable();

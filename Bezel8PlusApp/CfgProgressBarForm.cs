@@ -10,15 +10,15 @@ using System.Windows.Forms;
 
 namespace Bezel8PlusApp
 {
-    public partial class ProgressBarForm : Form
+    public partial class CfgProgressBarForm : Form
     {
-        public ProgressBarForm()
+        public CfgProgressBarForm()
         {
             InitializeComponent();
             
         }
 
-        public ProgressBarForm(int maximunValue)
+        public CfgProgressBarForm(int maximunValue)
         {
             InitializeComponent();
             progressBar.Maximum = maximunValue;

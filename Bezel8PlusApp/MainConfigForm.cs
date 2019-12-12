@@ -16,10 +16,10 @@ namespace Bezel8PlusApp
         {
             InitializeComponent();
 
-            AddFormToTab(new TerAppConfigForm(), tpConfig);
-            AddFormToTab(new CapkForm(), tpCAPK);
-            AddFormToTab(new DRLForm(), tpDRL);
-            AddFormToTab(new ParameterForm(), tpParameter);
+            AddFormToTab(new CfgLoadFileForm(), tpConfig);
+            AddFormToTab(new CfgLoadKeyForm(), tpCAPK);
+            AddFormToTab(new CfgSetDrlForm(), tpDRL);
+            AddFormToTab(new CfgSetParameterForm(), tpParameter);
 
         }
 

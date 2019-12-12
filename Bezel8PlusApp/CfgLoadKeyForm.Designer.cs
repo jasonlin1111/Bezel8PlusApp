@@ -1,6 +1,6 @@
 ﻿namespace Bezel8PlusApp
 {
-    partial class CapkForm
+    partial class CfgLoadKeyForm
     {
         /// <summary>
         /// Required designer variable.

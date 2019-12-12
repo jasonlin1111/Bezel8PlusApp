@@ -15,6 +15,17 @@ namespace Bezel8PlusApp
         public MainToolForm()
         {
             InitializeComponent();
+
+            AddFormToTab(new ToolTlvParserForm(), tabTlvParser);
+        }
+
+        private void AddFormToTab(Form form, TabPage tabPage)
+        {
+            form.TopLevel = false;
+            form.Visible = true;
+            form.FormBorderStyle = FormBorderStyle.None;
+            form.Dock = DockStyle.Fill;
+            tabPage.Controls.Add(form);
         }
     }
 }

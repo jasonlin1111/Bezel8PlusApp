@@ -29,34 +29,37 @@
         private void InitializeComponent()
         {
             this.tabCrlTool = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabTlvParser = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabCrlTool.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabCrlTool
             // 
-            this.tabCrlTool.Controls.Add(this.tabPage1);
+            this.tabCrlTool.Controls.Add(this.tabTlvParser);
             this.tabCrlTool.Controls.Add(this.tabPage2);
             this.tabCrlTool.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabCrlTool.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold);
             this.tabCrlTool.Location = new System.Drawing.Point(0, 0);
             this.tabCrlTool.Name = "tabCrlTool";
             this.tabCrlTool.SelectedIndex = 0;
             this.tabCrlTool.Size = new System.Drawing.Size(800, 450);
             this.tabCrlTool.TabIndex = 0;
             // 
-            // tabPage1
+            // tabTlvParser
             // 
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(792, 424);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Tool1";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.tabTlvParser.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold);
+            this.tabTlvParser.Location = new System.Drawing.Point(4, 27);
+            this.tabTlvParser.Name = "tabTlvParser";
+            this.tabTlvParser.Padding = new System.Windows.Forms.Padding(3);
+            this.tabTlvParser.Size = new System.Drawing.Size(792, 419);
+            this.tabTlvParser.TabIndex = 0;
+            this.tabTlvParser.Text = "TLV Parser";
+            this.tabTlvParser.UseVisualStyleBackColor = true;
             // 
             // tabPage2
             // 
+            this.tabPage2.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -81,7 +84,7 @@
         #endregion
 
         private System.Windows.Forms.TabControl tabCrlTool;
-        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabTlvParser;
         private System.Windows.Forms.TabPage tabPage2;
     }
 }

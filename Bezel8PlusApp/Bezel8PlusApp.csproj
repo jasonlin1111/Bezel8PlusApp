@@ -130,11 +130,11 @@
     <Compile Include="TerAppConfigForm.Designer.cs">
       <DependentUpon>TerAppConfigForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ToolTvrDecoderForm.cs">
+    <Compile Include="ToolTlvParserForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ToolTvrDecoderForm.Designer.cs">
-      <DependentUpon>ToolTvrDecoderForm.cs</DependentUpon>
+    <Compile Include="ToolTlvParserForm.Designer.cs">
+      <DependentUpon>ToolTlvParserForm.cs</DependentUpon>
     </Compile>
     <Compile Include="TxnForm.cs">
       <SubType>Form</SubType>
@@ -184,8 +184,8 @@
     <EmbeddedResource Include="TerAppConfigForm.resx">
       <DependentUpon>TerAppConfigForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ToolTvrDecoderForm.resx">
-      <DependentUpon>ToolTvrDecoderForm.cs</DependentUpon>
+    <EmbeddedResource Include="ToolTlvParserForm.resx">
+      <DependentUpon>ToolTlvParserForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TxnForm.resx">
       <DependentUpon>TxnForm.cs</DependentUpon>

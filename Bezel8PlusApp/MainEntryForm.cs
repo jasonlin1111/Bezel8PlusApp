@@ -59,7 +59,8 @@ namespace Bezel8PlusApp
             dictBtnForm = new Dictionary<Button, Form>();
             dictBtnForm.Add(btnMenuConfig, new MainConfigForm());
             dictBtnForm.Add(btnMenuTxn, new TxnForm());
-            dictBtnForm.Add(btnMenu3, new LogForm());
+            dictBtnForm.Add(btnMenuLog, new LogForm());
+            dictBtnForm.Add(btnMenuTool, new MainToolForm());
 
             foreach (Form form in dictBtnForm.Values)
             {

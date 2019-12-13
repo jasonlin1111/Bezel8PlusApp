@@ -28,20 +28,18 @@ namespace Bezel8PlusApp
 
         private void DisableAllButtons(object sender, EventArgs e)
         {
-            btnOpenCAPK.Enabled = false;
+            btnOpenFolder.Enabled = false;
             btnSetAll.Enabled = false;
             btnGetAll.Enabled = false;
             btnRemoveOne.Enabled = false;
-            btnRemoveAll.Enabled = false;
         }
 
         private void EnableAllButtons(object sender, EventArgs e)
         {
-            btnOpenCAPK.Enabled = true;
+            btnOpenFolder.Enabled = true;
             btnSetAll.Enabled = true;
             btnGetAll.Enabled = true;
             btnRemoveOne.Enabled = true;
-            btnRemoveAll.Enabled = true;
         }
 
         private void SetupCapkToReader(DataTable capkTable)
@@ -92,9 +90,10 @@ namespace Bezel8PlusApp
 
             if (dictionary.TryGetValue("PKExp".ToUpper(), out value))
             {
-                if (value.Equals("03"))
+                // pos-a only accept 1(03) and 2(010001) in PK Exponent field
+                if (value.Equals("03") || value.Equals("1"))
                     body += "1";
-                else if (value.Equals("010001"))
+                else if (value.Equals("010001") || value.Equals("2"))
                     body += "2";
                 else
                     throw new System.Exception("Unknown Public Exponent");
@@ -177,7 +176,7 @@ namespace Bezel8PlusApp
             return table;
         }
 
-        private void btnOpenCAPK_Click(object sender, EventArgs e)
+        private void btnOpenFolder_Click(object sender, EventArgs e)
         {
             folderBrowserDialog = new FolderBrowserDialog();
             folderBrowserDialog.SelectedPath = System.Environment.CurrentDirectory;
@@ -200,14 +199,37 @@ namespace Bezel8PlusApp
                 {
                     listBoxCAPK.SelectedIndex = 0;
                 }
-
             }
+        }
 
-        } 
+        private void btnOpenFile_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    FileInfo file = new FileInfo(openFileDialog.FileName);
+                    DataTable table = BuildDataTableFromFile(file);
+                    capkDataSet.Tables.Add(table);
+                    listBoxCAPK.Items.Add(table.TableName);
+
+                    if (listBoxCAPK.Items.Count > 0)
+                    {
+                        listBoxCAPK.SelectedIndex = listBoxCAPK.Items.Count - 1;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
 
         private void btnSetAll_Click(object sender, EventArgs e)
         {
-
             if (capkDataSet.Tables.Count > 0)
             {
                 tbStatus.Text = "";
@@ -232,7 +254,6 @@ namespace Bezel8PlusApp
 
         private void btnGetAll_Click(object sender, EventArgs e)
         {
-
             // <02>T591<03>[LRC]
             string t59response = String.Empty;
             listBoxReaderCAPK.Items.Clear();
@@ -271,11 +292,6 @@ namespace Bezel8PlusApp
             {
                 MessageBox.Show("Error Message:\n\n {0}", t59response);
             }
-        }
-
-        private void listBoxReaderCAPK_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void listBoxCAPK_SelectedIndexChanged(object sender, EventArgs e)
@@ -347,37 +363,20 @@ namespace Bezel8PlusApp
             }
         }
 
-        private void btnRemoveAll_Click(object sender, EventArgs e)
+        private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (listBoxReaderCAPK.Items.Count == 0)
-                return;
-            /*
-            string keys = Convert.ToChar(0x1A).ToString() + String.Join(Convert.ToChar(0x1C).ToString(), listBoxReaderCAPK.Items);
-            string response = String.Empty;
-            string[] results;
-            try
+            if (listBoxCAPK.SelectedItem != null)
             {
-                serialPort.WriteAndReadMessage(PktType.STX, "T5B1", keys, out response);
-                if (response.ToUpper().StartsWith("T5C10"))
+                try
                 {
-                    results = response.Substring(6).Split(Convert.ToChar(0x1C));
-                    int idx = 0;
-                    foreach (string key in listBoxReaderCAPK.Items)
-                    {
-
-                    }
+                    capkDataSet.Tables.Remove(listBoxCAPK.SelectedItem.ToString());
+                    listBoxCAPK.Items.Remove(listBoxCAPK.SelectedItem);
                 }
-                else
+                catch (Exception ex)
                 {
-                    throw new System.Exception(response);
-                }
+                    MessageBox.Show(ex.Message);
+                } 
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            */
-
         }
     }
 }

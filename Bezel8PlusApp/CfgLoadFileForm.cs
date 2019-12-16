@@ -35,7 +35,6 @@ namespace Bezel8PlusApp
 
         private void DisableAllButtons(object sender, EventArgs e)
         {
-            btnOpen.Enabled = false;
             btnSetSelected.Enabled = false;
             btnSetAll.Enabled = false;
             btnGetAll.Enabled = false;
@@ -46,7 +45,6 @@ namespace Bezel8PlusApp
 
         private void EnableAllButtons(object sender, EventArgs e)
         {
-            btnOpen.Enabled = true;
             btnSetSelected.Enabled = true;
             btnSetAll.Enabled = true;
             btnGetAll.Enabled = true;
@@ -88,8 +86,6 @@ namespace Bezel8PlusApp
             DataTable table = new DataTable(tableName);
 
             DataColumn colDescrip = new DataColumn("Description", Type.GetType("System.String"));
-
-
 
             DataColumn colTag = new DataColumn("Tag", Type.GetType("System.String"));
             DataColumn colFormat = new DataColumn("Format", Type.GetType("System.String"));
@@ -160,7 +156,6 @@ namespace Bezel8PlusApp
 
         private void BuildConfigDataSet(string fileName)
         {
-
             try
             {
                 var sr = new StreamReader(fileName);
@@ -209,48 +204,6 @@ namespace Bezel8PlusApp
 
         }
 
-        private void btnOpen_Click(object sender, EventArgs e)
-        {
-            openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "dat files (*.dat)|*.dat|All files (*.*)|*.*";
-            string path = String.Empty;
-
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                listBoxConfig.Items.Clear();
-                confDataSet.Tables.Clear();
-                path = Path.GetDirectoryName(openFileDialog.FileName) + @"\";
-                try
-                {
-                    var sr = new StreamReader(openFileDialog.FileName);
-                    while (!sr.EndOfStream)
-                    {
-                        string configFileName = sr.ReadLine().Trim();
-                        if (!configFileName.Contains(".txt"))
-                            configFileName += ".txt";
-                        if (!string.IsNullOrEmpty(configFileName) &&
-                            File.Exists(path + configFileName))
-                        {
-                            BuildConfigDataSet(path + configFileName);
-                        }
-                    }
-                    if (listBoxConfig.Items.Count > 0)
-                    {
-                        listBoxConfig.SelectedIndex = 0;
-                    }
-                }
-                catch (FileNotFoundException)
-                {
-
-                }
-                catch (SecurityException ex)
-                {
-                    MessageBox.Show($"Security error.\n\nError message: {ex.Message}\n\n" +
-                    $"Details:\n\n{ex.StackTrace}");
-                }
-            }
-        }
-
         private void listBoxConfig_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (listBoxConfig.SelectedItem == null)
@@ -272,18 +225,25 @@ namespace Bezel8PlusApp
         private void btnAddItem_Click(object sender, EventArgs e)
         {
             openFileDialog = new OpenFileDialog();
-            //openFileDialog.InitialDirectory = "c:\\";
+            openFileDialog.Multiselect = true;
             openFileDialog.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
 
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                try
+                foreach (string file in openFileDialog.FileNames)
                 {
-                    BuildConfigDataSet(openFileDialog.FileName);
-                }
-                catch (DuplicateNameException)
-                {
-                    MessageBox.Show($"{openFileDialog.FileName} \n\n\talready exists");
+                    try
+                    {
+                        BuildConfigDataSet(file);
+                    }
+                    catch (DuplicateNameException)
+                    {
+                        MessageBox.Show($"{file} \n\n\talready exists");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"{file}: {ex.Message}");
+                    }
                 }
             }
 
@@ -319,7 +279,6 @@ namespace Bezel8PlusApp
 
         private void btnSetAll_Click(object sender, EventArgs e)
         {
-
             // Delete all configs first
             string t5bresponse = String.Empty;
             try

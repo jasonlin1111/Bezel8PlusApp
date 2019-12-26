@@ -67,7 +67,7 @@
             this.tpDRL.Location = new System.Drawing.Point(4, 39);
             this.tpDRL.Name = "tpDRL";
             this.tpDRL.Padding = new System.Windows.Forms.Padding(3);
-            this.tpDRL.Size = new System.Drawing.Size(663, 272);
+            this.tpDRL.Size = new System.Drawing.Size(595, 444);
             this.tpDRL.TabIndex = 3;
             this.tpDRL.Text = "DRL";
             this.tpDRL.UseVisualStyleBackColor = true;
@@ -91,7 +91,7 @@
             this.tpConfig.Padding = new System.Windows.Forms.Padding(3);
             this.tpConfig.Size = new System.Drawing.Size(595, 444);
             this.tpConfig.TabIndex = 0;
-            this.tpConfig.Text = "Terminal & Application";
+            this.tpConfig.Text = "Config Files";
             // 
             // MainConfigForm
             // 

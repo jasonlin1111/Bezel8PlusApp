@@ -12,11 +12,20 @@ namespace Bezel8PlusApp
 {
     public partial class MainToolForm : Form
     {
+        enum ConvertMode
+        {
+            HexToAscii,
+            AsciiToHex
+        };
+
+        private ConvertMode _mode = ConvertMode.HexToAscii;
+
         public MainToolForm()
         {
             InitializeComponent();
 
             AddFormToTab(new ToolTlvParserForm(), tabTlvParser);
+            AddFormToTab(new ToolConverterForm(), tabConverter);
         }
 
         private void AddFormToTab(Form form, TabPage tabPage)

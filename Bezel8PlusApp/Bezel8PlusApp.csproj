@@ -97,6 +97,12 @@
     <Compile Include="MainToolForm.Designer.cs">
       <DependentUpon>MainToolForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ToolConverterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ToolConverterForm.Designer.cs">
+      <DependentUpon>ToolConverterForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="TxnOnlinePinForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -159,6 +165,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainToolForm.resx">
       <DependentUpon>MainToolForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ToolConverterForm.resx">
+      <DependentUpon>ToolConverterForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TxnOnlinePinForm.resx">
       <DependentUpon>TxnOnlinePinForm.cs</DependentUpon>

@@ -30,14 +30,14 @@
         {
             this.tabCrlTool = new System.Windows.Forms.TabControl();
             this.tabTlvParser = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabConverter = new System.Windows.Forms.TabPage();
             this.tabCrlTool.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabCrlTool
             // 
             this.tabCrlTool.Controls.Add(this.tabTlvParser);
-            this.tabCrlTool.Controls.Add(this.tabPage2);
+            this.tabCrlTool.Controls.Add(this.tabConverter);
             this.tabCrlTool.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabCrlTool.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold);
             this.tabCrlTool.ItemSize = new System.Drawing.Size(75, 35);
@@ -58,16 +58,16 @@
             this.tabTlvParser.Text = "TLV Parser";
             this.tabTlvParser.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
+            // tabConverter
             // 
-            this.tabPage2.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold);
-            this.tabPage2.Location = new System.Drawing.Point(4, 27);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(792, 419);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Tool2";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.tabConverter.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold);
+            this.tabConverter.Location = new System.Drawing.Point(4, 39);
+            this.tabConverter.Name = "tabConverter";
+            this.tabConverter.Padding = new System.Windows.Forms.Padding(3);
+            this.tabConverter.Size = new System.Drawing.Size(792, 407);
+            this.tabConverter.TabIndex = 1;
+            this.tabConverter.Text = "Converter";
+            this.tabConverter.UseVisualStyleBackColor = true;
             // 
             // MainToolForm
             // 
@@ -86,6 +86,6 @@
 
         private System.Windows.Forms.TabControl tabCrlTool;
         private System.Windows.Forms.TabPage tabTlvParser;
-        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage tabConverter;
     }
 }

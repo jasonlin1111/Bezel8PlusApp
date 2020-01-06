@@ -147,7 +147,7 @@ namespace Bezel8PlusApp
             {
                 serialPort.WriteAndReadMessage(PktType.SI, "18", datetime, out string response);
                 if (!response.Equals("180"))
-                    throw new System.FormatException();
+                    throw new System.FormatException(response);
             }
             catch (Exception ex)
             {
@@ -192,7 +192,7 @@ namespace Bezel8PlusApp
                 }
                 serialPort.WriteAndReadMessage(PktType.STX, message_head + "11", message_body, out string t51Response);
                 if (!t51Response.Equals("T520") && !t51Response.Equals("T020"))
-                    throw new System.FormatException();
+                    throw new System.FormatException(t51Response);
 
             }
             catch (Exception ex)
@@ -326,7 +326,7 @@ namespace Bezel8PlusApp
                     serialPort.WriteAndReadMessage(PktType.STX, "T05" + current_pkg.ToString() + total_pkg.ToString(),
                         pre_fix + message_body_list[current_pkg - 1], out string response);
                     if (!response.Equals("T060"))
-                        throw new System.FormatException();
+                        throw new System.FormatException(response);
 
                     current_pkg += 1;
                 }
@@ -408,7 +408,7 @@ namespace Bezel8PlusApp
                 // Sending 1st message
                 serialPort.WriteAndReadMessage(PktType.STX, "T531", body, out t53response);
                 if (!t53response.Equals("T5410"))
-                    throw new System.FormatException();
+                    throw new System.FormatException(t53response);
 
 
                 System.Threading.Thread.Sleep(200);
@@ -423,7 +423,7 @@ namespace Bezel8PlusApp
                 t53response = String.Empty;
                 serialPort.WriteAndReadMessage(PktType.STX, "T532", body, out t53response);
                 if (!t53response.Equals("T5420"))
-                    throw new System.FormatException();
+                    throw new System.FormatException(t53response);
 
             }
             catch (Exception ex)
@@ -435,7 +435,7 @@ namespace Bezel8PlusApp
 
         private void btnDefaultSetting_Click(object sender, EventArgs e)
         {
-
+            
             DirectoryInfo icc_app_dinfo = new DirectoryInfo(defaultConfigDirectory + @"ICC/App_config/");
             FileInfo[] icc_appFiles = icc_app_dinfo.GetFiles("*.txt");
 
@@ -445,151 +445,182 @@ namespace Bezel8PlusApp
             DirectoryInfo capk_dinfo = new DirectoryInfo(defaultConfigDirectory + @"PCD/CAPK");
             FileInfo[] capkFiles = capk_dinfo.GetFiles("*.txt");
 
+            pgbInitialCfg.Value = pgbInitialCfg.Minimum;
+            pgbInitialCfg.Maximum = 3 + icc_appFiles.Length + pcd_appFiles.Length + capkFiles.Length;
+
             int loading = 3 + icc_appFiles.Length + pcd_appFiles.Length + capkFiles.Length;
-            CfgProgressBarForm pgf = new CfgProgressBarForm(loading);
+
+            tbInfo.Clear();
 
             // 1. Date and Time
-            pgf.AppendText("Setting current date and time ...");
             try
             {
+                tbInfo.AppendText("Setting current date and time ...");
                 SetCurrentTime();
-                pgf.AppendText("Done." + Environment.NewLine);
+                tbInfo.AppendText("Done." + Environment.NewLine);
+                pgbInitialCfg.Increment(1);
             }
-            catch (FormatException)
+            catch (FormatException ex)
             {
                 // Fail continue setting next part
-                pgf.AppendText("Failed." + Environment.NewLine);
+                tbInfo.AppendText($"Failed - {ex.Message}" + Environment.NewLine);
+                pgbInitialCfg.Increment(1);
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
-                pgf.Close();
+                tbInfo.AppendText($"Failed - {ex.Message}" + Environment.NewLine);
+                pgbInitialCfg.Value = pgbInitialCfg.Minimum;
                 return;
             }
-            pgf.IncreaseValue(1);
-
 
             System.Threading.Thread.Sleep(100);
 
-            // 2. Terminal Config
-            pgf.AppendText("Setting default Terminal configs ...");
+            // 2-1. ICC Terminal Config
             try
             {
-                string fileName = defaultConfigDirectory + @"PCD/PCD_Terminal.txt";
-                SetTerminalConfig(ConfigType.PCD, fileName);
-                pgf.IncreaseValue(1);
-
-                fileName = defaultConfigDirectory + @"ICC/ICC_Terminal.txt";
-                SetTerminalConfig(ConfigType.ICC, fileName);
-                pgf.IncreaseValue(1);
-
-                pgf.AppendText("Done" + Environment.NewLine);
+                tbInfo.AppendText("Setting ICC terminal config ...");
+                SetTerminalConfig(ConfigType.ICC, defaultConfigDirectory + @"ICC/ICC_Terminal.txt");
+                tbInfo.AppendText("Done." + Environment.NewLine);
+                pgbInitialCfg.Increment(1);
             }
             catch (FileNotFoundException)
             {
-                // Fail, continue setting next part
-                pgf.AppendText("Failed" + Environment.NewLine);
-                pgf.IncreaseValue(2);
+                tbInfo.AppendText("Failed - File Not Found" + Environment.NewLine);
+                pgbInitialCfg.Increment(1);
             }
-            catch (FormatException)
+            catch (FormatException ex)
             {
-                // Fail, continue setting next part
-                pgf.AppendText("Failed" + Environment.NewLine);
+                tbInfo.AppendText($"Failed - {ex.Message}" + Environment.NewLine);
+                pgbInitialCfg.Increment(1);
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
-                pgf.Close();
+                tbInfo.AppendText($"Failed - {ex.Message}" + Environment.NewLine);
+                pgbInitialCfg.Value = pgbInitialCfg.Minimum;
                 return;
-            }   
-            
+            }
 
-            // 3-1. ICC Application Config
-            pgf.AppendText("Setting default ICC Application configs ...");
+            // 2-2. PCD Terminal Config
+            try
+            {
+                tbInfo.AppendText("Setting PCD terminal config ...");
+                SetTerminalConfig(ConfigType.PCD, defaultConfigDirectory + @"PCD/PCD_Terminal.txt");
+                tbInfo.AppendText("Done." + Environment.NewLine);
+                pgbInitialCfg.Increment(1);
+            }
+            catch (FileNotFoundException)
+            {
+                tbInfo.AppendText("Failed - File Not Found" + Environment.NewLine);
+                pgbInitialCfg.Increment(1);
+            }
+            catch (FormatException ex)
+            {
+                tbInfo.AppendText($"Failed - {ex.Message}" + Environment.NewLine);
+                pgbInitialCfg.Increment(1);
+            }
+            catch (Exception ex)
+            {
+                tbInfo.AppendText($"Failed - {ex.Message}" + Environment.NewLine);
+                pgbInitialCfg.Value = pgbInitialCfg.Minimum;
+                return;
+            }
+
+            // 3-1. ICC Application Config 
             foreach (FileInfo appFile in icc_appFiles)
             {
                 try
                 {
                     System.Threading.Thread.Sleep(100);
+                    tbInfo.AppendText($"Setting config {appFile.Name} ...");
                     SetICCApplicationConfig(appFile.FullName);
-                    pgf.IncreaseValue(1);
+                    tbInfo.AppendText("Done." + Environment.NewLine);
+                    pgbInitialCfg.Increment(1);
                 }
                 catch (FileNotFoundException)
                 {
+                    tbInfo.AppendText("Failed - File Not Found" + Environment.NewLine);
+                    pgbInitialCfg.Increment(1);
                     continue;
                 }
-                catch (FormatException)
+                catch (FormatException ex)
                 {
+                    tbInfo.AppendText($"Failed - {ex.Message}" + Environment.NewLine);
+                    pgbInitialCfg.Increment(1);
                     continue;
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message);
+                    tbInfo.AppendText($"Failed - {ex.Message}" + Environment.NewLine);
+                    pgbInitialCfg.Value = pgbInitialCfg.Minimum;
                     return;
                 }
             }
-            pgf.AppendText("Done" + Environment.NewLine);
-            
 
-
-            // 3. PCD Application Config
-            pgf.AppendText("Setting default PCD Application config ...");
+            // 3-2. PCD Application Config
             foreach (FileInfo appFile in pcd_appFiles)
             {
                 try
                 {
                     System.Threading.Thread.Sleep(100);
+                    tbInfo.AppendText($"Setting config {appFile.Name} ...");
                     SetPCDApplicationConfig(appFile.FullName);
-                    pgf.IncreaseValue(1);
+                    tbInfo.AppendText("Done." + Environment.NewLine);
+                    pgbInitialCfg.Increment(1);
                 }
                 catch (FileNotFoundException)
                 {
+                    tbInfo.AppendText("Failed - File Not Found" + Environment.NewLine);
+                    pgbInitialCfg.Increment(1);
                     continue;
                 }
-                catch (FormatException)
+                catch (FormatException ex)
                 {
+                    tbInfo.AppendText($"Failed - {ex.Message}" + Environment.NewLine);
+                    pgbInitialCfg.Increment(1);
                     continue;
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message);
+                    tbInfo.AppendText($"Failed - {ex.Message}" + Environment.NewLine);
+                    pgbInitialCfg.Value = pgbInitialCfg.Minimum;
                     return;
                 }
             }
-            pgf.AppendText("Done" + Environment.NewLine);
-            
-
 
             // 4. CA Public Keys
-            pgf.AppendText("Setting default CA Public keys ...");
             foreach (FileInfo capkFile in capkFiles)
             {
                 try
                 {
                     System.Threading.Thread.Sleep(100);
+                    tbInfo.AppendText($"Setting CA Key {capkFile.Name} ...");
                     SetCAPK(capkFile.FullName);
-                    pgf.IncreaseValue(1);
+                    tbInfo.AppendText("Done." + Environment.NewLine);
+                    pgbInitialCfg.Increment(1);
                 }
                 catch (FileNotFoundException)
                 {
+                    tbInfo.AppendText("Failed - File Not Found" + Environment.NewLine);
+                    pgbInitialCfg.Increment(1);
                     continue;
                 }
-                catch (FormatException)
+                catch (FormatException ex)
                 {
+                    tbInfo.AppendText($"Failed - {ex.Message}" + Environment.NewLine);
+                    pgbInitialCfg.Increment(1);
                     continue;
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message);
+                    tbInfo.AppendText($"Failed - {ex.Message}" + Environment.NewLine);
+                    pgbInitialCfg.Value = pgbInitialCfg.Minimum;
                     return;
                 }
-
             }
-            pgf.AppendText("Done" + Environment.NewLine);
-            
-            if (pgf != null)
-                pgf.Close();
 
+            // 5. Clear Progress Bar
+            tbInfo.AppendText("=== Initial configuration has been applied ===");
+            pgbInitialCfg.Value = pgbInitialCfg.Minimum;
         }
     }
 }

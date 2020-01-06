@@ -38,11 +38,13 @@ namespace Bezel8PlusApp
         private void TxnInProgress(object sender, EventArgs e)
         {
             btnDefaultSetting.Enabled = false;
+            btnGetVersion.Enabled = false;
         }
 
         private void OnIdleState(object sender, EventArgs e)
         {
             btnDefaultSetting.Enabled = true;
+            btnGetVersion.Enabled = true;
         }
 
         private void InitializeComponentValue()
@@ -108,6 +110,8 @@ namespace Bezel8PlusApp
             {
                 btnOpenCom.Enabled = false;
                 btnCloseCom.Enabled = true;
+                btnGetVersion.Enabled = true;
+                btnDefaultSetting.Enabled = true;
                 tableLayoutPanelComSetting.Enabled = false;
             }
             
@@ -121,6 +125,8 @@ namespace Bezel8PlusApp
             {
                 btnOpenCom.Enabled = true;
                 btnCloseCom.Enabled = false;
+                btnGetVersion.Enabled = false;
+                btnDefaultSetting.Enabled = false;
                 tableLayoutPanelComSetting.Enabled = true;
             }
         }
@@ -621,6 +627,30 @@ namespace Bezel8PlusApp
             // 5. Clear Progress Bar
             tbInfo.AppendText("=== Initial configuration has been applied ===");
             pgbInitialCfg.Value = pgbInitialCfg.Minimum;
+        }
+
+        private void btnGetVersion_Click(object sender, EventArgs e)
+        {
+            tbInfo.Clear();
+            try
+            {
+                serialPort.WriteAndReadMessage(PktType.SI, "1A31", "", out string response, true, 1500);
+                if (!response.StartsWith("1A0"))
+                    throw new Exception("Error");
+
+                string[] versionInfo = response.Split(Convert.ToChar(0x1A));
+                if (versionInfo.Length == 5)
+                {
+                    tbInfo.AppendText("=== payWave Kernel Information ===" + Environment.NewLine);
+                    tbInfo.AppendText($"{versionInfo[4]} {versionInfo[1]}.{versionInfo[2]}" + Environment.NewLine);
+                    tbInfo.AppendText($"Checksum: {versionInfo[3].Substring(0, 8)}");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                tbInfo.Clear();
+            }
         }
     }
 }
